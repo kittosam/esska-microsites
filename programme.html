@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programme</title>
+<style>
+:root{
+  --navy:#1B2A6B;      /* session titles, day labels, header rule */
+  --blue:#3B7FD4;      /* times, links, active chip */
+  --talk:#2C3A5E;      /* talk titles */
+  --muted:#7C8699;     /* chairs and secondary text */
+  --dim:#9AA3B5;       /* durations */
+  --dimmer:#AAB2C2;    /* break text */
+  --line:#EDF0F6;      /* dividers */
+  --rule:#E8EFFA;      /* talk rule and search highlight */
+  --break:#FAFBFD;     /* break rows */
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--talk);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:12.5px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:28px 20px 64px}
+
+/* ---------- controls ---------- */
+.controls{margin-bottom:26px}
+.lbl{display:block;font-size:11.5px;color:var(--muted);margin-bottom:6px}
+#q{width:100%;font:inherit;font-size:12.5px;color:var(--talk);background:#fff;
+  border:1px solid var(--line);border-radius:3px;padding:8px 10px}
+#q::placeholder{color:var(--dim)}
+#q:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font:inherit;font-size:11.5px;color:var(--muted);background:#fff;cursor:pointer;
+  border:1px solid var(--line);border-radius:3px;padding:5px 10px}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.chip:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.chip-sep{width:1px;background:var(--line);margin:2px 4px}
+
+/* ---------- day ---------- */
+.day{margin-bottom:34px}
+.day-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;
+  padding-bottom:7px;border-bottom:2px solid var(--navy)}
+.day-label{font-size:13.5px;font-weight:500;color:var(--navy)}
+.day-date,.day-span,.day-count{font-size:11.5px;color:var(--muted)}
+.day-span{color:var(--blue)}
+.collapse-all{margin-left:auto;font:inherit;font-size:11.5px;color:var(--blue);
+  background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline}
+.collapse-all:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* ---------- rows ---------- */
+.row{display:flex;gap:14px;padding:11px 0;border-bottom:0.5px solid var(--line)}
+.row:last-child{border-bottom:0}
+.time{flex:0 0 52px;width:52px}
+.start{display:block;font-size:12px;color:var(--blue)}
+.dur{display:block;font-size:11.5px;color:var(--dim);margin-top:1px}
+.main{flex:1;min-width:0}
+.head{display:flex;align-items:baseline;gap:12px}
+.title{margin:0;font-size:13.5px;font-weight:500;color:var(--navy);flex:1;min-width:0}
+.sub{margin:3px 0 0;font-size:11.5px;color:var(--muted)}
+.toggle{flex:none;font:inherit;font-size:11.5px;color:var(--blue);background:none;border:0;
+  padding:2px 0;cursor:pointer;text-decoration:underline;white-space:nowrap}
+.toggle:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* breaks stay quiet */
+.row.break{background:var(--break)}
+.row.break .start{color:var(--dimmer)}
+.row.break .title{font-size:12.5px;font-weight:400;color:var(--dimmer)}
+.row.break .dur{color:var(--dimmer)}
+
+/* ---------- talks ---------- */
+.talks{margin:9px 0 2px;padding-left:12px;border-left:2px solid var(--rule);
+  list-style:none}
+.talk{display:flex;gap:10px;align-items:baseline;padding:3px 0}
+.talk .tt{flex:0 0 42px;width:42px;font-size:12px;color:var(--dim)}
+.talk .tx{flex:1;min-width:0;font-size:12.5px;color:var(--talk)}
+.talk .sp{flex:none;font-size:11.5px;color:var(--muted);text-align:right}
+.more{font:inherit;font-size:11.5px;color:var(--blue);background:none;border:0;padding:4px 0 0;
+  cursor:pointer;text-decoration:underline}
+.more:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+mark{background:var(--rule);color:inherit;padding:0 1px}
+
+/* ---------- empty state ---------- */
+.empty{padding:24px 0;font-size:12.5px;color:var(--muted)}
+.empty button{font:inherit;font-size:12.5px;color:var(--blue);background:none;border:0;padding:0;
+  cursor:pointer;text-decoration:underline}
+
+/* ---------- narrow screens ---------- */
+@media (max-width:640px){
+  .row{flex-direction:column;gap:4px}
+  .time{width:auto;flex:none;display:flex;gap:8px;align-items:baseline}
+  .dur{margin-top:0}
+  .talk{flex-wrap:wrap}
+  .talk .sp{flex:0 0 100%;text-align:left}
+}
+
+/* ---------- print ---------- */
+@media print{
+  .controls,.collapse-all,.toggle,.more,.empty{display:none!important}
+  body{font-size:10pt}
+  .wrap{max-width:none;padding:0}
+  .talks-wrap[hidden]{display:block!important}
+  .talk[hidden]{display:flex!important}
+  .more{display:none!important}
+  .day{margin-bottom:14pt;break-inside:avoid}
+  .row{padding:5pt 0;break-inside:avoid}
+  .row.break{background:none}
+  mark{background:none}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <div class="controls">
+    <label class="lbl" for="q">Search the programme</label>
+    <input id="q" type="search" autocomplete="off"
+           placeholder="Search talks, sessions, chairs and speakers">
+    <div id="chips" class="chips" role="group" aria-label="Filter the programme"></div>
+  </div>
+
+  <div id="empty" class="empty" hidden>
+    Nothing matches those filters. <button type="button" id="clearAll">Clear filters</button>
+  </div>
+
+  <div id="days"></div>
+
+</main>
+
+<script>
+/* ============================================================================
+   HOW TO EDIT THIS PROGRAMME
+   ----------------------------------------------------------------------------
+   Everything you need to change lives in the PROGRAMME list just below.
+   You never need to touch anything further down the file.
+
+   TO ADD A SESSION
+     Copy one whole block that starts with  { type: "session"  and ends with  },
+     paste it where you want it to appear, then change the wording.
+     Keep the commas and the quote marks exactly where they are.
+
+   TO ADD A TALK
+     Inside a session, find  talks: [  and add a line like this one:
+       { start: "09:25", title: "Your talk title", speaker: "A. Surname" },
+     Leave start as ""  if the time is not decided yet.
+     Leave speaker as "" if the speaker is not confirmed yet.
+
+   TO ADD A TOPIC TAG
+     Inside a session, find  tags: [  and add a word in quotes, e.g.
+       tags: ["Revision", "Infection"],
+     A filter button appears automatically for every tag you use.
+     You never have to maintain the list of buttons yourself.
+
+   A FEW THINGS THAT LOOK AFTER THEMSELVES
+     - How long a session lasts is worked out from start and end.
+     - The number of talks and the summary line are counted for you.
+     - A session with no talks simply shows no talk list and no toggle.
+     - A coffee break is  type: "break"  and needs no talks or tags.
+   ========================================================================== */
+
+const PROGRAMME = [
+  {
+    day: 1,
+    label: "Day one",
+    date: "Friday 8 October 2027",
+    items: [
+      { type: "session", start: "09:00", end: "09:15",
+        title: "Welcome and introduction",
+        chairs: ["Michael Hantes", "Bruno Violante", "Paweł Skowronek"],
+        tags: [],
+        talks: [
+          { start: "", title: "Opening remarks: ESSKA", speaker: "" },
+          { start: "", title: "Introduction of faculty and course essentials", speaker: "" },
+          { start: "", title: "Introduction of the new ESSKA Section and its activity", speaker: "" }
+        ] },
+
+      { type: "session", start: "09:15", end: "10:45",
+        title: "Session 1 · Decision making",
+        chairs: [],
+        tags: ["Revision"],
+        talks: [
+          { start: "", title: "Patient expectations after TKA", speaker: "" },
+          { start: "", title: "Painful TKA: diagnostic algorithm", speaker: "" },
+          { start: "", title: "RTKA: results and complications", speaker: "" },
+          { start: "", title: "Robotic RTKA: state of the art", speaker: "" },
+          { start: "", title: "Selected component revision in RTKA", speaker: "" },
+          { start: "", title: "Role of the plastic surgeon in the multioperated knee", speaker: "" },
+          { start: "", title: "The RTKA workflow: steps to make the correct decision", speaker: "" }
+        ] },
+
+      { type: "break", start: "10:45", end: "11:15", title: "Coffee break" },
+
+      { type: "session", start: "11:15", end: "12:45",
+        title: "Session 2 · Basics of revision",
+        chairs: [],
+        tags: ["Revision"],
+        talks: [
+          { start: "", title: "Surgical exposure in RTKA", speaker: "" },
+          { start: "", title: "Implant removal in RTKA", speaker: "" },
+          { start: "", title: "Coronal alignment in revision TKA: keep mechanical", speaker: "" },
+          { start: "", title: "Coronal alignment in revision TKA: looking to anatomic", speaker: "" },
+          { start: "", title: "Reconstructing the joint line in revision TKA", speaker: "" },
+          { start: "", title: "The third space in RTKA", speaker: "" },
+          { start: "", title: "Revision uni knee: tips and tricks", speaker: "" }
+        ] },
+
+      { type: "break", start: "12:45", end: "13:45", title: "Lunch" },
+
+      { type: "session", start: "13:45", end: "15:15",
+        title: "Session 3 · Fixation and bone defects",
+        chairs: [],
+        tags: ["Fixation"],
+        talks: [
+          { start: "", title: "Classification of bone defects", speaker: "" },
+          { start: "", title: "Two-zone fixation in RTKA", speaker: "" },
+          { start: "", title: "Metaphyseal fixation: cones", speaker: "" },
+          { start: "", title: "Metaphyseal fixation: sleeves", speaker: "" },
+          { start: "", title: "How to use wedges and blocks", speaker: "" },
+          { start: "", title: "Stems: cemented vs porous, short vs diaphyseal", speaker: "" },
+          { start: "", title: "Porous implant in RTKA", speaker: "" }
+        ] },
+
+      { type: "break", start: "15:15", end: "15:45", title: "Coffee break" },
+
+      { type: "session", start: "15:45", end: "17:15",
+        title: "Session 4 · Stability and ligament balance",
+        chairs: [],
+        tags: ["Stability"],
+        talks: [
+          { start: "", title: "Level of constraint in RTKA", speaker: "" },
+          { start: "", title: "Management of patellar instability", speaker: "" },
+          { start: "", title: "Sagittal plane instability: recurvatum and flexion instability", speaker: "" },
+          { start: "", title: "Coronal plane and mid-flexion instability", speaker: "" },
+          { start: "", title: "Basics of megaprostheses", speaker: "" },
+          { start: "", title: "Management of patella fracture, quadriceps and patellar tendon rupture in RTKA", speaker: "" },
+          { start: "", title: "The stiff knee in revision", speaker: "" }
+        ] },
+
+      { type: "session", start: "17:15", end: "18:00",
+        title: "Day one interactive finale",
+        chairs: [],
+        tags: ["Interactive"],
+        talks: [
+          { start: "", title: "Integrated complex aseptic revision cases", speaker: "" }
+        ] }
+    ]
+  },
+
+  {
+    day: 2,
+    label: "Day two",
+    date: "Saturday 9 October 2027",
+    items: [
+      /* ---- PLACEHOLDER 1 of 3 · replace the wording below ---- */
+      { type: "session", start: "08:30", end: "09:30",
+        title: "Placeholder session one",
+        chairs: [],
+        tags: [],
+        talks: [
+          { start: "", title: "Replace this line with a real talk title", speaker: "" }
+        ] },
+
+      /* ---- PLACEHOLDER 2 of 3 · replace the wording below ---- */
+      { type: "session", start: "09:30", end: "11:00",
+        title: "Placeholder session two",
+        chairs: [],
+        tags: [],
+        talks: [
+          { start: "", title: "Replace this line with a real talk title", speaker: "" }
+        ] },
+
+      { type: "break", start: "11:00", end: "11:30", title: "Coffee break" },
+
+      /* ---- PLACEHOLDER 3 of 3 · replace the wording below ---- */
+      { type: "session", start: "11:30", end: "13:00",
+        title: "Placeholder session three",
+        chairs: [],
+        tags: [],
+        talks: [
+          { start: "", title: "Replace this line with a real talk title", speaker: "" }
+        ] }
+    ]
+  }
+];
+
+/* ==========================  nothing to edit below  ======================== */
+
+const MAX_VISIBLE_TALKS = 5;
+const $ = (s, r) => (r || document).querySelector(s);
+
+const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+const duration = it => toMin(it.end) - toMin(it.start);
+const sessions = day => day.items.filter(i => i.type === "session");
+const talkCount = day => sessions(day).reduce((n, s) => n + (s.talks ? s.talks.length : 0), 0);
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* escape first, then wrap matches, so authored text can never inject markup */
+function mark(text, q) {
+  const safe = esc(text);
+  if (!q) return safe;
+  const i = safe.toLowerCase().indexOf(q.toLowerCase());
+  if (i < 0) return safe;
+  return safe.slice(0, i) + "<mark>" + safe.slice(i, i + q.length) + "</mark>" + safe.slice(i + q.length);
+}
+
+const state = { q: "", days: new Set(), tags: new Set() };
+
+const hay = s => [s.title, ...(s.chairs || []),
+  ...(s.talks || []).flatMap(t => [t.title, t.speaker])].join(" ").toLowerCase();
+/* a talk that matches the search is always shown, even past the first five */
+const talkHit = t => !!state.q &&
+  (t.title + " " + (t.speaker || "")).toLowerCase().includes(state.q.toLowerCase());
+const matches = s => !state.q || hay(s).includes(state.q.toLowerCase());
+const inFilters = (s, day) =>
+  (state.days.size === 0 || state.days.has(day.day)) &&
+  (state.tags.size === 0 || (s.tags || []).some(t => state.tags.has(t)));
+const filtering = () => state.q !== "" || state.days.size > 0 || state.tags.size > 0;
+
+/* ---------- chips: built once, so keyboard focus survives a click ---------- */
+const chipRefs = [];
+function buildChips() {
+  const box = $("#chips");
+  const tags = [...new Set(PROGRAMME.flatMap(d => sessions(d).flatMap(s => s.tags || [])))].sort();
+  const add = (text, isOn, onClick) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.textContent = text;
+    b.addEventListener("click", () => { onClick(); render(); });
+    box.appendChild(b); chipRefs.push({ el: b, isOn });
+  };
+  add("Both days", () => state.days.size === 0 && state.tags.size === 0,
+      () => { state.days.clear(); state.tags.clear(); });
+  PROGRAMME.forEach(d => add("Day " + d.day, () => state.days.has(d.day),
+      () => { state.days.has(d.day) ? state.days.delete(d.day) : state.days.add(d.day); }));
+  if (tags.length) {
+    const sep = document.createElement("span");
+    sep.className = "chip-sep"; sep.setAttribute("aria-hidden", "true");
+    box.appendChild(sep);
+  }
+  tags.forEach(t => add(t, () => state.tags.has(t),
+      () => { state.tags.has(t) ? state.tags.delete(t) : state.tags.add(t); }));
+}
+const syncChips = () =>
+  chipRefs.forEach(c => c.el.setAttribute("aria-pressed", c.isOn() ? "true" : "false"));
+
+/* ---------- one session row ---------- */
+function sessionRow(s) {
+  const row = document.createElement("div");
+  row.className = "row";
+  const n = s.talks ? s.talks.length : 0;
+
+  const bits = [];
+  if (s.chairs && s.chairs.length) bits.push("Chairs: " + s.chairs.join(", "));
+  if (n) bits.push(n === 1 ? "1 talk" : n + " talks");
+
+  row.innerHTML =
+    '<div class="time"><span class="start">' + esc(s.start) + '</span>' +
+    '<span class="dur">' + duration(s) + ' min</span></div>' +
+    '<div class="main"><div class="head">' +
+      '<h3 class="title">' + mark(s.title, state.q) + '</h3>' +
+    '</div>' + (bits.length ? '<p class="sub">' + mark(bits.join(" · "), state.q) + '</p>' : '') +
+    '</div>';
+
+  if (!n) return row;                                   /* no talks: no list, no control */
+
+  const main = $(".main", row);
+  const toggle = document.createElement("button");
+  toggle.type = "button"; toggle.className = "toggle";
+  toggle.textContent = "Hide talks"; toggle.setAttribute("aria-expanded", "true");
+  $(".head", row).appendChild(toggle);
+
+  const wrap = document.createElement("div");
+  wrap.className = "talks-wrap";
+  const ul = document.createElement("ul");
+  ul.className = "talks";
+  const anyTimes = s.talks.some(t => t.start);      /* no times? no empty column */
+  s.talks.forEach((t, i) => {
+    const li = document.createElement("li");
+    li.className = "talk";
+    if (i >= MAX_VISIBLE_TALKS && !talkHit(t)) li.hidden = true;
+    li.innerHTML = (anyTimes ? '<span class="tt">' + esc(t.start || "") + '</span>' : '') +
+                   '<span class="tx">' + mark(t.title, state.q) + '</span>' +
+                   (t.speaker ? '<span class="sp">' + mark(t.speaker, state.q) + '</span>' : '');
+    ul.appendChild(li);
+  });
+  wrap.appendChild(ul);
+
+  if (ul.querySelector(".talk[hidden]")) {
+    const more = document.createElement("button");
+    more.type = "button"; more.className = "more";
+    more.textContent = "Show all " + n + " talks";
+    more.addEventListener("click", () => {
+      ul.querySelectorAll(".talk[hidden]").forEach(li => { li.hidden = false; });
+      more.remove();
+    });
+    wrap.appendChild(more);
+  }
+  main.appendChild(wrap);
+
+  toggle.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", open ? "false" : "true");
+    toggle.textContent = open ? "Show talks" : "Hide talks";
+    wrap.hidden = open;
+  });
+  return row;
+}
+
+function breakRow(b) {
+  const row = document.createElement("div");
+  row.className = "row break";
+  row.innerHTML =
+    '<div class="time"><span class="start">' + esc(b.start) + '</span>' +
+    '<span class="dur">' + duration(b) + ' min</span></div>' +
+    '<div class="main"><div class="head"><h3 class="title">' + esc(b.title) + '</h3></div></div>';
+  return row;
+}
+
+/* ---------- render ---------- */
+function render() {
+  const host = $("#days");
+  host.textContent = "";
+  let shown = 0;
+
+  PROGRAMME.forEach(day => {
+    const visible = sessions(day).filter(s => inFilters(s, day) && matches(s));
+    if (!visible.length) return;
+    shown += visible.length;
+
+    const wrap = document.createElement("section");
+    wrap.className = "day";
+    const all = day.items;
+    const head = document.createElement("div");
+    head.className = "day-head";
+    head.innerHTML =
+      '<span class="day-label">' + esc(day.label) + '</span>' +
+      '<span class="day-date">' + esc(day.date) + '</span>' +
+      '<span class="day-span">' + esc(all[0].start) + ' – ' + esc(all[all.length - 1].end) + '</span>' +
+      '<span class="day-count">' + sessions(day).length + ' sessions · ' + talkCount(day) + ' talks</span>';
+    const ca = document.createElement("button");
+    ca.type = "button"; ca.className = "collapse-all"; ca.textContent = "Collapse all";
+    head.appendChild(ca);
+    wrap.appendChild(head);
+
+    /* breaks are structure, so they step aside while a filter is active */
+    all.forEach(it => {
+      if (it.type === "break") { if (!filtering()) wrap.appendChild(breakRow(it)); return; }
+      if (visible.includes(it)) wrap.appendChild(sessionRow(it));
+    });
+
+    ca.addEventListener("click", () => {
+      const collapse = ca.textContent === "Collapse all";
+      wrap.querySelectorAll(".toggle").forEach(t => {
+        if ((t.getAttribute("aria-expanded") === "true") === collapse) t.click();
+      });
+      ca.textContent = collapse ? "Expand all" : "Collapse all";
+    });
+
+    host.appendChild(wrap);
+  });
+
+  $("#empty").hidden = shown > 0;
+  syncChips();
+}
+
+$("#q").addEventListener("input", e => { state.q = e.target.value.trim(); render(); });
+$("#clearAll").addEventListener("click", () => {
+  state.q = ""; state.days.clear(); state.tags.clear(); $("#q").value = ""; render(); $("#q").focus();
+});
+
+buildChips();
+render();
+</script>
+</body>
+</html>

@@ -10,12 +10,6 @@ function go(id){
   scrollTo({top:0,behavior:"auto"}); obs(t);
 }
 document.addEventListener("click",e=>{const l=e.target.closest("[data-go]");if(!l)return;e.preventDefault();go(l.dataset.go)});
-document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{
-  const d=b.dataset.day;
-  document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===b?"true":"false"));
-  const s=document.getElementById("day"+d),h=document.getElementById("day"+(d==="1"?"2":"1"));
-  h.hidden=true;s.hidden=false;s.classList.remove("pg");void s.offsetWidth;s.classList.add("pg");
-}));
 const nav=document.getElementById("nav"),stick=document.getElementById("stick");
 function darkCheck(){
   const bar=document.getElementById("stick"); if(!bar) return;
@@ -58,10 +52,114 @@ meetTick(); setInterval(meetTick,20000);
 /* early rate deadline; placeholder until ESSKA confirms it */
 const EARLY_RATE="2027-06-30T23:59:59+02:00";
 const DL=new Date(EARLY_RATE).getTime(), pad=n=>String(n).padStart(2,"0");
-(function(){const el=document.getElementById("erDate");
-  if(el) el.textContent=new Date(EARLY_RATE).toLocaleDateString("en-GB",
-    {day:"numeric",month:"long",year:"numeric"});})();
+(function(){const txt=new Date(EARLY_RATE).toLocaleDateString("en-GB",
+    {day:"numeric",month:"long",year:"numeric"});
+  ["erDate","erDate2"].forEach(id=>{const el=document.getElementById(id);
+    if(el) el.textContent=txt;});})();
 function tick(){let m=DL-Date.now();if(m<0)m=0;const s=Math.floor(m/1000);
   cD.textContent=Math.floor(s/86400);cH.textContent=pad(Math.floor(s%86400/3600));
   cM.textContent=pad(Math.floor(s%3600/60));cS.textContent=pad(s%60)}
 tick();setInterval(tick,1000);
+
+/* hero artwork follows the pointer a little. Skipped for reduced motion and on
+   stacked layouts, where the artwork is a banner rather than a side panel. */
+(function(){
+  const hero=document.querySelector(".hero"), art=document.querySelector(".hero .art");
+  if(!hero||!art) return;
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  if(!matchMedia("(min-width:1081px)").matches) return;
+  hero.addEventListener("pointermove",e=>{
+    const r=hero.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+    art.style.setProperty("--px",(x*-24).toFixed(1)+"px");
+    art.style.setProperty("--py",(y*-14).toFixed(1)+"px");
+  },{passive:true});
+  hero.addEventListener("pointerleave",()=>{
+    art.style.setProperty("--px","0px"); art.style.setProperty("--py","0px");
+  });
+})();
+
+
+
+
+
+/* ---------------------------------------------------------------------------
+   Programme: one day at a time, live search, and blocks that open on click.
+   The whole header row is the button, so there is no separate show/hide link.
+   --------------------------------------------------------------------------- */
+(function(){
+  const days = document.getElementById("progDays");
+  if(!days) return;
+  const q = document.getElementById("progQ");
+  const empty = document.getElementById("progEmpty");
+  const chips = [...document.querySelectorAll(".pchip")];
+  let term = "", activeDay = "1";
+
+  const rows = [...days.querySelectorAll(".prow")];
+  rows.forEach(r => r.querySelectorAll(".ptitle,.ptx,.psp,.psub").forEach(
+    el => el.dataset.raw = el.textContent));
+
+  const esc = t => t.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+  const paint = (el, t) => {
+    const raw = el.dataset.raw;
+    if(!t){ el.textContent = raw; return false; }
+    const i = raw.toLowerCase().indexOf(t);
+    if(i < 0){ el.textContent = raw; return false; }
+    el.innerHTML = esc(raw.slice(0,i)) + "<mark>" + esc(raw.slice(i,i+t.length)) +
+                   "</mark>" + esc(raw.slice(i+t.length));
+    return true;
+  };
+
+  const setOpen = (row, open) => {
+    const btn = row.querySelector(".prow-btn");
+    if(!btn) return;
+    row.classList.toggle("is-open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    row.querySelector(".ptalks-wrap").hidden = !open;
+  };
+
+  function apply(){
+    let shown = 0;
+    days.querySelectorAll(".pday").forEach(d => d.hidden = d.dataset.day !== activeDay);
+    rows.forEach(row => {
+      if(row.dataset.day !== activeDay) return;
+      const isBreak = row.classList.contains("break");
+      let hit = false;
+      row.querySelectorAll(".ptitle,.ptx,.psp,.psub").forEach(el => { if(paint(el, term)) hit = true; });
+      const visible = isBreak ? !term : (!term || hit);
+      row.hidden = !visible;
+      if(visible && !isBreak) shown++;
+      if(visible && term){
+        setOpen(row, true);          /* a search result opens itself */
+      }
+    });
+    empty.hidden = shown > 0;
+  }
+
+  q.addEventListener("input", e => { term = e.target.value.trim().toLowerCase(); apply(); });
+  chips.forEach(c => c.addEventListener("click", () => {
+    activeDay = c.dataset.filter;
+    chips.forEach(x => x.setAttribute("aria-pressed", x === c ? "true" : "false"));
+    apply();
+  }));
+  document.getElementById("progClear").addEventListener("click", () => {
+    term = ""; q.value = ""; apply(); q.focus();
+  });
+
+  days.addEventListener("click", e => {
+    const btn = e.target.closest(".prow-btn");
+    if(btn){
+      const row = btn.closest(".prow");
+      setOpen(row, btn.getAttribute("aria-expanded") !== "true");
+      return;
+    }
+    const c = e.target.closest(".pcollapse");
+    if(c){
+      const expand = c.textContent.trim() === "Expand all";
+      c.closest(".pday").querySelectorAll(".prow").forEach(r => setOpen(r, expand));
+      c.textContent = expand ? "Collapse all" : "Expand all";
+    }
+  });
+
+  apply();
+})();
