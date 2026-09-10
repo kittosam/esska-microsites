@@ -362,60 +362,55 @@ body.scrolled .util{max-height:0;opacity:0}
 .implant:hover img{transform:scale(1.03)}
 .implant::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--blue)}
 
-/* ---------- topic cards: image at rest, detail on hover ---------- */
-.tile{position:relative;overflow:hidden;display:flex;align-items:flex-end;
-  min-height:clamp(340px,30vw,430px);padding:clamp(1.3rem,2vw,1.7rem);
-  transition:transform 1.2s var(--e)}
-.tile.t1{background:linear-gradient(140deg,#2E4A96 0%,#273A78 60%,#1B2A5C 100%)}
-.tile.t2{background:linear-gradient(140deg,#4FA6DE 0%,#3E9BD9 45%,#2A6FA8 100%)}
-.tile.t3{background:linear-gradient(140deg,#E6EEF9 0%,#CFDCF2 55%,#B4C6E8 100%)}
+/* ---------- topic cards: artwork at rest, detail on hover ---------- */
+/* one picture per strand: the implant (revision), bacteria clusters (infection)
+   and a planning scan with its alignment axis (future directions) */
+.tile{position:relative;overflow:hidden;display:flex;align-items:flex-end;isolation:isolate;
+  min-height:clamp(340px,30vw,430px);padding:clamp(1.3rem,2vw,1.7rem);background:var(--navy-d)}
+.tile .art{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;
+  transition:transform 1.4s var(--e)}
+.tile.t1{background:#EAF3FC}
+/* the photo has white margins: zoom past them, and fade through the site blue
+   rather than grey so the title band stays in the palette */
+.tile.t1 .art{object-position:34% 32%;transform:scale(1.14)}
+.topic:hover .tile.t1 .art{transform:scale(1.19)}
+.tile.t1::after{background:linear-gradient(180deg,rgba(143,196,245,0) 52%,rgba(62,155,217,.42) 72%,
+  rgba(39,58,120,.9) 90%,rgba(27,42,92,.96) 100%)}
+.topic:hover .tile .art{transform:scale(1.05)}
+/* a navy fade at the foot, so the white title reads on every picture */
+.tile::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(15,26,62,0) 42%,rgba(15,26,62,.5) 72%,rgba(15,26,62,.86) 100%)}
 .tile:focus-visible{outline:3px solid var(--ac);outline-offset:-3px}
 
-/* one diagram per strand: a revision construct, the two-stage pathway,
-   and the vote before and after a case */
-.tile .glyph{position:absolute;right:-8%;top:4%;width:76%;height:auto;
-  color:#fff;opacity:.2;overflow:visible;transition:transform 1.4s var(--e),opacity .5s var(--e)}
-.tile.t3 .glyph{color:var(--navy);opacity:.34}
-.topic:hover .tile .glyph{transform:scale(1.06) rotate(-4deg)}
-
-.tile .no{position:absolute;left:1.4rem;top:1.2rem;z-index:3;background:rgba(255,255,255,.16);
-  color:#fff;font-size:.81rem;font-weight:800;letter-spacing:.12em;padding:.42rem .85rem;
-  border-radius:100px;border:1px solid rgba(255,255,255,.3)}
-.tile.t3 .no{background:rgba(39,58,120,.1);color:var(--navy);border-color:rgba(39,58,120,.2)}
-
-.tile .word{position:relative;z-index:2;color:#fff;font-size:clamp(1.5rem,2.6vw,2.1rem);
-  font-weight:800;letter-spacing:-.03em;line-height:1;
+.tile .word{position:relative;z-index:2;color:#fff;font-size:clamp(1.6rem,2.7vw,2.2rem);
+  font-weight:800;letter-spacing:-.03em;line-height:1;text-shadow:0 2px 16px rgba(10,20,50,.35);
   transition:opacity .35s var(--e),transform .45s var(--e)}
-.tile.t3 .word{color:var(--navy)}
 
-/* the detail sits over the card and lifts in on hover or keyboard focus */
+/* the detail covers the card on a solid navy panel, lifting in on hover or keyboard focus */
 .tile .bd{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;
-  justify-content:flex-end;padding:clamp(1.3rem,2vw,1.7rem);
-  background:linear-gradient(180deg,rgba(27,42,92,0) 0%,rgba(27,42,92,.86) 42%,rgba(27,42,92,.96) 100%);
+  justify-content:flex-end;padding:clamp(1.4rem,2.2vw,1.9rem);
+  background:rgba(17,28,64,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
   opacity:0;transform:translateY(14px);
   transition:opacity .38s var(--e),transform .45s var(--e)}
-.tile.t3 .bd{background:linear-gradient(180deg,rgba(234,242,250,0) 0%,rgba(234,242,250,.92) 42%,rgba(240,245,252,.98) 100%)}
 .tile:hover .bd,.tile:focus-within .bd{opacity:1;transform:none}
 .tile:hover .word,.tile:focus-within .word{opacity:0;transform:translateY(-10px)}
 
-.tile .bd h3{font-size:1.2rem;color:#fff;margin:0 0 .5rem;letter-spacing:-.02em}
-.tile .bd .t-meta{font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
-  color:#9CC9EA;margin:0 0 .6rem;line-height:1.45}
-.tile .bd p:not(.t-meta){font-size:.94rem;color:rgba(255,255,255,.88);margin:0;line-height:1.55}
-.tile.t3 .bd h3{color:var(--navy)}
-.tile.t3 .bd .t-meta{color:var(--ac)}
-.tile.t3 .bd p:not(.t-meta){color:var(--ink)}
+.tile .bd h3{font-size:1.35rem;line-height:1.2;color:#fff;margin:0 0 .6rem;letter-spacing:-.02em}
+.tile .bd .t-meta{font-size:.8rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:#8FC4F5;margin:0 0 .75rem;line-height:1.45;min-height:0}
+.tile .bd p:not(.t-meta){font-size:1.02rem;color:#fff;margin:0;line-height:1.6}
 
-/* no hover to give: show everything, and drop the scrim */
+/* no hover to give: picture on top with its title, the detail in white below */
 @media (hover:none){
-  .tile{min-height:0;display:block;padding:0}
-  .tile .word{position:absolute;left:clamp(1.3rem,2vw,1.7rem);bottom:clamp(1.3rem,2vw,1.7rem)}
+  .tile{min-height:0;display:block;padding:0;--pic:clamp(12rem,44vw,16rem)}
+  .tile .art{position:relative;display:block;height:var(--pic)}
+  .tile::after{bottom:auto;height:var(--pic)}
+  .tile .word{position:absolute;left:clamp(1.3rem,2vw,1.7rem);top:calc(var(--pic) - 3.4rem)}
   .tile .bd{position:static;opacity:1;transform:none;background:#fff;
-    padding:clamp(1.3rem,2vw,1.7rem);margin-top:clamp(9rem,34vw,13rem)}
-  .tile.t3 .bd{background:#fff}
-  .tile .bd h3,.tile.t3 .bd h3{color:var(--navy)}
-  .tile .bd .t-meta,.tile.t3 .bd .t-meta{color:var(--ac)}
-  .tile .bd p:not(.t-meta),.tile.t3 .bd p:not(.t-meta){color:var(--muted)}
+    -webkit-backdrop-filter:none;backdrop-filter:none;padding:clamp(1.3rem,2vw,1.7rem)}
+  .tile .bd h3{color:var(--navy)}
+  .tile .bd .t-meta{color:var(--ac)}
+  .tile .bd p:not(.t-meta){color:var(--muted)}
 }
 
 /* ---------- sections ---------- */
