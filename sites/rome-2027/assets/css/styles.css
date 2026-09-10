@@ -130,7 +130,7 @@ body.scrolled .util{max-height:0;opacity:0}
    Colosseum squeezed into a narrow strip. The wrapper's width is the hero's
    height clamp times the artwork's aspect, so the panel always matches the image. */
 .art-wrap{position:absolute;right:0;top:0;bottom:0;z-index:1;
-  width:clamp(430px,42vw,980px);overflow:hidden;pointer-events:none;
+  width:clamp(470px,47vw,1250px);overflow:hidden;pointer-events:none;
   animation:fadeIn .9s var(--e) both;
   -webkit-mask-image:linear-gradient(to right,transparent 0,#000 11%);
           mask-image:linear-gradient(to right,transparent 0,#000 11%)}
@@ -340,13 +340,8 @@ body.scrolled .util{max-height:0;opacity:0}
 .topic:hover .im img{transform:scale(1.05)}
 .topic .im .no{position:absolute;left:1rem;top:.9rem;background:var(--navy);color:#fff;font-size:.8rem;
   font-weight:800;letter-spacing:.12em;padding:.4rem .75rem;border-radius:100px}
-.topic .bd{padding:1.6rem 1.5rem 1.8rem}
 /* reserve two lines for the title so the meta line and body copy sit on the
    same baseline across all three cards, however long a title runs */
-.topic h3{font-size:1.2rem;color:var(--navy);margin-bottom:.55rem;letter-spacing:-.02em;
-  min-height:2.16em;display:flex;align-items:flex-start}
-@media(max-width:900px){.topic h3{min-height:0;display:block}}
-.topic p{font-size:.94rem;color:var(--muted);margin:0}
 /* the concrete shape of each strand, taken from the programme */
 .topic .t-meta{font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
   color:var(--ac);margin:0 0 .6rem;line-height:1.45;
@@ -367,24 +362,61 @@ body.scrolled .util{max-height:0;opacity:0}
 .implant:hover img{transform:scale(1.03)}
 .implant::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--blue)}
 
-/* ---------- designed topic tiles ---------- */
-.tile{position:relative;aspect-ratio:16/11;overflow:hidden;display:flex;align-items:flex-end;
-  padding:1.5rem;transition:transform 1.2s var(--e)}
+/* ---------- topic cards: image at rest, detail on hover ---------- */
+.tile{position:relative;overflow:hidden;display:flex;align-items:flex-end;
+  min-height:clamp(340px,30vw,430px);padding:clamp(1.3rem,2vw,1.7rem);
+  transition:transform 1.2s var(--e)}
 .tile.t1{background:linear-gradient(140deg,#2E4A96 0%,#273A78 60%,#1B2A5C 100%)}
 .tile.t2{background:linear-gradient(140deg,#4FA6DE 0%,#3E9BD9 45%,#2A6FA8 100%)}
 .tile.t3{background:linear-gradient(140deg,#E6EEF9 0%,#CFDCF2 55%,#B4C6E8 100%)}
-.tile .glyph{position:absolute;right:-14%;top:-18%;width:78%;aspect-ratio:1;
-  background:url("../img/logo-01.png") center/contain no-repeat;opacity:.14;
-  transition:transform 1.4s var(--e)}
-.tile.t3 .glyph{opacity:.22;filter:none}
+.tile:focus-visible{outline:3px solid var(--ac);outline-offset:-3px}
+
+/* one diagram per strand: a revision construct, the two-stage pathway,
+   and the vote before and after a case */
+.tile .glyph{position:absolute;right:-8%;top:4%;width:76%;height:auto;
+  color:#fff;opacity:.2;overflow:visible;transition:transform 1.4s var(--e),opacity .5s var(--e)}
+.tile.t3 .glyph{color:var(--navy);opacity:.34}
 .topic:hover .tile .glyph{transform:scale(1.06) rotate(-4deg)}
-.tile .no{position:absolute;left:1.4rem;top:1.2rem;background:rgba(255,255,255,.16);color:#fff;
-  font-size:.81rem;font-weight:800;letter-spacing:.12em;padding:.42rem .85rem;border-radius:100px;
-  border:1px solid rgba(255,255,255,.3)}
+
+.tile .no{position:absolute;left:1.4rem;top:1.2rem;z-index:3;background:rgba(255,255,255,.16);
+  color:#fff;font-size:.81rem;font-weight:800;letter-spacing:.12em;padding:.42rem .85rem;
+  border-radius:100px;border:1px solid rgba(255,255,255,.3)}
 .tile.t3 .no{background:rgba(39,58,120,.1);color:var(--navy);border-color:rgba(39,58,120,.2)}
+
 .tile .word{position:relative;z-index:2;color:#fff;font-size:clamp(1.5rem,2.6vw,2.1rem);
-  font-weight:800;letter-spacing:-.03em;line-height:1}
+  font-weight:800;letter-spacing:-.03em;line-height:1;
+  transition:opacity .35s var(--e),transform .45s var(--e)}
 .tile.t3 .word{color:var(--navy)}
+
+/* the detail sits over the card and lifts in on hover or keyboard focus */
+.tile .bd{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:clamp(1.3rem,2vw,1.7rem);
+  background:linear-gradient(180deg,rgba(27,42,92,0) 0%,rgba(27,42,92,.86) 42%,rgba(27,42,92,.96) 100%);
+  opacity:0;transform:translateY(14px);
+  transition:opacity .38s var(--e),transform .45s var(--e)}
+.tile.t3 .bd{background:linear-gradient(180deg,rgba(234,242,250,0) 0%,rgba(234,242,250,.92) 42%,rgba(240,245,252,.98) 100%)}
+.tile:hover .bd,.tile:focus-within .bd{opacity:1;transform:none}
+.tile:hover .word,.tile:focus-within .word{opacity:0;transform:translateY(-10px)}
+
+.tile .bd h3{font-size:1.2rem;color:#fff;margin:0 0 .5rem;letter-spacing:-.02em}
+.tile .bd .t-meta{font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:#9CC9EA;margin:0 0 .6rem;line-height:1.45}
+.tile .bd p:not(.t-meta){font-size:.94rem;color:rgba(255,255,255,.88);margin:0;line-height:1.55}
+.tile.t3 .bd h3{color:var(--navy)}
+.tile.t3 .bd .t-meta{color:var(--ac)}
+.tile.t3 .bd p:not(.t-meta){color:var(--ink)}
+
+/* no hover to give: show everything, and drop the scrim */
+@media (hover:none){
+  .tile{min-height:0;display:block;padding:0}
+  .tile .word{position:absolute;left:clamp(1.3rem,2vw,1.7rem);bottom:clamp(1.3rem,2vw,1.7rem)}
+  .tile .bd{position:static;opacity:1;transform:none;background:#fff;
+    padding:clamp(1.3rem,2vw,1.7rem);margin-top:clamp(9rem,34vw,13rem)}
+  .tile.t3 .bd{background:#fff}
+  .tile .bd h3,.tile.t3 .bd h3{color:var(--navy)}
+  .tile .bd .t-meta,.tile.t3 .bd .t-meta{color:var(--ac)}
+  .tile .bd p:not(.t-meta),.tile.t3 .bd p:not(.t-meta){color:var(--muted)}
+}
 
 /* ---------- sections ---------- */
 section{padding:clamp(3.6rem,7.5vw,7rem) 0}
@@ -703,7 +735,7 @@ mark{background:var(--ice);color:inherit;padding:0 .1em;border-radius:2px}
 .bleed .eyebrow{color:#9CC9EA;margin:0 0 1rem}
 .bleed p{color:rgba(255,255,255,.86);max-width:50ch;margin:1.3rem auto 0}
 .bleed p{margin-left:auto;margin-right:auto}
-.bleed .note-date{font-size:.85rem;color:rgba(255,255,255,.62);margin:0 auto;letter-spacing:.01em}
+.bleed .note-date{font-size:1.05rem;color:rgba(255,255,255,.78);margin:0 auto;letter-spacing:.005em}
 .count{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin:2.6rem 0 .8rem}
 .count div{min-width:98px;padding:1.1rem .6rem;border:1px solid rgba(255,255,255,.28);border-radius:4px;background:rgba(255,255,255,.08)}
 .count b{display:block;font-size:clamp(1.9rem,4.6vw,2.8rem);font-weight:800;color:#fff;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
