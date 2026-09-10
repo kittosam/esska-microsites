@@ -48,7 +48,7 @@ Other behaviour in `app.js`:
 - Design tokens are CSS custom properties in `:root` at the top of `styles.css`
   (`--navy`, `--blue`, `--ice`, `--ink`, `--muted`, `--line`, `--f`, `--pad`).
   Use them rather than hard-coded colours.
-- Font is Figtree, loaded from Google Fonts.
+- Font is Onest, loaded from Google Fonts (chosen for readable body text and clear figures).
 - Never inline images as base64 data URIs. Save them into `assets/img/` and link
   them. The original version of this site was a single 2 MB file for that reason.
 - Images: photos as `.jpg`, logos and anything needing transparency as `.png`.

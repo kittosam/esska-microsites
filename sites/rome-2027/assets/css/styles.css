@@ -6,7 +6,7 @@
   /* action tier: deeper and more saturated than --blue, so every Register
      button separates from the rest of the page */
   --ac:#0F6FD6; --ac-d:#0A56A8; --ac-br:#3C90E8; --ac-l:#8FC4F5;
-  --f:"Figtree",system-ui,-apple-system,sans-serif;
+  --f:"Onest",system-ui,-apple-system,sans-serif;
   --pad:clamp(1.15rem,4.5vw,4.5rem);
   --e:cubic-bezier(.22,.61,.36,1);
 }
@@ -105,7 +105,7 @@ body.scrolled .util{max-height:0;opacity:0}
 .nav ul a:hover{color:var(--navy)} .nav ul a:hover::after{transform:scaleX(1)}
 .nav ul a.on{color:var(--navy)} .nav ul a.on::after{transform:scaleX(1)}
 .navreg{flex:none;margin-left:clamp(.8rem,1.6vw,1.8rem)}
-@media(max-width:1430px){
+@media(max-width:1480px){
   .nav-in{flex-wrap:wrap;gap:1rem}
   .nav ul{order:3;flex:1 0 100%;margin:0;justify-content:space-between;
     gap:1rem;border-top:1px solid var(--line)}
