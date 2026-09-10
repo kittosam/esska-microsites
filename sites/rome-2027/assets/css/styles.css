@@ -127,7 +127,7 @@ body.scrolled .util{max-height:0;opacity:0}
    Colosseum squeezed into a narrow strip. The wrapper's width is the hero's
    height clamp times the artwork's aspect, so the panel always matches the image. */
 .art-wrap{position:absolute;right:0;top:0;bottom:0;z-index:1;
-  width:clamp(400px,38vw,700px);overflow:hidden;pointer-events:none;
+  width:clamp(430px,42vw,980px);overflow:hidden;pointer-events:none;
   animation:fadeIn .9s var(--e) both;
   -webkit-mask-image:linear-gradient(to right,transparent 0,#000 11%);
           mask-image:linear-gradient(to right,transparent 0,#000 11%)}
