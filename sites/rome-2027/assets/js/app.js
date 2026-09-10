@@ -54,7 +54,7 @@ const EARLY_RATE="2027-06-30T23:59:59+02:00";
 const DL=new Date(EARLY_RATE).getTime(), pad=n=>String(n).padStart(2,"0");
 (function(){const txt=new Date(EARLY_RATE).toLocaleDateString("en-GB",
     {day:"numeric",month:"long",year:"numeric"});
-  ["erDate","erDate2"].forEach(id=>{const el=document.getElementById(id);
+  ["erDate","erDate2","erDate3"].forEach(id=>{const el=document.getElementById(id);
     if(el) el.textContent=txt;});})();
 function tick(){let m=DL-Date.now();if(m<0)m=0;const s=Math.floor(m/1000);
   cD.textContent=Math.floor(s/86400);cH.textContent=pad(Math.floor(s%86400/3600));
@@ -96,7 +96,7 @@ tick();setInterval(tick,1000);
   let term = "", activeDay = "1";
 
   const rows = [...days.querySelectorAll(".prow")];
-  rows.forEach(r => r.querySelectorAll(".ptitle,.ptx,.psp,.psub").forEach(
+  rows.forEach(r => r.querySelectorAll(".ptitle,.ptx,.psp,.psub:not(.psub-note),.pnote-t").forEach(
     el => el.dataset.raw = el.textContent));
 
   const esc = t => t.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
@@ -125,7 +125,7 @@ tick();setInterval(tick,1000);
       if(row.dataset.day !== activeDay) return;
       const isBreak = row.classList.contains("break");
       let hit = false;
-      row.querySelectorAll(".ptitle,.ptx,.psp,.psub").forEach(el => { if(paint(el, term)) hit = true; });
+      row.querySelectorAll(".ptitle,.ptx,.psp,.psub:not(.psub-note),.pnote-t").forEach(el => { if(paint(el, term)) hit = true; });
       const visible = isBreak ? !term : (!term || hit);
       row.hidden = !visible;
       if(visible && !isBreak) shown++;
