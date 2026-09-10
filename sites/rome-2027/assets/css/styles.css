@@ -105,7 +105,7 @@ body.scrolled .util{max-height:0;opacity:0}
 .nav ul a:hover{color:var(--navy)} .nav ul a:hover::after{transform:scaleX(1)}
 .nav ul a.on{color:var(--navy)} .nav ul a.on::after{transform:scaleX(1)}
 .navreg{flex:none;margin-left:clamp(.8rem,1.6vw,1.8rem)}
-@media(max-width:1340px){
+@media(max-width:1430px){
   .nav-in{flex-wrap:wrap;gap:1rem}
   .nav ul{order:3;flex:1 0 100%;margin:0;justify-content:space-between;
     gap:1rem;border-top:1px solid var(--line)}
@@ -292,7 +292,7 @@ body.scrolled .util{max-height:0;opacity:0}
   box-shadow:0 2px 6px rgba(27,42,92,.18),
     0 10px 24px rgba(15,111,214,.34),
     0 24px 48px rgba(27,42,92,.32)}
-.navreg{padding:.82rem 1.8rem;font-size:.76rem}
+.navreg{padding:.82rem 1.3rem .82rem 1.6rem;font-size:.76rem}
 
 /* the hero's Register carries the most weight on the page: larger, an arrow in
    a badge, and a slow attention ring */
@@ -306,6 +306,35 @@ body.scrolled .util{max-height:0;opacity:0}
 @keyframes cta{
   0%,100%{box-shadow:0 8px 22px rgba(15,111,214,.36),0 0 0 0 rgba(15,111,214,.42)}
   55%{box-shadow:0 13px 30px rgba(15,111,214,.46),0 0 0 13px rgba(15,111,214,0)}}
+
+/* the two Register buttons that stay with you (nav and sticky bar): an arrow
+   badge, a double ripple with a gentle swell, and a sheen that crosses every
+   few seconds. Hover stops the loop so the hover lift and sweep take over;
+   the reduced-motion block turns it all off. */
+.navreg,.stick .btn-b{animation:regpulse 2.6s var(--e) .8s infinite}
+.stick:not(.onlight) .btn-b{animation-name:regpulse-dark}
+.navreg::before,.stick .btn-b::before{animation:regsheen 5.2s ease-in-out 1.6s infinite}
+.navreg:hover,.stick .btn-b:hover,.navreg:hover::before,.stick .btn-b:hover::before{animation:none}
+.navreg .a,.stick .btn-b .a{display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.24);
+  font-size:.9rem;line-height:1;letter-spacing:0;margin-right:-.7rem;
+  transition:transform .35s var(--e),background .35s var(--e)}
+.navreg:hover .a,.stick .btn-b:hover .a{background:rgba(255,255,255,.44)}
+@keyframes regpulse{
+  0%{scale:1;box-shadow:0 8px 22px rgba(15,111,214,.36),inset 0 1px 0 rgba(255,255,255,.28),
+    0 0 0 0 rgba(60,144,232,.55),0 0 0 0 rgba(60,144,232,.32)}
+  30%{scale:1.04}
+  60%{scale:1}
+  75%,100%{scale:1;box-shadow:0 10px 26px rgba(15,111,214,.42),inset 0 1px 0 rgba(255,255,255,.28),
+    0 0 0 11px rgba(60,144,232,0),0 0 0 21px rgba(60,144,232,0)}}
+@keyframes regpulse-dark{
+  0%{scale:1;box-shadow:0 8px 22px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.28),
+    0 0 0 0 rgba(143,196,245,.6),0 0 0 0 rgba(143,196,245,.34)}
+  30%{scale:1.04}
+  60%{scale:1}
+  75%,100%{scale:1;box-shadow:0 10px 26px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.28),
+    0 0 0 11px rgba(143,196,245,0),0 0 0 21px rgba(143,196,245,0)}}
+@keyframes regsheen{0%{transform:translateX(-120%)}24%,100%{transform:translateX(120%)}}
 
 /* ---------- lower homepage ---------- */
 .band-num{background:var(--navy);color:#fff;padding:clamp(1.6rem,2.6vw,2.2rem) 0}
@@ -758,13 +787,18 @@ mark{background:var(--ice);color:inherit;padding:0 .1em;border-radius:2px}
 .bleed .scrim{position:absolute;inset:0;z-index:1;background:
   linear-gradient(180deg,rgba(27,42,92,.72),rgba(27,42,92,.55) 45%,rgba(27,42,92,.85))}
 .bleed .wrap{position:relative;z-index:3}
+/* a soft pool of shade behind the centred copy, so the photo stays bright at
+   the edges but the text sits on something calm */
+.bleed .scrim::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 62% 58% at 50% 52%,rgba(15,26,62,.42) 0%,rgba(15,26,62,.18) 60%,rgba(15,26,62,0) 100%)}
 .bleed h2{color:#fff;max-width:18ch;margin:0 auto}
 /* .bleed p sets margin for the body copy and was also zeroing the eyebrow's
    bottom margin, so the eyebrow sat flush against the heading */
-.bleed .eyebrow{color:#9CC9EA;margin:0 0 1rem}
-.bleed p{color:rgba(255,255,255,.86);max-width:50ch;margin:1.3rem auto 0}
+.bleed .eyebrow{color:#9CC9EA;margin:0 auto 1rem}
+.bleed p{color:#fff;max-width:50ch;margin:1.3rem auto 0;font-size:1.12rem;font-weight:500;line-height:1.65;
+  text-shadow:0 1px 2px rgba(10,18,45,.55),0 2px 18px rgba(10,18,45,.45)}
 .bleed p{margin-left:auto;margin-right:auto}
-.bleed .note-date{font-size:1.05rem;color:rgba(255,255,255,.78);margin:0 auto;letter-spacing:.005em}
+.bleed .note-date{font-size:1.05rem;color:rgba(255,255,255,.94);margin:0 auto;letter-spacing:.005em}
 .count{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin:2.6rem 0 .8rem}
 .count div{min-width:98px;padding:1.1rem .6rem;border:1px solid rgba(255,255,255,.28);border-radius:4px;background:rgba(255,255,255,.08)}
 .count b{display:block;font-size:clamp(1.9rem,4.6vw,2.8rem);font-weight:800;color:#fff;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
@@ -787,9 +821,12 @@ td small{display:block;color:var(--muted);font-size:.83rem;margin-top:.15rem}
 .box h3{color:#fff;margin-bottom:.7rem}
 .box p{font-size:.92rem}
 .box .btn{width:100%;justify-content:center;padding-inline:1rem}
-.row{display:flex;justify-content:space-between;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:.4rem 1.5rem;flex-wrap:wrap;
+  padding:1.1rem 0;border-bottom:1px solid var(--line);font-size:1.15rem;line-height:1.45}
 .row:last-of-type{border-bottom:0}
-.row span{color:var(--muted)} .row b{color:var(--navy)}
+/* label in body ink rather than the pale muted grey, so both halves read easily */
+.row span{color:var(--ink);font-weight:500}
+.row b{color:var(--navy);font-weight:700;text-align:right}
 
 /* page header for inner pages */
 .ph{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;
