@@ -19,6 +19,27 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000
 
+## Private preview (Cloudflare Pages + Access)
+
+While a site is still a draft, it is hosted on Cloudflare Pages behind Cloudflare
+Access, so only named email addresses can open it.
+
+1. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git
+2. Pick this repository, production branch `main`
+3. Framework preset: None. Build command: leave empty.
+   Build output directory: `sites/<event-slug>`
+4. Deploy, then note the `*.pages.dev` URL
+5. Zero Trust → Access → Applications → Add an application → Self-hosted
+6. Point it at that hostname and add a policy: Action **Allow**, rule
+   **Emails** → the addresses that may view the draft
+
+Reviewers get a one-time code by email. Anyone else is refused.
+
+`sites/<event-slug>/_headers` carries the caching and security headers for
+Cloudflare, mirroring what `netlify.toml` does for Netlify. It also sets
+`X-Robots-Tag: noindex` — **remove that line when the site goes live**, or search
+engines will keep ignoring it.
+
 ## Deploying
 
 Each site folder is connected to its own Netlify site:
