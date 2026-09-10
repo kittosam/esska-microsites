@@ -119,7 +119,10 @@ body.scrolled .util{max-height:0;opacity:0}
 
 /* ---------- hero ---------- */
 .hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;
-  min-height:clamp(460px,34vw,700px);
+  /* fill the viewport below the utility bar and nav, so nothing from the
+     next section shows on landing. --chrome is measured in app.js. */
+  min-height:max(440px, calc(100vh - var(--chrome, 165px) + 3px));
+  min-height:max(440px, calc(100svh - var(--chrome, 165px) + 3px));
   background:linear-gradient(150deg,#FDFEFF 0%,#F4F8FD 40%,#EAF0FA 72%,#E3EAF7 100%)}
 
 /* photo-01-hero.png is photo-01 with its dead left margin cropped off (871x1000).

@@ -163,3 +163,20 @@ tick();setInterval(tick,1000);
 
   apply();
 })();
+
+/* The hero fills the screen below the utility bar and nav, so the section
+   underneath only appears once you scroll. Their combined height changes when
+   the nav wraps, so it is measured rather than hard-coded. Skipped while
+   scrolled, because the utility bar collapses then and the hero is already
+   out of view. */
+(function(){
+  const util = document.getElementById("util"), nav = document.getElementById("nav");
+  if(!util || !nav) return;
+  const setChrome = () => {
+    if(document.body.classList.contains("scrolled")) return;
+    document.documentElement.style.setProperty(
+      "--chrome", (util.offsetHeight + nav.offsetHeight) + "px");
+  };
+  setChrome();
+  addEventListener("resize", setChrome, {passive:true});
+})();
