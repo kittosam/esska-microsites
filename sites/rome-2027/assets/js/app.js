@@ -49,8 +49,8 @@ function meetTick(){
   const d2=document.getElementById("uD2"); if(d2) d2.textContent=Math.floor(s/86400);
 }
 meetTick(); setInterval(meetTick,20000);
-/* early rate deadline; placeholder until ESSKA confirms it */
-const EARLY_RATE="2027-06-30T23:59:59+02:00";
+/* early rate deadline: the preliminary fee table closes the early period on 31 May 2027 */
+const EARLY_RATE="2027-05-31T23:59:59+02:00";
 const DL=new Date(EARLY_RATE).getTime(), pad=n=>String(n).padStart(2,"0");
 (function(){const txt=new Date(EARLY_RATE).toLocaleDateString("en-GB",
     {day:"numeric",month:"long",year:"numeric"});
@@ -179,4 +179,22 @@ tick();setInterval(tick,1000);
   };
   setChrome();
   addEventListener("resize", setChrome, {passive:true});
+})();
+
+/* Registration: mark the fee period that applies today, or the first one
+   still to come, in both the period cards and the fee table columns. */
+(function(){
+  const periods=[...document.querySelectorAll(".fee-period")];
+  if(!periods.length) return;
+  const now=Date.now();
+  let key=null, live=false;
+  for(const p of periods){
+    const s=new Date(p.dataset.start).getTime(), e=new Date(p.dataset.end).getTime();
+    if(now>=s && now<=e){ key=p.dataset.period; live=true; break; }
+    if(now<s && !key) key=p.dataset.period;
+  }
+  if(!key) return;
+  document.querySelectorAll('[data-period="'+key+'"]').forEach(el=>el.classList.add(live?"is-now":"is-next"));
+  const tag=document.querySelector('.fee-period[data-period="'+key+'"] .fp-tag');
+  if(tag){ tag.textContent=live?"Current rate":"Opens first"; tag.hidden=false; }
 })();
