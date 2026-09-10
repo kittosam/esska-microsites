@@ -305,12 +305,15 @@ body.scrolled .util{max-height:0;opacity:0}
   55%{box-shadow:0 13px 30px rgba(15,111,214,.46),0 0 0 13px rgba(15,111,214,0)}}
 
 /* ---------- lower homepage ---------- */
-.band-num{background:var(--navy);color:#fff;padding:clamp(2.6rem,4.5vw,3.8rem) 0}
+.band-num{background:var(--navy);color:#fff;padding:clamp(1.6rem,2.6vw,2.2rem) 0}
 .band-num .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.band-num .n{text-align:center;padding:.4rem 1.2rem;border-right:1px solid rgba(255,255,255,.18)}
+.band-num .n{text-align:center;padding:.2rem 1.2rem;border-right:1px solid rgba(255,255,255,.18)}
 .band-num .n:last-child{border-right:0}
-.band-num b{display:block;font-size:clamp(2.1rem,3.6vw,3.1rem);font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff}
-.band-num span{display:block;font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9CC9EA;margin-top:.7rem}
+.band-num b{display:block;font-size:clamp(1.9rem,3vw,2.6rem);font-weight:800;letter-spacing:-.04em;line-height:1;color:#fff}
+.band-num span{display:block;font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9CC9EA;margin-top:.5rem}
+/* figures still awaiting confirmation from ESSKA */
+.band-num em{display:block;font-style:normal;font-size:.76rem;font-weight:600;
+  letter-spacing:.02em;text-transform:none;color:rgba(255,255,255,.5);margin-top:.28rem}
 @media(max-width:820px){.band-num .grid{grid-template-columns:1fr 1fr;row-gap:2rem}
   .band-num .n:nth-child(2n){border-right:0}}
 
