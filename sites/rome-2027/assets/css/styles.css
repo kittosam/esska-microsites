@@ -492,10 +492,11 @@ h2 .lt{font-weight:400}
 .v-card > p{margin:0;color:var(--muted);font-size:1.02rem;line-height:1.7}
 .v-facts{display:grid;grid-template-columns:1fr 1fr;column-gap:1.6rem;margin:0;border-top:1px solid var(--line)}
 .v-facts > div{padding:.95rem 0;border-bottom:1px solid var(--line)}
-.v-facts dt{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-d);margin-bottom:.3rem}
-.v-facts dd{margin:0;color:var(--navy);font-weight:700;font-size:1.05rem;line-height:1.45}
-.v-facts a{color:var(--ac);text-decoration:none}
-.v-facts a:hover{text-decoration:underline}
+.v-facts dt{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+/* values read like the description beside them: body weight and ink, not bold navy */
+.v-facts dd{margin:0;color:var(--ink);font-weight:500;font-size:1rem;line-height:1.6}
+.v-facts a{color:var(--ac-d);font-weight:500;text-decoration:underline;text-decoration-color:rgba(10,86,168,.25);text-underline-offset:3px}
+.v-facts a:hover{text-decoration-color:currentColor}
 .v-card .btn-row{margin-top:auto}
 /* rooms sit right under the hotel: the text on the left, when booking opens on the right */
 .v-stay{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,300px);margin-top:clamp(2.4rem,5vw,3.6rem);
