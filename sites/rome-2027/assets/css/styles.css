@@ -1088,6 +1088,7 @@ img.ind-av{object-fit:cover;background:var(--ice);box-shadow:0 0 0 3px #fff,0 4p
 .qc:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
 .qc-av{flex:none;width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;
   font-weight:800;font-size:.94rem;letter-spacing:.04em}
+img.qc-av{object-fit:cover;background:var(--ice);box-shadow:0 0 0 3px #fff,0 4px 12px rgba(27,42,92,.16)}
 .qc-t{display:flex;flex-direction:column;min-width:0;flex:1;line-height:1.35}
 .qc-t b{color:var(--navy);font-size:1.05rem}
 .qc-t small{color:var(--muted);font-size:.88rem}
@@ -1097,3 +1098,64 @@ img.ind-av{object-fit:cover;background:var(--ice);box-shadow:0 0 0 3px #fff,0 4p
 .qc:hover .qc-m{background:var(--ac);color:#fff}
 .qc-m svg{width:19px;height:19px}
 @media(max-width:900px){.pc-in{grid-template-columns:1fr}}
+
+/* =====================================================================
+   Final touches: light icons, soft shades, gentle movement. Each block is
+   independent, so any one can be removed without touching the rest.
+   ===================================================================== */
+
+/* icons: homepage stats band */
+.band-num .n-ic{display:grid;place-items:center;width:44px;height:44px;margin:0 auto .7rem;border-radius:50%;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:var(--ac-l)}
+.band-num .n-ic svg{width:22px;height:22px}
+
+/* icons: programme summary tiles (top right, quiet) */
+.sm{position:relative}
+.sm-ic{position:absolute;right:1rem;top:1rem;display:grid;place-items:center;width:38px;height:38px;border-radius:10px;
+  background:#fff;color:var(--blue-d);box-shadow:0 4px 12px rgba(39,58,120,.08)}
+.sm-ic svg{width:20px;height:20px}
+
+/* icons: venue facts */
+.v-facts dt{display:flex;align-items:center;gap:.45rem}
+.vf-ic{display:inline-grid;color:var(--blue)}
+.vf-ic svg{width:16px;height:16px}
+
+/* faculty: three soft shades cycle across the grid, so the wall of cards
+   has some rhythm; the initials ring up on hover */
+.fac-grid .fac:nth-child(3n+2) .av{background:#E8ECFA;color:var(--navy-l)}
+.fac-grid .fac:nth-child(3n+3) .av{background:#E2F0FA;color:#1F6FA8}
+.fac .av{transition:box-shadow .4s var(--e),transform .4s var(--e)}
+.fac:hover .av{transform:scale(1.06);box-shadow:0 0 0 4px #fff,0 0 0 6px rgba(62,155,217,.25)}
+
+/* pale sections: a faint dot texture and a soft light in one corner */
+.tint{background:
+  radial-gradient(55% 60% at 100% 0%,rgba(62,155,217,.10),rgba(62,155,217,0) 70%),
+  radial-gradient(circle at 1px 1px,rgba(39,58,120,.07) 1px,transparent 1.3px) 0 0/24px 24px,
+  var(--ice-2)}
+
+/* the chairs' letter sits in two pools of light */
+.sec-letter{background:
+  radial-gradient(38% 30% at 10% 22%,rgba(62,155,217,.10),rgba(62,155,217,0) 70%),
+  radial-gradient(40% 36% at 92% 72%,rgba(108,127,216,.09),rgba(108,127,216,0) 70%),
+  var(--ice-2)}
+
+/* footer: a soft top light and the same Rome skyline as the page headers */
+footer{position:relative;overflow:hidden;background:linear-gradient(180deg,#223572 0%,var(--navy-d) 45%)}
+footer::before{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(110px,14vw,190px);
+  background:url("../img/logo-05.png") center bottom/cover no-repeat;opacity:.07;pointer-events:none}
+footer > *{position:relative}
+
+/* movement: the short blue rules draw in when their heading appears */
+.rv.pre hr.orn{transform:scaleX(0)}
+.rv.in hr.orn{transform:scaleX(1);transition:transform .9s .25s var(--e)}
+
+/* movement: the route legs in the travel banner flow gently towards the hotel */
+@media(min-width:901px){
+  .jn-leg::before{border-top:0;height:2px;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.6) 0 7px,transparent 7px 13px);
+    animation:jnflow 1.8s linear infinite}
+}
+@keyframes jnflow{to{background-position:13px 0}}
+
+/* homepage venue heading stays on one line where there is room */
+@media(min-width:961px){.h-fit{white-space:nowrap;font-size:clamp(1.9rem,3vw,2.8rem)}}
