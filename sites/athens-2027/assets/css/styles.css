@@ -1276,3 +1276,24 @@ footer > *{position:relative}
 /* the signature block styles its own spans; the initials circle needs the stronger selector */
 .sign figure .sign-av{display:grid;place-items:center;width:84px;height:84px;margin:0 auto .9rem;border-radius:50%;
   background:var(--ice);color:var(--navy);font-size:1.25rem;font-weight:800;letter-spacing:.04em;line-height:1}
+
+/* =====================================================================
+   Athens artwork (crops of the supplied key-visual banners)
+   ===================================================================== */
+/* key visual: the hip joint stays in view as the panel narrows */
+.hero .art{object-position:22% 42%}
+/* page headers: keep the subject on the right, clear of the title */
+.ph-programme .bg{object-position:60% 45%}
+.ph-venue .bg{object-position:70% 55%}
+.ph-registration .bg{object-position:60% 50%}
+.ph-industry .bg{object-position:30% 45%}
+/* topic cards now carry pictures: white titles over a navy foot, as in Rome */
+.tile.t1,.tile.t2,.tile.t3{background:var(--navy-d)}
+.tile.t1::after,.tile.t2::after,.tile.t3::after{
+  background:linear-gradient(180deg,rgba(8,24,47,0) 42%,rgba(8,24,47,.5) 72%,rgba(8,24,47,.88) 100%)}
+.tile.t1 .word{color:#fff;text-shadow:0 2px 16px rgba(8,24,47,.35)}
+.tile.t1 .art{object-position:center 40%;transform:none}
+.topic:hover .tile.t1 .art{transform:scale(1.05)}
+.tile.t3 .art{object-position:55% 45%}
+/* closing banner and travel banner: Acropolis and city under the navy scrim */
+.bleed .bg{object-position:60% 45%}
