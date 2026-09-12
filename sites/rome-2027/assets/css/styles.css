@@ -122,7 +122,7 @@ body.scrolled .util{max-height:0;opacity:0}
   /* fill the viewport below the utility bar and nav, so nothing from the
      next section shows on landing. --chrome is measured in app.js. */
   min-height:max(440px, calc(100vh - var(--chrome, 165px) + 3px));
-  min-height:max(440px, calc(100svh - var(--chrome, 165px) + 3px));
+  min-height:max(440px, calc(100svh - var(--chrome, 165px)));
   background:linear-gradient(150deg,#FDFEFF 0%,#F4F8FD 40%,#EAF0FA 72%,#E3EAF7 100%)}
 
 /* photo-01-hero.png is photo-01 with its dead left margin cropped off (871x1000).
@@ -939,7 +939,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 
 /* sticky register */
 .stick{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(27,42,92,.97);
-  display:flex;align-items:center;gap:1.2rem;padding:.75rem clamp(1rem,4vw,3rem);
+  display:flex;align-items:center;gap:1.2rem;padding:.75rem max(var(--pad),calc((100% - 1720px)/2 + var(--pad)));  /* line the Register button up with the nav above */
   transform:translateY(130%);
   transition:transform .45s var(--e),background .4s var(--e),box-shadow .4s var(--e);
   border-top:1px solid rgba(255,255,255,.12)}
@@ -1160,3 +1160,24 @@ footer > *{position:relative}
 
 /* homepage venue heading stays on one line where there is room */
 @media(min-width:961px){.h-fit{white-space:nowrap;font-size:clamp(1.9rem,3vw,2.8rem)}}
+
+/* Short screens (a 13-inch laptop, say): the opening section still has to fit
+   between the bars, so the spacing tightens while the title keeps its size. */
+@media (min-width:1081px) and (max-height:900px){
+  .hero-in{padding-block:clamp(1.1rem,2.4vh,1.9rem)}
+  .kicker{margin-bottom:.7rem}
+  .hero .strap{margin-top:.5rem}
+  .hero .strap .strap-2{margin-top:.3rem}
+  .ebar{margin-top:clamp(.8rem,1.6vh,1.2rem)}
+  .hero-cta{margin-top:clamp(.9rem,1.7vh,1.3rem)}
+}
+@media (min-width:1081px) and (max-height:740px){
+  .hero-in{padding-block:clamp(.7rem,1.7vh,1.3rem)}
+  .hero .strap{font-size:clamp(1.02rem,1.5vw,1.2rem)}
+  .ebar{padding:.75rem 1.1rem}
+  .ebar-foot{margin-top:.55rem;padding-top:.55rem}
+  .ebar-item b{font-size:clamp(1.1rem,1.5vw,1.3rem)}
+  .ebar-item img{width:24px;height:24px}
+  .hero-cta .btn{padding:.9rem 1.6rem}
+  .hero-cta .btn-b{padding:.9rem 1.15rem .9rem 1.8rem}
+}
