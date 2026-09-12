@@ -49,7 +49,7 @@ p{margin:0 0 1.05rem}
 .u-c span{display:flex;align-items:baseline;gap:.34rem;font-size:.74rem;font-weight:600;
   letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 .u-c b{font-size:1.36rem;font-weight:800;color:#E2C48F;font-variant-numeric:tabular-nums;letter-spacing:0}
-.u-c i{display:block;width:1px;height:16px;background:rgba(255,255,255,.32)}
+.u-c i{display:block;align-self:center;width:1px;height:16px;background:rgba(255,255,255,.32)}
 .u-c .lbl-long{display:inline}
 .u-c .compact{display:none}
 @media(max-width:1240px){
@@ -1287,9 +1287,9 @@ footer > *{position:relative}
 .hero .art{object-position:22% 42%}
 /* page headers: keep the subject on the right, clear of the title */
 .ph-programme .bg{object-position:60% 45%}
-.ph-venue .bg{object-position:70% 55%}
+.ph-venue .bg{object-position:50% 62%}
 .ph-registration .bg{object-position:52% 62%}
-.ph-industry .bg{object-position:30% 45%}
+.ph-industry .bg{object-position:50% 58%}
 /* topic cards now carry pictures: white titles over a navy foot, as in Rome */
 .tile.t1,.tile.t2,.tile.t3{background:var(--navy-d)}
 .tile.t1::after,.tile.t2::after,.tile.t3::after{
@@ -1360,3 +1360,23 @@ footer > *{position:relative}
 .pc .qc-t em{color:var(--ac-l);opacity:1}
 .pc .qc-m{background:rgba(255,255,255,.12);color:var(--ac-l)}
 .pc .qc:hover .qc-m{background:var(--ac-br);color:var(--navy-d)}
+
+/* the countdown label sits on the same line as the figures and their units */
+.u-c em{transform:translateY(4px)}
+@media(max-width:1240px){.u-c em{transform:none}}
+
+/* footer: a faint Athens skyline along the bottom, as on the Rome site */
+footer::before{background:url("../img/skyline-athens.svg") center bottom/cover no-repeat;opacity:.1}
+/* contacts: a lighter banner than the section below, and warm cards instead of blue */
+.pc{background:linear-gradient(165deg,#FDFBF7 0%,#FCF8F1 62%,#F8F2E7 100%)}
+.pc .qc{background:#F6F0E3;border-color:rgba(138,90,28,.18);box-shadow:0 8px 22px rgba(18,41,77,.07)}
+.pc .qc:hover{border-color:rgba(138,90,28,.4);box-shadow:0 16px 34px rgba(18,41,77,.12)}
+.pc .qc-av{box-shadow:0 0 0 2px #FDFBF7}
+.pc .qc-t b{color:var(--navy)}
+.pc .qc-t small{color:var(--muted)}
+.pc .qc-t em{color:var(--blue-d);opacity:1}
+.pc .qc-m{background:#FDFBF7;color:var(--blue-d);border:1px solid rgba(138,90,28,.2)}
+.pc .qc:hover .qc-m{background:var(--ac-br);color:#fff;border-color:transparent}
+
+/* the utility link sits over the Register button, not past it */
+.u-r{padding-right:clamp(.5rem,1.1vw,1.25rem)}

@@ -47,7 +47,7 @@ p{margin:0 0 1.05rem}
 .u-c span{display:flex;align-items:baseline;gap:.34rem;font-size:.74rem;font-weight:600;
   letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 .u-c b{font-size:1.36rem;font-weight:800;color:#9CC9EA;font-variant-numeric:tabular-nums;letter-spacing:0}
-.u-c i{display:block;width:1px;height:16px;background:rgba(255,255,255,.32)}
+.u-c i{display:block;align-self:center;width:1px;height:16px;background:rgba(255,255,255,.32)}
 .u-c .lbl-long{display:inline}
 .u-c .compact{display:none}
 @media(max-width:1240px){
@@ -1180,4 +1180,51 @@ footer > *{position:relative}
   .ebar-item img{width:24px;height:24px}
   .hero-cta .btn{padding:.9rem 1.6rem}
   .hero-cta .btn-b{padding:.9rem 1.15rem .9rem 1.8rem}
+}
+
+/* the countdown label sits on the same line as the figures and their units */
+.u-c em{transform:translateY(4px)}
+@media(max-width:1240px){.u-c em{transform:none}}
+
+/* ---------- venue: the conference area, with the two wide room photos ---------- */
+.v-conf{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.35fr);gap:clamp(1.1rem,2.4vw,1.8rem);
+  align-items:start;margin-top:clamp(2.2rem,4.5vw,3.2rem)}
+.v-conf-t{display:flex;flex-direction:column;gap:.7rem;padding:clamp(1.3rem,2.6vw,1.8rem);
+  background:var(--ice-2);border:1px solid var(--line);border-radius:10px}
+.v-conf-t .eyebrow{margin:0}
+.v-conf-t h3{margin:0;color:var(--navy);font-size:clamp(1.25rem,2vw,1.5rem);letter-spacing:-.02em}
+.v-conf-t p:not(.eyebrow){margin:0;color:var(--muted);line-height:1.65}
+.v-conf-figs{display:flex;flex-direction:column;gap:clamp(.8rem,1.6vw,1.1rem)}
+.v-conf figure{margin:0;position:relative;border-radius:10px;overflow:hidden;background:var(--ice)}
+.v-conf figure img{display:block;width:100%;aspect-ratio:1110/380;object-fit:cover;transition:transform 1.2s var(--e)}
+.v-conf figure:hover img{transform:scale(1.03)}
+.v-conf figcaption{position:absolute;left:.8rem;bottom:.8rem;font-size:.72rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:#fff;background:rgba(27,42,92,.62);padding:.3rem .65rem;border-radius:4px}
+@media(max-width:900px){.v-conf{grid-template-columns:1fr}}
+
+/* the utility link sits over the Register button, not past it */
+.u-r{padding-right:clamp(.5rem,1.1vw,1.25rem)}
+
+/* ---------- the chairs' letter: signatories alongside the text ---------- */
+.letterhead{max-width:1060px;display:grid;grid-template-columns:minmax(0,248px) minmax(0,1fr);
+  gap:clamp(1.5rem,3.2vw,3rem);align-items:start}
+.letterhead .lh-mark{grid-column:1/-1}
+.lh-chairs{position:sticky;top:110px;display:flex;flex-direction:column;gap:1.15rem;
+  padding-right:clamp(1rem,2vw,1.6rem);border-right:1px solid var(--line)}
+.lh-label{margin:0;font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-d)}
+.lh-chairs .sign{display:flex;flex-direction:column;gap:1.1rem;margin:0;padding:0;border-top:0;text-align:left}
+.lh-chairs .sign figure{display:flex;align-items:center;gap:.85rem;text-align:left}
+.lh-chairs .sign img{width:56px;height:56px;margin:0;flex:none}
+.lh-chairs .sign b{font-size:.98rem;line-height:1.25}
+.lh-chairs .sign span{font-size:.84rem;margin-top:.15rem}
+.lh-quote{position:relative;margin:.4rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line);
+  font-size:1.02rem;line-height:1.5;color:var(--navy);font-weight:500}
+.lh-quote::before{content:"\201C";display:block;font-size:2.4rem;line-height:.6;color:var(--blue);margin-bottom:.3rem}
+.lh-main > p:last-of-type{margin-bottom:0}
+.letterhead .letter-cta{margin-top:2rem;text-align:left}
+@media(max-width:900px){
+  .letterhead{grid-template-columns:1fr}
+  .lh-chairs{position:static;border-right:0;border-bottom:1px solid var(--line);padding:0 0 1.5rem;margin-bottom:.4rem}
+  .lh-chairs .sign{flex-direction:row;flex-wrap:wrap;gap:1rem 1.8rem}
+  .lh-quote{display:none}
 }
