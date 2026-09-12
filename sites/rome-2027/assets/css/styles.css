@@ -953,7 +953,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 .stick .l{color:#fff;font-size:.9rem;line-height:1.3}
 .stick .l b{display:block;font-weight:700}
 .stick .l > span{display:block;color:#9CC9EA;font-size:.84rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.15rem}
-.stick .btn{margin-left:auto;flex:none;padding:.8rem 1.8rem;font-size:.74rem}
+.stick .btn{margin-left:auto;flex:none;padding:.82rem 1.3rem .82rem 1.6rem;font-size:.76rem}  /* same size as the nav Register */
 @media(max-width:900px){.stick .l b{font-size:.84rem}}
 @media(max-width:640px){.stick .l > b{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.stick .l > span{display:none}}
 
@@ -1186,21 +1186,20 @@ footer > *{position:relative}
 .u-c em{transform:translateY(4px)}
 @media(max-width:1240px){.u-c em{transform:none}}
 
-/* ---------- venue: the conference area, with the two wide room photos ---------- */
-.v-conf{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.35fr);gap:clamp(1.1rem,2.4vw,1.8rem);
-  align-items:start;margin-top:clamp(2.2rem,4.5vw,3.2rem)}
-.v-conf-t{display:flex;flex-direction:column;gap:.7rem;padding:clamp(1.3rem,2.6vw,1.8rem);
-  background:var(--ice-2);border:1px solid var(--line);border-radius:10px}
+/* ---------- venue: the conference area, text beside the two room photos ---------- */
+.v-conf{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(1rem,2.4vw,1.6rem);
+  align-items:stretch;margin-top:clamp(2.2rem,4.5vw,3.2rem)}
+.v-conf-t{display:flex;flex-direction:column;gap:.7rem;padding:clamp(1.3rem,2.6vw,1.8rem);background:var(--ice-2);
+  border:1px solid var(--line);border-radius:10px}
 .v-conf-t .eyebrow{margin:0}
 .v-conf-t h3{margin:0;color:var(--navy);font-size:clamp(1.25rem,2vw,1.5rem);letter-spacing:-.02em}
 .v-conf-t p:not(.eyebrow){margin:0;color:var(--muted);line-height:1.65}
-.v-conf-figs{display:flex;flex-direction:column;gap:clamp(.8rem,1.6vw,1.1rem)}
-.v-conf figure{margin:0;position:relative;border-radius:10px;overflow:hidden;background:var(--ice)}
-.v-conf figure img{display:block;width:100%;aspect-ratio:1110/380;object-fit:cover;transition:transform 1.2s var(--e)}
-.v-conf figure:hover img{transform:scale(1.03)}
+.v-conf figure{margin:0;position:relative;border-radius:10px;overflow:hidden;min-height:220px;background:var(--ice)}
+.v-conf figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--e)}
+.v-conf figure:hover img{transform:scale(1.04)}
 .v-conf figcaption{position:absolute;left:.8rem;bottom:.8rem;font-size:.72rem;font-weight:800;letter-spacing:.1em;
   text-transform:uppercase;color:#fff;background:rgba(27,42,92,.62);padding:.3rem .65rem;border-radius:4px}
-@media(max-width:900px){.v-conf{grid-template-columns:1fr}}
+@media(max-width:900px){.v-conf{grid-template-columns:1fr 1fr}.v-conf-t{grid-column:1/-1}}
 
 /* the utility link sits over the Register button, not past it */
 .u-r{padding-right:clamp(.5rem,1.1vw,1.25rem)}
