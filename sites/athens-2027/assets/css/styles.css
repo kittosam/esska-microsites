@@ -1410,3 +1410,10 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
 .tile.t1::before{color:rgba(18,41,77,.5);opacity:.14}
 .tile.t2::before{color:rgba(226,196,143,.9);opacity:.16}
 .tile.t3::before{color:rgba(253,251,247,.9);opacity:.18}
+
+/* the cards carry artwork again: the render for FAI, technical graphics for the
+   other two; the dot texture would fight them */
+.tile::before{content:none}
+.tile.t1 .art{object-position:center 40%}
+.tile.t2 .art,.tile.t3 .art{object-position:center}
+.tile.t1 .word{color:var(--navy);text-shadow:none}
