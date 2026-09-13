@@ -1227,3 +1227,15 @@ footer > *{position:relative}
   .lh-chairs .sign{flex-direction:row;flex-wrap:wrap;gap:1rem 1.8rem}
   .lh-quote{display:none}
 }
+
+/* contacts: one general enquiries box in place of named contacts */
+.pc-box{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;padding:clamp(1.5rem,3vw,2.2rem);
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 34px rgba(18,41,77,.10)}
+.pc-box .eyebrow{margin:0}
+.pc-box h3{margin:0;color:var(--navy);font-size:clamp(1.3rem,2.2vw,1.6rem);letter-spacing:-.02em}
+.pc-box p:not(.eyebrow){margin:0;color:var(--muted);line-height:1.65}
+.pc-box .btn{margin-top:.4rem}
+.pc-box .pc-box-office{margin-top:.6rem!important;padding-top:.9rem;border-top:1px solid var(--line);width:100%;font-size:.92rem}
+.pc-box .pc-box-office b{display:block;color:var(--navy);font-weight:700}
+.pc-box .pc-box-office a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+#enquiry-form{scroll-margin-top:140px}
