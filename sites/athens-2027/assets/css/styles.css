@@ -1395,3 +1395,18 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
 .tile.t2::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;
   background:repeating-linear-gradient(0deg,rgba(226,196,143,.16) 0 1px,transparent 1px 44px),
              repeating-linear-gradient(90deg,rgba(226,196,143,.16) 0 1px,transparent 1px 44px)}
+
+/* ---------- topic cards: the moodboard's sand, navy and bronze blocks, with a
+   quiet texture and the topic name ---------- */
+.tile.t1{background:linear-gradient(158deg,#FBF6EC 0%,#F1E7D4 55%,#E4D4B4 100%)}
+.tile.t2{background:linear-gradient(158deg,#22467C 0%,#12294D 55%,#08182F 100%)}
+.tile.t3{background:linear-gradient(158deg,#D9A455 0%,#A8702A 55%,#7A4F18 100%)}
+.tile.t1 .word{color:var(--navy);text-shadow:none}
+.tile.t1::after{background:linear-gradient(180deg,rgba(18,41,77,0) 55%,rgba(18,41,77,.10) 100%)}
+.tile.t2::after,.tile.t3::after{background:linear-gradient(180deg,rgba(8,24,47,0) 55%,rgba(8,24,47,.32) 100%)}
+.tile::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px,currentColor 1px,transparent 1.4px);
+  background-size:26px 26px}
+.tile.t1::before{color:rgba(18,41,77,.5);opacity:.14}
+.tile.t2::before{color:rgba(226,196,143,.9);opacity:.16}
+.tile.t3::before{color:rgba(253,251,247,.9);opacity:.18}
