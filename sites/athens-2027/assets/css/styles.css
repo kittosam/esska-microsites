@@ -1289,7 +1289,7 @@ footer > *{position:relative}
 .ph-programme .bg{object-position:60% 45%}
 .ph-venue .bg{object-position:50% 62%}
 .ph-registration .bg{object-position:52% 62%}
-.ph-industry .bg{object-position:50% 58%}
+
 /* topic cards now carry pictures: white titles over a navy foot, as in Rome */
 .tile.t1,.tile.t2,.tile.t3{background:var(--navy-d)}
 .tile.t1::after,.tile.t2::after,.tile.t3::after{
@@ -1442,5 +1442,10 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
   .tile.t2 .art,.tile.t3 .art{height:auto;aspect-ratio:1/1}
 }
 
-/* Registration: the venue lobby and its reception desk, under the navy wash */
-.ph-registration .bg{object-position:68% 55%}
+
+
+/* Registration and Industry: drawn banners in the style of the topic-card
+   artwork, composed on the right, under a lighter wash so the spheres stay bright */
+.ph-registration .bg,.ph-industry .bg{object-position:right center;animation:none;transform:none}
+.ph-registration .scrim,.ph-industry .scrim{background:
+  linear-gradient(100deg,rgba(10,26,58,.78) 0%,rgba(10,26,58,.46) 42%,rgba(10,26,58,.05) 100%)}
