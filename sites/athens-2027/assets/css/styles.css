@@ -1421,10 +1421,23 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
 /* Dysplasia and Return to sport: supplied artwork with the title built in, so
    the overlay title is kept for screen readers only; the corners are transparent
    and sit on matching navy */
-.tile.t2,.tile.t3{background:linear-gradient(180deg,#153666 0%,#0D2347 60%,#081630 100%)}
+.tile.t2,.tile.t3{background:linear-gradient(160deg,#EEF3FA 0%,#A9C0E2 38%,#2C5A96 72%,#12295A 100%)}  /* matches the pale-top artwork behind its rounded corners */
 .tile.t2 .art,.tile.t3 .art{object-position:left center}
 .tile.t2 .word,.tile.t3 .word{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .tile.t2::after,.tile.t3::after{background:none}
 /* FAI sits beside two cards with white titles, so its title matches them */
 .tile.t1 .word{color:#fff;text-shadow:0 2px 16px rgba(8,24,47,.35)}
 .tile.t1::after{background:linear-gradient(180deg,rgba(8,24,47,0) 45%,rgba(8,24,47,.5) 74%,rgba(8,24,47,.85) 100%)}
+
+/* the supplied card artwork is square with its title printed inside, so the
+   cards are square at every width and nothing is cropped away */
+.topics .tile{min-height:0;aspect-ratio:1/1}
+.tile.t2 .art,.tile.t3 .art{object-position:center}
+@media(max-width:900px){
+  .topics{justify-items:center}
+  .topic{width:100%;max-width:520px}
+}
+@media (hover:none){
+  .topics .tile{aspect-ratio:auto}
+  .tile.t2 .art,.tile.t3 .art{height:auto;aspect-ratio:1/1}
+}
