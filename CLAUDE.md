@@ -7,6 +7,7 @@ live before its event and is not maintained afterwards. The client is ESSKA
 ## Repo layout
 
 ```
+tools/                    dev-only scripts (programme data, programme PDFs)
 sites/<event-slug>/       one deployable site, fully self-contained
   index.html              all markup and page content
   assets/css/styles.css   all styles
