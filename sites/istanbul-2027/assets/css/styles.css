@@ -127,7 +127,7 @@ body.scrolled .util{max-height:0;opacity:0}
   min-height:max(440px, calc(100svh - var(--chrome, 165px)));
   background:linear-gradient(150deg,#FBFAF6 0%,#E3F4F7 40%,#C6EAF2 72%,#B5E2EC 100%)}
 
-/* key-visual.jpg is the right-hand panel of the supplied banner (anatomy render
+/* key-visual-istanbul.jpg is the right-hand panel of the supplied banner (anatomy render
    and the Bosphorus at dusk). The wrapper's width is the hero's height clamp
    times the artwork's aspect, so the panel always matches the image. */
 .art-wrap{position:absolute;right:0;top:0;bottom:0;z-index:1;
@@ -1232,8 +1232,9 @@ footer > *{position:relative}
 /* =====================================================================
    Istanbul (Ink & Tile, Direction 3E)
    ===================================================================== */
-/* key visual: the neutral anatomy render, shoulder kept in view as the panel narrows */
-.hero .art{object-position:45% 40%;filter:saturate(.7)}
+/* key visual: the banner's shoulder render and Istanbul at dusk, both kept in
+   view as the panel narrows */
+.hero .art{object-position:38% 45%}
 /* the shoulder icon is a filled disc, so it keeps its own colours */
 .ebar-item img.ic-disc{filter:grayscale(1) brightness(.85);opacity:1;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.35)}
 /* utility strip before dates are confirmed: month and city instead of a countdown */
@@ -1309,3 +1310,14 @@ abbr.tbc{text-decoration:none;cursor:help}
 .pc-box .pc-box-office b{display:block;color:var(--navy);font-weight:700}
 .pc-box .pc-box-office a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 #enquiry-form{scroll-margin-top:140px}
+
+/* chairs' letter: larger photos, each set above its name so long role titles keep
+   room (as on Rome and Athens). The initials circle stands in until photos arrive. */
+.lh-chairs .sign{gap:1.5rem}
+.lh-chairs .sign figure{flex-direction:column;align-items:flex-start;gap:.6rem}
+.lh-chairs .sign img,.lh-chairs .sign .sign-av{width:104px;height:104px}
+.lh-chairs .sign .sign-av{font-size:1.6rem}
+.lh-chairs .sign b{font-size:1.02rem}
+@media(max-width:900px){
+  .lh-chairs .sign img,.lh-chairs .sign .sign-av{width:84px;height:84px}
+}
