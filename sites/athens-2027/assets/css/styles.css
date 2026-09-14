@@ -1485,3 +1485,10 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
 @media(max-width:900px){
   .lh-chairs .sign img,.lh-chairs .sign .sign-av{width:84px;height:84px}
 }
+
+/* all three topic cards now use supplied artwork with the title printed inside,
+   so FAI follows the same treatment as the other two */
+.tile.t1{background:linear-gradient(160deg,#EEF3FA 0%,#A9C0E2 38%,#2C5A96 72%,#12295A 100%)}
+.tile.t1 .art{object-position:center}
+.tile.t1 .word{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tile.t1::after{background:none}
