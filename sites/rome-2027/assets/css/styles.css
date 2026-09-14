@@ -1239,3 +1239,12 @@ footer > *{position:relative}
 .pc-box .pc-box-office b{display:block;color:var(--navy);font-weight:700}
 .pc-box .pc-box-office a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 #enquiry-form{scroll-margin-top:140px}
+
+/* chairs' letter: larger photos, each set above its name so long role titles keep room */
+.lh-chairs .sign{gap:1.5rem}
+.lh-chairs .sign figure{flex-direction:column;align-items:flex-start;gap:.6rem}
+.lh-chairs .sign img{width:104px;height:104px}
+.lh-chairs .sign b{font-size:1.02rem}
+@media(max-width:900px){
+  .lh-chairs .sign img{width:84px;height:84px}
+}
