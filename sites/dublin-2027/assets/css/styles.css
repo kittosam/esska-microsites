@@ -1500,3 +1500,28 @@ abbr.tbc{text-decoration:none;cursor:help}
   .hero-cta .pill{font-size:15px;padding-left:28px}
   .hero-cta .tlink{font-size:14px;letter-spacing:.1em}
 }
+
+/* ---------- Register: shading inside, the pulse around the whole pill ---------- */
+:root{--pill-l:#257A5E}
+/* depth: a light-to-deep gradient, a thin gloss along the top edge and a soft
+   shade along the bottom; the circle stays light with the darker triangle */
+.pill{background:linear-gradient(135deg,var(--pill-l) 0%,var(--pill) 52%,var(--pill-h) 100%);
+  box-shadow:0 10px 24px rgba(var(--pill-sh),.28),inset 0 1px 0 rgba(255,255,255,.28),inset 0 -3px 8px rgba(0,0,0,.14)}
+.pill:hover{background:linear-gradient(135deg,var(--pill) 0%,var(--pill-h) 100%);
+  box-shadow:0 14px 30px rgba(var(--pill-sh),.36),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -3px 8px rgba(0,0,0,.16)}
+.pill:active{box-shadow:0 6px 14px rgba(var(--pill-sh),.28),inset 0 2px 6px rgba(0,0,0,.18)}
+.hero-cta .pill{box-shadow:0 12px 28px rgba(var(--pill-sh),.32),inset 0 1px 0 rgba(255,255,255,.3),inset 0 -3px 9px rgba(0,0,0,.15)}
+.hero-cta .pill:hover{box-shadow:0 18px 38px rgba(var(--pill-sh),.42),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -3px 9px rgba(0,0,0,.16)}
+/* the circle keeps its beat (a gentle swell, the triangle nudging forward) but no
+   longer sends out a ring of its own */
+@keyframes badge-pulse{0%,70%,100%{transform:scale(1)}35%{transform:scale(1.1)}}
+/* the ring now travels out from the edge of the whole Register pill, on the same beat */
+.pill::before{content:"";position:absolute;inset:0;z-index:-2;border-radius:inherit;pointer-events:none}
+.pill[data-go="registration"]::before{--ring:var(--pill-sh);animation:pill-ring 2.2s var(--e) 1s infinite}
+.bleed .pill[data-go="registration"]::before,.stick:not(.onlight) .pill[data-go="registration"]::before{--ring:var(--pill-c-rgb)}
+@keyframes pill-ring{
+  0%{box-shadow:0 0 0 0 rgba(var(--ring),.5)}
+  70%{box-shadow:0 0 0 14px rgba(var(--ring),0)}
+  100%{box-shadow:0 0 0 0 rgba(var(--ring),0)}}
+.pill[data-go="registration"]:hover::before{animation:none}
+@media(min-width:1081px) and (max-width:1199px){.hero-cta .tlink{letter-spacing:.06em;gap:.45rem}}
