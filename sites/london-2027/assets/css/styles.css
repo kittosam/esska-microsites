@@ -1630,7 +1630,3 @@ footer::before{opacity:.1}
 /* contacts: a paper banner above the moonlit enquiry section */
 .pc{background:var(--paper)}
 
-/* event bar: "London, United Kingdom" is too long to share a line with the date in
-   the hero column, so the two stack and the divider between them is dropped */
-.hero .ebar-sep{display:none}
-.hero .ebar-row{flex-direction:column;align-items:flex-start;gap:.45rem}
