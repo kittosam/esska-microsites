@@ -1828,20 +1828,6 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
 .ind-av,img.ind-av{width:84px;height:84px}
 .ind-person{gap:1.25rem}
 
-/* Registration banner: full width, no photo. A Greek key field fades in from the
-   right over the navy, and a gold key frieze runs along the foot of the banner,
-   so it no longer repeats the Acropolis photograph used elsewhere */
-.ph-registration{background:
-  radial-gradient(55% 110% at 88% 45%,rgba(226,196,143,.12) 0%,rgba(226,196,143,0) 70%),
-  radial-gradient(60% 120% at 82% 50%,rgba(38,64,107,.6) 0%,rgba(38,64,107,0) 70%),
-  linear-gradient(120deg,#08182F 0%,#0F2446 55%,#16305A 100%)}
-.ban-pattern{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.13;
-  background:url("../img/pattern-meander.svg") 0 0/56px 36px repeat;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 30%,rgba(0,0,0,.55) 58%,#000 100%);
-          mask-image:linear-gradient(90deg,transparent 0%,transparent 30%,rgba(0,0,0,.55) 58%,#000 100%)}
-.ban-frieze{position:absolute;left:0;right:0;bottom:4px;height:28px;z-index:2;pointer-events:none;opacity:.55;
-  background:url("../img/frieze-meander.svg") 0 50%/43px 28px repeat-x}
-.ph-registration .wrap{padding-bottom:1.2rem}
 
 /* Industry: the Corporate Relations Manager card, a step larger all round */
 .ind-person{gap:1.6rem;padding:1.5rem 1.75rem;border-radius:16px;margin:.8rem 0 1rem}
@@ -1856,3 +1842,34 @@ img.ind-av{box-shadow:0 0 0 4px #fff,0 6px 16px rgba(0,0,0,.16)}
   .ind-av,img.ind-av{width:96px;height:96px}
   .ind-who b{font-size:1.3rem}
 }
+
+/* Registration banner: a sand line drawing of a Greek temple front on the right
+   of the navy, over a soft glow; the heading side stays plain */
+.ph-registration{background:
+  radial-gradient(50% 100% at 80% 55%,rgba(226,196,143,.13) 0%,rgba(226,196,143,0) 70%),
+  radial-gradient(60% 120% at 82% 50%,rgba(38,64,107,.6) 0%,rgba(38,64,107,0) 70%),
+  linear-gradient(120deg,#08182F 0%,#0F2446 55%,#16305A 100%)}
+.ph-registration .wrap{padding-bottom:0}
+.ban-art{position:absolute;inset:0;z-index:1;pointer-events:none}
+.ban-art i{position:absolute;inset:0}
+/* temple front */
+.reg-temple .ban-art i:first-child{background:url("../img/banner-temple.svg") right clamp(24px,7vw,130px) center/auto 76% no-repeat;opacity:.5}
+@media(max-width:900px){.reg-temple .ban-art i:first-child{opacity:.2}}
+
+/* footer skyline: the Athens silhouette from the ESSKA banners, lifted to a pale
+   blue so it shows on the navy (the earlier drawing was in the footer's own navy
+   and could not be seen) */
+footer::before{background:url("../img/skyline-blue.png") center bottom/cover no-repeat;opacity:.16;filter:brightness(2.2) saturate(.6)}
+
+/* footer text 30% larger (links, headings, brand, address, base line), with the
+   spacing and the logo scaled to match so the columns keep their proportions */
+footer{font-size:1.17rem}
+footer h4{font-size:1.09rem;margin-bottom:1.35rem}
+footer li{margin-bottom:.75rem}
+.f-grid{gap:2.4rem 3rem}
+.f-brand{gap:1rem;margin-bottom:1.35rem}
+.f-brand img{width:60px}
+.f-brand b{font-size:1.24rem}
+.f-brand span{font-size:.98rem;letter-spacing:.16em;margin-top:.3rem}
+.f-base{font-size:1.01rem;margin-top:3rem}
+@media(min-width:901px) and (max-width:1200px){.f-grid{grid-template-columns:1.5fr 1.1fr 1fr 1.2fr;gap:2rem}}
