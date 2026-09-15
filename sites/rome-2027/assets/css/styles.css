@@ -1301,6 +1301,47 @@ footer > *{position:relative}
 .hero-cta > .pill{animation-delay:.3s}
 .hero-cta > .tlink{animation-delay:.42s}
 
-/* Rome's title column is narrower than the other sites', so from 1300px the hero
-   pair keeps to one line and runs slightly past it over the pale scrim */
-@media(min-width:1300px){.hero-cta{flex-wrap:nowrap;width:max-content}}
+/* the title column matches the other sites (50%), so the hero pair fits under the
+   date box with the link on its right edge */
+@media(min-width:1081px){.hero-txt{max-width:min(680px,50%)}}
+
+/* ---------- the play circle, the PDF link and the hero alignment ---------- */
+:root{--pill-c:#A9BEE8;--pill-c-rgb:169,190,232}
+/* the circle takes a light tint of the site colour, so it stands out against the
+   darker pill; the triangle sits in the pill's deep tone */
+.pill-i{background:var(--pill-c)}
+.pill-i svg{fill:var(--pill-h)}
+.pill:hover .pill-i{background:#fff}
+/* the pill no longer clips, so the pulse ring can travel past its edge; the sheen
+   moves its gradient instead of itself and stays inside the rounded shape */
+.pill{overflow:visible}
+.pill::after{border-radius:inherit;transform:none;transition:background-position .7s var(--e);
+  background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.24) 50%,transparent 60%) 130% 0/250% 100% no-repeat}
+.pill:hover::after{transform:none;background-position:-30% 0}
+/* every Register pill: the circle breathes and sends out a soft ring, with the
+   triangle nudging forward on each beat; hover holds it still and turns it white */
+@keyframes badge-pulse{
+  0%{transform:scale(1);box-shadow:0 0 0 0 rgba(var(--pill-c-rgb),.6)}
+  35%{transform:scale(1.1)}
+  70%{transform:scale(1);box-shadow:0 0 0 11px rgba(var(--pill-c-rgb),0)}
+  100%{transform:scale(1);box-shadow:0 0 0 0 rgba(var(--pill-c-rgb),0)}}
+.pill[data-go="registration"] .pill-i,.hero-cta .pill .pill-i{animation:badge-pulse 2.2s var(--e) 1s infinite}
+.pill[data-go="registration"] .pill-i svg{animation:tri 2.2s var(--e) 1s infinite}
+.pill[data-go="registration"]:hover .pill-i,.hero-cta .pill:hover .pill-i{animation:none;transform:scale(1.08)}
+.pill[data-go="registration"]:hover .pill-i svg{animation:none}
+/* the hero sheen now crosses by moving its gradient */
+@keyframes sweep-pill{0%,70%{background-position:130% 0}90%,100%{background-position:-30% 0}}
+.hero-cta .pill:hover::after{animation:none;background-position:-30% 0}
+.pill.is-disabled .pill-i{background:rgba(255,255,255,.12)}
+.pill.is-disabled .pill-i svg{fill:#fff}
+
+/* Download the programme: the PDF symbol leads the label */
+.tlink-pdf{gap:.6rem}
+.tlink-pdf .pdf-ic{width:20px;height:24px;flex:none;display:block;transition:transform .35s var(--e)}
+.tlink-pdf:hover .pdf-ic{transform:translateY(-2px)}
+
+/* hero: Register on the left edge of the date box, the link on its right edge */
+.hero-cta{justify-content:space-between;width:100%}
+.hero-cta .tlink{margin-left:auto}
+@media(max-width:1080px){.hero-cta{max-width:560px}}
+@media(max-width:560px){.hero-cta .tlink{align-self:flex-end}}
