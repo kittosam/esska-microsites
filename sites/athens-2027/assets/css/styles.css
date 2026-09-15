@@ -1648,13 +1648,34 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
 .pill.is-disabled .pill-i{background:rgba(255,255,255,.12)}
 .pill.is-disabled .pill-i svg{fill:#fff}
 
-/* Download the programme: the PDF symbol leads the label */
-.tlink-pdf{gap:.6rem}
-.tlink-pdf .pdf-ic{width:20px;height:24px;flex:none;display:block;transition:transform .35s var(--e)}
-.tlink-pdf:hover .pdf-ic{transform:translateY(-2px)}
+/* Download the programme: a down arrow leads the label and dips on hover */
+.tlink-dl{gap:.6rem}
+.tlink-dl .dl-ic{width:14px;height:17px;flex:none;display:block}
+.tlink-dl .dl-ic path:first-child{transition:transform .35s var(--e)}
+.tlink-dl:hover .dl-ic path:first-child{transform:translateY(2px)}
 
 /* hero: Register on the left edge of the date box, the link on its right edge */
 .hero-cta{justify-content:space-between;width:100%}
 .hero-cta .tlink{margin-left:auto}
 @media(max-width:1080px){.hero-cta{max-width:560px}}
 @media(max-width:560px){.hero-cta .tlink{align-self:flex-end}}
+
+/* ---------- hero link: one line with Register, a lighter shade ---------- */
+/* the hero link and every Download link take a lighter tone of the site colour
+   (still 4.5:1 on the page ground); hover goes back to the deep tone */
+.hero-cta .tlink,.tlink-dl{--tl:#98672A}
+/* Register and its link stay on one line, centred on each other, from tablet width
+   up: both scale down a little on narrower screens instead of wrapping */
+@media(min-width:561px){
+  .hero-cta{flex-wrap:nowrap;align-items:center}
+  .hero-cta .pill{flex:none;font-size:clamp(13px,1.15vw,16px);padding-left:clamp(22px,2.2vw,32px);gap:clamp(.7rem,1vw,1.15rem)}
+  .hero-cta .tlink{flex:none;margin-left:auto;font-size:clamp(12px,1.05vw,15px)}
+}
+@media(min-width:1081px) and (max-width:1299px){
+  .hero-cta .pill{letter-spacing:.1em}
+  .hero-cta .tlink{letter-spacing:.09em}
+}
+@media(min-width:561px) and (max-width:1080px){
+  .hero-cta .pill{font-size:15px;padding-left:28px}
+  .hero-cta .tlink{font-size:14px;letter-spacing:.1em}
+}
