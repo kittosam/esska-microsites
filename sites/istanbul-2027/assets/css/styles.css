@@ -1311,13 +1311,13 @@ abbr.tbc{text-decoration:none;cursor:help}
 .pc-box .pc-box-office a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 #enquiry-form{scroll-margin-top:140px}
 
-/* chairs' letter: larger photos, each set above its name so long role titles keep
+/* chairs' letter: larger photos (156px, 126px on narrow screens), each set above its name so long role titles keep
    room (as on Rome and Athens). The initials circle stands in until photos arrive. */
 .lh-chairs .sign{gap:1.5rem}
 .lh-chairs .sign figure{flex-direction:column;align-items:flex-start;gap:.6rem}
-.lh-chairs .sign img,.lh-chairs .sign .sign-av{width:104px;height:104px}
+.lh-chairs .sign img,.lh-chairs .sign .sign-av{width:156px;height:156px}
 .lh-chairs .sign .sign-av{font-size:1.6rem}
 .lh-chairs .sign b{font-size:1.02rem}
 @media(max-width:900px){
-  .lh-chairs .sign img,.lh-chairs .sign .sign-av{width:84px;height:84px}
+  .lh-chairs .sign img,.lh-chairs .sign .sign-av{width:126px;height:126px}
 }
