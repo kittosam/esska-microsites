@@ -77,7 +77,7 @@ f'''        <section class="pday" data-day="{num}"{" hidden" if hidden else ""}>
 
 p=pathlib.Path("index.html"); s=p.read_text(encoding="utf-8")
 i=s.index('      <div class="pdays" id="progDays">')
-j=s.index('      <div style="margin-top:2.4rem"><a class="btn btn-dl"',i)
+j=s.index('      <div style="margin-top:2.4rem"><a class="dl"',i)
 s=(s[:i]+'      <div class="pdays" id="progDays">\n'
    + day_block(data.DAY1,"1","Day one","2027-10-08","Fri","8","Oct","Friday 8 October 2027",False)+"\n"
    + day_block(data.DAY2,"2","Day two","2027-10-09","Sat","9","Oct","Saturday 9 October 2027",True)+"\n      </div>\n"
