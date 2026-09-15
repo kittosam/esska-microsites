@@ -1477,13 +1477,13 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
 .pc-box .pc-box-office a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 #enquiry-form{scroll-margin-top:140px}
 
-/* chairs' letter: larger photos, each set above its name so long role titles keep room */
+/* chairs' letter: larger photos (156px, 126px on narrow screens), each set above its name so long role titles keep room */
 .lh-chairs .sign{gap:1.5rem}
 .lh-chairs .sign figure{flex-direction:column;align-items:flex-start;gap:.6rem}
-.lh-chairs .sign img,.lh-chairs .sign .sign-av{width:104px;height:104px}
+.lh-chairs .sign img,.lh-chairs .sign .sign-av{width:156px;height:156px}
 .lh-chairs .sign b{font-size:1.02rem}
 @media(max-width:900px){
-  .lh-chairs .sign img,.lh-chairs .sign .sign-av{width:84px;height:84px}
+  .lh-chairs .sign img,.lh-chairs .sign .sign-av{width:126px;height:126px}
 }
 
 /* all three topic cards now use supplied artwork with the title printed inside,
@@ -1492,3 +1492,21 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
 .tile.t1 .art{object-position:center}
 .tile.t1 .word{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .tile.t1::after{background:none}
+
+/* Registration and Industry banners, softer: the site's deep navy rather than a bright blue
+   sweep, and the Acropolis circle drawn fully inside the banner, muted and edged
+   with a thin sand line so it sits with the photo headers on the other pages */
+.ph-registration,.ph-industry{background:
+  radial-gradient(60% 120% at 82% 50%,rgba(38,64,107,.55) 0%,rgba(38,64,107,0) 70%),
+  linear-gradient(120deg,#08182F 0%,#0F2446 55%,#16305A 100%)}
+.ph-registration .ban-circle{right:clamp(24px,6vw,120px);width:clamp(280px,25vw,400px);
+  box-shadow:0 0 0 1px rgba(226,196,143,.42),0 0 0 14px rgba(169,192,226,.05),0 24px 60px rgba(4,12,32,.40)}
+.ph-registration .ban-circle img{object-position:70% 58%;filter:saturate(.72) brightness(.9) contrast(.96)}
+.ph-registration .ban-circle::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  background:linear-gradient(200deg,rgba(8,24,47,0) 40%,rgba(8,24,47,.38) 100%),rgba(18,41,77,.14)}
+/* Industry: the round icons and skyline muted to match */
+.ph-industry .ban-icons{right:clamp(40px,7vw,140px)}
+.ph-industry .ban-icons img{filter:saturate(.72) brightness(.92);
+  box-shadow:0 0 0 1px rgba(226,196,143,.42),0 0 0 6px rgba(169,192,226,.08),0 14px 30px rgba(4,12,32,.35)}
+.ph-industry .ban-icons svg{opacity:.6}
+.ph-industry .ban-sky{background:linear-gradient(90deg,rgba(176,204,240,.05),rgba(176,204,240,.2))}
