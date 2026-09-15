@@ -1638,3 +1638,17 @@ abbr.tbc{text-decoration:none;cursor:help}
 .fac .av{width:93px;height:93px;font-size:1.65rem;margin-bottom:1rem}
 .ind-av,img.ind-av{width:84px;height:84px}
 .ind-person{gap:1.25rem}
+
+/* Industry: the Corporate Relations Manager card, a step larger all round */
+.ind-person{gap:1.6rem;padding:1.5rem 1.75rem;border-radius:16px;margin:.8rem 0 1rem}
+.ind-av,img.ind-av{width:112px;height:112px}
+img.ind-av{box-shadow:0 0 0 4px #fff,0 6px 16px rgba(0,0,0,.16)}
+.ind-who{gap:.3rem}
+.ind-who b{font-size:1.5rem;letter-spacing:-.015em}
+.ind-who span{font-size:1.1rem}
+.ind-who a{font-size:1.18rem;text-underline-offset:4px}
+@media(max-width:560px){
+  .ind-person{flex-direction:column;align-items:flex-start;gap:1rem;padding:1.25rem}
+  .ind-av,img.ind-av{width:96px;height:96px}
+  .ind-who b{font-size:1.3rem}
+}
