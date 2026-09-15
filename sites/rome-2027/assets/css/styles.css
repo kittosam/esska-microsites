@@ -1195,78 +1195,72 @@ footer > *{position:relative}
 }
 
 /* =====================================================================
-   Basalt & Cobalt: Register now + Download the programme
-   (the approved Bologna component, in Rome's palette)
+   Buttons: the same two on all five sites. A solid pill with a round
+   badge for actions, and an underlined text link for everything else.
+   Only the colours below change from site to site.
    ===================================================================== */
-/* Register: a two-tone pill. Cobalt label, basalt cap with a white triangle that
-   points out of the page (never rotated or mirrored). */
-.reg{position:relative;display:inline-flex;align-items:stretch;height:54px;border-radius:999px;overflow:hidden;
-  text-decoration:none;font-family:var(--f);font-size:15px;font-weight:800;letter-spacing:.12em;
-  text-transform:uppercase;line-height:1;white-space:nowrap;cursor:pointer;
-  box-shadow:0 6px 16px rgba(23,27,34,.18);transition:transform .35s var(--e),box-shadow .35s var(--e)}
-.reg-l{position:relative;overflow:hidden;display:flex;align-items:center;padding:18px 24px 18px 30px;
-  background:#2350A8;color:#fff;transition:background .25s var(--e)}
-.reg-cap{display:flex;align-items:center;padding:0 22px;background:#171B22;color:#fff}
-.reg-cap svg{width:12px;height:15px;display:block;fill:currentColor;
+:root{--pill:#2350A8;--pill-h:#1B3A78;--pill-sh:35,80,168;--tl:#2350A8;--tl-h:#1B3A78;--tl-u:rgba(35,80,168,.32)}
+.pill{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:1rem;
+  height:52px;padding:0 7px 0 28px;border:0;border-radius:999px;background:var(--pill);color:#fff;
+  text-decoration:none;cursor:pointer;font-family:var(--f);font-size:15px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;line-height:1;white-space:nowrap;box-shadow:0 10px 24px rgba(var(--pill-sh),.28);
+  transition:transform .35s var(--e),box-shadow .35s var(--e),background .25s var(--e)}
+.pill-i{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.2);transition:background .25s var(--e)}
+.pill-i svg{display:block;width:11px;height:13px;margin-left:2px;fill:#fff;
   animation:tri 2.6s var(--e) 1.2s infinite;transition:transform .35s var(--e)}
-.reg:hover .reg-l{background:#1B3A78}
-.reg:focus-visible{outline:2px solid #171B22;outline-offset:3px}
-/* movement: the pill lifts on hover and settles when pressed; the triangle pulses
-   gently at rest and slides out of the page on hover; a soft sheen crosses the
-   label. The reduced-motion block switches the movement off. */
-.reg:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(23,27,34,.28)}
-.reg:active{transform:translateY(0);box-shadow:0 4px 10px rgba(23,27,34,.2)}
-@keyframes tri{0%,62%,100%{transform:none;opacity:1}
-  76%{transform:translateX(3px) scale(1.18);opacity:.8}}
-.reg:hover .reg-cap svg{animation:none;transform:translateX(4px)}
-.reg-l::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);
+/* movement: the triangle pulses gently at rest; on hover the pill lifts, a soft
+   sheen crosses it and the triangle nudges forward. The reduced-motion block
+   near the top of this file switches the movement off. */
+@keyframes tri{0%,62%,100%{transform:none;opacity:1}76%{transform:translateX(2px) scale(1.18);opacity:.85}}
+.pill::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);
   transform:translateX(-120%);transition:transform .7s var(--e)}
-.reg:hover .reg-l::after{transform:translateX(120%)}
-/* on basalt and over photos the basalt cap needs an edge */
-.bleed .reg,.reg-book .reg,.stick:not(.onlight) .reg{box-shadow:0 0 0 1px rgba(169,190,232,.4),0 8px 20px rgba(0,0,0,.25)}
-/* not open yet: the label still carries the opening date, so it stays readable */
-.reg.is-disabled,.reg.is-disabled:hover{cursor:default;transform:none;box-shadow:0 0 0 1px rgba(169,190,232,.35)}
-.reg.is-disabled .reg-l,.reg.is-disabled:hover .reg-l{background:#3A4150;color:#E4E7EE}
-.reg.is-disabled .reg-cap{background:#2A303B;color:#8D95A3}
-.reg.is-disabled .reg-cap svg{animation:none;transform:none}
-.reg.is-disabled .reg-l::after{display:none}
-/* the sticky-bar Register: same pill, smaller; the nav one a step up from that */
-.reg-sm{height:44px;font-size:13px}
-.reg-sm .reg-l{padding:0 18px 0 22px}
-.reg-sm .reg-cap{padding:0 17px}
-.reg-sm .reg-cap svg{width:10px;height:12px}
+.pill:hover{background:var(--pill-h);transform:translateY(-2px);box-shadow:0 14px 30px rgba(var(--pill-sh),.36)}
+.pill:hover::after{transform:translateX(120%)}
+.pill:hover .pill-i{background:rgba(255,255,255,.3)}
+.pill:hover .pill-i svg{animation:none;transform:translateX(2px)}
+.pill:active{transform:none;box-shadow:0 6px 14px rgba(var(--pill-sh),.28)}
+.pill:focus-visible{outline:2px solid var(--pill);outline-offset:3px}
+/* not open yet (the Register card, on a dark panel): quiet, but still readable */
+.pill.is-disabled,.pill.is-disabled:hover{cursor:default;transform:none;background:rgba(255,255,255,.14);
+  color:rgba(255,255,255,.88);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.pill.is-disabled .pill-i{background:rgba(255,255,255,.12)}
+.pill.is-disabled .pill-i svg{animation:none;transform:none;opacity:.7}
+.pill.is-disabled::after{display:none}
+/* the sticky-bar Register, and the nav one a step up from that */
+.pill-sm{height:44px;padding:0 5px 0 20px;gap:.75rem;font-size:13px}
+.pill-sm .pill-i{width:34px;height:34px}
+.pill-sm .pill-i svg{width:9px;height:11px;margin-left:1px}
 @media(min-width:761px){
-  .navreg.reg-sm{height:50px;font-size:14px}
-  .navreg.reg-sm .reg-l{padding:0 22px 0 26px}
-  .navreg.reg-sm .reg-cap{padding:0 19px}
-  .navreg.reg-sm .reg-cap svg{width:11px;height:14px}
+  .navreg.pill-sm{height:48px;padding:0 6px 0 24px;font-size:14px}
+  .navreg.pill-sm .pill-i{width:36px;height:36px}
+  .navreg.pill-sm .pill-i svg{width:10px;height:12px}
 }
-.stick .reg{margin-left:auto;flex:none}
-.reg-card .reg{margin-top:auto}
+
+.tlink{display:inline-flex;align-items:center;padding:.3rem 0 .55rem;color:var(--tl);text-decoration:none;
+  font-family:var(--f);font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;
+  background:linear-gradient(var(--tl-h),var(--tl-h)) left bottom/0 3px no-repeat,
+    linear-gradient(var(--tl-u),var(--tl-u)) left bottom/100% 3px no-repeat;
+  transition:color .25s var(--e),background-size .45s var(--e)}
+/* on hover the underline fills from the left in the full colour */
+.tlink:hover{color:var(--tl-h);background-size:100% 3px,100% 3px}
+.tlink:focus-visible{outline:2px solid var(--tl);outline-offset:4px;border-radius:2px}
+/* over photos and dark panels */
+.bleed .tlink,.reg-book .tlink{--tl:#fff;--tl-h:#fff;--tl-u:rgba(255,255,255,.45)}
+
+/* where the two sit */
+.hero-cta{gap:1rem 2rem;align-items:center}
+.bleed .go{align-items:center;gap:1rem 2rem}
+.btn-row{align-items:center;gap:1rem 2rem}
+.stick .pill{margin-left:auto;flex:none}
+.reg-card .pill,.reg-card .tlink{margin-top:auto}
+.ind-spon .pill{margin-top:.3rem}
+.pc-box .pill{margin-top:.4rem}
+.tlink.pctl-dl{flex:none;padding:.3rem 0 .55rem;font-size:15px}
+@media(max-width:700px){.tlink.pctl-dl{width:auto}}
 @media(max-width:560px){
-  .hero-cta .reg{width:100%}
-  .hero-cta .reg-l{flex:1;justify-content:center}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .pill > span:first-child{flex:1;text-align:center}
+  .hero-cta .tlink{align-self:center}
 }
-
-/* Download the programme: a cobalt text link with a downward glyph, never an arrow
-   and never a box, so it can't be mistaken for a second button */
-.dl{display:inline-flex;align-items:center;gap:.65rem;padding:.35rem .3rem;border-radius:2px;
-  color:#2350A8;text-decoration:none;font-family:var(--f);font-size:15px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;line-height:1.2;transition:color .25s var(--e)}
-.dl svg{width:14px;height:17px;flex:none;display:block}
-.dl svg path:first-child{transition:transform .35s var(--e)}
-.dl:hover{color:#171B22}
-.dl:hover svg path:first-child{transform:translateY(2px)}
-.dl:focus-visible{outline:2px solid #171B22;outline-offset:2px}
-.hero-cta{gap:.9rem 1rem}
-/* Rome's title column is narrower than Bologna's, so on wide screens the pair is
-   allowed to run slightly past it (over the pale scrim) rather than stack */
-@media(min-width:1300px){.hero-cta{flex-wrap:nowrap;width:max-content}}
-@media(max-width:560px){.hero-cta{flex-direction:column;align-items:stretch}.hero-cta .dl{align-self:center}}
-
-/* secondary buttons: cobalt outline on light (cobalt means clickable), basalt solid */
-.btn-o{color:#2350A8;box-shadow:0 0 0 2px rgba(35,80,168,.42) inset,0 1px 2px rgba(15,18,23,.06)}
-.btn-o:hover{color:#1B3A78;background:var(--ice);box-shadow:0 0 0 2px #2350A8 inset,0 4px 12px rgba(15,18,23,.10)}
-.btn-navy,.btn-p{box-shadow:0 6px 16px rgba(15,18,23,.22)}
-.btn-navy:hover,.btn-p:hover{background:#2A303B}

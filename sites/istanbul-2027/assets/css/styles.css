@@ -1321,3 +1321,74 @@ abbr.tbc{text-decoration:none;cursor:help}
 @media(max-width:900px){
   .lh-chairs .sign img,.lh-chairs .sign .sign-av{width:126px;height:126px}
 }
+
+/* =====================================================================
+   Buttons: the same two on all five sites. A solid pill with a round
+   badge for actions, and an underlined text link for everything else.
+   Only the colours below change from site to site.
+   ===================================================================== */
+:root{--pill:#0A6E80;--pill-h:#075766;--pill-sh:10,110,128;--tl:#0A6E80;--tl-h:#075766;--tl-u:rgba(10,110,128,.35)}
+.pill{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:1rem;
+  height:52px;padding:0 7px 0 28px;border:0;border-radius:999px;background:var(--pill);color:#fff;
+  text-decoration:none;cursor:pointer;font-family:var(--f);font-size:15px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;line-height:1;white-space:nowrap;box-shadow:0 10px 24px rgba(var(--pill-sh),.28);
+  transition:transform .35s var(--e),box-shadow .35s var(--e),background .25s var(--e)}
+.pill-i{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.2);transition:background .25s var(--e)}
+.pill-i svg{display:block;width:11px;height:13px;margin-left:2px;fill:#fff;
+  animation:tri 2.6s var(--e) 1.2s infinite;transition:transform .35s var(--e)}
+/* movement: the triangle pulses gently at rest; on hover the pill lifts, a soft
+   sheen crosses it and the triangle nudges forward. The reduced-motion block
+   near the top of this file switches the movement off. */
+@keyframes tri{0%,62%,100%{transform:none;opacity:1}76%{transform:translateX(2px) scale(1.18);opacity:.85}}
+.pill::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform .7s var(--e)}
+.pill:hover{background:var(--pill-h);transform:translateY(-2px);box-shadow:0 14px 30px rgba(var(--pill-sh),.36)}
+.pill:hover::after{transform:translateX(120%)}
+.pill:hover .pill-i{background:rgba(255,255,255,.3)}
+.pill:hover .pill-i svg{animation:none;transform:translateX(2px)}
+.pill:active{transform:none;box-shadow:0 6px 14px rgba(var(--pill-sh),.28)}
+.pill:focus-visible{outline:2px solid var(--pill);outline-offset:3px}
+/* not open yet (the Register card, on a dark panel): quiet, but still readable */
+.pill.is-disabled,.pill.is-disabled:hover{cursor:default;transform:none;background:rgba(255,255,255,.14);
+  color:rgba(255,255,255,.88);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.pill.is-disabled .pill-i{background:rgba(255,255,255,.12)}
+.pill.is-disabled .pill-i svg{animation:none;transform:none;opacity:.7}
+.pill.is-disabled::after{display:none}
+/* the sticky-bar Register, and the nav one a step up from that */
+.pill-sm{height:44px;padding:0 5px 0 20px;gap:.75rem;font-size:13px}
+.pill-sm .pill-i{width:34px;height:34px}
+.pill-sm .pill-i svg{width:9px;height:11px;margin-left:1px}
+@media(min-width:761px){
+  .navreg.pill-sm{height:48px;padding:0 6px 0 24px;font-size:14px}
+  .navreg.pill-sm .pill-i{width:36px;height:36px}
+  .navreg.pill-sm .pill-i svg{width:10px;height:12px}
+}
+
+.tlink{display:inline-flex;align-items:center;padding:.3rem 0 .55rem;color:var(--tl);text-decoration:none;
+  font-family:var(--f);font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;
+  background:linear-gradient(var(--tl-h),var(--tl-h)) left bottom/0 3px no-repeat,
+    linear-gradient(var(--tl-u),var(--tl-u)) left bottom/100% 3px no-repeat;
+  transition:color .25s var(--e),background-size .45s var(--e)}
+/* on hover the underline fills from the left in the full colour */
+.tlink:hover{color:var(--tl-h);background-size:100% 3px,100% 3px}
+.tlink:focus-visible{outline:2px solid var(--tl);outline-offset:4px;border-radius:2px}
+/* over photos and dark panels */
+.bleed .tlink,.reg-book .tlink{--tl:#fff;--tl-h:#fff;--tl-u:rgba(255,255,255,.45)}
+
+/* where the two sit */
+.hero-cta{gap:1rem 2rem;align-items:center}
+.bleed .go{align-items:center;gap:1rem 2rem}
+.btn-row{align-items:center;gap:1rem 2rem}
+.stick .pill{margin-left:auto;flex:none}
+.reg-card .pill,.reg-card .tlink{margin-top:auto}
+.ind-spon .pill{margin-top:.3rem}
+.pc-box .pill{margin-top:.4rem}
+.tlink.pctl-dl{flex:none;padding:.3rem 0 .55rem;font-size:15px}
+@media(max-width:700px){.tlink.pctl-dl{width:auto}}
+@media(max-width:560px){
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .pill > span:first-child{flex:1;text-align:center}
+  .hero-cta .tlink{align-self:center}
+}

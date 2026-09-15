@@ -1279,76 +1279,6 @@ abbr.tbc{text-decoration:none;cursor:help}
 }
 
 /* =====================================================================
-   Rose Stone: Register now + Download the programme (approved component)
-   ===================================================================== */
-/* Register: a two-tone pill. Rose-clay label, brick cap with a white triangle that
-   points out of the page (never rotated or mirrored). Flat, no sheen or pulse. */
-.reg{display:inline-flex;align-items:stretch;height:54px;border-radius:999px;overflow:hidden;
-  text-decoration:none;font-family:var(--f);font-size:15px;font-weight:800;letter-spacing:.12em;
-  text-transform:uppercase;line-height:1;white-space:nowrap;cursor:pointer}
-.reg-l{display:flex;align-items:center;padding:18px 24px 18px 30px;background:#E0AB93;color:#6B3227;
-  transition:background .25s var(--e)}
-.reg-cap{display:flex;align-items:center;padding:0 22px;background:#7A3B30;color:#fff}
-.reg-cap svg{width:12px;height:15px;display:block;fill:currentColor}
-.reg:hover .reg-l{background:#D49B80}
-/* movement: the pill lifts a little on hover and settles when pressed; the triangle
-   pulses gently at rest and slides out of the page on hover. The reduced-motion
-   block switches all of it off. */
-.reg{position:relative;box-shadow:0 6px 16px rgba(122,59,48,.16);
-  transition:transform .35s var(--e),box-shadow .35s var(--e)}
-.reg:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(122,59,48,.26)}
-.reg:active{transform:translateY(0);box-shadow:0 4px 10px rgba(122,59,48,.18)}
-.reg-cap svg{animation:tri 2.6s var(--e) 1.2s infinite;transition:transform .35s var(--e)}
-@keyframes tri{0%,62%,100%{transform:none;opacity:1}
-  76%{transform:translateX(3px) scale(1.18);opacity:.8}}
-.reg:hover .reg-cap svg{animation:none;transform:translateX(4px)}
-/* a soft sheen crosses the label on hover */
-.reg-l{position:relative;overflow:hidden}
-.reg-l::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.38) 50%,transparent 70%);
-  transform:translateX(-120%);transition:transform .7s var(--e)}
-.reg:hover .reg-l::after{transform:translateX(120%)}
-.reg.is-disabled,.reg.is-disabled:hover{transform:none;box-shadow:none}
-.reg.is-disabled .reg-cap svg{animation:none}
-.reg.is-disabled .reg-l::after{display:none}
-.reg:focus-visible{outline:2px solid #4E5E6C;outline-offset:3px}
-/* not open yet */
-.reg.is-disabled{cursor:default}
-.reg.is-disabled .reg-l{background:#F3DDD2;color:#C9A194}
-.reg.is-disabled .reg-cap{background:#C4A49F}
-.reg.is-disabled:hover .reg-l{background:#F3DDD2}
-/* the nav and sticky-bar Register: same pill, smaller */
-.reg-sm{height:44px;font-size:13px}
-/* the nav Register sits alone at the top right, so it takes a step up in size */
-@media(min-width:761px){
-  .navreg.reg-sm{height:50px;font-size:14px}
-  .navreg.reg-sm .reg-l{padding:0 22px 0 26px}
-  .navreg.reg-sm .reg-cap{padding:0 19px}
-  .navreg.reg-sm .reg-cap svg{width:11px;height:14px}
-}
-.reg-sm .reg-l{padding:0 18px 0 22px}
-.reg-sm .reg-cap{padding:0 17px}
-.reg-sm .reg-cap svg{width:10px;height:12px}
-.stick .reg{margin-left:auto;flex:none}
-@media(max-width:560px){
-  .hero-cta .reg{width:100%}
-  .hero-cta .reg-l{flex:1;justify-content:center}
-}
-
-/* Download the programme: a text link with a downward glyph, never an arrow and
-   never a box, so it can't be mistaken for a second button */
-.dl{display:inline-flex;align-items:center;gap:.65rem;padding:.35rem .3rem;border-radius:2px;
-  color:#4E5E6C;text-decoration:none;font-family:var(--f);font-size:15px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;line-height:1.2;transition:color .25s var(--e)}
-.dl svg{width:14px;height:17px;flex:none;display:block}
-.dl:hover{color:#A85A4C}
-.dl svg path:first-child{transition:transform .35s var(--e)}
-.dl:hover svg path:first-child{transform:translateY(2px)}
-.dl:focus-visible{outline:2px solid #4E5E6C;outline-offset:2px;color:#4E5E6C}
-.hero-cta{gap:.9rem 1rem}
-@media(max-width:560px){.hero-cta{flex-direction:column;align-items:stretch}.hero-cta .dl{align-self:center}}
-
-/* =====================================================================
    Rose Stone: grounds, text contrast and information panels
    ===================================================================== */
 /* brick 600 passes on shell but not on blush sand, so on sand the warm text tone
@@ -1364,8 +1294,74 @@ abbr.tbc{text-decoration:none;cursor:help}
 .tba .eyebrow{color:var(--info)}
 .tba h3{color:var(--navy)}
 .tba p:not(.eyebrow){color:var(--ink)}
-/* secondary outline buttons: plum outline, no warm glow (warm fill is kept for Register) */
-.btn-o{box-shadow:0 0 0 2px rgba(106,85,96,.42) inset,0 1px 2px rgba(84,67,76,.06)}
-.btn-o:hover{box-shadow:0 0 0 2px var(--navy) inset,0 4px 12px rgba(84,67,76,.12)}
-.btn-navy,.btn-p{box-shadow:0 6px 16px rgba(84,67,76,.22)}
-.reg-card .reg{margin-top:auto}
+
+/* =====================================================================
+   Buttons: the same two on all five sites. A solid pill with a round
+   badge for actions, and an underlined text link for everything else.
+   Only the colours below change from site to site.
+   ===================================================================== */
+:root{--pill:#A85A4C;--pill-h:#8E4A3D;--pill-sh:168,90,76;--tl:var(--ac);--tl-h:#7A3B30;--tl-u:rgba(192,119,106,.42)}
+.pill{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:1rem;
+  height:52px;padding:0 7px 0 28px;border:0;border-radius:999px;background:var(--pill);color:#fff;
+  text-decoration:none;cursor:pointer;font-family:var(--f);font-size:15px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;line-height:1;white-space:nowrap;box-shadow:0 10px 24px rgba(var(--pill-sh),.28);
+  transition:transform .35s var(--e),box-shadow .35s var(--e),background .25s var(--e)}
+.pill-i{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.2);transition:background .25s var(--e)}
+.pill-i svg{display:block;width:11px;height:13px;margin-left:2px;fill:#fff;
+  animation:tri 2.6s var(--e) 1.2s infinite;transition:transform .35s var(--e)}
+/* movement: the triangle pulses gently at rest; on hover the pill lifts, a soft
+   sheen crosses it and the triangle nudges forward. The reduced-motion block
+   near the top of this file switches the movement off. */
+@keyframes tri{0%,62%,100%{transform:none;opacity:1}76%{transform:translateX(2px) scale(1.18);opacity:.85}}
+.pill::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform .7s var(--e)}
+.pill:hover{background:var(--pill-h);transform:translateY(-2px);box-shadow:0 14px 30px rgba(var(--pill-sh),.36)}
+.pill:hover::after{transform:translateX(120%)}
+.pill:hover .pill-i{background:rgba(255,255,255,.3)}
+.pill:hover .pill-i svg{animation:none;transform:translateX(2px)}
+.pill:active{transform:none;box-shadow:0 6px 14px rgba(var(--pill-sh),.28)}
+.pill:focus-visible{outline:2px solid var(--pill);outline-offset:3px}
+/* not open yet (the Register card, on a dark panel): quiet, but still readable */
+.pill.is-disabled,.pill.is-disabled:hover{cursor:default;transform:none;background:rgba(255,255,255,.14);
+  color:rgba(255,255,255,.88);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.pill.is-disabled .pill-i{background:rgba(255,255,255,.12)}
+.pill.is-disabled .pill-i svg{animation:none;transform:none;opacity:.7}
+.pill.is-disabled::after{display:none}
+/* the sticky-bar Register, and the nav one a step up from that */
+.pill-sm{height:44px;padding:0 5px 0 20px;gap:.75rem;font-size:13px}
+.pill-sm .pill-i{width:34px;height:34px}
+.pill-sm .pill-i svg{width:9px;height:11px;margin-left:1px}
+@media(min-width:761px){
+  .navreg.pill-sm{height:48px;padding:0 6px 0 24px;font-size:14px}
+  .navreg.pill-sm .pill-i{width:36px;height:36px}
+  .navreg.pill-sm .pill-i svg{width:10px;height:12px}
+}
+
+.tlink{display:inline-flex;align-items:center;padding:.3rem 0 .55rem;color:var(--tl);text-decoration:none;
+  font-family:var(--f);font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;
+  background:linear-gradient(var(--tl-h),var(--tl-h)) left bottom/0 3px no-repeat,
+    linear-gradient(var(--tl-u),var(--tl-u)) left bottom/100% 3px no-repeat;
+  transition:color .25s var(--e),background-size .45s var(--e)}
+/* on hover the underline fills from the left in the full colour */
+.tlink:hover{color:var(--tl-h);background-size:100% 3px,100% 3px}
+.tlink:focus-visible{outline:2px solid var(--tl);outline-offset:4px;border-radius:2px}
+/* over photos and dark panels */
+.bleed .tlink,.reg-book .tlink{--tl:#fff;--tl-h:#fff;--tl-u:rgba(255,255,255,.45)}
+
+/* where the two sit */
+.hero-cta{gap:1rem 2rem;align-items:center}
+.bleed .go{align-items:center;gap:1rem 2rem}
+.btn-row{align-items:center;gap:1rem 2rem}
+.stick .pill{margin-left:auto;flex:none}
+.reg-card .pill,.reg-card .tlink{margin-top:auto}
+.ind-spon .pill{margin-top:.3rem}
+.pc-box .pill{margin-top:.4rem}
+.tlink.pctl-dl{flex:none;padding:.3rem 0 .55rem;font-size:15px}
+@media(max-width:700px){.tlink.pctl-dl{width:auto}}
+@media(max-width:560px){
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .pill > span:first-child{flex:1;text-align:center}
+  .hero-cta .tlink{align-self:center}
+}
