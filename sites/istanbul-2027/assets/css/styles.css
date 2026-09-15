@@ -1625,3 +1625,10 @@ abbr.tbc{text-decoration:none;cursor:help}
 @media(min-width:1081px) and (max-width:1199px){.hero-cta .tlink{letter-spacing:.07em;gap:7px}}
 @media(min-width:1200px) and (max-width:1299px){.hero-cta .tlink{letter-spacing:.12em}}
 @media(max-width:560px){.hero-cta .pill > span:first-child{flex:1;text-align:center}}
+
+/* the sticky-bar Register matches the nav Register at the top right */
+@media(min-width:761px){
+  .stick .pill-sm{height:auto;padding:6px 7px 6px 22px;gap:14px;font-size:14px}
+  .stick .pill-sm .pill-i{width:32px;height:32px}
+  .stick .pill-sm .pill-i svg{width:9px;height:11px}
+}
