@@ -1488,3 +1488,16 @@ abbr.tbc{text-decoration:none;cursor:help}
   100%{box-shadow:0 0 0 0 rgba(var(--ring),0)}}
 .pill[data-go="registration"]:hover::before{animation:none}
 @media(min-width:1081px) and (max-width:1199px){.hero-cta .tlink{letter-spacing:.06em;gap:.45rem}}
+
+/* ---------- Register: one even shading, the same on every site ---------- */
+/* a soft light from the top and a little shade at the bottom, laid over the
+   diagonal light-to-deep gradient, so the pill reads as rounded, not flat */
+.pill{background:
+  linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,.12) 100%),
+  linear-gradient(135deg,var(--pill-l) 0%,var(--pill) 55%,var(--pill-h) 100%)}
+.pill:hover{background:
+  linear-gradient(180deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,.14) 100%),
+  linear-gradient(135deg,var(--pill) 0%,var(--pill-h) 100%)}
+/* the automatic sheen could be caught halfway, leaving a pale band across the
+   pill; it now crosses only on hover. The pulse ring and the circle's beat stay. */
+.hero-cta .pill::after{animation:none}
