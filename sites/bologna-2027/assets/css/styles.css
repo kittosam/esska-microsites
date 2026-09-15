@@ -218,7 +218,7 @@ body.scrolled .util{max-height:0;opacity:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
 
 .hero-cta{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;
-  margin-top:clamp(1.25rem,1.9vw,1.6rem)}
+  margin-top:clamp(2rem,3vw,2.6rem)}
 
 /* ---------- hero load sequence ---------- */
 @keyframes heroUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -1130,7 +1130,7 @@ footer > *{position:relative}
   .hero .strap{margin-top:.5rem}
   .hero .strap .strap-2{margin-top:.3rem}
   .ebar{margin-top:clamp(.8rem,1.6vh,1.2rem)}
-  .hero-cta{margin-top:clamp(.9rem,1.7vh,1.3rem)}
+  .hero-cta{margin-top:clamp(1.8rem,4vh,2.6rem)}
 }
 @media (min-width:1081px) and (max-height:740px){
   .hero-in{padding-block:clamp(.7rem,1.7vh,1.3rem)}
@@ -1213,9 +1213,6 @@ footer > *{position:relative}
    ===================================================================== */
 /* key visual: keep the footballer in view as the panel narrows */
 .hero .art{object-position:38% 50%}
-/* the Sports Medicine icon is a filled navy disc from the banner; set it neutral so
-   the banner's navy doesn't clash with the plum bar */
-.ebar-item img.ic-disc{filter:grayscale(1) brightness(1.15);opacity:1;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.45)}
 /* utility strip before dates are confirmed: month and city instead of a countdown */
 .u-when em{display:inline!important;color:#EFCDBB;transform:none!important}
 @media(max-width:520px){.u-c.u-when{display:none}}
@@ -1263,14 +1260,6 @@ abbr.tbc{text-decoration:none;cursor:help}
   .hero h1{font-size:clamp(2rem,3.2vw,3.1rem)}
   .hero-txt{max-width:min(680px,50%)}
 }
-/* three items instead of Rome's two (dates, section, city): they share one row on
-   desktop, so the figures set a step smaller */
-@media(min-width:1081px){
-  .ebar-row{flex-wrap:nowrap;gap:clamp(.55rem,1vw,.9rem)}
-  .ebar-item{white-space:nowrap;gap:.45rem}
-  .ebar-item b{font-size:clamp(1rem,1.3vw,1.22rem)}
-  .ebar-item img{width:24px;height:24px}
-}
 
 /* the supplied skyline is drawn in the banner's blue; set it neutral so only
    navy shows through the scrim */
@@ -1302,6 +1291,26 @@ abbr.tbc{text-decoration:none;cursor:help}
 .reg-cap{display:flex;align-items:center;padding:0 22px;background:#7A3B30;color:#fff}
 .reg-cap svg{width:12px;height:15px;display:block;fill:currentColor}
 .reg:hover .reg-l{background:#D49B80}
+/* movement: the pill lifts a little on hover and settles when pressed; the triangle
+   pulses gently at rest and slides out of the page on hover. The reduced-motion
+   block switches all of it off. */
+.reg{position:relative;box-shadow:0 6px 16px rgba(122,59,48,.16);
+  transition:transform .35s var(--e),box-shadow .35s var(--e)}
+.reg:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(122,59,48,.26)}
+.reg:active{transform:translateY(0);box-shadow:0 4px 10px rgba(122,59,48,.18)}
+.reg-cap svg{animation:tri 2.6s var(--e) 1.2s infinite;transition:transform .35s var(--e)}
+@keyframes tri{0%,62%,100%{transform:none;opacity:1}
+  76%{transform:translateX(3px) scale(1.18);opacity:.8}}
+.reg:hover .reg-cap svg{animation:none;transform:translateX(4px)}
+/* a soft sheen crosses the label on hover */
+.reg-l{position:relative;overflow:hidden}
+.reg-l::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.38) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform .7s var(--e)}
+.reg:hover .reg-l::after{transform:translateX(120%)}
+.reg.is-disabled,.reg.is-disabled:hover{transform:none;box-shadow:none}
+.reg.is-disabled .reg-cap svg{animation:none}
+.reg.is-disabled .reg-l::after{display:none}
 .reg:focus-visible{outline:2px solid #4E5E6C;outline-offset:3px}
 /* not open yet */
 .reg.is-disabled{cursor:default}
@@ -1310,6 +1319,13 @@ abbr.tbc{text-decoration:none;cursor:help}
 .reg.is-disabled:hover .reg-l{background:#F3DDD2}
 /* the nav and sticky-bar Register: same pill, smaller */
 .reg-sm{height:44px;font-size:13px}
+/* the nav Register sits alone at the top right, so it takes a step up in size */
+@media(min-width:761px){
+  .navreg.reg-sm{height:50px;font-size:14px}
+  .navreg.reg-sm .reg-l{padding:0 22px 0 26px}
+  .navreg.reg-sm .reg-cap{padding:0 19px}
+  .navreg.reg-sm .reg-cap svg{width:11px;height:14px}
+}
 .reg-sm .reg-l{padding:0 18px 0 22px}
 .reg-sm .reg-cap{padding:0 17px}
 .reg-sm .reg-cap svg{width:10px;height:12px}
@@ -1326,6 +1342,8 @@ abbr.tbc{text-decoration:none;cursor:help}
   letter-spacing:.12em;text-transform:uppercase;line-height:1.2;transition:color .25s var(--e)}
 .dl svg{width:14px;height:17px;flex:none;display:block}
 .dl:hover{color:#A85A4C}
+.dl svg path:first-child{transition:transform .35s var(--e)}
+.dl:hover svg path:first-child{transform:translateY(2px)}
 .dl:focus-visible{outline:2px solid #4E5E6C;outline-offset:2px;color:#4E5E6C}
 .hero-cta{gap:.9rem 1rem}
 @media(max-width:560px){.hero-cta{flex-direction:column;align-items:stretch}.hero-cta .dl{align-self:center}}
