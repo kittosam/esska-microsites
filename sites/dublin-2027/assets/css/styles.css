@@ -1566,3 +1566,72 @@ abbr.tbc{text-decoration:none;cursor:help}
 .hero-cta .pill .pill-i{animation:badge-pulse 2.2s var(--e) 1s infinite}
 .hero-cta .pill .pill-i svg{animation:tri 2.2s var(--e) 1s infinite}
 .hero-cta .pill:hover::before,.hero-cta .pill:hover .pill-i,.hero-cta .pill:hover .pill-i svg{animation:none}
+
+/* =====================================================================
+   Buttons, final design (register-cta-4a), the same on all five sites.
+   Register: a pale fill, a 2px border and a soft halo in the site colour,
+   dark label, and a solid disc with a white triangle. Programme link: dark
+   caps with a solid underline and a download glyph. Only the colours below
+   change from site to site; this block overrides the earlier button styles.
+   ===================================================================== */
+:root{--cta-fill:#DDEBE4;--cta-fill-h:#CADFD4;--cta-border:#1E6B52;--cta-rgb:30,107,82;--cta-ink:#12402F;--cta-ink-h:#0A2C1F}
+
+.pill,.hero-cta .pill{height:auto;display:inline-flex;align-items:center;gap:18px;padding:7px 9px 7px 25px;
+  background:var(--cta-fill);border:2px solid var(--cta-border);color:var(--cta-ink);
+  box-shadow:0 0 0 4px rgba(var(--cta-rgb),.12);
+  font-size:15px;font-weight:700;letter-spacing:.1em;transform:none;
+  transition:background .18s,box-shadow .18s}
+.pill:hover,.pill:focus-visible,.hero-cta .pill:hover,.hero-cta .pill:focus-visible{background:var(--cta-fill-h);
+  box-shadow:0 0 0 7px rgba(var(--cta-rgb),.16);outline:none;transform:none}
+.pill:active,.hero-cta .pill:active{transform:none;box-shadow:0 0 0 5px rgba(var(--cta-rgb),.18)}
+.pill::after{display:none}
+.pill-i,.hero-cta .pill .pill-i,.pill:hover .pill-i,.pill[data-go="registration"]:hover .pill-i,.hero-cta .pill:hover .pill-i{
+  width:34px;height:34px;background:var(--cta-border);box-shadow:none;transform:none}
+.pill-i svg,.pill:hover .pill-i svg,.hero-cta .pill .pill-i svg{width:10px;height:12px;margin-left:2px;fill:#fff;transform:none}
+
+/* the homepage Register keeps its gentle pulse: the halo breathes out on a slow
+   beat and stops on hover. The nav, sticky-bar and banner Register don't pulse. */
+.hero-cta .pill .pill-i,.hero-cta .pill .pill-i svg{animation:none}
+.hero-cta .pill::before{--ring:var(--cta-rgb);animation:pill-ring 2.4s var(--e) 1s infinite}
+.hero-cta .pill:hover::before,.hero-cta .pill:focus-visible::before{animation:none}
+
+/* the smaller Register in the sticky bar, and the nav one a step up */
+.pill-sm{padding:5px 6px 5px 18px;gap:12px;font-size:13px}
+.pill-sm .pill-i{width:30px;height:30px}
+.pill-sm .pill-i svg{width:9px;height:11px;margin-left:1px}
+@media(min-width:761px){
+  .navreg.pill-sm{height:auto;padding:6px 7px 6px 22px;gap:14px;font-size:14px}
+  .navreg.pill-sm .pill-i{width:32px;height:32px}
+  .navreg.pill-sm .pill-i svg{width:9px;height:11px}
+}
+
+/* not open yet, on the dark Register card */
+.pill.is-disabled,.pill.is-disabled:hover{cursor:default;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);
+  color:rgba(255,255,255,.88);box-shadow:none}
+.pill.is-disabled .pill-i{background:rgba(255,255,255,.2)}
+.pill.is-disabled::before{animation:none}
+
+/* the text link */
+.tlink,.hero-cta .tlink,.tlink-dl,.tlink.pctl-dl{--tl:var(--cta-ink);color:var(--cta-ink);gap:10px;padding:0 0 6px;
+  font-size:14px;font-weight:700;letter-spacing:.16em;background:none;border-bottom:3px solid currentColor;
+  transform:none;transition:color .18s,border-color .18s}
+.tlink:hover,.tlink:focus-visible,.hero-cta .tlink:hover{color:var(--cta-ink-h);transform:none}
+.tlink:focus-visible{outline:2px solid var(--cta-border);outline-offset:4px}
+.tlink .dl-ic,.tlink-dl .dl-ic{width:14px;height:16px}
+.tlink-dl:hover .dl-ic path:first-child{transform:none}
+.bleed .tlink,.reg-book .tlink{color:#fff}
+.bleed .tlink:hover,.reg-book .tlink:hover{color:#fff;opacity:.85}
+
+/* hero: the pair stays on one line under the date box, Register on its left
+   edge and the link on its right; both scale down a little on narrower screens */
+@media(min-width:561px){
+  .hero-cta .pill{font-size:clamp(13px,1.05vw,15px);padding-left:clamp(18px,1.75vw,25px);gap:clamp(12px,1.25vw,18px)}
+  .hero-cta .tlink{font-size:clamp(12px,.97vw,14px);letter-spacing:.16em}
+}
+@media(min-width:561px) and (max-width:1080px){
+  .hero-cta .pill{font-size:15px;padding-left:25px;gap:18px}
+  .hero-cta .tlink{font-size:13px;letter-spacing:.12em}
+}
+@media(min-width:1081px) and (max-width:1199px){.hero-cta .tlink{letter-spacing:.07em;gap:7px}}
+@media(min-width:1200px) and (max-width:1299px){.hero-cta .tlink{letter-spacing:.12em}}
+@media(max-width:560px){.hero-cta .pill > span:first-child{flex:1;text-align:center}}
