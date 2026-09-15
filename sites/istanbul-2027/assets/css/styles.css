@@ -1236,7 +1236,6 @@ footer > *{position:relative}
    view as the panel narrows */
 .hero .art{object-position:38% 45%}
 /* the shoulder icon is a filled disc, so it keeps its own colours */
-.ebar-item img.ic-disc{filter:grayscale(1) brightness(.85);opacity:1;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.35)}
 /* utility strip before dates are confirmed: month and city instead of a countdown */
 .u-when em{display:inline!important;color:#E3C078;transform:none!important}
 @media(max-width:520px){.u-c.u-when{display:none}}

@@ -1258,7 +1258,6 @@ footer > *{position:relative}
 .hero .art{object-position:45% 50%}
 /* the knee icon is a filled disc, so it keeps its own shape; set it neutral so it
    doesn't bring the banner's navy into the petrol bar */
-.ebar-item img.ic-disc{filter:grayscale(1) brightness(.85);opacity:1;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.35)}
 /* utility strip before dates are confirmed: month and city instead of a countdown */
 .u-when em{display:inline!important;color:#A6D8C5;transform:none!important}
 @media(max-width:520px){.u-c.u-when{display:none}}
