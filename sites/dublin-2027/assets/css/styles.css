@@ -1674,3 +1674,19 @@ footer li{margin-bottom:.68rem}
 .f-brand span{font-size:.86rem;letter-spacing:.17em;margin-top:.25rem}
 .f-base{font-size:.9rem;margin-top:2.8rem}
 @media(min-width:901px) and (max-width:1200px){.f-grid{grid-template-columns:1.5fr 1.1fr 1fr 1.2fr;gap:2rem}}
+
+/* ---------- Download links: underline under the words only ----------
+   The rule used to run under the arrow as well. It now sits on the label, and the
+   arrow is set so its tip lands exactly on that line. The glyph is one chubby,
+   round-capped arrow (no tray) that dips gently on a slow beat, and again on hover.
+   The reduced-motion block near the top of this file switches the movement off. */
+.tlink-dl,.tlink.tlink-dl,.hero-cta .tlink.tlink-dl,.tlink.pctl-dl.tlink-dl{
+  align-items:flex-end;gap:10px;border-bottom:0;padding-bottom:0}
+.tlink-dl > span{display:block;padding-bottom:6px;border-bottom:3px solid currentColor}
+.tlink .dl-ic,.tlink-dl .dl-ic{width:19px;height:19px;flex:none;display:block;
+  /* 3px clears the underline stroke, so the arrow stops on top of the line */
+  margin-bottom:1px;overflow:visible;
+  transition:transform .28s var(--e);animation:dl-dip 4.2s var(--e) 1.6s infinite}
+@keyframes dl-dip{0%,74%,100%{transform:translateY(0)}86%{transform:translateY(2.5px)}}
+.tlink-dl:hover .dl-ic,.tlink-dl:focus-visible .dl-ic{animation:none;transform:translateY(2.5px)}
+.tlink-dl .dl-ic path{transition:none;transform:none}
