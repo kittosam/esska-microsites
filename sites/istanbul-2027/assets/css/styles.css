@@ -1528,3 +1528,31 @@ abbr.tbc{text-decoration:none;cursor:help}
 /* the automatic sheen could be caught halfway, leaving a pale band across the
    pill; it now crosses only on hover. The pulse ring and the circle's beat stay. */
 .hero-cta .pill::after{animation:none}
+
+/* ---------- Register: a visible edge, stronger shading, pulse on the hero only ---------- */
+:root{--pill-edge:#054A56}
+/* a firm border in the deepest tone, a bright hairline just inside the top, and a
+   clearer light-to-deep gradient, so the pill reads as a raised button */
+.pill{border:1.5px solid var(--pill-edge);
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.07) 42%,rgba(0,0,0,0) 58%,rgba(0,0,0,.24) 100%),
+    linear-gradient(135deg,var(--pill-l) 0%,var(--pill) 48%,var(--pill-edge) 100%);
+  box-shadow:0 10px 24px rgba(var(--pill-sh),.32),inset 0 1px 0 rgba(255,255,255,.38),inset 0 -2px 0 rgba(0,0,0,.14)}
+.pill:hover{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.2) 0%,rgba(255,255,255,.05) 42%,rgba(0,0,0,0) 58%,rgba(0,0,0,.26) 100%),
+    linear-gradient(135deg,var(--pill) 0%,var(--pill-h) 55%,var(--pill-edge) 100%);
+  box-shadow:0 14px 30px rgba(var(--pill-sh),.4),inset 0 1px 0 rgba(255,255,255,.32),inset 0 -2px 0 rgba(0,0,0,.16)}
+.pill:active{box-shadow:0 6px 14px rgba(var(--pill-sh),.3),inset 0 2px 6px rgba(0,0,0,.22)}
+.hero-cta .pill{box-shadow:0 12px 28px rgba(var(--pill-sh),.36),inset 0 1px 0 rgba(255,255,255,.4),inset 0 -2px 0 rgba(0,0,0,.15)}
+.hero-cta .pill:hover{box-shadow:0 18px 38px rgba(var(--pill-sh),.46),inset 0 1px 0 rgba(255,255,255,.32),inset 0 -2px 0 rgba(0,0,0,.16)}
+.pill.is-disabled,.pill.is-disabled:hover{border-color:rgba(255,255,255,.22)}
+
+/* the pulse (ring, circle beat, triangle nudge) belongs to the homepage Register
+   only; the nav, sticky-bar and banner Register keep just the hover shine */
+.pill[data-go="registration"]::before{animation:none}
+.pill[data-go="registration"] .pill-i,.pill[data-go="registration"] .pill-i svg{animation:none}
+.hero-cta .pill::before{--ring:var(--pill-sh);animation:pill-ring 2.2s var(--e) 1s infinite}
+.hero-cta .pill .pill-i{animation:badge-pulse 2.2s var(--e) 1s infinite}
+.hero-cta .pill .pill-i svg{animation:tri 2.2s var(--e) 1s infinite}
+.hero-cta .pill:hover::before,.hero-cta .pill:hover .pill-i,.hero-cta .pill:hover .pill-i svg{animation:none}
