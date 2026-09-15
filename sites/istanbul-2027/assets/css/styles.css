@@ -1632,3 +1632,9 @@ abbr.tbc{text-decoration:none;cursor:help}
   .stick .pill-sm .pill-i{width:32px;height:32px}
   .stick .pill-sm .pill-i svg{width:9px;height:11px}
 }
+
+/* photo spots 50% larger: faculty circles (62px to 93px) and the Corporate
+   Relations Manager's photo on the Industry page (56px to 84px) */
+.fac .av{width:93px;height:93px;font-size:1.65rem;margin-bottom:1rem}
+.ind-av,img.ind-av{width:84px;height:84px}
+.ind-person{gap:1.25rem}

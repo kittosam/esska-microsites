@@ -1605,3 +1605,24 @@ abbr.tbc{text-decoration:none;cursor:help}
   .stick .pill-sm .pill-i{width:32px;height:32px}
   .stick .pill-sm .pill-i svg{width:9px;height:11px}
 }
+
+/* photo spots 50% larger: faculty circles (62px to 93px) and the Corporate
+   Relations Manager's photo on the Industry page (56px to 84px) */
+.fac .av{width:93px;height:93px;font-size:1.65rem;margin-bottom:1rem}
+.ind-av,img.ind-av{width:84px;height:84px}
+.ind-person{gap:1.25rem}
+
+
+/* Registration banner: no photo (the rooftops were already on Venue). Plum and
+   brick with two rows of Bologna's porticoes, the nearer row brighter, fading in
+   from the right so the heading keeps a calm ground */
+.ph-registration{background:
+  radial-gradient(55% 120% at 85% 60%,rgba(192,119,106,.38) 0%,rgba(192,119,106,0) 70%),
+  linear-gradient(120deg,#3F3238 0%,#54434C 50%,#6A5560 100%)}
+.ban-arcade{position:absolute;inset:0;z-index:1;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 28%,rgba(0,0,0,.6) 55%,#000 100%);
+          mask-image:linear-gradient(90deg,transparent 0%,transparent 28%,rgba(0,0,0,.6) 55%,#000 100%)}
+.ban-arcade i{position:absolute;left:0;right:0;bottom:0;background:url("../img/pattern-portico.svg") 0 100% repeat-x}
+.ban-arcade i:first-child{height:62%;background-size:auto 100%;background-position:40px 100%;opacity:.12}
+.ban-arcade i:last-child{height:88%;background-size:auto 100%;opacity:.24}
+.ph-registration .scrim{background:linear-gradient(100deg,rgba(63,50,56,.85) 0%,rgba(63,50,56,.45) 40%,rgba(63,50,56,0) 70%)}

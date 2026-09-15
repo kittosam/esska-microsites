@@ -1821,3 +1821,24 @@ footer::before{background:url("../img/skyline-athens.svg") center bottom/cover n
   .stick .pill-sm .pill-i{width:32px;height:32px}
   .stick .pill-sm .pill-i svg{width:9px;height:11px}
 }
+
+/* photo spots 50% larger: faculty circles (62px to 93px) and the Corporate
+   Relations Manager's photo on the Industry page (56px to 84px) */
+.fac .av{width:93px;height:93px;font-size:1.65rem;margin-bottom:1rem}
+.ind-av,img.ind-av{width:84px;height:84px}
+.ind-person{gap:1.25rem}
+
+/* Registration banner: full width, no photo. A Greek key field fades in from the
+   right over the navy, and a gold key frieze runs along the foot of the banner,
+   so it no longer repeats the Acropolis photograph used elsewhere */
+.ph-registration{background:
+  radial-gradient(55% 110% at 88% 45%,rgba(226,196,143,.12) 0%,rgba(226,196,143,0) 70%),
+  radial-gradient(60% 120% at 82% 50%,rgba(38,64,107,.6) 0%,rgba(38,64,107,0) 70%),
+  linear-gradient(120deg,#08182F 0%,#0F2446 55%,#16305A 100%)}
+.ban-pattern{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.13;
+  background:url("../img/pattern-meander.svg") 0 0/56px 36px repeat;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 30%,rgba(0,0,0,.55) 58%,#000 100%);
+          mask-image:linear-gradient(90deg,transparent 0%,transparent 30%,rgba(0,0,0,.55) 58%,#000 100%)}
+.ban-frieze{position:absolute;left:0;right:0;bottom:4px;height:28px;z-index:2;pointer-events:none;opacity:.55;
+  background:url("../img/frieze-meander.svg") 0 50%/43px 28px repeat-x}
+.ph-registration .wrap{padding-bottom:1.2rem}
