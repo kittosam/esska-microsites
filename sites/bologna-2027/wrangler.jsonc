@@ -1,0 +1,10 @@
+{
+  // One Cloudflare project per event site. Set the Worker's "Root directory"
+  // build setting to sites/<event-slug> so this file is found, and the whole
+  // folder is served as static assets.
+  "name": "esska-bologna-2027",
+  "compatibility_date": "2026-09-10",
+  "assets": {
+    "directory": "./"
+  }
+}
