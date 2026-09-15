@@ -215,7 +215,7 @@ body.scrolled .util{max-height:0;opacity:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
 
 .hero-cta{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;
-  margin-top:clamp(1.25rem,1.9vw,1.6rem)}
+  margin-top:clamp(2.6rem,3.6vw,3.2rem)}
 
 /* ---------- hero load sequence ---------- */
 @keyframes heroUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -1170,7 +1170,7 @@ footer > *{position:relative}
   .hero .strap{margin-top:.5rem}
   .hero .strap .strap-2{margin-top:.3rem}
   .ebar{margin-top:clamp(.8rem,1.6vh,1.2rem)}
-  .hero-cta{margin-top:clamp(.9rem,1.7vh,1.3rem)}
+  .hero-cta{margin-top:clamp(2.2rem,4.8vh,3rem)}
 }
 @media (min-width:1081px) and (max-height:740px){
   .hero-in{padding-block:clamp(.7rem,1.7vh,1.3rem)}
@@ -1392,3 +1392,39 @@ abbr.tbc{text-decoration:none;cursor:help}
   .hero-cta .pill > span:first-child{flex:1;text-align:center}
   .hero-cta .tlink{align-self:center}
 }
+
+/* ---------- more room above the hero buttons, and more life in them ---------- */
+/* every pill: on hover the badge turns solid white and the triangle takes the
+   pill colour; pressing squeezes it slightly */
+.pill-i{transition:background .3s var(--e),transform .35s var(--e),box-shadow .35s var(--e)}
+.pill-i svg path{transition:fill .3s var(--e)}
+.pill:hover .pill-i{background:#fff;transform:scale(1.08)}
+.pill:hover .pill-i svg{fill:var(--pill-h)}
+.pill:active{transform:scale(.98)}
+.pill.is-disabled:hover .pill-i{background:rgba(255,255,255,.12);transform:none}
+.pill.is-disabled:hover .pill-i svg{fill:#fff}
+
+/* Register now in the hero, the main action on the page: a sheen crosses it every
+   few seconds, and a soft ring breathes out of the badge in time with the triangle.
+   Hover takes over from both; the reduced-motion block switches them off. */
+.hero-cta .pill{height:56px;padding:0 8px 0 32px;font-size:16px;gap:1.15rem;
+  box-shadow:0 12px 28px rgba(var(--pill-sh),.32)}
+.hero-cta .pill .pill-i{width:40px;height:40px;animation:ring 2.6s var(--e) 1.2s infinite}
+.hero-cta .pill .pill-i svg{width:12px;height:14px}
+.hero-cta .pill::after{animation:sweep-pill 5.5s ease-in-out 2s infinite}
+@keyframes sweep-pill{0%,70%{transform:translateX(-120%)}90%,100%{transform:translateX(120%)}}
+@keyframes ring{0%,55%{box-shadow:0 0 0 0 rgba(255,255,255,.45)}90%,100%{box-shadow:0 0 0 9px rgba(255,255,255,0)}}
+.hero-cta .pill:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(var(--pill-sh),.42)}
+.hero-cta .pill:hover .pill-i{animation:none}
+.hero-cta .pill:hover::after{animation:none;transform:translateX(120%)}
+.hero-cta .pill:active{transform:translateY(-1px) scale(.98)}
+
+/* the text link beside it: lifts a touch as its underline fills */
+.tlink{transition:color .25s var(--e),background-size .45s var(--e),transform .35s var(--e)}
+.tlink:hover{transform:translateY(-1px)}
+
+/* hero buttons arrive after the box: a short rise, the link a beat later */
+.hero-cta{animation:none}
+.hero-cta > *{animation:heroUp .6s var(--e) backwards}  /* backwards, so the hover lift is not held at rest */
+.hero-cta > .pill{animation-delay:.3s}
+.hero-cta > .tlink{animation-delay:.42s}
