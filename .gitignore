@@ -10,3 +10,9 @@ node_modules/
 
 # local preview config
 .claude/
+
+# local working files that are not part of any site
+/sites/athens-2027/assets/dysplasia.png
+/sites/athens-2027/assets/fai.png
+/sites/athens-2027/assets/return-to-sport.png
+/sites/bologna-2027/buttons.pdf
