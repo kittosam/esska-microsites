@@ -1932,3 +1932,19 @@ footer li{margin-bottom:.68rem}
    with the chairs' photographs below it rather than hard against the card's edge. */
 .lh-mark{width:88px;margin-left:clamp(.4rem,1.6vw,1.5rem)}
 @media(max-width:620px){.lh-mark{width:70px;margin-left:.2rem}}
+
+/* ---------- header: the ESSKA mark centred over WELCOME ----------
+   Where the menu drops to its own row, the mark sits centred above the first link.
+   The logo file has a little blank margin, so its drawn circle is centred rather
+   than its box: the circle's centre is 48.8% across the image, and WELCOME is about
+   80px wide (75px on narrow screens, where the menu type is smaller). */
+@media(max-width:1480px){
+  .brand{margin-left:calc(40px - .488 * clamp(62px,5vw,92px))}
+  .nav.stuck .brand{margin-left:calc(40px - .488 * clamp(46px,3.2vw,58px))}
+}
+@media(max-width:760px){
+  .brand,.nav.stuck .brand{margin-left:calc(37px - .488 * clamp(62px,5vw,92px))}
+}
+@media(max-width:520px){
+  .brand,.nav.stuck .brand{margin-left:calc(37px - .488 * 52px)}
+}
