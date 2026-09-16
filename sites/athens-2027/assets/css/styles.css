@@ -1948,3 +1948,12 @@ footer li{margin-bottom:.68rem}
 @media(max-width:520px){
   .brand,.nav.stuck .brand{margin-left:calc(37px - .488 * 52px)}
 }
+
+/* ---------- the chairs' letter: the opening paragraph and the sign-off link ----------
+   The paragraph after "Dear Colleagues" is set in the site's gold, a mid tone that
+   keeps well above the 4.5:1 reading minimum on the letter paper. The programme link
+   closes the letter like a sign-off: lower, centred under the text, with a hairline
+   above it. */
+.letterhead .lead{color:#9A6424}
+.letterhead .letter-cta{margin-top:clamp(2.6rem,4vw,3.4rem);padding-top:clamp(1.8rem,3vw,2.4rem);
+  border-top:1px solid var(--line);text-align:center}
