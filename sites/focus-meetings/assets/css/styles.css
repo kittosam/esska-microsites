@@ -116,9 +116,12 @@ ul{list-style:none;margin:0;padding:0}
   color:var(--navy-l);margin:0 0 1.1rem}
 .kicker em{font-style:normal;color:var(--navy)}
 .hero h1{font-size:clamp(2.3rem,5.6vw,4.4rem);letter-spacing:-.035em;max-width:16ch;text-wrap:balance}
-/* the light half of the heading sits on the photograph: a pale blue, not the
-   page navy, and not a translucent white that thins over a bright sky */
-.hero h1 .lt{font-weight:400;color:#CADCF9}
+/* the heading runs in three tones on the photograph: the first sentence white, then
+   two blues, the second a step deeper than the first. Both clear 3:1 on the brightest
+   frame, which is what large type needs. */
+.hero h1 .lt{font-weight:400}
+.hero h1 .lt-a{color:#DCE8FD}
+.hero h1 .lt-b{color:#B4CEF6}
 .lead{font-size:clamp(1.06rem,1.35vw,1.24rem);color:var(--muted);max-width:60ch;margin:1.4rem 0 0}
 
 .facts{display:flex;flex-wrap:wrap;gap:0;margin:clamp(2.2rem,4vw,3rem) 0 0;
@@ -138,6 +141,9 @@ ul{list-style:none;margin:0;padding:0}
 /* ---------- the cards ---------- */
 main{padding:clamp(3.4rem,7vw,6rem) 0 clamp(3rem,6vw,5rem)}
 .head{max-width:740px;margin-bottom:clamp(2.2rem,4vw,3.2rem)}
+/* the standfirst reads as one sentence, so it keeps to one line wherever the column
+   is wide enough for it; below that it wraps as normal */
+@media(min-width:1150px){.head{max-width:none}.head p{white-space:nowrap}}
 .head h2{font-size:clamp(1.8rem,3.4vw,2.8rem)}
 .head h2 .lt{font-weight:400;color:var(--navy-l)}
 .head p{margin:1.1rem 0 0;color:var(--muted)}
