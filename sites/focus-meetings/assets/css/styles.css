@@ -54,7 +54,9 @@ ul{list-style:none;margin:0;padding:0}
 .brand .bn .sec{display:block;font-size:clamp(.68rem,.82vw,.86rem);font-weight:800;letter-spacing:.2em;
   color:var(--navy-l);margin-top:.25rem}
 .nav-link{flex:none}
-@media(max-width:560px){.nav-link{display:none}}
+/* .tlink sets display later in this file, so the narrow-screen rule has to outrank
+   it or the link overlaps the wordmark */
+@media(max-width:560px){.nav .tlink.nav-link{display:none}}
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding:clamp(3.4rem,7vw,6rem) 0 0;
