@@ -1662,3 +1662,74 @@ footer::before{height:clamp(140px,19vw,280px);background-position:center top;
    Against this footer's darker ground the silhouette needed a stronger hand to
    read as clearly as the Athens, Bologna and Dublin skylines do. */
 footer::before{opacity:.15}
+
+/* =====================================================================
+   Rome pilot: registration buttons from the new mock-ups
+   ===================================================================== */
+
+/* 1. homepage Register now: a rectangle with softened corners instead of a pill;
+   the halo and its gentle pulse follow the new shape */
+.hero-cta .pill{border-radius:12px}
+
+/* 2. the Register tab hanging from the top of the header: a shaded cobalt panel
+   (lighter at the top left, deepening to the foot, with a fine highlight along the
+   top edge) rather than a flat block, the early-rate date under a hairline */
+.nav-in{position:relative}
+.reg-tab{position:absolute;top:0;right:var(--pad);z-index:5;display:flex;flex-direction:column;gap:.7rem;
+  min-width:clamp(210px,15vw,250px);padding:1.15rem 1.4rem 1.2rem;border-radius:0 0 16px 16px;
+  text-decoration:none;color:#fff;
+  background:
+    radial-gradient(120% 90% at 0% 0%,rgba(169,190,232,.38) 0%,rgba(169,190,232,0) 55%),
+    linear-gradient(165deg,#3F6CC6 0%,#2350A8 48%,#1A3D84 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -2px 0 rgba(15,35,80,.25),
+    0 10px 24px rgba(27,58,120,.28),0 2px 6px rgba(15,18,23,.12);
+  transition:box-shadow .3s var(--e),transform .3s var(--e),filter .3s var(--e)}
+.reg-tab-top{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;
+  padding-bottom:.7rem;border-bottom:1px solid rgba(255,255,255,.3);
+  font-size:15px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;line-height:1}
+.reg-tab-note{font-size:.84rem;font-weight:500;color:#DCE6F7;letter-spacing:.01em;line-height:1.2}
+.reg-arrow{width:16px;height:12px;flex:none;transition:transform .3s var(--e)}
+.reg-tab:hover,.reg-tab:focus-visible{filter:brightness(1.08);transform:translateY(2px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.32),inset 0 -2px 0 rgba(15,35,80,.25),
+    0 16px 32px rgba(27,58,120,.34),0 3px 8px rgba(15,18,23,.14)}
+.reg-tab:hover .reg-arrow,.reg-tab:focus-visible .reg-arrow,
+.stick-reg:hover .reg-arrow,.stick-reg:focus-visible .reg-arrow{transform:translateX(3px)}
+.reg-tab:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+/* the tab sits in the header's own height; when the header compacts on scroll it
+   drops the note and tightens */
+.nav.stuck .reg-tab{padding:.75rem 1.2rem .8rem;gap:0;min-width:0}
+.nav.stuck .reg-tab-top{padding-bottom:0;border-bottom:0;font-size:13px}
+.nav.stuck .reg-tab-note{display:none}
+@media(max-width:1480px){.navreg.reg-tab{margin-left:0}}
+@media(max-width:760px){
+  .navreg.reg-tab{position:static;margin-left:auto;align-self:center;border-radius:10px;padding:.65rem 1rem;gap:0;min-width:0}
+  .reg-tab-top{padding-bottom:0;border-bottom:0;font-size:12px;gap:.7rem}
+  .reg-tab-note{display:none}
+}
+
+/* 3. the sticky bar: meeting and date on the left, the early rate and an outlined
+   Register on the right. On the dark bar the outline is white; when the bar turns
+   white over the dark sections it becomes cobalt, still without a fill */
+.stick{justify-content:space-between}
+.stick .l{display:flex;align-items:center;gap:1.1rem;min-width:0}
+.stick .l b{display:inline;font-size:1.08rem;font-weight:800;letter-spacing:-.01em;white-space:nowrap}
+.stick-sep{display:block;width:1px;height:1.6rem;background:rgba(255,255,255,.28);flex:none}
+.stick .l > span{display:block;margin:0;color:#A9BEE8;font-size:.98rem;font-weight:500;letter-spacing:0;
+  text-transform:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stick-early{margin:0 0 0 auto;text-align:right;line-height:1.25;color:#fff}
+.stick-early small{display:block;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#A9BEE8}
+.stick-early > span{font-size:.95rem;font-weight:500}
+.stick-reg{flex:none;display:inline-flex;align-items:center;gap:1rem;padding:.8rem 1.35rem;border-radius:10px;
+  border:1.5px solid rgba(255,255,255,.85);color:#fff;background:transparent;text-decoration:none;
+  font-size:14px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;line-height:1;
+  transition:background .2s var(--e),border-color .2s var(--e),color .2s var(--e)}
+.stick-reg:hover,.stick-reg:focus-visible{background:rgba(255,255,255,.1);border-color:#fff}
+.stick.onlight .stick-sep{background:rgba(23,27,34,.18)}
+.stick.onlight .l > span{color:var(--muted)}
+.stick.onlight .stick-early{color:var(--navy)}
+.stick.onlight .stick-early small{color:var(--ac)}
+.stick.onlight .stick-reg{border-color:var(--ac);color:var(--ac)}
+.stick.onlight .stick-reg:hover,.stick.onlight .stick-reg:focus-visible{background:rgba(35,80,168,.07)}
+.stick-reg:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@media(max-width:900px){.stick .l > span,.stick-sep{display:none}}
+@media(max-width:640px){.stick-early{display:none}.stick .l b{font-size:.95rem}}
