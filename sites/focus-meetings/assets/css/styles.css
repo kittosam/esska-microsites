@@ -84,8 +84,8 @@ ul{list-style:none;margin:0;padding:0}
    deep behind the words on the left, thinning to almost nothing on the right where
    the photograph is the point. The hero type turns white to sit on it. */
 .film .veil{position:absolute;inset:0;background:
-  linear-gradient(100deg,rgba(15,31,60,.94) 0%,rgba(15,31,60,.88) 42%,
-    rgba(15,31,60,.52) 70%,rgba(15,31,60,.22) 100%),
+  linear-gradient(100deg,rgba(15,31,60,.97) 0%,rgba(15,31,60,.94) 44%,
+    rgba(15,31,60,.6) 72%,rgba(15,31,60,.24) 100%),
   linear-gradient(180deg,rgba(15,31,60,.45) 0%,rgba(15,31,60,0) 40%)}
 .hero .kicker{color:#fff}
 .hero .kicker em{color:#B9CCEA}
@@ -117,11 +117,11 @@ ul{list-style:none;margin:0;padding:0}
 .kicker em{font-style:normal;color:var(--navy)}
 .hero h1{font-size:clamp(2.3rem,5.6vw,4.4rem);letter-spacing:-.035em;max-width:16ch;text-wrap:balance}
 /* the heading runs in three tones on the photograph: the first sentence white, then
-   two blues, the second a step deeper than the first. Both clear 3:1 on the brightest
-   frame, which is what large type needs. */
+   two blues a clear step apart. The wash behind the words is deep enough that the
+   second blue can be a proper mid blue and still read at better than 5:1. */
 .hero h1 .lt{font-weight:400}
 .hero h1 .lt-a{color:#C3DAFB}
-.hero h1 .lt-b{color:#A2C2F3}
+.hero h1 .lt-b{color:#7FA8E8}
 .lead{font-size:clamp(1.06rem,1.35vw,1.24rem);color:var(--muted);max-width:60ch;margin:1.4rem 0 0}
 
 .facts{display:flex;flex-wrap:wrap;gap:0;margin:clamp(2.2rem,4vw,3rem) 0 0;
