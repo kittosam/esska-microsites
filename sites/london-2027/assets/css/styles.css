@@ -1749,7 +1749,7 @@ footer::before{background-image:url("../img/skyline-london-footer.png");height:c
    the whole card: a pale band in the site colour, edged along the top with the same
    gradient rule that runs across the head of the card, the link on its left. */
 .letterhead .salut{font-weight:400}
-.letterhead .letter-cta{grid-column:1/-1;text-align:left;border-top:0;
+.letterhead .letter-cta{grid-column:1/-1;text-align:center;border-top:0;
   margin:clamp(2.2rem,4vw,3rem) calc(-1 * clamp(1.4rem,3.6vw,3.2rem)) calc(-1 * clamp(1.9rem,3.4vw,2.8rem));
   padding:clamp(1.4rem,2.6vw,1.9rem) clamp(1.4rem,3.6vw,3.2rem) clamp(1.5rem,2.8vw,2rem);
   background:
@@ -1761,16 +1761,18 @@ footer::before{background-image:url("../img/skyline-london-footer.png");height:c
    read as clearly as the Athens, Bologna and Dublin skylines do. */
 footer::before{opacity:.1}
 
-/* ---------- Programme banner: the injury, not the skyline ----------
-   Programme, Venue and Registration all showed Westminster. Programme now shows the
-   subject of the meeting instead: a close-up of the ankle joint with the torn
-   syndesmosis ligament, from ESSKA's own artwork, lit on the right of the ink ground
-   and feathered into it, while Industry keeps the whole foot. */
-.ph-art{position:absolute;right:0;top:0;bottom:0;z-index:1;height:100%;width:auto;max-width:none;
-  pointer-events:none;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 25%,#000 58%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 25%,#000 58%)}
+/* ---------- page banners: each picture once, and never cut ----------
+   ESSKA supplied three pictures for London and there are four banners, so each is
+   used once: the skyline drawing on Venue, the Westminster photograph on
+   Registration, and the ankle drawing on Industry, now shown whole, head to heel,
+   on a pale ground rather than cropped by the banner's letterbox. Programme carries
+   no picture: the ink ground with a single soft violet glow. */
 .ph-programme{background:
-  radial-gradient(50% 120% at 80% 55%,rgba(107,91,181,.5) 0%,rgba(107,91,181,0) 70%),
+  radial-gradient(46% 110% at 78% 58%,rgba(107,91,181,.55) 0%,rgba(107,91,181,0) 70%),
+  radial-gradient(30% 80% at 96% 10%,rgba(156,142,212,.22) 0%,rgba(156,142,212,0) 70%),
   linear-gradient(120deg,#1E1735 0%,#2B2148 58%,#3A2C61 100%)}
-.ph-programme .scrim{background:linear-gradient(100deg,rgba(30,23,53,.9) 0%,rgba(30,23,53,.5) 45%,rgba(30,23,53,0) 66%)}
-@media(max-width:760px){.ph-art{opacity:.35}}
+.ph-programme .scrim{background:none}
+.ph-art{position:absolute;right:clamp(0px,6vw,120px);bottom:3%;z-index:1;height:94%;width:auto;
+  max-width:none;pointer-events:none}
+.ph-industry{background:linear-gradient(120deg,#E4DFF3 0%,#EEEAF8 55%,#F7F5FC 100%)}
+@media(max-width:760px){.ph-art{opacity:.35;right:-30px}}
