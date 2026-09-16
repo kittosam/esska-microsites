@@ -121,7 +121,7 @@ ul{list-style:none;margin:0;padding:0}
    frame, which is what large type needs. */
 .hero h1 .lt{font-weight:400}
 .hero h1 .lt-a{color:#C3DAFB}
-.hero h1 .lt-b{color:#A9C8F5}
+.hero h1 .lt-b{color:#A2C2F3}
 .lead{font-size:clamp(1.06rem,1.35vw,1.24rem);color:var(--muted);max-width:60ch;margin:1.4rem 0 0}
 
 .facts{display:flex;flex-wrap:wrap;gap:0;margin:clamp(2.2rem,4vw,3rem) 0 0;
