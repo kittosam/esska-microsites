@@ -54,6 +54,10 @@ const EARLY_RATE="2027-02-28T23:59:59+02:00";
 const DL=new Date(EARLY_RATE).getTime(), pad=n=>String(n).padStart(2,"0");
 (function(){const txt=new Date(EARLY_RATE).toLocaleDateString("en-GB",
     {day:"numeric",month:"long",year:"numeric"});
+  /* the header tab and the sticky bar give the early-rate date as "until …" */
+  const erOpts={day:"numeric",month:"long"};
+  document.querySelectorAll(".er-until-short").forEach(el=>el.textContent="until "+new Date(EARLY_RATE).toLocaleDateString("en-GB",erOpts));
+  document.querySelectorAll(".er-until").forEach(el=>el.textContent="until "+new Date(EARLY_RATE).toLocaleDateString("en-GB",{...erOpts,year:"numeric"}));
   ["erDate","erDate2","erDate3"].forEach(id=>{const el=document.getElementById(id);
     if(el) el.textContent=txt;});})();
 function tick(){let m=DL-Date.now();if(m<0)m=0;const s=Math.floor(m/1000);
