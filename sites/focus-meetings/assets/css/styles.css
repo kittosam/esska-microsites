@@ -72,11 +72,13 @@ ul{list-style:none;margin:0;padding:0}
 .film img:nth-child(4){animation-delay:21s}
 .film img:nth-child(5){animation-delay:28s}
 .film img:nth-child(6){animation-delay:35s}
+/* each frame holds for its seven seconds and then fades out across the next one's
+   fade in: the windows have to overlap, or the hero blinks empty between cities */
 @keyframes film{
   0%{opacity:0;transform:scale(1.05)}
   3%{opacity:1}
-  14%{opacity:1}
-  17%{opacity:0;transform:scale(1.1)}
+  16.7%{opacity:1}
+  20%{opacity:0;transform:scale(1.1)}
   100%{opacity:0;transform:scale(1.05)}}
 .film .veil{position:absolute;inset:0;background:
   linear-gradient(100deg,rgba(251,252,254,.98) 0%,rgba(251,252,254,.96) 46%,
