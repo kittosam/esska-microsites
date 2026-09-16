@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=202609162">
+<link rel="stylesheet" href="assets/css/styles.css?v=202609164">
 </head>
 <body>
 
@@ -31,6 +31,18 @@
 </nav>
 
 <header class="hero" id="top">
+  <!-- the six cities, crossfading slowly behind the opening. Decorative only: the
+       veil above it keeps the heading and the copy readable, and the whole thing
+       holds still for anyone who asks for reduced motion. -->
+  <div class="film" aria-hidden="true">
+    <img src="assets/img/city-athens.jpg" alt="" width="1280" height="720">
+    <img src="assets/img/city-dublin.jpg" alt="" width="1280" height="720" loading="lazy">
+    <img src="assets/img/city-bologna.jpg" alt="" width="1280" height="720" loading="lazy">
+    <img src="assets/img/city-istanbul.jpg" alt="" width="1280" height="720" loading="lazy">
+    <img src="assets/img/city-rome.jpg" alt="" width="1280" height="720" loading="lazy">
+    <img src="assets/img/city-london.jpg" alt="" width="1280" height="720" loading="lazy">
+    <span class="veil"></span>
+  </div>
   <div class="wrap">
     <p class="kicker">ESSKA <em>Focus</em> Meetings</p>
     <h1>Six meetings. <span class="lt">Six cities. One year.</span></h1>

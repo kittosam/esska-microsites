@@ -59,7 +59,46 @@ ul{list-style:none;margin:0;padding:0}
 @media(max-width:560px){.nav .tlink.nav-link{display:none}}
 
 /* ---------- hero ---------- */
-.hero{position:relative;padding:clamp(3.4rem,7vw,6rem) 0 0;
+/* the six cities run behind the opening like a slow film: each photograph holds for
+   about seven seconds, drifting very slightly, and crossfades into the next, so the
+   whole loop takes three quarters of a minute. The veil over it is what keeps the
+   type readable: nearly opaque where the words are, clearing towards the right so
+   the picture is still plainly a city. */
+.film{position:absolute;inset:0;z-index:0;overflow:hidden}
+.film img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+  transform:scale(1.05);animation:film 42s linear infinite}
+.film img:nth-child(2){animation-delay:7s}
+.film img:nth-child(3){animation-delay:14s}
+.film img:nth-child(4){animation-delay:21s}
+.film img:nth-child(5){animation-delay:28s}
+.film img:nth-child(6){animation-delay:35s}
+@keyframes film{
+  0%{opacity:0;transform:scale(1.05)}
+  3%{opacity:1}
+  14%{opacity:1}
+  17%{opacity:0;transform:scale(1.1)}
+  100%{opacity:0;transform:scale(1.05)}}
+.film .veil{position:absolute;inset:0;background:
+  linear-gradient(100deg,rgba(251,252,254,.98) 0%,rgba(251,252,254,.96) 46%,
+    rgba(251,252,254,.82) 66%,rgba(251,252,254,.55) 100%),
+  linear-gradient(180deg,rgba(251,252,254,.55) 0%,rgba(251,252,254,0) 34%)}
+/* the copy over the film is a step darker than the muted grey used elsewhere: the
+   brightest city still leaves the worst pixel at about #C7CBD1, and #414A5E clears
+   the 4.5:1 minimum on it, where the muted tone did not */
+.hero .lead,.hero .facts dt{color:#414A5E}
+/* narrow screens: the copy runs the full width, so the veil closes over everything */
+@media(max-width:900px){
+  .film .veil{background:
+    linear-gradient(180deg,rgba(251,252,254,.92) 0%,rgba(251,252,254,.9) 62%,rgba(251,252,254,.8) 100%)}
+}
+/* held still, on the first city, for anyone who asks for reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .film img{opacity:0!important}
+  .film img:first-child{opacity:1!important}
+}
+.hero > .wrap,.hero-strip{position:relative;z-index:2}
+
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(3.4rem,7vw,6rem) 0 0;
   background:
     radial-gradient(60% 80% at 88% 0%,rgba(35,80,168,.10),rgba(35,80,168,0) 70%),
     radial-gradient(circle at 1px 1px,rgba(27,58,107,.06) 1px,transparent 1.3px) 0 0/26px 26px,
