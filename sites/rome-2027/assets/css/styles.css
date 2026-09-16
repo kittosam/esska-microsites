@@ -1607,24 +1607,18 @@ footer li{margin-bottom:.68rem}
    than its box: the circle's centre is 48.8% across the image, and WELCOME is about
    80px wide (75px on narrow screens, where the menu type is smaller). */
 @media(max-width:1480px){
-  .brand{margin-left:calc(40px - .488 * clamp(62px,5vw,92px))}
-  .nav.stuck .brand{margin-left:calc(40px - .488 * clamp(46px,3.2vw,58px))}
+  .brand{margin-left:calc(40px - .488 * clamp(72px,6vw,108px))}
+  .nav.stuck .brand{margin-left:calc(40px - .488 * clamp(52px,3.7vw,66px))}
 }
 @media(max-width:760px){
-  .brand,.nav.stuck .brand{margin-left:calc(37px - .488 * clamp(62px,5vw,92px))}
+  .brand,.nav.stuck .brand{margin-left:calc(37px - .488 * clamp(72px,6vw,108px))}
 }
 @media(max-width:520px){
-  .brand,.nav.stuck .brand{margin-left:calc(37px - .488 * 52px)}
+  .brand,.nav.stuck .brand{margin-left:calc(37px - .488 * 60px)}
 }
 
-/* ---------- the chairs' letter: the opening paragraph and the sign-off link ----------
-   The paragraph after "Dear Colleagues" is set in the site's cobalt, a mid tone that
-   keeps well above the 4.5:1 reading minimum on the letter paper. The programme link
-   closes the letter like a sign-off: lower, centred under the text, with a hairline
-   above it. */
+/* ---------- the chairs' letter: the opening paragraph in the site colour ---------- */
 .letterhead .lead{color:#2350A8}
-.letterhead .letter-cta{margin-top:clamp(2.6rem,4vw,3.4rem);padding-top:clamp(1.8rem,3vw,2.4rem);
-  border-top:1px solid var(--line);text-align:center}
 
 /* ---------- footer skyline: the tops of the landmarks always show ----------
    The skyline sat in a short strip anchored to its base, so on wide and narrow
@@ -1634,3 +1628,37 @@ footer li{margin-bottom:.68rem}
    the same pale grey silhouette as the Athens, Bologna and Dublin footers. */
 footer::before{height:clamp(140px,19vw,280px);background-position:center top;
   filter:grayscale(1) brightness(1.5);opacity:.07}
+
+/* ---------- header: a larger mark, and the wordmark set on its baseline ----------
+   The mark grows again, the subtitle under "Focus Meeting 2027" steps up with it,
+   and the two now sit on a common bottom line: the subtitle's capitals end where the
+   drawn logo ends (the image has a little blank margin below "ESSKA", about 7% of its
+   width, which the subtitle's own margin takes up). The centring over WELCOME above
+   follows the new widths. */
+.brand{align-items:flex-end}
+.brand img{width:clamp(72px,6vw,108px)}
+.brand .bn .sec{font-size:clamp(.8rem,1vw,1.06rem);margin-bottom:calc(.072 * clamp(72px,6vw,108px) - .2em)}
+.nav.stuck .brand img{width:clamp(52px,3.7vw,66px)}
+.nav.stuck .brand .bn .sec{font-size:clamp(.66rem,.76vw,.78rem);margin-bottom:calc(.072 * clamp(52px,3.7vw,66px) - .2em)}
+@media(max-width:520px){
+  .brand img,.nav.stuck .brand img{width:60px}
+  .brand .bn .sec,.nav.stuck .brand .bn .sec{font-size:.64rem;margin-bottom:calc(.072 * 60px - .2em)}
+}
+
+/* ---------- the chairs' letter: plain greeting, and a closing strip ----------
+   "Dear Colleagues," reads as the opening of a letter rather than a heading, so it
+   drops the bold. The programme link leaves the text column and becomes the foot of
+   the whole card: a pale band in the site colour, edged along the top with the same
+   gradient rule that runs across the head of the card, the link on its left. */
+.letterhead .salut{font-weight:400}
+.letterhead .letter-cta{grid-column:1/-1;text-align:left;border-top:0;
+  margin:clamp(2.2rem,4vw,3rem) calc(-1 * clamp(1.4rem,3.6vw,3.2rem)) calc(-1 * clamp(1.9rem,3.4vw,2.8rem));
+  padding:clamp(1.4rem,2.6vw,1.9rem) clamp(1.4rem,3.6vw,3.2rem) clamp(1.5rem,2.8vw,2rem);
+  background:
+    linear-gradient(90deg,var(--ac-br) 0%,var(--blue) 45%,transparent 92%) top left/100% 3px no-repeat,
+    linear-gradient(90deg,color-mix(in srgb,var(--ac-br) 13%,var(--paper)) 0%,color-mix(in srgb,var(--ac-br) 5%,var(--paper)) 100%)}
+
+/* ---------- footer skyline: as present as the other cities' ----------
+   Against this footer's darker ground the silhouette needed a stronger hand to
+   read as clearly as the Athens, Bologna and Dublin skylines do. */
+footer::before{opacity:.15}
