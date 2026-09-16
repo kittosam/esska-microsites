@@ -1794,3 +1794,17 @@ footer::before{opacity:.15}
    middle of the time and duration beside it, rather than hanging at the top */
 .prow.break .prow-static{align-items:center}
 .prow.break .ptitle{line-height:1.2}
+
+/* ---------- Rome pilot: a white Register tab ----------
+   The tab turns white with a cobalt border on its three open sides (the top runs into
+   the utility bar), cobalt lettering and arrow, and a very faint cool tint towards the
+   foot so it still reads as a surface rather than a cut-out. On hover it takes a pale
+   cobalt wash. Send enquiry keeps its shaded fill. */
+.reg-tab{color:var(--ac);border:1.5px solid var(--ac);border-top:0;
+  background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 55%,#F1F4FB 100%);
+  box-shadow:0 10px 24px rgba(35,80,168,.14),0 2px 6px rgba(15,18,23,.06)}
+.reg-tab-top{background:linear-gradient(90deg,rgba(35,80,168,.45),rgba(35,80,168,.08)) left bottom/100% 1px no-repeat}
+.reg-tab-note{color:var(--muted)}
+.reg-tab:hover,.reg-tab:focus-visible{filter:none;background:linear-gradient(180deg,#F4F7FD 0%,#E6ECF8 100%);
+  box-shadow:0 16px 32px rgba(35,80,168,.2),0 3px 8px rgba(15,18,23,.08)}
+@media(max-width:760px){.navreg.reg-tab{border-top:1.5px solid var(--ac)}}
