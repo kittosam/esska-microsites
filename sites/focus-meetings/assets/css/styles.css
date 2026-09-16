@@ -252,3 +252,6 @@ footer p{max-width:34ch;color:rgba(255,255,255,.55);font-size:1rem}
 .f-base{margin-top:2.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.16);
   display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.9rem;
   color:rgba(255,255,255,.42)}
+
+/* buttons as soft rectangles, matching the six meeting sites */
+.pill{border-radius:12px}
