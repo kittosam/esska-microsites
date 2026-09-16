@@ -1707,3 +1707,15 @@ footer li{margin-bottom:.68rem}
 /* the letter's larger circles carry a proportionally thicker ring */
 .lh-chairs .sign img,.lh-chairs .sign .sign-av{border-width:5px}
 @media(max-width:900px){.lh-chairs .sign img,.lh-chairs .sign .sign-av{border-width:4px}}
+
+/* ---------- underlined links: the site colour on hover ----------
+   At rest the label and its underline are dark ink; hovering (or tabbing to it)
+   turns both, and the download arrow with them, moss. On photos and dark panels
+   the light tone of the same colour is used instead of plain white. */
+:root{--tl-hover:#1E6B52}
+.tlink:hover,.tlink:focus-visible,
+.hero-cta .tlink:hover,.hero-cta .tlink:focus-visible,
+.tlink-dl:hover,.tlink-dl:focus-visible,
+.tlink.pctl-dl:hover,.tlink.pctl-dl:focus-visible{color:var(--tl-hover)}
+.bleed .tlink:hover,.bleed .tlink:focus-visible,
+.reg-book .tlink:hover,.reg-book .tlink:focus-visible{color:var(--ac-l);opacity:1}
