@@ -1584,12 +1584,17 @@ footer li{margin-bottom:.68rem}
           mask-image:linear-gradient(to top,#000 42%,transparent 96%)}
 .ph-venue .scrim{background:linear-gradient(100deg,rgba(30,23,53,.9) 0%,rgba(30,23,53,.55) 45%,rgba(30,23,53,.1) 100%)}
 
-/* Registration banner: the one plain surface, ink with a single violet glow, so the
-   four page headers never repeat one another */
+/* Registration banner: Westminster Bridge and the river, mapped into the palette as
+   a violet duotone (banner-registration.jpg). It is a tighter, lower crop than the
+   Programme header takes of the same photograph, and the colour treatment sets it
+   apart again. The ink gradient stays underneath while the picture loads. */
 .ph-registration{background:
   radial-gradient(52% 115% at 82% 62%,rgba(107,91,181,.5) 0%,rgba(107,91,181,0) 70%),
   linear-gradient(120deg,#1E1735 0%,#2B2148 58%,#3A2C61 100%)}
-.ph-registration .scrim{background:linear-gradient(100deg,rgba(30,23,53,.8) 0%,rgba(30,23,53,.35) 45%,rgba(30,23,53,0) 72%)}
+.ph-registration .bg{object-position:50% 62%}
+.ph-registration .scrim{background:
+  linear-gradient(100deg,rgba(30,23,53,.94) 0%,rgba(30,23,53,.72) 42%,rgba(35,26,77,.3) 100%),
+  radial-gradient(60% 120% at 85% 70%,rgba(107,91,181,.35) 0%,rgba(107,91,181,0) 70%)}
 @media(max-width:760px){.ban-sky{opacity:.34}}
 
 /* placeholder panel for anything ESSKA has not supplied yet: a moonlight rule on the
