@@ -1595,3 +1595,10 @@ footer li{margin-bottom:.68rem}
    it stands out against the dark date box. They carry their own colour, so the
    white-out filter the older icons needed is switched off here. */
 .ebar-item img{filter:none;opacity:1}
+/* ---------- header: a larger ESSKA mark, set in from the left edge ----------
+   The mark grows about a fifth at every width and the whole wordmark moves right,
+   away from the page edge; the compact sticky header and phones scale with it. */
+.brand{margin-left:clamp(0rem,1.8vw,2.2rem)}
+.brand img{width:clamp(74px,6vw,112px)}
+.nav.stuck .brand img{width:clamp(54px,3.9vw,70px)}
+@media(max-width:520px){.brand{margin-left:.2rem}.brand img{width:62px}}
