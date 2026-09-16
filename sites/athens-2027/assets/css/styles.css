@@ -2089,3 +2089,21 @@ footer li{margin-bottom:.68rem}
 .v-card .btn-row .pill .pill-i svg{width:9px;height:11px}
 .v-card .btn-row .pill:hover,.v-card .btn-row .pill:focus-visible{background:var(--cta-fill);
   box-shadow:0 0 0 4px rgba(var(--cta-rgb),.1)}
+
+/* ---------- Register tab and Send enquiry: richer shading ----------
+   Four layers over the site colour instead of one gradient: a soft gloss across the
+   top, a clear light source at the top left, the colour itself running light to deep,
+   and a shaded corner at the bottom right, with a bright top edge and a shadow inside
+   the foot, so the button reads as a lit, rounded surface rather than a flat panel. */
+.reg-tab,.form .pill,.form .pill:hover,.form .pill:focus-visible{background:
+    linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.04) 34%,rgba(255,255,255,0) 50%),
+    radial-gradient(95% 130% at 100% 100%,rgba(0,0,0,.3) 0%,rgba(0,0,0,0) 62%),
+    radial-gradient(110% 95% at 0% 0%,rgba(242,215,160,.6) 0%,rgba(242,215,160,.18) 32%,rgba(242,215,160,0) 58%),
+    linear-gradient(158deg,#BF8538 0%,#9A6424 46%,#6F4613 100%)}
+.reg-tab{box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -4px 10px rgba(0,0,0,.2),
+    0 12px 28px rgba(138,90,28,.34),0 2px 6px rgba(0,0,0,.12)}
+.reg-tab:hover,.reg-tab:focus-visible{box-shadow:inset 0 1px 0 rgba(255,255,255,.46),inset 0 -4px 10px rgba(0,0,0,.2),
+    0 18px 36px rgba(138,90,28,.4),0 3px 8px rgba(0,0,0,.14)}
+.reg-tab-top{border-bottom-color:transparent;background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,.12)) left bottom/100% 1px no-repeat}
+.nav.stuck .reg-tab-top{background:none}
+.form .pill{box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -4px 10px rgba(0,0,0,.18),0 10px 24px rgba(138,90,28,.32),0 2px 6px rgba(0,0,0,.1)}
