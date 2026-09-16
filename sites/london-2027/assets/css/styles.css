@@ -1798,3 +1798,11 @@ footer::before{opacity:.1}
           mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 22%,#000 45%)}
 .ph-registration .scrim{background:linear-gradient(100deg,rgba(30,23,53,.85) 0%,rgba(30,23,53,.4) 45%,rgba(30,23,53,0) 65%)}
 @media(max-width:760px){.ph-registration .ph-art-photo{opacity:.45}}
+
+/* ---------- Programme banner, final: the joint itself ----------
+   Following the Rome, Athens and Istanbul programme banners, the picture is a close-up
+   of the meeting's subject filling the banner: the ankle joint with the torn
+   syndesmosis ligament, from ESSKA's London artwork, under the ink wash. */
+.ph-programme .bg{object-position:50% 40%}
+.ph-programme .scrim{background:
+  linear-gradient(100deg,rgba(30,23,53,.93) 0%,rgba(30,23,53,.78) 42%,rgba(43,33,72,.42) 100%)}

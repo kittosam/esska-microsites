@@ -1798,3 +1798,11 @@ footer li{margin-bottom:.68rem}
 .ph-industry .scrim{background:linear-gradient(100deg,rgba(15,64,71,.96) 0%,rgba(15,64,71,.86) 36%,rgba(15,64,71,0) 66%)}
 .ph-industry .ph-art{height:94%;bottom:3%}
 @media(max-width:760px){.ph-art{opacity:.32;right:-30px}}
+
+/* ---------- Programme banner: the city outline behind the runner ----------
+   As in ESSKA's Dublin banner: the drawn outline of the city (the dome, the Spire,
+   the Samuel Beckett Bridge) runs along the foot of the banner, pale against the
+   teal, with the sprinter in front of it. */
+.ph-city{position:absolute;left:0;right:0;bottom:0;z-index:1;width:100%;height:auto;max-width:none;
+  pointer-events:none;filter:brightness(0) invert(1);opacity:.16}
+.ph-programme .ph-art{z-index:1}
