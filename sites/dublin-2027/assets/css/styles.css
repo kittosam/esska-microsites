@@ -1723,8 +1723,8 @@ footer li{margin-bottom:.68rem}
 /* ---------- the date-box icons ----------
    ESSKA supplies these as a solid disc with the calendar and the pin punched out of
    it, so the drawn lines are holes and the shape's interior belongs to the disc.
-   icon-date.png and icon-place.png are those two rebuilt as filled icons: the shape
-   filled in the site's pastel tint, its lines in the site colour, on a white disc,
-   with everything outside the disc still transparent. They carry their own colour,
-   so the white-out filter the older icons needed is switched off here. */
+   icon-date.png and icon-place.png are those two rebuilt without the disc: just the
+   shape, filled in a light tint of the site colour with its lines a step deeper, so
+   it stands out against the dark date box. They carry their own colour, so the
+   white-out filter the older icons needed is switched off here. */
 .ebar-item img{filter:none;opacity:1}
