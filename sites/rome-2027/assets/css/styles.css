@@ -1625,3 +1625,12 @@ footer li{margin-bottom:.68rem}
 .letterhead .lead{color:#2350A8}
 .letterhead .letter-cta{margin-top:clamp(2.6rem,4vw,3.4rem);padding-top:clamp(1.8rem,3vw,2.4rem);
   border-top:1px solid var(--line);text-align:center}
+
+/* ---------- footer skyline: the tops of the landmarks always show ----------
+   The skyline sat in a short strip anchored to its base, so on wide and narrow
+   screens alike the image was cropped from the top and the towers were cut flat.
+   It is now anchored by its top in a slightly taller strip, so any cropping only
+   trims the solid base, which runs off the bottom of the page anyway; and it takes
+   the same pale grey silhouette as the Athens, Bologna and Dublin footers. */
+footer::before{height:clamp(140px,19vw,280px);background-position:center top;
+  filter:grayscale(1) brightness(1.5);opacity:.07}
