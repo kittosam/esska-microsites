@@ -1,0 +1,10 @@
+{
+  // The hub page that lists all six focus meetings. Its own Cloudflare project:
+  // set the Worker's "Root directory" build setting to sites/focus-meetings, and
+  // the whole folder is served as static assets.
+  "name": "esska-focus-meetings",
+  "compatibility_date": "2026-09-16",
+  "assets": {
+    "directory": "./"
+  }
+}

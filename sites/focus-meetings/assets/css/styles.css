@@ -1,0 +1,196 @@
+:root{
+  /* The hub sits above the six event sites, so it stays in ESSKA navy and neutrals;
+     the only colour on the page comes from the meetings themselves, each card
+     carrying its own site's accent in --c / --c-d / --c-l. */
+  --navy:#1B3A6B; --navy-d:#12294F; --navy-l:#2B4C80;
+  --paper:#FBFCFE; --ground:#EEF1F7; --ink:#2B3242; --muted:#5A6377;
+  --line:rgba(27,58,107,.13);
+  --f:"Onest",system-ui,-apple-system,sans-serif;
+  --pad:clamp(1.15rem,4.5vw,4.5rem);
+  --e:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:17px;
+  line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit} img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;color:var(--navy);line-height:1.08;letter-spacing:-.028em;font-weight:800}
+p{margin:0 0 1.05rem}
+ul{list-style:none;margin:0;padding:0}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+@media(min-width:1700px){.wrap{max-width:1420px}}
+:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+
+/* motion: sections fade up as they arrive, exactly as on the event sites */
+.rv{transition:opacity .8s var(--e),transform .8s var(--e)}
+.rv.pre{opacity:0;transform:translateY(24px)}
+.rv.pre.in{opacity:1;transform:none}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .rv{opacity:1!important;transform:none!important}}
+
+/* ---------- utility strip and header ---------- */
+.util{background:var(--navy);color:#fff;font-size:.82rem}
+.util-in{max-width:1720px;margin:0 auto;padding:.62rem var(--pad);display:flex;align-items:center;
+  justify-content:space-between;gap:1.4rem}
+.u-c{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.72)}
+.u-c b{color:#fff;font-weight:800}
+.u-r{color:rgba(255,255,255,.9);text-decoration:none;font-weight:700;font-size:.82rem;
+  letter-spacing:.12em;text-transform:uppercase;transition:color .25s var(--e)}
+.u-r:hover{color:#fff}
+
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.93);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line)}
+.nav-in{max-width:1720px;margin:0 auto;padding:.7rem var(--pad);display:flex;align-items:center;
+  justify-content:space-between;gap:1.4rem}
+.brand{display:flex;align-items:center;gap:clamp(.85rem,1.3vw,1.25rem);text-decoration:none;
+  transition:opacity .25s var(--e)}
+.brand:hover{opacity:.88}
+.brand img{width:clamp(52px,4vw,68px)}
+.brand .bar{display:block;width:1px;align-self:stretch;margin:.3rem 0;
+  background:linear-gradient(180deg,transparent,rgba(27,58,107,.3) 22%,rgba(27,58,107,.3) 78%,transparent)}
+.brand .bn b{display:block;font-size:clamp(1.15rem,1.6vw,1.6rem);font-weight:800;color:var(--navy);
+  letter-spacing:-.026em;line-height:1.1}
+.brand .bn .sec{display:block;font-size:clamp(.68rem,.82vw,.86rem);font-weight:800;letter-spacing:.2em;
+  color:var(--navy-l);margin-top:.25rem}
+.nav-link{flex:none}
+@media(max-width:560px){.nav-link{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(3.4rem,7vw,6rem) 0 0;
+  background:
+    radial-gradient(60% 80% at 88% 0%,rgba(35,80,168,.10),rgba(35,80,168,0) 70%),
+    radial-gradient(circle at 1px 1px,rgba(27,58,107,.06) 1px,transparent 1.3px) 0 0/26px 26px,
+    linear-gradient(170deg,var(--paper) 0%,var(--ground) 100%)}
+.kicker{font-size:1rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--navy-l);margin:0 0 1.1rem}
+.kicker em{font-style:normal;color:var(--navy)}
+.hero h1{font-size:clamp(2.3rem,5.6vw,4.4rem);letter-spacing:-.035em;max-width:16ch;text-wrap:balance}
+.hero h1 .lt{font-weight:400;color:var(--navy-l)}
+.lead{font-size:clamp(1.06rem,1.35vw,1.24rem);color:var(--muted);max-width:60ch;margin:1.4rem 0 0}
+
+.facts{display:flex;flex-wrap:wrap;gap:0;margin:clamp(2.2rem,4vw,3rem) 0 0;
+  border-top:1px solid var(--line)}
+.facts > div{padding:1.1rem clamp(1.4rem,3vw,2.6rem) 1.3rem 0;margin-right:clamp(1.4rem,3vw,2.6rem);
+  border-right:1px solid var(--line)}
+.facts > div:last-child{border-right:0;margin-right:0}
+.facts dt{font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted)}
+.facts dd{margin:.35rem 0 0;font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:800;color:var(--navy);
+  letter-spacing:-.03em;line-height:1}
+
+/* the six meeting colours, as one band under the hero */
+.hero-strip{display:flex;margin-top:clamp(2.4rem,5vw,3.6rem)}
+.hero-strip i{flex:1;height:6px;background:var(--c)}
+
+/* ---------- the cards ---------- */
+main{padding:clamp(3.4rem,7vw,6rem) 0 clamp(3rem,6vw,5rem)}
+.head{max-width:740px;margin-bottom:clamp(2.2rem,4vw,3.2rem)}
+.head h2{font-size:clamp(1.8rem,3.4vw,2.8rem)}
+.head h2 .lt{font-weight:400;color:var(--navy-l)}
+.head p{margin:1.1rem 0 0;color:var(--muted)}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.2vw,1.9rem)}
+@media(max-width:1080px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.cards{grid-template-columns:1fr}}
+
+.card{display:flex}
+.card-in{position:relative;display:flex;flex-direction:column;width:100%;text-decoration:none;
+  background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 10px 26px rgba(27,58,107,.07);
+  transition:transform .45s var(--e),box-shadow .45s var(--e),border-color .45s var(--e)}
+.card-in::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;z-index:3;
+  background:linear-gradient(90deg,var(--c-d),var(--c) 60%,var(--c-l))}
+.card-in:hover{transform:translateY(-6px);border-color:transparent;
+  box-shadow:0 26px 52px rgba(27,58,107,.16)}
+.card-in:focus-visible{outline:2px solid var(--c-d);outline-offset:3px}
+
+.shot{display:block;position:relative;overflow:hidden;background:var(--ground);
+  aspect-ratio:16/10}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--e)}
+.card-in:hover .shot img{transform:scale(1.05)}
+
+/* the date sits on the picture, in the meeting's own colour */
+.when{position:absolute;left:0;top:clamp(1rem,2vw,1.4rem);z-index:2;display:flex;
+  flex-direction:column;gap:.1rem;padding:.6rem 1rem .65rem;border-radius:0 8px 8px 0;
+  background:var(--c-d);color:#fff;box-shadow:0 8px 20px rgba(18,41,79,.28)}
+.when b{font-size:1.02rem;font-weight:800;letter-spacing:-.01em;line-height:1.1}
+.when em{font-style:normal;font-size:.74rem;font-weight:700;letter-spacing:.16em;
+  color:rgba(255,255,255,.75)}
+
+.body{display:flex;flex-direction:column;flex:1;padding:clamp(1.3rem,2.2vw,1.7rem)}
+.tag{align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--c-d);background:var(--c-l);border-radius:100px;
+  padding:.38rem .8rem;margin-bottom:.9rem}
+.city{font-size:.86rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:.5rem}
+.title{font-size:clamp(1.2rem,1.7vw,1.4rem);font-weight:800;color:var(--navy);
+  letter-spacing:-.022em;line-height:1.22}
+.sub{font-size:1rem;color:var(--muted);line-height:1.55;margin-top:.55rem}
+/* the venue line and the link sit at the foot of every card, so the six line up
+   however long the titles run */
+.venue{font-size:.92rem;color:var(--ink);margin-top:auto;padding-top:.9rem;
+  border-top:1px solid var(--line)}
+/* the underlined link of the event sites, in that meeting's colour */
+.go{align-self:flex-start;margin-top:1.2rem;display:inline-flex;align-items:center;gap:10px;
+  padding:0 0 6px;font-size:13.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--navy);border-bottom:3px solid currentColor;transition:color .2s var(--e)}
+.go::after{content:"";width:9px;height:9px;border-top:2.6px solid currentColor;
+  border-right:2.6px solid currentColor;transform:rotate(45deg);
+  transition:transform .3s var(--e)}
+.card-in:hover .go,.card-in:focus-visible .go{color:var(--c-d)}
+.card-in:hover .go::after{transform:rotate(45deg) translate(2px,-2px)}
+
+
+.note{margin:clamp(2rem,3.5vw,2.8rem) 0 0;font-size:.95rem;color:var(--muted)}
+
+/* ---------- closing band ---------- */
+.band{position:relative;overflow:hidden;color:#fff;text-align:center;
+  padding:clamp(3.4rem,6vw,5rem) 0;
+  background:
+    radial-gradient(55% 120% at 50% 0%,rgba(43,76,128,.9) 0%,rgba(43,76,128,0) 70%),
+    linear-gradient(160deg,var(--navy) 0%,var(--navy-d) 100%)}
+.band h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.6rem)}
+.band h2 .lt{font-weight:400;color:rgba(255,255,255,.6)}
+.band p{max-width:56ch;margin:1.2rem auto 0;color:rgba(255,255,255,.84)}
+.band-go{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 2rem;
+  margin-top:2.2rem}
+
+/* the Register pill of the event sites, in ESSKA navy */
+.pill{display:inline-flex;align-items:center;gap:18px;padding:7px 9px 7px 25px;border-radius:999px;
+  text-decoration:none;background:#fff;border:2px solid #fff;color:var(--navy);
+  font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1;
+  box-shadow:0 0 0 4px rgba(255,255,255,.16);transition:background .18s,box-shadow .18s}
+.pill:hover,.pill:focus-visible{background:#EAEFF8;box-shadow:0 0 0 7px rgba(255,255,255,.22);outline:none}
+.pill-i{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;
+  background:var(--navy)}
+.pill-i svg{display:block;width:10px;height:12px;margin-left:2px;fill:#fff}
+
+.tlink{display:inline-flex;align-items:center;text-decoration:none;color:var(--navy);
+  font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;line-height:1.2;
+  padding:0 0 6px;border-bottom:3px solid currentColor;transition:color .2s var(--e)}
+.tlink:hover{color:var(--navy-l)}
+.tlink.on-dark{color:#fff}
+.tlink.on-dark:hover{color:#C9D6EC}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy-d);color:rgba(255,255,255,.66);font-size:1.04rem;
+  padding:clamp(3rem,6vw,4.6rem) 0 2rem}
+.f-grid{display:grid;grid-template-columns:1.7fr 1.1fr 1fr 1.1fr;gap:2.4rem 2.8rem}
+@media(max-width:900px){.f-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.f-grid{grid-template-columns:1fr}}
+footer h4{color:#A9BEE8;font-size:.97rem;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:800;margin:0 0 1.25rem}
+footer li{margin-bottom:.68rem}
+footer a{text-decoration:none;cursor:pointer;transition:color .22s var(--e)}
+footer a:hover{color:#fff;text-decoration:underline}
+footer p{max-width:34ch;color:rgba(255,255,255,.55);font-size:1rem}
+.f-addr{font-size:.98rem;margin:0}
+.f-brand{display:flex;align-items:center;gap:.9rem;margin-bottom:1.25rem}
+.f-brand img{width:54px}
+.f-brand b{color:#fff;font-size:1.1rem;font-weight:800;display:block;line-height:1.1}
+.f-brand span{color:#A9BEE8;font-size:.86rem;font-weight:700;letter-spacing:.19em;display:block;
+  margin-top:.25rem}
+.f-base{margin-top:2.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.16);
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.9rem;
+  color:rgba(255,255,255,.42)}
