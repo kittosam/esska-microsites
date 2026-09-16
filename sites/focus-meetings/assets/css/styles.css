@@ -30,7 +30,7 @@ ul{list-style:none;margin:0;padding:0}
 
 /* ---------- utility strip and header ---------- */
 .util{background:var(--navy);color:#fff;font-size:.82rem}
-.util-in{max-width:1720px;margin:0 auto;padding:.62rem var(--pad);display:flex;align-items:center;
+.util-in{max-width:1720px;margin:0 auto;padding:.78rem var(--pad);display:flex;align-items:center;
   justify-content:space-between;gap:1.4rem}
 .u-c{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:rgba(255,255,255,.72)}
@@ -41,18 +41,18 @@ ul{list-style:none;margin:0;padding:0}
 
 .nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.93);backdrop-filter:blur(16px);
   border-bottom:1px solid var(--line)}
-.nav-in{max-width:1720px;margin:0 auto;padding:.7rem var(--pad);display:flex;align-items:center;
+.nav-in{max-width:1720px;margin:0 auto;padding:1.15rem var(--pad);display:flex;align-items:center;
   justify-content:space-between;gap:1.4rem}
 .brand{display:flex;align-items:center;gap:clamp(.85rem,1.3vw,1.25rem);text-decoration:none;
   transition:opacity .25s var(--e)}
 .brand:hover{opacity:.88}
-.brand img{width:clamp(52px,4vw,68px)}
+.brand img{width:clamp(66px,5.4vw,96px)}
 .brand .bar{display:block;width:1px;align-self:stretch;margin:.3rem 0;
   background:linear-gradient(180deg,transparent,rgba(27,58,107,.3) 22%,rgba(27,58,107,.3) 78%,transparent)}
-.brand .bn b{display:block;font-size:clamp(1.15rem,1.6vw,1.6rem);font-weight:800;color:var(--navy);
+.brand .bn b{display:block;font-size:clamp(1.35rem,1.95vw,2rem);font-weight:800;color:var(--navy);
   letter-spacing:-.026em;line-height:1.1}
-.brand .bn .sec{display:block;font-size:clamp(.68rem,.82vw,.86rem);font-weight:800;letter-spacing:.2em;
-  color:var(--navy-l);margin-top:.25rem}
+.brand .bn .sec{display:block;font-size:clamp(.76rem,.95vw,1rem);font-weight:800;letter-spacing:.2em;
+  color:var(--navy-l);margin-top:.3rem}
 .nav-link{flex:none}
 /* .tlink sets display later in this file, so the narrow-screen rule has to outrank
    it or the link overlaps the wordmark */
@@ -80,18 +80,26 @@ ul{list-style:none;margin:0;padding:0}
   16.7%{opacity:1}
   20%{opacity:0;transform:scale(1.1)}
   100%{opacity:0;transform:scale(1.05)}}
+/* the cities carry the opening, so the veil is an ink wash rather than a white one:
+   deep behind the words on the left, thinning to almost nothing on the right where
+   the photograph is the point. The hero type turns white to sit on it. */
 .film .veil{position:absolute;inset:0;background:
-  linear-gradient(100deg,rgba(251,252,254,.98) 0%,rgba(251,252,254,.96) 46%,
-    rgba(251,252,254,.82) 66%,rgba(251,252,254,.55) 100%),
-  linear-gradient(180deg,rgba(251,252,254,.55) 0%,rgba(251,252,254,0) 34%)}
-/* the copy over the film is a step darker than the muted grey used elsewhere: the
-   brightest city still leaves the worst pixel at about #C7CBD1, and #414A5E clears
-   the 4.5:1 minimum on it, where the muted tone did not */
-.hero .lead,.hero .facts dt{color:#414A5E}
-/* narrow screens: the copy runs the full width, so the veil closes over everything */
+  linear-gradient(100deg,rgba(15,31,60,.94) 0%,rgba(15,31,60,.88) 42%,
+    rgba(15,31,60,.52) 70%,rgba(15,31,60,.22) 100%),
+  linear-gradient(180deg,rgba(15,31,60,.45) 0%,rgba(15,31,60,0) 40%)}
+.hero .kicker{color:#fff}
+.hero .kicker em{color:#B9CCEA}
+.hero h1{color:#fff}
+.hero h1 .lt{color:rgba(255,255,255,.74)}
+.hero .lead{color:#fff}
+.hero .facts{border-top-color:rgba(255,255,255,.28)}
+.hero .facts > div{border-right-color:rgba(255,255,255,.28)}
+.hero .facts dt{color:#fff}
+.hero .facts dd{color:#fff}
+/* narrow screens: the copy runs the full width, so the wash covers the whole frame */
 @media(max-width:900px){
   .film .veil{background:
-    linear-gradient(180deg,rgba(251,252,254,.92) 0%,rgba(251,252,254,.9) 62%,rgba(251,252,254,.8) 100%)}
+    linear-gradient(180deg,rgba(15,31,60,.86) 0%,rgba(15,31,60,.78) 55%,rgba(15,31,60,.68) 100%)}
 }
 /* held still, on the first city, for anyone who asks for reduced motion */
 @media (prefers-reduced-motion:reduce){
