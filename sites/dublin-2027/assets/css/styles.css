@@ -1720,15 +1720,11 @@ footer li{margin-bottom:.68rem}
 .bleed .tlink:hover,.bleed .tlink:focus-visible,
 .reg-book .tlink:hover,.reg-book .tlink:focus-visible{color:var(--ac-l);opacity:1}
 
-/* ---------- the date-box icons: a pastel glyph in a white disc ----------
-   ESSKA supplies these as a solid disc with the calendar, the pin and so on punched
-   out of it, and the stylesheet turns the disc white. A pale mint circle sits behind
-   each one, so it shows through the punched-out glyph only: the disc stays white and
-   nothing colours the area around it. The circle is a pixel smaller than the disc, so
-   no rim of colour escapes at the edge. */
-:root{--ic-pastel:#B6E0CE}
-.ebar-item{position:relative}
-.ebar-item img{position:relative;z-index:1;opacity:1}
-.ebar-item:has(img)::before{content:"";position:absolute;left:1px;top:50%;width:26px;height:26px;
-  transform:translateY(-50%);border-radius:50%;background:var(--ic-pastel);z-index:0}
-@media(max-width:560px){.ebar-item:has(img)::before{width:22px;height:22px}}
+/* ---------- the date-box icons ----------
+   ESSKA supplies these as a solid disc with the calendar and the pin punched out of
+   it, so the drawn lines are holes and the shape's interior belongs to the disc.
+   icon-date.png and icon-place.png are those two rebuilt as filled icons: the shape
+   filled in the site's pastel tint, its lines in the site colour, on a white disc,
+   with everything outside the disc still transparent. They carry their own colour,
+   so the white-out filter the older icons needed is switched off here. */
+.ebar-item img{filter:none;opacity:1}
