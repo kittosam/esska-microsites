@@ -1776,3 +1776,25 @@ footer::before{opacity:.1}
   max-width:none;pointer-events:none}
 .ph-industry{background:linear-gradient(120deg,#E4DFF3 0%,#EEEAF8 55%,#F7F5FC 100%)}
 @media(max-width:760px){.ph-art{opacity:.35;right:-30px}}
+
+/* ---------- Programme and Registration banners, second pass ----------
+   Programme was left without a picture and read as empty. It now carries the
+   footballer from ESSKA's Sports Medicine artwork, caught mid-kick with the ankle
+   under load, which is the athlete the London moodboard asks for; he stands whole on
+   the turf at the foot of the banner. Registration was a crop of the lower half of
+   the Westminster photograph, which sliced through the towers; it now uses the whole
+   scene in the same violet duotone, anchored near the top so the spires stay in. */
+.ph-programme .ph-art-player{right:clamp(0px,8vw,170px);bottom:0;height:96%;
+  -webkit-mask-image:linear-gradient(to top,transparent 0%,#000 7%);mask-image:linear-gradient(to top,transparent 0%,#000 7%)}
+.ph-programme .scrim{background:linear-gradient(100deg,rgba(30,23,53,.9) 0%,rgba(30,23,53,.55) 42%,rgba(30,23,53,0) 66%)}
+/* the photograph is far squarer than the banner, so filling the width always lost
+   the towers or Parliament; it now sits whole as a panel on the right, its full
+   height shown, faded into the violet ground on its left edge */
+.ph-registration{background:
+  radial-gradient(50% 120% at 70% 60%,rgba(107,91,181,.35) 0%,rgba(107,91,181,0) 70%),
+  linear-gradient(120deg,#1E1735 0%,#231A4D 60%,#2B2148 100%)}
+.ph-registration .ph-art-photo{right:0;top:0;bottom:auto;height:100%;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 22%,#000 45%);
+          mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.5) 22%,#000 45%)}
+.ph-registration .scrim{background:linear-gradient(100deg,rgba(30,23,53,.85) 0%,rgba(30,23,53,.4) 45%,rgba(30,23,53,0) 65%)}
+@media(max-width:760px){.ph-registration .ph-art-photo{opacity:.45}}
