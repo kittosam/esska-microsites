@@ -2138,3 +2138,20 @@ footer li{margin-bottom:.68rem}
    needs neither, so its right edge lines up with the menu below */
 .navreg.nav-cta{padding:0;background:none;box-shadow:none;border:0}
 .navreg.nav-cta::before,.navreg.nav-cta::after{content:none;animation:none}
+
+/* ---------- topic cards the same size as on the other five sites ----------
+   The cards were square, so they came out shorter than everywhere else. They now take
+   the shared height (340px to 430px, width from the three-column grid). All three
+   artworks are square with the title printed inside, close to the edges, so they are
+   not cropped to the taller card: each sits whole at the foot, and the space above
+   continues its own colours (left to right, deepening downwards) and fades into it. */
+.topics .tile{min-height:clamp(340px,30vw,430px);aspect-ratio:auto}
+.tile.t1 .art,.tile.t2 .art,.tile.t3 .art{inset:auto 0 0 0;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%);mask-image:linear-gradient(180deg,transparent 0%,#000 14%)}
+.tile.t1{background:linear-gradient(180deg,rgba(21,47,90,0) 25%,#152f5a 100%),linear-gradient(90deg,#fafcfe,#f1f6fd)}
+.tile.t2{background:linear-gradient(180deg,rgba(14,41,91,0) 25%,#0e295b 100%),linear-gradient(90deg,#6691cd,#a7c0e2)}
+.tile.t3{background:linear-gradient(180deg,rgba(6,21,45,0) 25%,#06152d 100%),linear-gradient(90deg,#0f2d57,#1a447e)}
+/* an earlier rule left the Dysplasia artwork 8% see-through, which let the fill above
+   show through as a band once the card grew taller */
+.tile.t2 .art{opacity:1}
+@media (hover:none){.topics .tile{min-height:0}}
