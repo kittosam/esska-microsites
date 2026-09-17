@@ -154,7 +154,7 @@ def banner(label, day, wk, dnum, mon):
 FOOT = ('<div class="foot"><span><b>ESSKA Focus Meeting</b> &nbsp;|&nbsp; Rome, Italy &nbsp;|&nbsp; '
         '8<i class="dash">&ndash;</i>9 October 2027</span>'
         '<span>Draft programme, subject to change</span></div>')
-MAST = """<div class="mast"><img class="art" src="assets/img/photo-01-hero.png" alt="">
+MAST = """<div class="mast"><img class="art" src="assets/img/knee-hero.jpg" alt="">
 <img class="logo" src="assets/img/logo-02.png" alt="ESSKA">
 <div class="mast-in"><p class="eyebrow">ESSKA Focus Meeting</p>
 <h1>Revision Knee Arthroplasty<span class="l2">and Periprosthetic Joint Infection:</span><span class="l3">Current Concepts and Future Directions</span></h1></div>

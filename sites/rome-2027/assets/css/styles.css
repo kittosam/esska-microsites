@@ -1855,3 +1855,11 @@ footer::before{opacity:.15}
   .nav-early{display:none}
   .nav-reg{padding:.6rem 1rem;font-size:12px;gap:.7rem}
 }
+
+/* the Revision card uses the new knee render (knee-card.jpg), centred with no white
+   margins to zoom past */
+.tile.t1 .art{object-position:center 30%;transform:none}
+.topic:hover .tile.t1 .art{transform:scale(1.05)}
+
+/* the contact address never breaks at its hyphen */
+a[href^="mailto:focus-meetings@"]{white-space:nowrap}

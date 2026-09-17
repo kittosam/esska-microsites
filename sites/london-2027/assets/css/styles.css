@@ -1955,3 +1955,6 @@ footer::before{opacity:.1}
    needs neither, so its right edge lines up with the menu below */
 .navreg.nav-cta{padding:0;background:none;box-shadow:none;border:0}
 .navreg.nav-cta::before,.navreg.nav-cta::after{content:none;animation:none}
+
+/* the contact address never breaks at its hyphen */
+a[href^="mailto:focus-meetings@"]{white-space:nowrap}

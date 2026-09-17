@@ -2159,3 +2159,84 @@ footer li{margin-bottom:.68rem}
 /* the room booking button on the dark accommodation panel: the outlined Register style,
    white on the dark ground, sitting under the note */
 .v-stay-when .stay-book{align-self:flex-start;margin-top:1.1rem}
+
+/* ---------- Athens: the hotel booking link, easy to find on every page ----------
+   One bed glyph marks "Book a room" wherever it appears, so it reads as the hotel
+   action and not a second Register: in the utility strip, the hero date box, the
+   sticky bar, the homepage venue block, the venue banner and card, the Registration
+   page and the footer. Register keeps the arrow; booking keeps the bed. */
+.bed-ic{width:20px;height:20px;flex:none}
+
+/* utility strip, beside ESSKA Home; on narrow screens it is the one link left there */
+.u-r .u-book{display:inline-flex;align-items:center;gap:.5rem;color:#E2C48F}
+.u-r .u-book:hover{color:#fff}
+.u-r .u-book .bed-ic{width:18px;height:18px}
+@media(max-width:820px){
+  .util-in{justify-content:space-between}
+  .u-r{display:flex}
+  .u-r .u-home{display:none}
+  .u-r .u-book{font-size:.8rem}
+}
+@media(max-width:520px){.util-in{justify-content:center}}
+
+/* hero date box: a full-width strip along its foot */
+.ebar-book{display:flex;align-items:center;gap:.7rem;margin:.8rem 0 0;padding-top:.8rem;
+  border-top:1px solid rgba(255,255,255,.22);color:#E8D3AE;text-decoration:none;
+  font-size:clamp(.96rem,1.1vw,1.04rem);line-height:1.3}
+.ebar-book b{color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:rgba(226,196,143,.55);
+  text-underline-offset:4px;text-decoration-thickness:2px}
+.ebar-book .bed-ic{color:var(--ac-l)}
+.ebar-book .reg-arrow{margin-left:auto;color:var(--ac-l)}
+.ebar-book:hover b{text-decoration-color:#fff}
+.ebar-book:hover .reg-arrow{transform:translateX(3px)}
+.ebar-book:focus-visible{outline:2px solid #E2C48F;outline-offset:4px;border-radius:2px}
+
+/* the Book a room button: the Register shape, with the bed in the disc */
+.pill-book .pill-i .bed-ic{width:20px;height:20px;color:#fff}
+.v-card .btn-row .pill.pill-book{background:var(--cta-fill);border-width:2px;
+  box-shadow:0 0 0 4px rgba(var(--cta-rgb),.12);font-weight:700;letter-spacing:.1em;gap:18px;padding:7px 9px 7px 25px}
+.v-card .btn-row .pill.pill-book .pill-i{width:34px;height:34px}
+.v-card .btn-row .pill.pill-book:hover,.v-card .btn-row .pill.pill-book:focus-visible{background:var(--cta-fill-h);
+  box-shadow:0 0 0 7px rgba(var(--cta-rgb),.16)}
+.v-card .btn-row{gap:1rem 1.2rem}
+.v-card .btn-row .tlink{margin-left:.4rem}
+
+/* venue facts: the inline link gets an arrow and a firmer weight */
+.v-facts a.vf-link{display:inline-flex;align-items:center;gap:.45rem;font-weight:700}
+.v-facts a.vf-link .reg-arrow{width:14px;height:10px}
+.v-facts a.vf-link:hover .reg-arrow{transform:translateX(3px)}
+
+/* venue banner: an outlined white button at the end of the meta line */
+.ph-meta .ph-book{margin-left:auto;gap:.7rem}
+.ph-meta .ph-book span{font-size:inherit;font-weight:inherit;letter-spacing:inherit;color:inherit;display:inline}
+@media(max-width:700px){.ph-meta .ph-book{margin-left:0}}
+
+/* accommodation panel on the Venue page: filled, so it is the strongest thing there */
+.v-stay-when .stay-book{background:var(--cta-fill);border-color:var(--cta-fill);color:var(--cta-ink)}
+.v-stay-when .stay-book:hover,.v-stay-when .stay-book:focus-visible{background:#fff;border-color:#fff}
+
+/* sticky bar: a bed and "Book a room" before the early rate */
+.stick-book{flex:none;display:inline-flex;align-items:center;gap:.55rem;margin-left:auto;color:#E2C48F;
+  text-decoration:none;font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1;
+  padding:.55rem 0;border-bottom:2px solid rgba(226,196,143,.5);transition:color .2s var(--e),border-color .2s var(--e)}
+.stick-book:hover,.stick-book:focus-visible{color:#fff;border-color:#fff}
+.stick-book:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.stick .stick-early{margin-left:1.4rem;padding-left:1.4rem;border-left:1px solid rgba(255,255,255,.22)}
+.stick.onlight .stick-book{color:#8A5A1C;border-color:rgba(138,90,28,.4)}
+.stick.onlight .stick-book:hover{border-color:#8A5A1C}
+.stick.onlight .stick-early{border-left-color:rgba(18,41,77,.16)}
+@media(max-width:640px){
+  .stick{gap:.9rem}
+  .stick .l b{font-size:.88rem}
+  .stick-book{font-size:12px;letter-spacing:.08em;gap:.4rem}
+  .stick-book .bed-ic{width:18px;height:18px}
+  .stick-reg{padding:.7rem .9rem;font-size:12px;gap:.6rem}
+}
+@media(max-width:400px){.stick .l{display:none}}
+.pill.pill-book .pill-i svg.bed-ic,.v-card .btn-row .pill.pill-book .pill-i svg.bed-ic{width:20px;height:20px;margin:0;fill:none;stroke:#fff}
+.v-stay-when .stay-book,.v-stay-when .stay-book span{color:var(--cta-ink)}
+.v-stay-when .stay-book span{font-size:14px;letter-spacing:.16em}
+.v-stay-when .stay-book span{white-space:nowrap;letter-spacing:.12em}
+
+/* the contact address never breaks at its hyphen */
+a[href^="mailto:focus-meetings@"]{white-space:nowrap}

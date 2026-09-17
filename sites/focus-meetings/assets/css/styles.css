@@ -255,3 +255,22 @@ footer p{max-width:34ch;color:rgba(255,255,255,.55);font-size:1rem}
 
 /* buttons as soft rectangles, matching the six meeting sites */
 .pill{border-radius:12px}
+
+/* ---------- meetings whose websites are not open yet ----------
+   The card keeps its date, subject and colour but is not a link: no pointer, no lift
+   on hover, the picture a little quieter, a "Coming soon" label across the picture
+   and in place of the link at the foot. */
+.card-in.is-soon{cursor:default}
+.card-in.is-soon:hover{transform:none;border-color:var(--line);box-shadow:0 10px 26px rgba(27,58,107,.07)}
+.card-in.is-soon .shot img{filter:saturate(.55) brightness(.92);opacity:.85}
+.card-in.is-soon:hover .shot img{transform:none}
+.soon-badge{position:absolute;right:clamp(.8rem,1.6vw,1.1rem);bottom:clamp(.8rem,1.6vw,1.1rem);z-index:2;
+  padding:.5rem .95rem;border-radius:100px;background:rgba(255,255,255,.94);color:var(--c-d);
+  font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  box-shadow:0 6px 16px rgba(18,41,79,.18)}
+.go.go-soon{color:var(--muted);border-bottom:0;padding:0;letter-spacing:.14em}
+.go.go-soon::after{content:none}
+.card-in.is-soon:hover .go{color:var(--muted)}
+.f-soon{color:rgba(255,255,255,.5)}
+.f-soon em{font-style:normal;font-size:.8em;letter-spacing:.06em;color:rgba(255,255,255,.38)}
+.f-soon em{display:block;margin-top:.1rem;text-transform:uppercase;letter-spacing:.12em;font-size:.7em}
