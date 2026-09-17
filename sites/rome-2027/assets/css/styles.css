@@ -1902,3 +1902,16 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .bleed .pill:hover .pill-i,.bleed .pill[data-go="registration"]:hover .pill-i{background:var(--g)}
 .bleed .pill .pill-i svg,.bleed .pill:hover .pill-i svg{fill:#0F1217}
 .bleed .pill:hover,.bleed .pill:focus-visible{background:rgba(35,80,168,.24)}
+
+/* ---------- Contacts: one light gradient for the whole page ----------
+   The banner and the enquiry form share a single wash from the paper colour to a
+   light tint of the palette, with no glows or dot pattern. The sponsorship line is
+   its own paragraph, and the rule in the enquiry box now sits above the form link. */
+#contacts{background:linear-gradient(172deg,var(--paper) 0%,
+  color-mix(in srgb,var(--ice) 30%,var(--paper)) 50%,color-mix(in srgb,var(--ice) 62%,var(--paper)) 100%)}
+#contacts .pc,#contacts .tint{background:transparent}
+#contacts .pc::before{content:none}
+.pc-sub.pc-sub-2{margin-top:.85rem}
+.pc-box .pc-box-office{border-top:0;padding-top:0;margin-top:.5rem!important}
+.pc-jump-row{width:100%;margin-top:.7rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+.pc-box .pc-jump-row .pc-jump{margin-top:0}

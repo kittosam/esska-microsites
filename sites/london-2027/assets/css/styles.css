@@ -1997,3 +1997,16 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .pc-sub a[data-go]{color:var(--cta-border);font-weight:600;text-decoration:underline;text-underline-offset:3px;
   text-decoration-color:rgba(var(--cta-rgb),.35)}
 .pc-sub a[data-go]:hover{text-decoration-color:currentColor}
+
+/* ---------- Contacts: one light gradient for the whole page ----------
+   The banner and the enquiry form share a single wash from the paper colour to a
+   light tint of the palette, with no glows or dot pattern. The sponsorship line is
+   its own paragraph, and the rule in the enquiry box now sits above the form link. */
+#contacts{background:linear-gradient(172deg,var(--paper) 0%,
+  color-mix(in srgb,var(--ice) 30%,var(--paper)) 50%,color-mix(in srgb,var(--ice) 62%,var(--paper)) 100%)}
+#contacts .pc,#contacts .tint{background:transparent}
+#contacts .pc::before{content:none}
+.pc-sub.pc-sub-2{margin-top:.85rem}
+.pc-box .pc-box-office{border-top:0;padding-top:0;margin-top:.5rem!important}
+.pc-jump-row{width:100%;margin-top:.7rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+.pc-box .pc-jump-row .pc-jump{margin-top:0}
