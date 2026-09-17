@@ -2155,3 +2155,7 @@ footer li{margin-bottom:.68rem}
    show through as a band once the card grew taller */
 .tile.t2 .art{opacity:1}
 @media (hover:none){.topics .tile{min-height:0}}
+
+/* the room booking button on the dark accommodation panel: the outlined Register style,
+   white on the dark ground, sitting under the note */
+.v-stay-when .stay-book{align-self:flex-start;margin-top:1.1rem}
