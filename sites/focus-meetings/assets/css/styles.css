@@ -274,3 +274,6 @@ footer p{max-width:34ch;color:rgba(255,255,255,.55);font-size:1rem}
 .f-soon{color:rgba(255,255,255,.5)}
 .f-soon em{font-style:normal;font-size:.8em;letter-spacing:.06em;color:rgba(255,255,255,.38)}
 .f-soon em{display:block;margin-top:.1rem;text-transform:uppercase;letter-spacing:.12em;font-size:.7em}
+
+/* date ranges: the en dash stays small and sits close to the numbers on both sides */
+.dash{font-style:normal;display:inline;font-size:.7em;font-weight:500;margin:0 .06em;vertical-align:.1em;opacity:.7}

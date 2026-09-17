@@ -27,3 +27,12 @@ cd sites/rome-2027 && python3 ../../tools/rome_pdf.py
 Athens is the same with `athens_pdf.py`, port 8011 and the Athens PDF name.
 If the measuring step cannot reach the preview it stops rather than guessing,
 because a dead server once produced a PDF of a 404 page.
+
+## Programme PDF masthead
+
+Every programme PDF uses the same first-page masthead (54 mm tall): the ESSKA logo
+leads the eyebrow on one line, divided by a hairline, with the title and meta line
+below, and the site's key visual in a wide, full-height panel on the right (about
+84 to 96 mm, `object-fit: cover`, fading in from the left). When a programme arrives
+for Istanbul, Dublin, Bologna or London, copy the masthead CSS and markup from
+`rome_pdf.py` or `athens_pdf.py` rather than the older layout with a floating logo.

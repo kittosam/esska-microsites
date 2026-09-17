@@ -46,7 +46,7 @@ html,body{margin:0;padding:0;background:#fff;color:var(--ink);
 .mast-meta{position:absolute;left:14mm;bottom:4mm;z-index:3;display:flex;gap:11mm;
   font-size:7.6pt;font-weight:700;color:var(--ac);letter-spacing:.03em}
 .mast-meta span:nth-child(2),.mast-meta span:nth-child(3){color:var(--muted);font-weight:600}
-.dash{font-style:normal;display:inline;font-weight:400;font-size:.72em;vertical-align:.06em;margin:0 .22em;opacity:.6}
+.dash{font-style:normal;display:inline;font-weight:400;font-size:.72em;vertical-align:.06em;margin:0 .06em;opacity:.7}
 
 .rh{height:14mm;background:var(--navy);color:#fff;display:flex;align-items:center;
   justify-content:space-between;padding:0 14mm;font-size:7.6pt;font-weight:700;
@@ -119,6 +119,19 @@ ul.talks .sp{font-size:7.2pt;font-weight:700;color:var(--navy);line-height:1.35}
   color:rgba(255,255,255,.72);display:flex;align-items:center;justify-content:space-between;
   padding:0 14mm;font-size:6.6pt}
 .foot b{color:#fff;font-weight:700}
+
+/* masthead: the ESSKA logo leads the eyebrow on one line, as the site header pairs the
+   logo with the meeting name, and the artwork gets a wider, full-height panel on the
+   right instead of a narrow strip */
+.mast{height:54mm}
+.mast-in{padding-top:6.5mm}
+.mast-brand{display:flex;align-items:center;gap:3.4mm;margin:0 0 3.6mm}
+.mast-brand img{width:12.5mm;height:auto;display:block}
+.mast-brand i{display:block;width:.3mm;height:9mm;background:rgba(39,58,120,.28)}
+.mast-brand .eyebrow{margin:0;padding:0;border:0}
+.mast .art{height:54mm;width:84mm;object-fit:cover;object-position:42% 52%;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 30%);mask-image:linear-gradient(to right,transparent 0,#000 30%)}
+.mast-meta{bottom:5mm}
 """
 
 def slot_html(item, day_label=None):
@@ -154,9 +167,8 @@ def banner(label, day, wk, dnum, mon):
 FOOT = ('<div class="foot"><span><b>ESSKA Focus Meeting</b> &nbsp;|&nbsp; Rome, Italy &nbsp;|&nbsp; '
         '8<i class="dash">&ndash;</i>9 October 2027</span>'
         '<span>Draft programme, subject to change</span></div>')
-MAST = """<div class="mast"><img class="art" src="assets/img/knee-hero.jpg" alt="">
-<img class="logo" src="assets/img/logo-02.png" alt="ESSKA">
-<div class="mast-in"><p class="eyebrow">ESSKA Focus Meeting</p>
+MAST = """<div class="mast"><img class="art" src="assets/img/knee-industry.jpg" alt="">
+<div class="mast-in"><div class="mast-brand"><img src="assets/img/logo-02.png" alt="ESSKA"><i></i><p class="eyebrow">ESSKA Focus Meeting</p></div>
 <h1>Revision Knee Arthroplasty<span class="l2">and Periprosthetic Joint Infection:</span><span class="l3">Current Concepts and Future Directions</span></h1></div>
 <div class="mast-meta"><span>8<i class="dash">&ndash;</i>9 October 2027</span><span>Arthroplasty &amp; Degenerative Knee</span><span>Rome, Italy</span></div></div>"""
 RH = ('<div class="rh"><span>Revision Knee Arthroplasty and PJI</span>'
@@ -204,7 +216,7 @@ if len(heights) != len(blocks) or min(heights) < 10:
 pathlib.Path("_measure.html").unlink(missing_ok=True)
 
 # ---- fill pages by real height ----
-FIRST = 297 - 46 - 8 - 13 - 26 - 10 - 4      # mast, pad, section head, summary, footer, slack
+FIRST = 297 - 54 - 8 - 13 - 26 - 10 - 4      # mast, pad, section head, summary, footer, slack
 CONT  = 297 - 14 - 8 - 10 - 4                # running header, pad, footer, slack
 # how many pages the content actually needs
 def cap_of(i): return (FIRST if i == 0 else CONT) * MM
