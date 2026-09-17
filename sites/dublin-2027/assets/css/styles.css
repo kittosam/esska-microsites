@@ -1974,3 +1974,26 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .bleed .pill:hover,.bleed .pill:focus-visible{background:rgba(255,255,255,.16);border-color:#fff;
   box-shadow:none;transform:none;color:#fff}
 .bleed .pill:hover .pill-i svg{transform:translateX(1px)}
+
+/* the countdown-band Register in the site's own colours: the outline, the label and the
+   disc take a light-to-main gradient of the palette instead of plain white */
+.bleed .pill,.bleed .pill[data-go="registration"]{--g:linear-gradient(120deg,#D6F0E6 0%,#A6D8C5 50%,#4BAA89 100%);
+  position:relative;border:0;padding:7.5px 8.5px 7.5px 23.5px;background:rgba(62,156,125,.12)}
+.bleed .pill::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+  padding:1.5px;background:var(--g);animation:none;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.bleed .pill > span:first-child{background:var(--g);-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent}
+.bleed .pill .pill-i,.bleed .pill[data-go="registration"] .pill-i,
+.bleed .pill:hover .pill-i,.bleed .pill[data-go="registration"]:hover .pill-i{background:var(--g)}
+.bleed .pill .pill-i svg,.bleed .pill:hover .pill-i svg{fill:#092A2F}
+.bleed .pill:hover,.bleed .pill:focus-visible{background:rgba(62,156,125,.24)}
+
+/* Contacts: the team and address come straight after the message, and the jump to the
+   form is a quiet link with a down arrow, like Download the programme, not a button */
+.pc-box .pc-box-office{margin-top:.2rem!important}
+.pc-box .pc-jump{margin-top:.5rem;font-size:13px}
+.pc-sub a[data-go]{color:var(--cta-border);font-weight:600;text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:rgba(var(--cta-rgb),.35)}
+.pc-sub a[data-go]:hover{text-decoration-color:currentColor}
