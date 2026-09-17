@@ -1929,3 +1929,29 @@ footer li{margin-bottom:.68rem}
    middle of the time and duration beside it, rather than hanging at the top */
 .prow.break .prow-static{align-items:center}
 .prow.break .ptitle{line-height:1.2}
+
+/* ---------- the header matches the sticky bar (as piloted on Rome) ----------
+   The hanging tab gives way to the same pair as the bar at the foot of the page: the
+   early-rate date, then an outlined Register with an arrow, in the site colour on the
+   white header. */
+.nav-cta{display:flex;align-items:center;gap:1.4rem}
+.nav-early{margin:0;text-align:right;line-height:1.25;color:var(--navy)}
+.nav-early small{display:block;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#1E6B52}
+.nav-early > span{font-size:.98rem;font-weight:500}
+.nav-reg{flex:none;display:inline-flex;align-items:center;gap:1.1rem;padding:.9rem 1.5rem;border-radius:10px;
+  border:1.5px solid #1E6B52;color:#1E6B52;background:transparent;text-decoration:none;
+  font-size:15px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;line-height:1;
+  transition:background .2s var(--e)}
+.nav-reg:hover,.nav-reg:focus-visible{background:rgba(30,107,82,.07)}
+.nav-reg:hover .reg-arrow,.nav-reg:focus-visible .reg-arrow{transform:translateX(3px)}
+.nav-reg:focus-visible{outline:2px solid #1E6B52;outline-offset:3px}
+.nav.stuck .nav-reg{padding:.65rem 1.2rem;font-size:13px}
+.nav.stuck .nav-early > span{font-size:.88rem}
+@media(max-width:760px){
+  .nav-early{display:none}
+  .nav-reg{padding:.6rem 1rem;font-size:12px;gap:.7rem}
+}
+/* an earlier Register style padded .navreg and ran a sheen over it; the new wrapper
+   needs neither, so its right edge lines up with the menu below */
+.navreg.nav-cta{padding:0;background:none;box-shadow:none;border:0}
+.navreg.nav-cta::before,.navreg.nav-cta::after{content:none;animation:none}
