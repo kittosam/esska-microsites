@@ -217,3 +217,26 @@ if(EARLY_RATE){
   const tag=document.querySelector('.fee-period[data-period="'+key+'"] .fp-tag');
   if(tag){ tag.textContent=live?"Current rate":"Opens first"; tag.hidden=false; }
 })();
+
+/* Enquiry form: until a form service is set up, Send enquiry opens the visitor's own
+   email app with a message to the organising team, addressed and filled in from the
+   fields. Nothing is sent from the page itself. */
+(function(){
+  const form = document.querySelector(".form[data-mailto]");
+  if(!form) return;
+  const btn = form.querySelector("button.pill"), note = form.querySelector(".form-note");
+  const val = id => (document.getElementById(id) || {value:""}).value.trim();
+  btn.addEventListener("click", () => {
+    const name = val("n"), email = val("e"), topic = val("t"), msg = val("m");
+    if(!msg){
+      if(note) note.textContent = "Please write your message first.";
+      document.getElementById("m").focus();
+      return;
+    }
+    const subject = "Enquiry: " + topic + " (" + form.dataset.meeting + ")";
+    const body = msg + "\n\n" + [name, email].filter(Boolean).join("\n");
+    location.href = "mailto:" + form.dataset.mailto +
+      "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    if(note) note.textContent = "Your email app should now open with the message ready. Press send there to reach the organising team.";
+  });
+})();

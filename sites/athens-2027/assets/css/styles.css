@@ -2318,3 +2318,26 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .dash{font-size:.7em;font-weight:500;margin:0 .06em;vertical-align:.1em;opacity:.7}
 .ebar-item .dash{font-size:.6em;margin:0 .08em;vertical-align:.14em;opacity:1}
 .u-c i.dash,.u-l i.dash{display:inline!important;width:auto;height:auto;background:none;align-self:auto}
+
+/* ---------- see-through Register now, and Get directions in the site's dark tone ----------
+   The hero Register now drops its tinted fill so the page shows through (outline, halo,
+   disc and animations unchanged). Get directions on the venue card takes the standard
+   button size, the same as Book a room, in the palette's darkest colour instead of the
+   main accent, so it reads as the secondary action. */
+.hero-cta .pill{background:transparent}
+.v-card .btn-row .pill:not(.pill-book){background:transparent;border:2px solid var(--navy);color:var(--navy);
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--navy) 10%,transparent);
+  font-weight:700;letter-spacing:.1em;gap:18px;padding:7px 9px 7px 25px}
+.v-card .btn-row .pill:not(.pill-book) .pill-i{width:34px;height:34px;background:var(--navy)}
+.v-card .btn-row .pill:not(.pill-book) .pill-i svg{width:10px;height:12px;fill:#fff}
+.v-card .btn-row .pill:not(.pill-book):hover,.v-card .btn-row .pill:not(.pill-book):focus-visible{
+  background:color-mix(in srgb,var(--navy) 7%,transparent);border-color:var(--navy);
+  box-shadow:0 0 0 7px color-mix(in srgb,var(--navy) 12%,transparent)}
+/* Book a room and Get directions side by side at exactly the same width */
+.v-card .btn-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:560px}
+.v-card .btn-row .pill{justify-content:space-between;width:100%;box-sizing:border-box}
+@media(max-width:520px){.v-card .btn-row{grid-template-columns:1fr}}
+
+/* the line under Send enquiry explaining that it opens the visitor's email app */
+.form-note{margin:.9rem 0 0;font-size:.9rem;color:var(--muted);line-height:1.55;max-width:52ch}
+.form-note a{color:var(--cta-border);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(var(--cta-rgb),.4)}
