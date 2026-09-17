@@ -1958,3 +1958,19 @@ footer li{margin-bottom:.68rem}
 
 /* the contact address never breaks at its hyphen */
 a[href^="mailto:focus-meetings@"]{white-space:nowrap}
+
+/* ---------- Register in the "Join us" countdown band: quieter ----------
+   On the photograph it sits beside the white "See what's on" link, so it takes the same
+   white: a see-through glass fill, a fine white outline and a small translucent disc,
+   with no halo, ring or pulse. It firms up a little on hover. */
+.bleed .pill,.bleed .pill[data-go="registration"]{background:rgba(255,255,255,.08);color:#fff;
+  border:1.5px solid rgba(255,255,255,.72);box-shadow:none;backdrop-filter:blur(6px);
+  font-size:14px;font-weight:700;letter-spacing:.14em;gap:14px;padding:6px 7px 6px 22px}
+.bleed .pill::before,.bleed .pill::after{content:none;animation:none}
+.bleed .pill .pill-i,.bleed .pill[data-go="registration"] .pill-i,
+.bleed .pill:hover .pill-i,.bleed .pill[data-go="registration"]:hover .pill-i{
+  width:30px;height:30px;background:rgba(255,255,255,.18);box-shadow:none;animation:none;transform:none}
+.bleed .pill .pill-i svg,.bleed .pill:hover .pill-i svg{width:9px;height:11px;fill:#fff;animation:none}
+.bleed .pill:hover,.bleed .pill:focus-visible{background:rgba(255,255,255,.16);border-color:#fff;
+  box-shadow:none;transform:none;color:#fff}
+.bleed .pill:hover .pill-i svg{transform:translateX(1px)}

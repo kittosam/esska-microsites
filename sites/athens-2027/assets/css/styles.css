@@ -2167,18 +2167,6 @@ footer li{margin-bottom:.68rem}
    page and the footer. Register keeps the arrow; booking keeps the bed. */
 .bed-ic{width:20px;height:20px;flex:none}
 
-/* utility strip, beside ESSKA Home; on narrow screens it is the one link left there */
-.u-r .u-book{display:inline-flex;align-items:center;gap:.5rem;color:#E2C48F}
-.u-r .u-book:hover{color:#fff}
-.u-r .u-book .bed-ic{width:18px;height:18px}
-@media(max-width:820px){
-  .util-in{justify-content:space-between}
-  .u-r{display:flex}
-  .u-r .u-home{display:none}
-  .u-r .u-book{font-size:.8rem}
-}
-@media(max-width:520px){.util-in{justify-content:center}}
-
 /* hero date box: a full-width strip along its foot */
 .ebar-book{display:flex;align-items:center;gap:.7rem;margin:.8rem 0 0;padding-top:.8rem;
   border-top:1px solid rgba(255,255,255,.22);color:#E8D3AE;text-decoration:none;
@@ -2240,3 +2228,42 @@ footer li{margin-bottom:.68rem}
 
 /* the contact address never breaks at its hyphen */
 a[href^="mailto:focus-meetings@"]{white-space:nowrap}
+
+/* ---------- Register in the "Join us" countdown band: quieter ----------
+   On the photograph it sits beside the white "See what's on" link, so it takes the same
+   white: a see-through glass fill, a fine white outline and a small translucent disc,
+   with no halo, ring or pulse. It firms up a little on hover. */
+.bleed .pill,.bleed .pill[data-go="registration"]{background:rgba(255,255,255,.08);color:#fff;
+  border:1.5px solid rgba(255,255,255,.72);box-shadow:none;backdrop-filter:blur(6px);
+  font-size:14px;font-weight:700;letter-spacing:.14em;gap:14px;padding:6px 7px 6px 22px}
+.bleed .pill::before,.bleed .pill::after{content:none;animation:none}
+.bleed .pill .pill-i,.bleed .pill[data-go="registration"] .pill-i,
+.bleed .pill:hover .pill-i,.bleed .pill[data-go="registration"]:hover .pill-i{
+  width:30px;height:30px;background:rgba(255,255,255,.18);box-shadow:none;animation:none;transform:none}
+.bleed .pill .pill-i svg,.bleed .pill:hover .pill-i svg{width:9px;height:11px;fill:#fff;animation:none}
+.bleed .pill:hover,.bleed .pill:focus-visible{background:rgba(255,255,255,.16);border-color:#fff;
+  box-shadow:none;transform:none;color:#fff}
+.bleed .pill:hover .pill-i svg{transform:translateX(1px)}
+
+/* ---------- Athens hero: Register now and the programme link in the first screen ----------
+   The date box gains no extra row for the hotel link: the venue takes the first line of
+   its foot, and the early rate and "Book a room" share the second, one at each end. On
+   screens shorter than 900px the title runs on one line, which returns another row, so
+   the two buttons stay above the fold on a 13-inch laptop. */
+.ebar-foot{align-items:center;row-gap:.5rem}
+.ebar-foot .ebar-venue{flex-basis:100%}
+.ebar-foot .ebar-book{margin:0 0 0 auto;padding:0;border:0;gap:.55rem;white-space:nowrap}
+.ebar-foot .ebar-book .bed-ic{width:18px;height:18px}
+.ebar-foot .ebar-book .reg-arrow{margin-left:.15rem}
+@media (max-width:1599px){.eb-more{display:none}}
+@media (max-width:560px){.ebar-foot .ebar-book{margin-left:0}}
+@media (min-width:1081px) and (max-height:900px){
+  .hero h1{white-space:nowrap;font-size:clamp(2.2rem,3.5vw,3.3rem)}
+  .hero .strap{margin-top:.35rem}
+  .ebar-foot{margin-top:.6rem;padding-top:.6rem}
+  .hero-cta{margin-top:clamp(1.4rem,3.2vh,2.2rem)}
+}
+@media (min-width:1081px) and (max-height:740px){
+  .hero-cta{margin-top:1.1rem}
+  .kicker{margin-bottom:.5rem}
+}
