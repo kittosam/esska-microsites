@@ -2131,3 +2131,178 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
   .fee-period{padding-top:1rem}
   .fp-tag{position:static;align-self:flex-start;order:-1;margin-bottom:.15rem}
 }
+/* =====================================================================
+   PHONE LAYOUT PASS (ported from the Athens pilot) — everything below is inside phone-only media queries,
+   so the desktop layout is untouched.
+   ===================================================================== */
+
+/* 1. Header: the logo and Register sit on one line, properly centred on each
+   other, and the menu becomes an even three-by-two grid underneath instead of a
+   ragged wrap. */
+@media(max-width:760px){
+  .nav-in{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.5rem 1rem;padding-block:.5rem}
+  .brand,.nav.stuck .brand{align-items:center;padding:.35rem 0}
+  .nav-cta{justify-self:end}
+  .nav ul{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:0;padding:0;
+    border-top:1px solid var(--line)}
+  .nav ul li{display:flex;justify-content:center}
+  .nav ul a{width:100%;text-align:center;padding:.72rem .25rem;font-size:.75rem;letter-spacing:.05em}
+  .nav ul a::after{left:14%;right:14%;height:3px}
+}
+
+/* 2. The hero pair: Register now full width, the programme link centred under it. */
+@media(max-width:560px){
+  .hero-cta{flex-direction:column;align-items:stretch;gap:.9rem}
+  .hero-cta .pill{width:100%;justify-content:space-between}
+  .hero-cta .tlink,.hero-cta .tlink.tlink-dl{align-self:center;margin-left:0;justify-content:center}
+}
+
+/* 3. The chairs' letter reads in the right order: the message first, the chairs
+   after it as a row of three, rather than three portraits before the first word. */
+@media(max-width:900px){
+  .letterhead{display:flex;flex-direction:column}
+  .letterhead .lh-mark{order:1}
+  .letterhead .lh-main{order:2}
+  .letterhead .letter-cta{order:4;text-align:center;margin-top:1.6rem}
+  .letterhead .lh-chairs{order:3;border-bottom:0;border-top:1px solid var(--line);
+    padding:1.6rem 0 0;margin:1.8rem 0 0}
+  .lh-chairs .lh-label{text-align:center}
+  .lh-chairs .sign{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem .8rem;text-align:center}
+  .lh-chairs .sign figure{flex-direction:column;align-items:center;text-align:center;gap:.55rem}
+  .lh-chairs .sign img,.lh-chairs .sign .sign-av{width:84px;height:84px;margin:0 auto}
+  .lh-chairs .sign b{font-size:.88rem;line-height:1.2}
+  .lh-chairs .sign span{font-size:.74rem;line-height:1.3}
+}
+@media(max-width:430px){
+  .lh-chairs .sign img,.lh-chairs .sign .sign-av{width:72px;height:72px}
+  .lh-chairs .sign b{font-size:.8rem}
+  .lh-chairs .sign span{font-size:.68rem}
+}
+
+/* 4. Fact rows (venue address, dates, meeting rooms): label above value, both
+   ranged left, instead of a label and a right-aligned value pulling apart. */
+@media(max-width:560px){
+  .row{flex-direction:column;align-items:flex-start;gap:.15rem;padding:.8rem 0}
+  .row span{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .row b{text-align:left}
+}
+
+/* 5. One rule for buttons on a phone: every filled button is full width with its
+   disc at the right-hand end, and text links sit centred under them. */
+@media(max-width:560px){
+  .btn-row{flex-direction:column;align-items:stretch;gap:.8rem}
+  .btn-row .pill,.v-card .btn-row .pill,.reg-card .pill,.ind-spon .pill,.form .pill,
+  .pc-box .pill,.v-stay-when .stay-book,.band-go .pill{width:100%;justify-content:space-between}
+  .btn-row .tlink,.reg-card .tlink,.band-go .tlink{align-self:center}
+  .v-card .btn-row{display:flex}
+}
+
+/* 6. The early-rate countdown keeps its four boxes on one line, and the four
+   figures under the hero become a single column of rows rather than a 2x2 block. */
+@media(max-width:560px){
+  .count{display:grid;grid-template-columns:repeat(4,1fr);gap:.45rem;flex-wrap:nowrap;margin-top:2rem}
+  .count div{min-width:0;padding:.7rem .2rem}
+  .count b{font-size:1.45rem}
+  .count span{font-size:.56rem;letter-spacing:.06em;margin-top:.35rem}
+  .band-num .grid{grid-template-columns:1fr;row-gap:0}
+  .band-num .n{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:0 1.1rem;
+    text-align:left;padding:.9rem .2rem;border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
+  .band-num .n:last-child{border-bottom:0}
+  .band-num .n-ic{grid-row:span 3;margin:0}
+  .band-num b{font-size:1.6rem}
+  .band-num span{margin-top:.1rem;font-size:.72rem}
+  .band-num em{margin-top:.1rem}
+}
+
+/* =====================================================================
+   PHONE MENU — the six links move behind a menu button and open as a panel.
+   Desktop (above 760px) keeps the row of links: the button is hidden and the
+   list is the ordinary nav again.
+   ===================================================================== */
+.nav-burger{display:none}
+@media(max-width:760px){
+  .nav-burger{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;
+    border:1.5px solid rgba(var(--navy-rgb,18,41,77),.2);border-radius:12px;background:#fff;cursor:pointer;
+    transition:border-color .2s var(--e),background .2s var(--e)}
+  .nav-burger:focus-visible{outline:2px solid var(--cta-border);outline-offset:3px}
+  .nb-bars{display:grid;gap:5px}
+  .nb-bars i{display:block;width:20px;height:2px;border-radius:2px;background:var(--navy);
+    transition:transform .28s var(--e),opacity .2s var(--e)}
+  .nav.is-open .nav-burger{border-color:var(--cta-border);background:color-mix(in srgb,var(--cta-fill) 45%,#fff)}
+  .nav.is-open .nb-bars i:first-child{transform:translateY(7px) rotate(45deg)}
+  .nav.is-open .nb-bars i:nth-child(2){opacity:0}
+  .nav.is-open .nb-bars i:last-child{transform:translateY(-7px) rotate(-45deg)}
+
+  /* the header itself: logo left, then Register and the menu button */
+  .nav-in{display:flex;flex-wrap:nowrap;align-items:center;gap:.7rem;padding-block:.6rem}
+  .nav-cta{margin-left:auto}
+  .nav-burger{order:3;flex:none}
+
+  /* the panel */
+  .nav ul#menu{position:absolute;left:0;right:0;top:100%;z-index:90;display:block;
+    margin:0;padding:1.5rem 1.4rem 1.7rem;border-top:0;
+    background:linear-gradient(168deg,color-mix(in srgb,var(--navy) 86%,#fff) 0%,var(--navy) 46%,var(--navy-d) 100%);
+    box-shadow:0 26px 50px rgba(0,0,0,.34);
+    opacity:0;visibility:hidden;transform:translateY(-10px);
+    transition:opacity .28s var(--e),transform .28s var(--e),visibility .28s}
+  body.menu-open .nav ul#menu{opacity:1;visibility:visible;transform:none}
+  .nav ul#menu li{display:block}
+  .nav ul#menu a{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    width:auto;padding:1.15rem .2rem;font-size:1.08rem;font-weight:600;letter-spacing:0;
+    text-transform:none;text-align:left;color:#fff;
+    border-bottom:1px solid rgba(255,255,255,.14)}
+  .nav ul#menu a::after{content:"→";position:static;transform:none;width:auto;height:auto;
+    background:none;color:rgba(255,255,255,.45);font-size:1rem;transition:transform .25s var(--e)}
+  .nav ul#menu a:hover::after,.nav ul#menu a:focus-visible::after{transform:translateX(3px);color:var(--ac-l)}
+  .nav ul#menu a.on{color:var(--ac-l);font-weight:800}
+  .nav ul#menu a.on::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac-l)}
+
+  /* the two actions at the foot of the panel, with room around them */
+  .menu-foot{padding-top:1.6rem}
+  .menu-foot .pill.pill-menu{display:flex;width:100%;justify-content:space-between;
+    background:var(--cta-fill);border:2px solid var(--cta-border);color:var(--cta-ink);box-shadow:0 0 0 4px rgba(var(--cta-rgb),.18);
+    padding:10px 10px 10px 22px;font-size:13px}
+  .menu-foot .pill.pill-menu .pill-i{width:32px;height:32px;background:var(--cta-border)}
+  .menu-early{margin:1rem 0 0;text-align:center;font-size:.86rem;color:rgba(255,255,255,.7)}
+  .menu-early::before{content:"Early rate ";color:var(--ac-l);font-weight:800;letter-spacing:.1em;
+    text-transform:uppercase;font-size:.7rem}
+  /* the panel hangs from the header, so the header needs to sit above the page */
+  .nav{position:sticky;z-index:95}
+  .nav-in{position:relative}
+}
+@media(min-width:761px){
+  .menu-foot{display:none}
+}
+@media(max-width:620px){
+  /* on a narrow phone the header carries the logo and the menu button only: Register
+     is the first thing inside the panel, and the sticky bar keeps it in reach */
+  .nav .nav-cta{display:none}
+  .nav-burger{margin-left:auto}
+}
+@media(min-width:621px) and (max-width:760px){
+  .nav-reg{padding:.55rem .8rem;font-size:11px;gap:.5rem}
+}
+@media(max-width:760px){
+  /* the two actions are buttons, not list links: no inherited arrow, and Register
+     keeps its dark ink label on the pale fill */
+  .menu-foot a::after{content:none!important}
+  .menu-foot .pill.pill-menu,.menu-foot .pill.pill-menu > span:first-child{color:var(--cta-ink)}
+  .menu-foot a{border-bottom:0;padding:0}
+}
+@media(max-width:760px){
+  /* the panel's link rules are stronger than the button's, so restate the button here */
+}
+@media(max-width:360px){
+  /* the smallest phones: the brand and the kicker rule step down again */
+  .brand img,.nav.stuck .brand img{width:38px}
+  .brand .bn b,.nav.stuck .brand .bn b{font-size:.84rem}
+  .brand .bn .sec,.nav.stuck .brand .bn .sec{font-size:.48rem;letter-spacing:.06em}
+  .brand{gap:.45rem;margin-left:0!important}
+  .kicker i{display:none}
+  .kicker{gap:.5rem}
+}
+@media(max-width:560px){
+  /* the two fee periods stack, so neither card is left short beside the other */
+  .fee-periods,.fee-periods.two{grid-template-columns:1fr}
+  .fee-period{padding:1rem 1.15rem}
+}

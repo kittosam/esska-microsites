@@ -2558,13 +2558,13 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 @media(min-width:761px){
   .menu-foot{display:none}
 }
-@media(max-width:470px){
+@media(max-width:620px){
   /* on a narrow phone the header carries the logo and the menu button only: Register
      is the first thing inside the panel, and the sticky bar keeps it in reach */
   .nav .nav-cta{display:none}
   .nav-burger{margin-left:auto}
 }
-@media(min-width:471px) and (max-width:760px){
+@media(min-width:621px) and (max-width:760px){
   .nav-reg{padding:.55rem .8rem;font-size:11px;gap:.5rem}
 }
 @media(max-width:760px){
@@ -2582,4 +2582,18 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
     padding:.9rem 1rem;border:1.5px solid rgba(255,255,255,.55);border-radius:12px;color:#fff}
   .nav ul#menu .menu-foot .menu-book:hover,.nav ul#menu .menu-foot .menu-book:focus-visible{
     border-color:#E2C48F;color:#fff}
+}
+@media(max-width:360px){
+  /* the smallest phones: the brand and the kicker rule step down again */
+  .brand img,.nav.stuck .brand img{width:38px}
+  .brand .bn b,.nav.stuck .brand .bn b{font-size:.84rem}
+  .brand .bn .sec,.nav.stuck .brand .bn .sec{font-size:.48rem;letter-spacing:.06em}
+  .brand{gap:.45rem;margin-left:0!important}
+  .kicker i{display:none}
+  .kicker{gap:.5rem}
+}
+@media(max-width:560px){
+  /* the two fee periods stack, so neither card is left short beside the other */
+  .fee-periods,.fee-periods.two{grid-template-columns:1fr}
+  .fee-period{padding:1rem 1.15rem}
 }
