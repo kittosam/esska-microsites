@@ -1984,3 +1984,49 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .form .pill .pill-i,.form .pill:hover .pill-i{background:var(--cta-border);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
 .form .pill .pill-i svg,.form .pill:hover .pill-i svg{fill:#fff}
+
+/* ---------- small phones (430px and under) ----------
+   A responsiveness sweep at 320 to 390px found three places whose smallest possible
+   width was wider than the screen, which pushed the whole page sideways: the header
+   brand beside the Register button, the sponsorship card (the round photo and the long
+   email address on one line), and the "Opens ..." button in the registration card.
+   Everything here only tightens those. */
+@media(max-width:430px){
+  .brand img,.nav.stuck .brand img{width:46px}
+  .brand .bn b,.nav.stuck .brand .bn b{font-size:.92rem}
+  .brand .bn .sec,.nav.stuck .brand .bn .sec{font-size:.54rem;letter-spacing:.08em;margin-bottom:0}
+  .brand{gap:.6rem}
+  .nav-reg{padding:.5rem .7rem;font-size:11px;gap:.45rem}
+  .kicker{flex-wrap:wrap;gap:.7rem}
+  /* the sponsorship contact: photo above the name, and a long email may break */
+  .ind-person,.ind-person.ind-person{flex-direction:column;align-items:flex-start;gap:.8rem;padding:1rem}
+  .ind-av,img.ind-av{width:64px;height:64px}
+  .ind-who a{overflow-wrap:anywhere;word-break:break-word}
+  .ind-card,.reg-card{padding:1.15rem}
+  /* buttons may set their label over two lines rather than force the page wider */
+  .pill{font-size:12px;letter-spacing:.06em;padding-left:16px;gap:10px}
+  .pill > span:first-child{white-space:normal;text-align:left}
+  .pill-i{width:28px;height:28px}
+  .hero-cta .pill{font-size:13px}
+}
+@media(max-width:430px){
+  /* remaining narrow-screen pinch points found by the sweep at 320px */
+  .prog-controls,.pctl-row{flex-wrap:wrap}
+  .prog-controls input,.prog-controls .pfield{min-width:0}
+  .fac-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fac,.route,.routes > *{min-width:0}
+  .fac b,.fac span{overflow-wrap:anywhere}
+  .routes{grid-template-columns:1fr}
+}
+@media(max-width:430px){
+  /* the programme's Download link and the faculty country labels were the last two
+     things wider than a 320px screen */
+  .pctl-row .tlink,.tlink.pctl-dl{font-size:11px;letter-spacing:.05em;gap:.45rem}
+  .pctl-row .tlink > span,.tlink.pctl-dl > span{white-space:normal}
+  .fac b,.fac .c,.fac span{overflow-wrap:anywhere;hyphens:auto}
+}
+@media(max-width:430px){
+  /* the "Opens first" tag sat on top of the period name once the card narrowed */
+  .fee-period{padding-top:1rem}
+  .fp-tag{position:static;align-self:flex-start;order:-1;margin-bottom:.15rem}
+}

@@ -228,3 +228,26 @@ tick();setInterval(tick,1000);
     if(note) note.textContent = "Your email app should now open with the message ready. Press send there to reach the organising team.";
   });
 })();
+
+/* Phone menu: the six links live in a panel behind a menu button. The button and the
+   panel only exist on narrow screens (CSS), so this does nothing on a desktop. */
+(function(){
+  const btn=document.getElementById("navBurger"), menu=document.getElementById("menu"),
+        nav=document.getElementById("nav");
+  if(!btn||!menu) return;
+  const set=open=>{
+    document.body.classList.toggle("menu-open",open);
+    nav.classList.toggle("is-open",open);
+    btn.setAttribute("aria-expanded",open?"true":"false");
+  };
+  btn.addEventListener("click",()=>set(!document.body.classList.contains("menu-open")));
+  menu.addEventListener("click",e=>{ if(e.target.closest("a")) set(false); });
+  addEventListener("keydown",e=>{ if(e.key==="Escape") set(false); });
+  /* a tap outside the panel closes it */
+  document.addEventListener("click",e=>{
+    if(!document.body.classList.contains("menu-open")) return;
+    if(e.target.closest("#menu")||e.target.closest("#navBurger")) return;
+    set(false);
+  });
+  addEventListener("resize",()=>{ if(innerWidth>760) set(false); });
+})();
