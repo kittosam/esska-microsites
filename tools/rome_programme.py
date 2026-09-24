@@ -81,8 +81,8 @@ FACULTY = [("Pawe&#322; Skowronek","Poland"),("Guillaume Demey","France"),("Brun
  ("Geert Meermans","Belgium"),("Luigi Capasso","Italy"),("Raghbir Khakha","UK"),
  ("Vlad Predescu","Romania"),("Ricardo Sousa","Portugal"),("Michael Engl","Austria"),
  ("Pier Indelli","Italy"),("Reha Tandogan","Turkey"),("Michael Hirschmman","Switzerland"),
- ("Roland Becker","Germany"),("Andrea Sambri",""),("Antonio Pellegrini",""),
- ("Juan Carlos Mart&iacute;nez-Pastor",""),("Massimiliano De Paolis",""),
+ ("Roland Becker","Germany"),("Andrea Sambri","Italy"),("Antonio Pellegrini","Italy"),
+ ("Juan Carlos Mart&iacute;nez-Pastor",""),("Massimiliano De Paolis","Italy"),
  ("Marta Sabater",""),("Ali Al Belooshi","")]
 
 SUMMARY = [("10&#8239;h&#8239;45","Scientific programme","excluding breaks"),

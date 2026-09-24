@@ -57,7 +57,7 @@ FACULTY=[("Sufian S. Ahmad","Germany"),("Ali Bajwa","United Kingdom"),("Nicolas 
  ("Jacek Mazek","Poland"),("Filippo Randelli","Italy"),("Andre Sarmento","Portugal"),("Matti Seppanen","Finland"),("Klemen Strazar","Slovenia"),
  ("Marc Tey Pons","Spain"),("Michael Wettstein","Switzerland"),("Robert Prill","Germany"),("Stefano Di Paolo","Italy"),("Daniel P&eacute;rez-Prieto","Spain"),
  ("Laura de Girolamo","Italy"),("Panos Christofilopoulos","Switzerland"),("Dora Papadopoulou","United Kingdom and Greece"),
- ("Tahsin Beyzadeoglu","T&uuml;rkiye"),("Jakub Kautzner","Czech Republic"),("Eleftherios Tsiridis","Greece")]
+ ("Tahsin Beyzadeoglu","T&uuml;rkiye"),("Jakub Kautzner","Czech Republic"),("Eleftherios Tsiridis","Greece"),("Margarita Natsika","TBC")]
 
 def mins(a,b):
     f=lambda s:(lambda h,m:h*60+m)(*map(int,s.split(":"))); return f(b)-f(a)
