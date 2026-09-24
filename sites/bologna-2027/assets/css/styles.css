@@ -2298,3 +2298,28 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
   .swipe-hint i{display:block;width:26px;height:1px;background:currentColor;opacity:.4}
 }
 @media(min-width:761px){.band-dots,.swipe-hint{display:none}}
+@media(max-width:760px){
+  /* Programme page, phones only: the day-by-day figures become a swipeable row like the
+     homepage band, and the two day buttons sit side by side instead of stacking */
+  .summary{display:flex;grid-template-columns:none;gap:.9rem;overflow-x:auto;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    margin-inline:calc(var(--pad) * -1);padding:.2rem var(--pad) .4rem;margin-bottom:2rem}
+  .summary::-webkit-scrollbar{display:none}
+  .summary .sm{flex:0 0 76%;scroll-snap-align:center;min-width:0}
+  .pchips{flex-wrap:nowrap;gap:.5rem}
+  .pchips .pchip{flex:1 1 0;min-width:0;text-align:center;padding:.7rem .5rem;
+    font-size:.72rem;letter-spacing:.04em}
+}
+@media(max-width:430px){
+  .pchips .pchip{font-size:.66rem;letter-spacing:.02em;padding:.65rem .35rem}
+}
+@media(max-width:560px){
+  /* the day buttons keep to one line: the date is already in the day heading below */
+  .pchips .pchip{white-space:nowrap}
+  .pchip-date{display:none}
+}
+@media(max-width:560px){
+  /* the day buttons take the full width of the row, sharing it equally */
+  .pctl-row .pchips{flex:1 1 100%;width:100%}
+  .pchips .pchip{flex:1 1 50%}
+}
