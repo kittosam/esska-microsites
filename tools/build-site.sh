@@ -15,6 +15,7 @@ DIST="$ROOT/dist"
 # path on the domain : folder under sites/
 SITES=(
   "arthroplasty-2027:rome-2027"
+  "hip-2027:athens-2027"
 )
 
 # old paths kept working, so links already shared do not break
