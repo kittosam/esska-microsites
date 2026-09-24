@@ -2,7 +2,7 @@
 # Builds the folder Cloudflare Pages serves for esska-focus-meetings.org:
 #
 #   dist/            the hub page listing the 2027 focus meetings
-#   dist/arthroplasty/   the Rome meeting site, named after its subject
+#   dist/arthroplasty-2027/  the Rome meeting site, named after its subject and year
 #
 # Each meeting keeps its own Pages project as well (esska-rome-2027 and the rest),
 # which stay noindex for review. Only what is copied here is public and indexed, so
@@ -14,12 +14,13 @@ DIST="$ROOT/dist"
 
 # path on the domain : folder under sites/
 SITES=(
-  "arthroplasty:rome-2027"
+  "arthroplasty-2027:rome-2027"
 )
 
 # old paths kept working, so links already shared do not break
 REDIRECTS=(
-  "/rome/* /arthroplasty/:splat 301"
+  "/rome/* /arthroplasty-2027/:splat 301"
+  "/arthroplasty/* /arthroplasty-2027/:splat 301"
 )
 
 rm -rf "$DIST"
