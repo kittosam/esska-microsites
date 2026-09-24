@@ -51,11 +51,17 @@ function meetTick(){
 meetTick(); setInterval(meetTick,20000);
 /* early rate deadline: the preliminary fee table closes the early period on 31 May 2027 */
 const EARLY_RATE="2027-05-31T23:59:59+02:00";
+/* The early-rate deadline is the last moment of a day in the meeting's own time zone.
+   Formatting that instant in the reader's time zone moved the date on by a day for
+   anyone further east, so the label is built from the date part of EARLY_RATE and
+   formatted in UTC: the same date for every reader. */
+const ER_DAY = EARLY_RATE ? (([y,m,d]) => new Date(Date.UTC(y, m - 1, d)))(
+  EARLY_RATE.slice(0, 10).split("-").map(Number)) : null;
 const DL=new Date(EARLY_RATE).getTime(), pad=n=>String(n).padStart(2,"0");
-(function(){const txt=new Date(EARLY_RATE).toLocaleDateString("en-GB",
-    {day:"numeric",month:"long",year:"numeric"});
+(function(){const txt=ER_DAY.toLocaleDateString("en-GB",
+    {day:"numeric",month:"long",year:"numeric",timeZone:"UTC"});
   /* the header tab gives the early-rate date without the year */
-  const short=new Date(EARLY_RATE).toLocaleDateString("en-GB",{day:"numeric",month:"long"});
+  const short=ER_DAY.toLocaleDateString("en-GB",{day:"numeric",month:"long",timeZone:"UTC"});
   document.querySelectorAll(".er-short").forEach(el=>el.textContent=short);
   document.querySelectorAll(".er-full").forEach(el=>el.textContent=txt);
   ["erDate","erDate2","erDate3"].forEach(id=>{const el=document.getElementById(id);
@@ -250,4 +256,49 @@ tick();setInterval(tick,1000);
     set(false);
   });
   addEventListener("resize",()=>{ if(innerWidth>760) set(false); });
+})();
+
+/* Phone only: the figures band scrolls itself, one card at a time, and the dots
+   follow it. It stops as soon as the reader swipes, and never runs for anyone who
+   asks for reduced motion. */
+(function(){
+  const row=document.querySelector(".band-num .grid"), dots=document.querySelector(".band-dots");
+  if(!row||!dots) return;
+  const cards=[...row.querySelectorAll(".n")];
+  cards.forEach(()=>dots.appendChild(document.createElement("i")));
+  const marks=[...dots.children];
+  const phone=()=>matchMedia("(max-width:760px)").matches;
+  const reduce=()=>matchMedia("(prefers-reduced-motion:reduce)").matches;
+  let timer=null, paused=false, i=0;
+  const nearest=()=>{
+    /* the card whose middle is closest to the middle of the row, so the last card
+       still counts even when the row cannot scroll any further */
+    const mid=row.scrollLeft+row.clientWidth/2;
+    let best=0, d=1e9;
+    cards.forEach((c,k)=>{
+      const x=Math.abs(c.offsetLeft+c.offsetWidth/2-mid);
+      if(x<d){d=x;best=k}
+    });
+    return best;
+  };
+  const paint=()=>{const n=nearest(); marks.forEach((m,k)=>m.classList.toggle("on",k===n));};
+  const centreOf=c=>{
+    /* the cards snap on their middle, so scroll to where the card sits centred */
+    const max=row.scrollWidth-row.clientWidth;
+    return Math.max(0,Math.min(max,c.offsetLeft-(row.clientWidth-c.offsetWidth)/2));
+  };
+  const step=()=>{
+    if(paused||!phone()||document.hidden) return;
+    i=(nearest()+1)%cards.length;
+    row.scrollTo({left:centreOf(cards[i]),behavior:"smooth"});
+  };
+  const start=()=>{ if(timer||reduce()||!phone()) return; timer=setInterval(step,3600); };
+  const stop=()=>{ clearInterval(timer); timer=null; };
+  row.addEventListener("scroll",paint,{passive:true});
+  ["pointerdown","touchstart","wheel"].forEach(e=>row.addEventListener(e,()=>{paused=true;stop()},{passive:true}));
+  addEventListener("resize",()=>{ phone()?start():stop(); paint(); },{passive:true});
+  /* only once the band is on screen */
+  new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.35})
+    .observe(row);
+  paint();
 })();

@@ -2205,3 +2205,48 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
   .fee-periods,.fee-periods.two{grid-template-columns:1fr}
   .fee-period{padding:1rem 1.15rem}
 }
+
+/* =====================================================================
+   PHONE: a shorter homepage — the figures and the topic cards become
+   swipeable rows instead of tall stacks, and the panel's Register now is a
+   proper filled button. Phone widths only; desktop is untouched.
+   ===================================================================== */
+@media(max-width:760px){
+  /* 1. Register now in the menu panel: filled in the site colour with a white
+     disc, so it reads as the main action rather than a pale slab */
+  .menu-foot .pill.pill-menu{height:52px;padding:0 8px 0 22px;font-size:13.5px;font-weight:800;
+    letter-spacing:.06em;border:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 8px 18px rgba(0,0,0,.28);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--cta-border) 84%,#fff) 0%,var(--cta-border) 58%,
+      color-mix(in srgb,var(--cta-border) 88%,#000) 100%)}
+  .menu-foot .pill.pill-menu,.menu-foot .pill.pill-menu > span:first-child{color:#fff}
+  .menu-foot .pill.pill-menu .pill-i{width:34px;height:34px;background:#fff}
+  .menu-foot .pill.pill-menu .pill-i svg{fill:var(--cta-border)}
+
+  /* 2. the figures: one card at a time, swipeable, with the next one peeking */
+  .band-num .grid{display:flex;grid-template-columns:none;gap:.9rem;overflow-x:auto;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding-bottom:.2rem}
+  .band-num .grid::-webkit-scrollbar{display:none}
+  .band-num .n{flex:0 0 76%;scroll-snap-align:center;display:flex;flex-direction:column;
+    align-items:flex-start;text-align:left;gap:.15rem;padding:1.15rem 1.25rem;border-right:0;
+    border-bottom:0;border:1px solid rgba(255,255,255,.18);border-radius:12px;
+    background:rgba(255,255,255,.05)}
+  .band-num .n-ic{grid-row:auto;margin:0 0 .6rem}
+  .band-num b{font-size:1.9rem}
+  .band-num span{margin-top:.2rem}
+  .band-dots{display:flex;justify-content:center;gap:.4rem;margin-top:1rem}
+  .band-dots i{display:block;width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);
+    transition:background .25s var(--e),transform .25s var(--e)}
+  .band-dots i.on{background:var(--ac-l);transform:scale(1.25)}
+
+  /* 3. the topic cards: the same swipeable row, so the section is one card tall */
+  .topics{display:flex;grid-template-columns:none;gap:1rem;overflow-x:auto;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    margin-inline:calc(var(--pad) * -1);padding:.2rem var(--pad) .4rem}
+  .topics::-webkit-scrollbar{display:none}
+  .topic{flex:0 0 82%;scroll-snap-align:center}
+  .swipe-hint{display:flex;align-items:center;justify-content:center;gap:.45rem;margin:.9rem 0 0;
+    font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .swipe-hint i{display:block;width:26px;height:1px;background:currentColor;opacity:.4}
+}
+@media(min-width:761px){.band-dots,.swipe-hint{display:none}}
