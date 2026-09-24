@@ -2370,3 +2370,12 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
   /* a little more room between the outline and the R */
   .nav ul#menu .menu-foot .pill.pill-menu{padding:0 8px 0 46px}
 }
+
+/* the list of hotels near the venue */
+.hotel-list{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.6rem}
+.hotel-list li{padding-left:1.3rem;position:relative;line-height:1.5}
+.hotel-list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;
+  background:var(--ac-br)}
+.hotel-list a{color:var(--cta-ink);font-weight:600;text-decoration:underline;
+  text-decoration-color:rgba(var(--cta-rgb),.4);text-underline-offset:3px}
+.hotel-list a:hover{text-decoration-color:currentColor}

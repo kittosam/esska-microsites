@@ -36,12 +36,11 @@ const cio=new IntersectionObserver(es=>{es.forEach(e=>{
 })},{threshold:.6});
 document.querySelectorAll("[data-to]").forEach(el=>cio.observe(el));
 
-/* Istanbul dates are not confirmed yet (only "September 2027"). Leave these as
-   null until ESSKA supplies them: the countdowns then hide and the page shows
-   the month and city instead. Set them in Istanbul time (+03:00), e.g.
-   MEETING_START="2027-09-DDT09:00:00+03:00" and EARLY_RATE="2027-MM-DDT23:59:59+03:00". */
-const MEETING_START=null;
-const EARLY_RATE=null;
+/* ESSKA confirmed 10-11 September 2027 at Acibadem Altunizade Hospital. The start
+   time is an assumption (09:00 Istanbul) until the programme is published; it only
+   affects the last hours of the countdown. EARLY_RATE stays null until ESSKA sets it. */
+const MEETING_START="2027-09-10T09:00:00+03:00";
+const EARLY_RATE="2027-04-30T23:59:59+03:00";
 /* The early-rate deadline is the last moment of a day in the meeting's own time zone.
    Formatting that instant in the reader's time zone moved the date on by a day for
    anyone further east, so the label is built from the date part of EARLY_RATE and
