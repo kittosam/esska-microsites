@@ -17,3 +17,4 @@ node_modules/
 /sites/athens-2027/assets/return-to-sport.png
 /sites/bologna-2027/buttons.pdf
 dist/
+tools/__pycache__/
