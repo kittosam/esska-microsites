@@ -2387,10 +2387,46 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .tile.t1{background:#0E2A31}
 .tile.t1 .art{object-position:44% 34%;transform:none}
 .topic:hover .tile.t1 .art{transform:scale(1.05)}
-.tile.t2 .art{object-position:58% 38%}
+.tile.t2 .art{object-position:center 40%}
 .tile.t3 .art{object-position:center 42%}
 /* the three cards now carry artwork, so the titles go back to white over the fade
    that every card shares (the pale grounds were for the wordmark-only tiles) */
 .tile.t1 .word,.tile.t2 .word,.tile.t3 .word{color:#fff;text-shadow:0 2px 18px rgba(6,15,17,.5)}
 .tile.t1::after,.tile.t2::after,.tile.t3::after{background:linear-gradient(180deg,
   rgba(6,15,17,0) 42%,rgba(6,15,17,.52) 72%,rgba(6,15,17,.88) 100%)}
+
+/* ---------- photo slideshow (the hospital, on the venue page and the homepage) ----- */
+.slideshow{position:relative;overflow:hidden;border-radius:10px;background:var(--navy-d);
+  aspect-ratio:3/2;width:100%}
+.slideshow .ss-slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .7s var(--e)}
+.slideshow .ss-slide.is-on{opacity:1}
+.slideshow .ss-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slideshow figcaption{position:absolute;left:0;bottom:0;z-index:2;padding:1.4rem 1.2rem .9rem 1.2rem;
+  width:100%;color:#fff;font-size:.82rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  background:linear-gradient(180deg,rgba(6,15,17,0),rgba(6,15,17,.72))}
+.ss-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:42px;height:42px;
+  display:grid;place-items:center;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(6,15,17,.42);backdrop-filter:blur(6px);transition:background .2s var(--e)}
+.ss-nav:hover,.ss-nav:focus-visible{background:rgba(6,15,17,.68)}
+.ss-nav:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.ss-nav::before{content:"";width:11px;height:11px;border-top:2.4px solid #fff;border-right:2.4px solid #fff}
+.ss-prev{left:12px}.ss-prev::before{transform:rotate(-135deg);margin-left:4px}
+.ss-next{right:12px}.ss-next::before{transform:rotate(45deg);margin-right:4px}
+.ss-dots{position:absolute;right:14px;bottom:14px;z-index:3;display:flex;gap:7px}
+.ss-dots button{width:9px;height:9px;padding:0;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.45);transition:background .2s var(--e),transform .2s var(--e)}
+.ss-dots button[aria-current="true"]{background:#fff;transform:scale(1.25)}
+.ss-dots button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+/* the venue page frames it like the old photo, the homepage like the old wide shot */
+.v-photo .slideshow{height:100%;aspect-ratio:auto;min-height:320px}
+.shot.wide .slideshow{aspect-ratio:3/2}
+@media(max-width:560px){
+  .ss-nav{width:36px;height:36px}
+  .slideshow figcaption{font-size:.72rem;padding:1.1rem 1rem .8rem}
+}
+/* the short note under the venue photos */
+.v-note{margin:clamp(2.2rem,4vw,3.2rem) 0 0;max-width:840px;padding:1.4rem 1.6rem;
+  background:var(--ice-2);border:1px solid var(--line);border-radius:10px}
+.v-note .eyebrow{margin:0 0 .4rem}
+.v-note h3{margin:0 0 .7rem;color:var(--navy);font-size:clamp(1.25rem,2vw,1.55rem);letter-spacing:-.02em}
+.v-note p:last-child{margin:0;color:var(--muted);line-height:1.7}

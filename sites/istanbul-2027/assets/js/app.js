@@ -312,3 +312,40 @@ if(EARLY_RATE){
     .observe(row);
   paint();
 })();
+
+/* Photo slideshows: fade from one picture to the next, with arrows and dots. It moves
+   on its own until someone touches it, and never for anyone who asks for reduced
+   motion or while the tab is in the background. */
+(function(){
+  document.querySelectorAll(".slideshow").forEach(box=>{
+    const slides=[...box.querySelectorAll(".ss-slide")];
+    if(slides.length<2) return;
+    const dots=box.querySelector(".ss-dots");
+    const reduce=()=>matchMedia("(prefers-reduced-motion:reduce)").matches;
+    let i=0, timer=null, paused=false;
+    slides.forEach((s,k)=>{
+      const b=document.createElement("button");
+      b.type="button"; b.setAttribute("aria-label","Photograph "+(k+1));
+      b.addEventListener("click",()=>{stop();show(k);});
+      dots.appendChild(b);
+    });
+    const marks=[...dots.children];
+    function show(n){
+      i=(n+slides.length)%slides.length;
+      slides.forEach((s,k)=>s.classList.toggle("is-on",k===i));
+      marks.forEach((m,k)=>m.setAttribute("aria-current",k===i?"true":"false"));
+    }
+    function start(){ if(timer||reduce()) return;
+      timer=setInterval(()=>{ if(!paused&&!document.hidden) show(i+1); }, +box.dataset.autoplay||6000); }
+    function stop(){ clearInterval(timer); timer=null; }
+    box.querySelector(".ss-prev").addEventListener("click",()=>{stop();show(i-1);});
+    box.querySelector(".ss-next").addEventListener("click",()=>{stop();show(i+1);});
+    box.addEventListener("pointerenter",()=>paused=true);
+    box.addEventListener("pointerleave",()=>paused=false);
+    box.addEventListener("focusin",()=>paused=true);
+    box.addEventListener("focusout",()=>paused=false);
+    /* only while it is on screen */
+    new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.3}).observe(box);
+    show(0);
+  });
+})();
