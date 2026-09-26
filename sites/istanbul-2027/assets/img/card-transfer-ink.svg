@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <linearGradient id="bgk" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#14161C"/><stop offset=".55" stop-color="#2A2118"/><stop offset="1" stop-color="#07080B"/>
+  </linearGradient>
+  <radialGradient id="warm" cx="50%" cy="38%" r="58%">
+    <stop offset="0" stop-color="#E3C078" stop-opacity=".22"/><stop offset="1" stop-color="#E3C078" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="bn" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#F3E6CE"/><stop offset=".65" stop-color="#CBB595"/><stop offset="1" stop-color="#8A7350"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#F6DEAF"/><stop offset=".55" stop-color="#E3C078"/><stop offset="1" stop-color="#A9803C"/>
+  </linearGradient>
+</defs>
+<rect width="800" height="900" fill="url(#bgk)"/><rect width="800" height="900" fill="url(#warm)"/>
+<g stroke="#E3C078" stroke-opacity=".12" stroke-width="1"><path d="M0 300h800M0 600h800M266 0v900M533 0v900"/></g>
+
+<!-- before: the tendon at its own insertion -->
+<g transform="translate(96 250) scale(.86)">
+  <path d="M40 40c86-26 150-8 178 44 22 40 10 96-24 142l-70 96c-14 20-46 14-50-10L58 156C50 104 22 60 40 40z" fill="url(#bn)" opacity=".92"/>
+  <path d="M232 92c40-14 76 8 84 46 6 32-12 62-42 74l-52 20c-20 8-38-10-32-30l18-58c6-22 10-44 24-52z" fill="url(#bn)" opacity=".7"/>
+  <path d="M96 110c40 46 96 74 160 78" stroke="#8A7350" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <circle cx="256" cy="188" r="13" fill="#8A7350"/>
+</g>
+<text x="150" y="666" fill="#CBB595" font-family="Onest,system-ui,sans-serif" font-size="26" font-weight="700" letter-spacing="3">BEFORE</text>
+
+<!-- the move -->
+<g stroke="#E3C078" stroke-width="5" fill="none" stroke-linecap="round">
+  <path d="M356 470h82" stroke-dasharray="14 14"/>
+  <path d="M430 452l24 18-24 18"/>
+</g>
+
+<!-- after: the tendon taken to a new insertion -->
+<g transform="translate(470 250) scale(.86)">
+  <path d="M40 40c86-26 150-8 178 44 22 40 10 96-24 142l-70 96c-14 20-46 14-50-10L58 156C50 104 22 60 40 40z" fill="url(#bn)" opacity=".92"/>
+  <path d="M232 92c40-14 76 8 84 46 6 32-12 62-42 74l-52 20c-20 8-38-10-32-30l18-58c6-22 10-44 24-52z" fill="url(#bn)" opacity=".7"/>
+  <path d="M96 110c56 8 116 44 168 106" stroke="#E3C078" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <circle cx="264" cy="216" r="15" fill="#F6DEAF"/>
+  <circle cx="264" cy="216" r="26" fill="none" stroke="#E3C078" stroke-opacity=".6" stroke-width="3"/>
+</g>
+<text x="524" y="666" fill="#F6DEAF" font-family="Onest,system-ui,sans-serif" font-size="26" font-weight="700" letter-spacing="3">AFTER</text>
+</svg>

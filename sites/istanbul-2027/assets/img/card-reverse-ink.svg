@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" preserveAspectRatio="xMidYMid slice">
 <defs>
   <linearGradient id="bgr" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#0E2A31"/><stop offset=".5" stop-color="#0A6E80"/><stop offset="1" stop-color="#061319"/>
+    <stop offset="0" stop-color="#0B0E12"/><stop offset=".5" stop-color="#3A2E22"/><stop offset="1" stop-color="#06070A"/>
   </linearGradient>
   <radialGradient id="halo" cx="54%" cy="34%" r="52%">
-    <stop offset="0" stop-color="#17BFD4" stop-opacity=".5"/><stop offset="1" stop-color="#17BFD4" stop-opacity="0"/>
+    <stop offset="0" stop-color="#E3C078" stop-opacity=".5"/><stop offset="1" stop-color="#E3C078" stop-opacity="0"/>
   </radialGradient>
   <radialGradient id="ball" cx="36%" cy="30%" r="72%">
-    <stop offset="0" stop-color="#F2FBFC"/><stop offset=".45" stop-color="#9FE3EC"/>
-    <stop offset=".82" stop-color="#17BFD4"/><stop offset="1" stop-color="#0A6E80"/>
+    <stop offset="0" stop-color="#FBF3E4"/><stop offset=".45" stop-color="#D9BE8E"/>
+    <stop offset=".82" stop-color="#E3C078"/><stop offset="1" stop-color="#3A2E22"/>
   </radialGradient>
   <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#5F97A3"/><stop offset=".28" stop-color="#DDF2F6"/>
-    <stop offset=".62" stop-color="#8FC4CE"/><stop offset="1" stop-color="#3C6A75"/>
+    <stop offset="0" stop-color="#6B5433"/><stop offset=".28" stop-color="#EFE0C4"/>
+    <stop offset=".62" stop-color="#B49566"/><stop offset="1" stop-color="#4A3A24"/>
   </linearGradient>
   <linearGradient id="cup" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#E9F7FA"/><stop offset="1" stop-color="#6FA7B3"/>
+    <stop offset="0" stop-color="#F3E6CE"/><stop offset="1" stop-color="#8A6B3F"/>
   </linearGradient>
   <filter id="soft" x="-25%" y="-25%" width="150%" height="150%">
     <feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -26,7 +26,7 @@
 <rect width="800" height="900" fill="url(#halo)"/>
 
 <!-- measurement grid, as on the planning screens the meeting discusses -->
-<g stroke="#9FE3EC" stroke-opacity=".16" stroke-width="1">
+<g stroke="#D9BE8E" stroke-opacity=".16" stroke-width="1">
   <path d="M0 140h800M0 300h800M0 460h800M0 620h800M0 780h800"/>
   <path d="M160 0v900M320 0v900M480 0v900M640 0v900"/>
 </g>
@@ -37,18 +37,18 @@
 
 <!-- glenosphere fixed to the scapula: the reverse geometry -->
 <g filter="url(#soft)">
-  <path d="M228 236c56-34 128-30 178 12l26 22-62 74-36-30c-26-22-64-24-92-6z" fill="#7FB7C2" fill-opacity=".5"/>
+  <path d="M228 236c56-34 128-30 178 12l26 22-62 74-36-30c-26-22-64-24-92-6z" fill="#8A7350" fill-opacity=".5"/>
   <circle cx="436" cy="352" r="118" fill="url(#ball)"/>
-  <circle cx="436" cy="352" r="118" fill="none" stroke="#EAFBFD" stroke-opacity=".55" stroke-width="2"/>
+  <circle cx="436" cy="352" r="118" fill="none" stroke="#F6E9D2" stroke-opacity=".55" stroke-width="2"/>
   <ellipse cx="396" cy="308" rx="38" ry="26" fill="#ffffff" fill-opacity=".38" transform="rotate(-22 396 308)"/>
 </g>
 
 <!-- humeral cup and stem -->
 <g filter="url(#soft)">
   <path d="M318 470h236c0 74-54 118-118 118s-118-44-118-118z" fill="url(#cup)"/>
-  <path d="M318 470h236" stroke="#F2FBFC" stroke-opacity=".7" stroke-width="3"/>
+  <path d="M318 470h236" stroke="#FBF3E4" stroke-opacity=".7" stroke-width="3"/>
   <path d="M382 588h108l-16 236c-3 40-22 60-38 60s-35-20-38-60z" fill="url(#metal)"/>
-  <path d="M400 612h72l-6 92h-60z" fill="#0E2A31" fill-opacity=".22"/>
+  <path d="M400 612h72l-6 92h-60z" fill="#0B0E12" fill-opacity=".22"/>
 </g>
 
 <!-- the axis of the reconstruction -->

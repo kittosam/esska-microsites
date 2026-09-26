@@ -2430,3 +2430,11 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .v-note .eyebrow{margin:0 0 .4rem}
 .v-note h3{margin:0 0 .7rem;color:var(--navy);font-size:clamp(1.25rem,2vw,1.55rem);letter-spacing:-.02em}
 .v-note p:last-child{margin:0;color:var(--muted);line-height:1.7}
+/* the three cards are one set now: ink and gold, which stands away from the turquoise
+   used everywhere else on the site */
+.tile.t1,.tile.t2,.tile.t3{background:#0B0E12}
+.tile.t1 .art{object-position:center 36%}
+.tile.t2 .art,.tile.t3 .art{object-position:center 42%}
+.tile.t1 .word,.tile.t2 .word,.tile.t3 .word{color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.tile.t1::after,.tile.t2::after,.tile.t3::after{background:linear-gradient(180deg,
+  rgba(7,8,11,0) 44%,rgba(7,8,11,.55) 74%,rgba(7,8,11,.9) 100%)}
