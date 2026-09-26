@@ -38,11 +38,13 @@ document.querySelectorAll("[data-to]").forEach(el=>cio.observe(el));
 
 /* Dublin: 6-7 May 2027 (from the ESSKA banner). The start time is not confirmed,
    so 09:00 Dublin time (+01:00, Irish summer time) is assumed, as on Rome.
-   The early-rate deadline is not confirmed: leave EARLY_RATE as null until ESSKA
+   ESSKA confirmed 14-15 May 2027 at Dublin City University, Block E, and an early
+   rate to 28 February 2027. The 08:00 start is the registration time on the programme.
+   (The old note: leave EARLY_RATE as null until ESSKA
    supplies it, and the fee countdown hides and shows TBC instead. Set it in Dublin
-   time, e.g. EARLY_RATE="2027-MM-DDT23:59:59+01:00" (or +00:00 before 28 March 2027). */
-const MEETING_START="2027-05-06T09:00:00+01:00";
-const EARLY_RATE=null;
+   time, e.g. EARLY_RATE="2027-MM-DDT23:59:59+01:00" (or +00:00 before 28 March 2027).) */
+const MEETING_START="2027-05-14T08:00:00+01:00";
+const EARLY_RATE="2027-02-28T23:59:59+00:00";
 /* The early-rate deadline is the last moment of a day in the meeting's own time zone.
    Formatting that instant in the reader's time zone moved the date on by a day for
    anyone further east, so the label is built from the date part of EARLY_RATE and
