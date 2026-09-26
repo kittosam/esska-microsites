@@ -2379,3 +2379,18 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .hotel-list a{color:var(--cta-ink);font-weight:600;text-decoration:underline;
   text-decoration-color:rgba(var(--cta-rgb),.4);text-underline-offset:3px}
 .hotel-list a:hover{text-decoration-color:currentColor}
+
+/* ---------- topic cards: the artwork for the three subjects ----------
+   Card one is the rotator cuff render, card two the same shoulder from behind on the
+   dark ground, card three a drawing of a reverse replacement. Each is framed so the
+   joint sits in the upper half, above the fade the title needs. */
+.tile.t1{background:#0E2A31}
+.tile.t1 .art{object-position:44% 34%;transform:none}
+.topic:hover .tile.t1 .art{transform:scale(1.05)}
+.tile.t2 .art{object-position:58% 38%}
+.tile.t3 .art{object-position:center 42%}
+/* the three cards now carry artwork, so the titles go back to white over the fade
+   that every card shares (the pale grounds were for the wordmark-only tiles) */
+.tile.t1 .word,.tile.t2 .word,.tile.t3 .word{color:#fff;text-shadow:0 2px 18px rgba(6,15,17,.5)}
+.tile.t1::after,.tile.t2::after,.tile.t3::after{background:linear-gradient(180deg,
+  rgba(6,15,17,0) 42%,rgba(6,15,17,.52) 72%,rgba(6,15,17,.88) 100%)}
