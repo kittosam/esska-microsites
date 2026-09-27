@@ -95,7 +95,8 @@ def fac_grid(people, extra=""):
                    f'<b>{name}</b>{f"<div class=\"c\">{sub}</div>" if sub else ""}</div>')
     return "\n".join(out)
 
-COURSE = f'''      <div class="head rv"><p class="eyebrow">The course</p><h2>How the course <span class="lt">works</span></h2></div>
+COURSE = f'''      <div class="head rv"><p class="eyebrow">The course</p><h2>How the course <span class="lt">works</span></h2>
+        <p class="lead one-line" style="margin-top:1rem">For {data.AUDIENCE[0].lower()}{data.AUDIENCE[1:]}</p></div>
       <div class="course-grid rv">
         <div class="course-col">
           <h3>What the course covers</h3>
@@ -109,8 +110,7 @@ COURSE = f'''      <div class="head rv"><p class="eyebrow">The course</p><h2>How
 {chr(10).join(f"            <li>{x}</li>" for x in data.OBJECTIVES)}
           </ul>
         </div>
-      </div>
-      <p class="routes-note rv">For {data.AUDIENCE[0].lower()}{data.AUDIENCE[1:]}</p>'''
+      </div>'''
 
 PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p><h2>Day <span class="lt">by day</span></h2></div>
       <p class="prog-note rv">Comprehensive programme, subject to change. Faculty and session chairs will be published here as they are confirmed.</p>
@@ -136,12 +136,12 @@ PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p
 {day_block(data.DAY2,"2","Day two","2027-05-15","Sat","15","May","Saturday 15 May 2027",True)}
       </div>'''
 
-FAC = f'''      <div class="head rv"><p class="eyebrow">Faculty</p><h2>Chairs <span class="lt">and faculty</span></h2></div>
-      <h3 class="sub-h rv">The chairs</h3>
-      <div class="fac-grid rv">
+FAC = f'''      <div class="head rv"><p class="eyebrow">Faculty</p><h2>Chairs <span class="lt">and faculty</span></h2>
+        <p class="lead one-line" style="margin-top:1rem">The faculty will be published here as invitations are accepted. The meeting is for {data.AUDIENCE[0].lower()}{data.AUDIENCE[1:]}</p></div>
+      <h3 class="fac-h">Chairs</h3>
+      <div class="fac-grid">
 {fac_grid(data.CHAIRS)}
-      </div>
-      <p class="routes-note rv">The faculty will be published here as invitations are accepted. The meeting is for {data.AUDIENCE[0].lower()}{data.AUDIENCE[1:]}</p>'''
+      </div>'''
 
 p=pathlib.Path("index.html"); s=p.read_text(encoding="utf-8")
 # the course section sits in its own band above the day-by-day programme

@@ -117,16 +117,16 @@ PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p
 {day_block(data.DAY2,"2","Day two","2027-09-11","Sat","11","Sep","Saturday 11 September 2027",True)}
       </div>'''
 
-FAC = f'''      <div class="head rv"><p class="eyebrow">Faculty</p><h2>Chairs <span class="lt">and faculty</span></h2></div>
-      <h3 class="sub-h rv">The chairs</h3>
-      <div class="fac-grid rv">
+FAC = f'''      <div class="head rv"><p class="eyebrow">Faculty</p><h2>Chairs <span class="lt">and faculty</span></h2>
+        <p class="lead one-line" style="margin-top:1rem">Proposed participation, to be confirmed. The full faculty will be published here as invitations are accepted.</p></div>
+      <h3 class="fac-h">Chairs</h3>
+      <div class="fac-grid">
 {fac_grid(data.CHAIRS)}
       </div>
-      <h3 class="sub-h rv">Proposed speakers</h3>
-      <div class="fac-grid rv">
+      <h3 class="fac-h">Proposed speakers</h3>
+      <div class="fac-grid">
 {fac_grid(data.PROPOSED)}
-      </div>
-      <p class="routes-note rv">Proposed participation, to be confirmed. The full faculty will be published here as invitations are accepted.</p>'''
+      </div>'''
 
 p=pathlib.Path("index.html"); s=p.read_text(encoding="utf-8")
 prog_old = re.search(r'      <div class="head rv"><p class="eyebrow">Scientific programme</p>.*?(?=\n    </div>\n  </section>)', s, re.S)
