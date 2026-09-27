@@ -1,4 +1,4 @@
-const PAGES=["welcome","programme","venue","registration","industry","contacts"];
+const PAGES=["welcome","programme","skills-lab","venue","registration","industry","contacts"];
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.1,rootMargin:"0px 0px -6% 0px"});
 function obs(r){(r||document).querySelectorAll(".rv:not(.in)").forEach(el=>{el.classList.add("pre");io.observe(el)})}
 obs();
@@ -37,12 +37,12 @@ const cio=new IntersectionObserver(es=>{es.forEach(e=>{
 document.querySelectorAll("[data-to]").forEach(el=>cio.observe(el));
 
 /* London: 29 October 2027, one day (ESSKA confirmed this over the 15–16 October on
-   the banner designs). The 09:00 start is assumed until the programme gives the real
-   one. London is on BST (+01:00) until 31 October 2027. EARLY_RATE stays null until
+   the banner designs), opening with registration at 08:00 as in the programme. The
+   skills lab is the day before and has no countdown of its own. London is on BST (+01:00) until 31 October 2027. EARLY_RATE stays null until
    ESSKA confirms the fees: the fee countdown then hides and shows TBC. Set it as
    e.g. EARLY_RATE="2027-MM-DDT23:59:59+01:00" (+00:00 before 28 March 2027).
    With MEETING_START null the utility strip shows month and city instead. */
-const MEETING_START="2027-10-29T09:00:00+01:00";
+const MEETING_START="2027-10-29T08:00:00+01:00";
 const EARLY_RATE=null;
 /* The early-rate deadline is the last moment of a day in the meeting's own time zone.
    Formatting that instant in the reader's time zone moved the date on by a day for

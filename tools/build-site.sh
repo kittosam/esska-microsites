@@ -2,7 +2,7 @@
 # Builds the folder Cloudflare Pages serves for esska-focus-meetings.org:
 #
 #   dist/            the hub page listing the 2027 focus meetings
-#   dist/arthroplasty-2027/  the Rome meeting site, named after its subject and year
+#   dist/<subject>-2027/     one folder per live meeting, named after its subject and year
 #
 # Each meeting keeps its own Pages project as well (esska-rome-2027 and the rest),
 # which stay noindex for review. Only what is copied here is public and indexed, so
@@ -17,6 +17,7 @@ SITES=(
   "arthroplasty-2027:rome-2027"
   "hip-2027:athens-2027"
   "shoulder-2027:istanbul-2027"
+  "sports-knee-2027:dublin-2027"
 )
 
 # old paths kept working, so links already shared do not break
