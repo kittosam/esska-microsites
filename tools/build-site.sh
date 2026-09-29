@@ -19,6 +19,7 @@ SITES=(
   "shoulder-2027:istanbul-2027"
   "sports-knee-2027:dublin-2027"
   "foot-ankle-2027:london-2027"
+  "sports-medicine-2027:bologna-2027"
 )
 
 # old paths kept working, so links already shared do not break
