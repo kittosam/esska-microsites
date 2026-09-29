@@ -2422,3 +2422,6 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
   .tile .word{top:calc(var(--pic) - 3.4rem)}
   .tile.t1 .art{object-position:center 58%}
 }
+
+/* the welcome letter's signature: a clear gap between the closing line and the names */
+.lh-sign b{display:inline-block;margin-top:1.1rem}

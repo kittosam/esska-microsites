@@ -2449,3 +2449,6 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 /* programme: the breaks sit on a paler tile tone than the tinted sections, so coffee
    and lunch read as pauses rather than blocks */
 .prow.break{background:#EEF8FA}
+
+/* the welcome letter's signature: a clear gap between the closing line and the names */
+.lh-sign b{display:inline-block;margin-top:1.1rem}

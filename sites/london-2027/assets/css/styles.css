@@ -2483,3 +2483,6 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
   .tile::before{content:none}
   .tile .word{top:calc(var(--pic) - 3.4rem)}
 }
+
+/* the welcome letter's signature: a clear gap between the closing line and the names */
+.lh-sign b{display:inline-block;margin-top:1.1rem}
