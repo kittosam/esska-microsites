@@ -2298,5 +2298,7 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
   .nav ul#menu .menu-foot .pill.pill-menu{padding:0 8px 0 46px}
 }
 
-/* the pull quote in the welcome letter closes as well as opens */
-.lh-quote::after{content:"\201D";color:var(--blue);font-weight:700;margin-left:.1em}
+/* the pull quote in the welcome letter closes as well as opens, with a mark the size of
+   the opening one; line-height 0 keeps it from pushing the last line down */
+.lh-quote::after{content:"\201D";color:var(--blue);font-size:2.4rem;line-height:0;
+  vertical-align:-.42em;margin-left:.08em}

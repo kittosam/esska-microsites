@@ -7,7 +7,7 @@
      Token names are kept from the original build. */
   --navy:#2B2148; --navy-d:#1E1735; --navy-l:#443566;
   --blue:#6B5BB5; --blue-d:#6B5BB5; --ice:#DDD7EF; --ice-2:#EEEAF8;
-  --paper:#FAF8FE; --ink:#5B4E86; --muted:#6E62A0;
+  --paper:#FAF8FE; --ink:#3A3160; --muted:#4D4478;  /* body text darkened 2026-09-29 for legibility (was #5B4E86 / #6E62A0) */
   --line:rgba(43,33,72,.14);
   /* accent tier: the one lavender for anything clickable and for rules, its deep
      tone for hover, accent light for labels and icons on ink */
