@@ -76,14 +76,14 @@ FACULTY = [("Pawe&#322; Skowronek","Poland"),("Guillaume Demey","France"),("Brun
  ("Artur Kroell","Switzerland"),("James Harty","Ireland"),("Giuseppe Umile Longo","Italy"),
  ("Mikhail Salzmann","Germany"),("Christos Koutserimpas","Greece"),("George Mihai Avram","Romania"),
  ("Philippe Van Overschelde","Belgium"),("Bartosz Maciag","Poland"),("Antonio Klasan","Austria"),
- ("Theofilos Karachalios","Greece"),("Nane Kort","Netherlands"),("Mladen Miskulin","Croatia"),
+ ("Theofilos Karachalios","Greece"),("Nanne Kort","Netherlands"),("Mladen Miskulin","Croatia"),
  ("Bruce Gomberg","USA"),("Christian Schaller","Germany"),("Patrick Sadoghi","Austria"),
  ("Geert Meermans","Belgium"),("Luigi Capasso","Italy"),("Raghbir Khakha","UK"),
  ("Vlad Predescu","Romania"),("Ricardo Sousa","Portugal"),("Michael Engl","Austria"),
- ("Pier Indelli","Italy"),("Reha Tandogan","Turkey"),("Michael Hirschmman","Switzerland"),
+ ("Pier Francesco Indelli","Italy"),("Reha Tandogan","Turkey"),("Michael Hirschmann","Switzerland"),
  ("Roland Becker","Germany"),("Andrea Sambri","Italy"),("Antonio Pellegrini","Italy"),
- ("Juan Carlos Mart&iacute;nez-Pastor",""),("Massimiliano De Paolis","Italy"),
- ("Marta Sabater",""),("Ali Al Belooshi","")]
+ ("Juan Carlos Mart&iacute;nez-Pastor","Spain"),("Massimiliano De Paolis","Italy"),
+ ("Marta Sabater","Spain"),("Ali Al Belooshi","UAE")]
 
 SUMMARY = [("10&#8239;h&#8239;45","Scientific programme","excluding breaks"),
            ("3&#8239;h&#8239;45","Dedicated to PJI","two 90-min sessions + case finale"),

@@ -2688,3 +2688,6 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
   /* a little more room between the outline and the R */
   .nav ul#menu .menu-foot .pill.pill-menu{padding:0 8px 0 46px}
 }
+
+/* the pull quote in the welcome letter closes as well as opens */
+.lh-quote::after{content:"\201D";color:var(--ac-br);font-weight:700;margin-left:.1em}

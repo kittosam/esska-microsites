@@ -70,5 +70,5 @@ CHAIRS = [("Emmanouil Brilakis","ESSKA Shoulder Section Chair"),
           ("Nezih Ziroglu","Local Chair"),
           ("Kerem Bilsel","Local Chair")]
 
-PROPOSED = [("Teruhisa Mihata",""),("Bassem Elhassan",""),
-            ("Emilio Calvo","Spain"),("Felix Savoie III","")]
+PROPOSED = [("Teruhisa Mihata","Japan"),("Bassem Elhassan","US"),
+            ("Emilio Calvo","Spain"),("Felix Savoie III","US")]
