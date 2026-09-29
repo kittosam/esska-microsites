@@ -108,6 +108,7 @@ PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p
             <button class="pchip" type="button" data-filter="1" aria-pressed="true">Day one<span class="pchip-date"> &middot; 10 September</span></button>
             <button class="pchip" type="button" data-filter="2" aria-pressed="false">Day two<span class="pchip-date"> &middot; 11 September</span></button>
           </div>
+          <a class="tlink pctl-dl tlink-dl" href="assets/ESSKA-Istanbul-2027-Programme.pdf" download><svg class="dl-ic" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path class="dl-stem" d="M8 2.2v7.9"/><path class="dl-head" d="M2.9 9.3 8 14.3l5.1-5"/></svg><span>Download the programme</span></a>
         </div>
       </div>
       <p class="pempty" id="progEmpty" hidden>Nothing in this day matches that search.

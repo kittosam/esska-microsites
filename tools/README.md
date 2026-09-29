@@ -10,6 +10,9 @@ folder itself, so nothing here is copied into a deploy.
 | `rome_pdf.py` | Builds the Rome programme PDF |
 | `athens_programme.py` | Athens 2027 programme data and the site markup generator |
 | `athens_pdf.py` | Builds the Athens programme PDF |
+| `istanbul_programme.py` | Istanbul 2027 programme data |
+| `istanbul_site_programme.py` | Regenerates the Istanbul programme markup inside `index.html` |
+| `istanbul_pdf.py` | Builds the Istanbul programme PDF (preview on :8012) |
 
 ## Building a programme PDF
 
@@ -24,7 +27,8 @@ cd sites/rome-2027 && python3 ../../tools/rome_pdf.py
   "http://localhost:8010/_tmp_pdf.html" && rm -f _tmp_pdf.html
 ```
 
-Athens is the same with `athens_pdf.py`, port 8011 and the Athens PDF name.
+Athens is the same with `athens_pdf.py`, port 8011 and the Athens PDF name;
+Istanbul with `istanbul_pdf.py`, port 8012 and `ESSKA-Istanbul-2027-Programme.pdf`.
 If the measuring step cannot reach the preview it stops rather than guessing,
 because a dead server once produced a PDF of a 404 page.
 

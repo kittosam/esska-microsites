@@ -2445,3 +2445,7 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
   .tile::before{content:none}
   .tile .word{top:calc(var(--pic) - 3.4rem)}
 }
+
+/* programme: the breaks sit on a paler tile tone than the tinted sections, so coffee
+   and lunch read as pauses rather than blocks */
+.prow.break{background:#EEF8FA}

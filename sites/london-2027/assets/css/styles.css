@@ -2436,3 +2436,49 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .sl-fee-note{font-size:.92rem;color:rgba(255,255,255,.78);margin:0 0 1.4rem;line-height:1.6}
 .sl-fee .pill.is-disabled{width:100%;justify-content:space-between}
 .routes-note a{color:var(--ac-d);font-weight:700}
+
+/* ---------- photo slideshow (the venue, on the venue page and the homepage) ----- */
+.slideshow{position:relative;overflow:hidden;border-radius:10px;background:var(--navy-d);
+  aspect-ratio:3/2;width:100%}
+.slideshow .ss-slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .7s var(--e)}
+.slideshow .ss-slide.is-on{opacity:1}
+.slideshow .ss-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.ss-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:42px;height:42px;
+  display:grid;place-items:center;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(30,23,53,.42);backdrop-filter:blur(6px);transition:background .2s var(--e)}
+.ss-nav:hover,.ss-nav:focus-visible{background:rgba(30,23,53,.68)}
+.ss-nav:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.ss-nav::before{content:"";width:11px;height:11px;border-top:2.4px solid #fff;border-right:2.4px solid #fff}
+.ss-prev{left:12px}.ss-prev::before{transform:rotate(-135deg);margin-left:4px}
+.ss-next{right:12px}.ss-next::before{transform:rotate(45deg);margin-right:4px}
+.ss-dots{position:absolute;right:14px;bottom:14px;z-index:3;display:flex;gap:7px}
+.ss-dots button{width:9px;height:9px;padding:0;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.45);transition:background .2s var(--e),transform .2s var(--e)}
+.ss-dots button[aria-current="true"]{background:#fff;transform:scale(1.25)}
+.ss-dots button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+/* the venue page frames it like the old photo, the homepage like the old wide shot */
+.v-photo .slideshow{height:100%;aspect-ratio:auto;min-height:320px}
+.shot.wide .slideshow{aspect-ratio:3/2}
+@media(max-width:560px){
+  .ss-nav{width:36px;height:36px}
+  }
+
+/* ---------- topic cards: the artwork for the three strands ----------
+   The torn syndesmosis (the morning's anatomy and diagnosis), a drawing of suture-button
+   fixation (the afternoon's surgery) and the whole foot (cases and re-live surgery), toned
+   violet so the three read as one set in the site's palette. The titles go white over
+   the fade every card shares (the pale grounds were for the wordmark-only tiles). */
+.tile.t1,.tile.t2,.tile.t3{background:var(--navy-d)}
+.tile.t1 .art{object-position:center 40%;transform:none}
+.topic:hover .tile.t1 .art{transform:scale(1.05)}
+.tile.t2 .art{object-position:center 30%}
+.tile.t3 .art{object-position:center 30%}
+.tile.t1 .word,.tile.t2 .word,.tile.t3 .word{color:#fff;text-shadow:0 2px 18px rgba(22,16,42,.55)}
+.tile.t1::after,.tile.t2::after,.tile.t3::after{background:linear-gradient(180deg,
+  rgba(22,16,42,0) 42%,rgba(22,16,42,.55) 72%,rgba(22,16,42,.9) 100%)}
+/* phones: the picture fills the top of the card, so the wordmark tiles' spacer goes */
+@media (hover:none){
+  .tile{--pic:clamp(12rem,44vw,16rem)}
+  .tile::before{content:none}
+  .tile .word{top:calc(var(--pic) - 3.4rem)}
+}
