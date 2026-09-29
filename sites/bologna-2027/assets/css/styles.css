@@ -2384,3 +2384,25 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 /* Bologna Sunset: the main headings on light grounds keep the banner navy, so the
    warm site still reads as ESSKA's; everything on dark or photographic grounds stays white */
 .hero h1,.hero h1 .lt,h1,h2{color:var(--head)}
+/* "Warm regards" on its own line, set apart from the closing sentence */
+.lh-sign .lh-close{display:block;margin-top:1.1rem}
+
+/* ---------- topic cards: the artwork for the three strands ----------
+   The knee render (ACL reconstruction), a drawing of a runner's stride over a rising
+   performance curve (return to performance) and the footballer (football players),
+   all from ESSKA's Bologna assets and toned to the site's oxblood and stone, so the three
+   read as one set, as Istanbul's and London's do. */
+.tile.t1,.tile.t2,.tile.t3{background:var(--navy-d)}
+.tile.t1 .art{object-position:center 30%;transform:none}
+.topic:hover .tile.t1 .art{transform:scale(1.05)}
+.tile.t2 .art{object-position:center 45%}
+.tile.t3 .art{object-position:55% 30%}
+.tile.t1 .word,.tile.t2 .word,.tile.t3 .word{color:#fff;text-shadow:0 2px 18px rgba(42,18,11,.55)}
+.tile.t1::after,.tile.t2::after,.tile.t3::after{background:linear-gradient(180deg,
+  rgba(42,18,11,0) 42%,rgba(42,18,11,.55) 72%,rgba(42,18,11,.9) 100%)}
+/* phones: the picture fills the top of the card, so the wordmark tiles' spacer goes */
+@media (hover:none){
+  .tile{--pic:clamp(12rem,44vw,16rem)}
+  .tile::before{content:none}
+  .tile .word{top:calc(var(--pic) - 3.4rem)}
+}

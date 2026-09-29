@@ -218,6 +218,8 @@ if(EARLY_RATE){
     if(now>=s && now<=e){ key=p.dataset.period; live=true; break; }
     if(now<s && !key) key=p.dataset.period;
   }
+  /* no period dates confirmed yet: the first period is the one that opens first */
+  if(!key && periods.every(p=>!p.dataset.start)) key=periods[0].dataset.period;
   if(!key) return;
   document.querySelectorAll('[data-period="'+key+'"]').forEach(el=>el.classList.add(live?"is-now":"is-next"));
   const tag=document.querySelector('.fee-period[data-period="'+key+'"] .fp-tag');
