@@ -62,9 +62,9 @@ PROGRAMME = [
 
 # name, role (roles as ESSKA gave them, September 2026)
 CHAIRS = [
- ("Jordi Vega", "ESSKA Foot and Ankle Section Chair"),
  ("Mette Andersen", "Focus Meeting Chair"),
  ("Pieter D&rsquo;Hooghe", "Focus Meeting Co-Chair"),
+ ("Jordi Vega", "ESSKA Foot and Ankle Section Chair"),
 ]
 
 # everyone else who speaks or moderates, by surname; countries not supplied yet

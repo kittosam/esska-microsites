@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=202609234">
+<link rel="stylesheet" href="assets/css/styles.css?v=202609291">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
       <span class="compact"><b id="uD2">000</b>days to go</span>
     </span>
     <!-- shown instead of the countdown until MEETING_START is set in app.js -->
-    <span class="u-c u-when" id="cdTba" hidden><em>June 2027</em><i></i><em>Bologna, Italy</em></span>
+    <span class="u-c u-when" id="cdTba" hidden><em>26&ndash;27 June 2027</em><i></i><em>Bologna, Italy</em></span>
     <span class="u-r">
       <a href="https://www.esska.org/" target="_blank" rel="noopener">ESSKA Home</a>
     </span>
@@ -67,34 +67,33 @@
         <div class="ebar">
           <div class="ebar-row">
             <span class="ebar-item">
-              <img src="assets/img/icon-date.png" alt="">
-              <b><time datetime="2027-06">June&nbsp;2027</time></b>
+              <img src="assets/img/icon-date-blue.png" alt="">
+              <b><time datetime="2027-06-26">26</time><i class="dash">&ndash;</i><time datetime="2027-06-27">27&nbsp;June&nbsp;2027</time></b>
             </span>
             <span class="ebar-sep" aria-hidden="true"></span>
             <span class="ebar-item">
-              <img src="assets/img/icon-place.png" alt="">
+              <img src="assets/img/icon-place-blue.png" alt="">
               <b>Bologna, Italy</b>
             </span>
           </div>
           <div class="ebar-foot">
-            <p class="ebar-venue">Venue to be announced</p>
+            <p class="ebar-venue">Isokinetic Campus</p>
             <p class="ebar-early"><i aria-hidden="true"></i><span>Early rate until <span id="erDate2"><abbr class="tbc" title="To be confirmed">TBC</abbr></span></span></p>
           </div>
         </div>
 
         <div class="hero-cta">
           <a class="pill" href="#" data-go="registration"><span>Register now</span><span class="pill-i" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></a>
-          <!-- no PDF yet: opens the programme page, where the download will be published -->
-          <a class="tlink tlink-dl" href="#" data-go="programme"><svg class="dl-ic" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path class="dl-stem" d="M8 2.2v7.9"/><path class="dl-head" d="M2.9 9.3 8 14.3l5.1-5"/></svg><span>Download the programme</span></a>
+          <a class="tlink tlink-dl" href="#" data-go="programme"><svg class="dl-ic" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path class="dl-stem" d="M8 2.2v7.9"/><path class="dl-head" d="M2.9 9.3 8 14.3l5.1-5"/></svg><span>See the programme</span></a>
         </div>
       </div>
     </div>
   </header>
   <section class="band-num">
     <div class="wrap grid">
-      <div class="n rv"><i class="n-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></i><b><abbr class="tbc" title="To be confirmed">TBC</abbr></b><span>Hours of science</span><em>Details to follow</em></div>
-      <div class="n rv d1"><i class="n-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9.5" r="2.5"/><path d="M15.6 14.3A4.6 4.6 0 0 1 20.5 19"/></svg></i><b><abbr class="tbc" title="To be confirmed">TBC</abbr></b><span>Faculty</span><em>Details to follow</em></div>
-      <div class="n rv d2"><i class="n-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5h16v2.8a1.9 1.9 0 0 0 0 3.4v2.8H4v-2.8a1.9 1.9 0 0 0 0-3.4z"/><path d="M14.5 7.5v9" stroke-dasharray="1.6 2"/></svg></i><b><abbr class="tbc" title="To be confirmed">TBC</abbr></b><span>Delegate places</span><em>Details to follow</em></div>
+      <div class="n rv"><i class="n-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></i><b data-to="8">0</b><span>Topics</span><em>over one and a half days</em></div>
+      <div class="n rv d1"><i class="n-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9.5" r="2.5"/><path d="M15.6 14.3A4.6 4.6 0 0 1 20.5 19"/></svg></i><b data-to="10">0</b><span>Faculty</span><em>proposed, to be confirmed</em></div>
+      <div class="n rv d2"><i class="n-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5h16v2.8a1.9 1.9 0 0 0 0 3.4v2.8H4v-2.8a1.9 1.9 0 0 0 0-3.4z"/><path d="M14.5 7.5v9" stroke-dasharray="1.6 2"/></svg></i><b data-to="80">0</b><span>Delegate places</span><em>a small group format</em></div>
       <div class="n rv d3"><i class="n-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="12" rx="2"/><path d="M8 7.5h8M8 11h5"/><circle cx="15.5" cy="16.5" r="2.6"/><path d="m14.2 18.7-.9 2.8 2.2-.9 2.2.9-.9-2.8"/></svg></i><b><abbr class="tbc" title="To be confirmed">TBC</abbr></b><span>CME credits</span><em>Details to follow</em></div>
     </div>
       <div class="band-dots" aria-hidden="true"></div>
@@ -113,21 +112,47 @@
           <p class="lh-label">The chairs</p>
           <div class="sign">
             <figure>
-              <span class="sign-av" aria-hidden="true">?</span>
+              <img src="assets/img/chair-della-villa.jpg" alt="Francesco Della Villa">
               <figcaption>
-                <b>To be announced</b>
-                <span>Meeting chairs</span>
+                <b>Francesco Della Villa</b>
+                <span>Focus Meeting Chair</span>
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="assets/img/chair-zaffagnini.jpg" alt="Stefano Zaffagnini">
+              <figcaption>
+                <b>Stefano Zaffagnini</b>
+                <span>Co-Chair</span>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="lh-label lh-label-2">Organising committee</p>
+          <div class="sign">
+            <figure>
+              <img src="assets/img/committee-laver.jpg" alt="Lior Laver">
+              <figcaption>
+                <b>Lior Laver</b>
+                <span>Organising Committee</span>
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="assets/img/committee-di-paolo.jpg" alt="Stefano Di Paolo">
+              <figcaption>
+                <b>Stefano Di Paolo</b>
+                <span>Organising Committee</span>
               </figcaption>
             </figure>
           </div>
         </aside>
         <div class="lh-main">
           <p class="salut">Dear Colleagues,</p>
-          <p class="lead">The ESSKA Focus Meeting <em>Return to Performance after ACL Reconstruction in Football Players</em> takes place in Bologna, Italy, in June&nbsp;2027.</p>
-          <div class="tba tba-inline">
-            <p class="eyebrow">To be announced</p>
-            <p>The welcome message from the meeting chairs will be published here, together with the names of the chairs.</p>
-          </div>
+          <p class="lead">It is our pleasure to welcome you to the first ESSKA Sports Medicine Focus Meeting, dedicated to <em>Return to Performance following ACL Reconstruction in Football Players</em>, taking place on <span class="nowrap">26<i class="dash">&ndash;</i>27 June 2027</span> at the Isokinetic Campus in Bologna, Italy.</p>
+          <p>This meeting will bring together orthopaedic surgeons, sports medicine physicians and physiotherapists to explore the pathway from ACL injury to return to performance. Our aim is to connect surgical and rehabilitation perspectives through an open discussion of the decisions that shape a player&rsquo;s recovery and return to the demands of football.</p>
+          <p>Over one and a half days, the programme will address injury mechanisms and associated lesions, surgical treatment and acute phase management, strength recovery and movement quality restoration. We will also explore neuroplasticity, the on-field rehabilitation continuum and how football clubs understand and assess return to performance.</p>
+          <p>Particular attention will be given to the consequences of failed return to performance and secondary injuries, including their economic impact. These discussions will consider professional football across divisions, recognising the importance of these issues for players and clubs beyond the highest level of the game.</p>
+          <p>We have designed this Focus Meeting around a small group format, with time for questions, close interaction with the faculty and exchange between colleagues from different disciplines. We warmly welcome residents and fellows alongside experienced clinicians, and encourage participants to bring their own questions and clinical experiences to the discussion.</p>
+          <p>The Isokinetic Campus, with its dedicated sports medicine and rehabilitation facilities, provides a setting closely connected to the everyday challenges of helping athletes return to performance. We look forward to sharing this environment with you and to making this first meeting a valuable opportunity to learn from one another.</p>
+          <p class="lh-sign">We look forward to welcoming you to Bologna in June 2027.<br>Warm regards,<br><b>Francesco Della Villa and Stefano Zaffagnini</b><br>Chair and Co-Chair, with the Organising Committee, Lior Laver and Stefano Di Paolo</p>
         </div>
         <div class="letter-cta"><a class="tlink" href="#" data-go="programme">See the programme</a></div>
       </div>
@@ -141,22 +166,22 @@
         <h2>What the meeting <span class="lt">covers</span></h2>
         <hr class="orn">
       </div>
-      <!-- topic names taken from the meeting title only; replace with the confirmed sessions -->
+      <!-- the three strands of the proposed programme (ESSKA, September 2026) -->
       <div class="topics">
         <div class="topic rv"><div class="tile t1" tabindex="0"><span class="word">ACL reconstruction</span>
             <div class="bd"><h3>ACL reconstruction</h3>
-          <p class="t-meta">Session details <abbr class="tbc" title="To be confirmed">TBC</abbr></p>
-          <p>Details of this part of the programme will be published here.</p></div>
+          <p class="t-meta">Day one &middot; Topics 1 and 3</p>
+          <p>The ACL injury mechanism and associated lesions, then surgical treatment and management of the acute phase.</p></div>
           </div></div>
         <div class="topic rv d1"><div class="tile t2" tabindex="0"><span class="word">Return to performance</span>
             <div class="bd"><h3>Return to performance</h3>
-          <p class="t-meta">Session details <abbr class="tbc" title="To be confirmed">TBC</abbr></p>
-          <p>Details of this part of the programme will be published here.</p></div>
+          <p class="t-meta">Days one and two &middot; Topics 4 to 6</p>
+          <p>Strength management (time is muscle), movement quality restoration, and neuroplasticity and its implications for performance.</p></div>
           </div></div>
         <div class="topic rv d2"><div class="tile t3" tabindex="0"><span class="word">Football players</span>
             <div class="bd"><h3>Football players</h3>
-          <p class="t-meta">Session details <abbr class="tbc" title="To be confirmed">TBC</abbr></p>
-          <p>Details of this part of the programme will be published here.</p></div>
+          <p class="t-meta">Days one and two &middot; Topics 2, 7 and 8</p>
+          <p>The economic impact of a failed return to performance, the on-field rehabilitation continuum, and how the football club perceives return to performance.</p></div>
           </div></div>
       </div>
       <p class="swipe-hint" aria-hidden="true"><i></i>Swipe for more<i></i></p>
@@ -165,13 +190,23 @@
 
   <section class="tint">
     <div class="wrap feature flip">
-      <div class="rv d1"><div class="shot wide"><img src="assets/img/header-rooftops.jpg" alt="A copper church dome and the Asinelli Tower above the red rooftops of Bologna"></div></div>
+      <div class="rv d1"><div class="shot wide">
+      <div class="slideshow" data-autoplay="6000" aria-roledescription="carousel" aria-label="Photographs of the Isokinetic Campus">
+        <figure class="ss-slide is-on"><img src="assets/img/venue-isokinetic-5.jpg" alt="A path through the gardens of the Isokinetic Campus, with a sign to the amphitheatre and the dome"></figure>
+        <figure class="ss-slide"><img src="assets/img/venue-isokinetic-3.jpg" alt="The glass-roofed training hall with artificial turf and a video wall" loading="lazy"></figure>
+        <figure class="ss-slide"><img src="assets/img/venue-isokinetic-1.jpg" alt="The movement analysis room seen through its glass walls" loading="lazy"></figure>
+        <figure class="ss-slide"><img src="assets/img/venue-isokinetic-2.jpg" alt="The glass-walled movement analysis room on artificial turf" loading="lazy"></figure>
+        <button class="ss-nav ss-prev" type="button" aria-label="Previous photograph"></button>
+        <button class="ss-nav ss-next" type="button" aria-label="Next photograph"></button>
+        <div class="ss-dots"></div>
+      </div>
+      </div></div>
       <div class="rv">
         <p class="eyebrow">Venue</p>
         <h2 class="h-fit">Bologna, <span class="lt">Italy</span></h2>
-        <p class="lead" style="margin-top:1.3rem">The venue for the meeting will be announced here, together with accommodation and travel information.</p>
-        <div class="row"><span>Venue</span><b><abbr class="tbc" title="To be confirmed">TBC</abbr></b></div>
-        <div class="row"><span>Dates</span><b>June 2027 &middot; days <abbr class="tbc" title="To be confirmed">TBC</abbr></b></div>
+        <p class="lead" style="margin-top:1.3rem">The meeting takes place at the Isokinetic Campus in Bologna, a centre for sports medicine and rehabilitation where athletes train to return to play.</p>
+        <div class="row"><span>Venue</span><b>Isokinetic Campus</b></div>
+        <div class="row"><span>Dates</span><b>26<i class="dash">&ndash;</i>27 June 2027 &middot; 1.5 days</b></div>
         <div class="row"><span>Rooms</span><b><abbr class="tbc" title="To be confirmed">TBC</abbr></b></div>
         <div style="margin-top:1.8rem"><a class="tlink" href="#" data-go="venue">Venue and travel</a></div>
       </div>
@@ -211,27 +246,118 @@
     <div class="wrap">
       <p class="crumb">ESSKA Focus Meeting</p>
       <h1>Programme <span class="lt">and Faculty</span></h1>
-      <p>The scientific programme and faculty will be published here.</p>
+      <p>Return to performance after ACL reconstruction in football players. Proposed topics; timings to follow.</p>
     </div>
-    <div class="wrap ph-meta"><span><b>June 2027</b></span><span>Venue TBC</span><span>Bologna, Italy</span></div>
+    <div class="wrap ph-meta"><span><b>26<i class="dash">&ndash;</i>27 June 2027</b></span><span>Isokinetic Campus</span><span>Bologna, Italy</span></div>
   </header>
   <section>
     <div class="wrap">
-      <div class="head rv"><p class="eyebrow">Scientific programme</p><h2>Day <span class="lt">by day</span></h2></div>
-      <div class="tba rv">
-        <p class="eyebrow">To be announced</p>
-        <h3>The programme is in preparation</h3>
-        <p>Sessions, talks and timings will be published here, with a downloadable PDF of the programme.</p>
+      <div class="head rv"><p class="eyebrow">Scientific programme</p><h2>Day <span class="lt">by day</span></h2>
+        <p class="lead one-line" style="margin-top:1rem">Proposed topics. Sessions, speakers and timings will be published here as they are confirmed.</p></div>
+      <div class="summary">
+        <div class="sm rv"><b>1.5 days</b><span>Scientific programme</span><em>Saturday and Sunday</em></div>
+        <div class="sm rv d1"><b>8</b><span>Topics</span><em>from injury to the football club</em></div>
+        <div class="sm rv d2"><b>80</b><span>Participants</span><em>a small group format</em></div>
+        <div class="sm rv d3"><b><abbr class="tbc" title="To be confirmed">TBC</abbr></b><span>CME credits</span><em>details to follow</em></div>
+      </div>
+      <div class="pdays">
+        <section class="pday" data-day="1">
+          <div class="pday-head">
+            <time class="pcal" datetime="2027-06-26"><span class="pcal-m" aria-hidden="true">Jun</span><span class="pcal-d" aria-hidden="true">26</span><span class="pcal-w" aria-hidden="true">Sat</span><span class="vh">Saturday 26 June 2027</span></time>
+            <div class="pday-id">
+              <span class="pday-label">Day one</span>
+              <span class="pday-meta"><span><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10 5.8V10l2.8 1.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><b>Timings to follow</b></span><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5.5h12M4 10h12M4 14.5h8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>5 topics</span></span>
+            </div>
+          </div>
+          <div class="prow" data-day="1">
+            <div class="prow-static">
+              <span class="ptime"><span class="pstart">01</span><span class="pdur">Topic</span></span>
+              <span class="pmain-head"><span class="ptitle">ACL injury mechanism and associated lesions</span></span>
+            </div>
+          </div>
+          <div class="prow" data-day="1">
+            <div class="prow-static">
+              <span class="ptime"><span class="pstart">02</span><span class="pdur">Topic</span></span>
+              <span class="pmain-head"><span class="ptitle">An economic impact analysis of failed return to performance</span></span>
+            </div>
+          </div>
+          <div class="prow" data-day="1">
+            <div class="prow-static">
+              <span class="ptime"><span class="pstart">03</span><span class="pdur">Topic</span></span>
+              <span class="pmain-head"><span class="ptitle">Surgical treatment and acute phase management</span></span>
+            </div>
+          </div>
+          <div class="prow" data-day="1">
+            <div class="prow-static">
+              <span class="ptime"><span class="pstart">04</span><span class="pdur">Topic</span></span>
+              <span class="pmain-head"><span class="ptitle">Strength management: time is muscle</span></span>
+            </div>
+          </div>
+          <div class="prow" data-day="1">
+            <div class="prow-static">
+              <span class="ptime"><span class="pstart">05</span><span class="pdur">Topic</span></span>
+              <span class="pmain-head"><span class="ptitle">Movement quality restoration</span></span>
+            </div>
+          </div>
+          <p class="prog-note">The discussion also covers secondary injuries and what they mean for professional football.</p>
+        </section>
+        <section class="pday" data-day="2">
+          <div class="pday-head">
+            <time class="pcal" datetime="2027-06-27"><span class="pcal-m" aria-hidden="true">Jun</span><span class="pcal-d" aria-hidden="true">27</span><span class="pcal-w" aria-hidden="true">Sun</span><span class="vh">Sunday 27 June 2027</span></time>
+            <div class="pday-id">
+              <span class="pday-label">Day two</span>
+              <span class="pday-meta"><span><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10 5.8V10l2.8 1.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><b>Timings to follow</b></span><span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5.5h12M4 10h12M4 14.5h8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>3 topics</span></span>
+            </div>
+          </div>
+          <div class="prow" data-day="2">
+            <div class="prow-static">
+              <span class="ptime"><span class="pstart">06</span><span class="pdur">Topic</span></span>
+              <span class="pmain-head"><span class="ptitle">Neuroplasticity and implications for performance</span></span>
+            </div>
+          </div>
+          <div class="prow" data-day="2">
+            <div class="prow-static">
+              <span class="ptime"><span class="pstart">07</span><span class="pdur">Topic</span></span>
+              <span class="pmain-head"><span class="ptitle">On-field rehabilitation continuum</span></span>
+            </div>
+          </div>
+          <div class="prow" data-day="2">
+            <div class="prow-static">
+              <span class="ptime"><span class="pstart">08</span><span class="pdur">Topic</span></span>
+              <span class="pmain-head"><span class="ptitle">Return to performance perception in the football club</span></span>
+            </div>
+          </div>
+          <p class="prog-note">A practical component, with demonstrations in two groups, is under discussion; its final format will be confirmed.</p>
+        </section>
       </div>
     </div>
   </section>
   <section class="tint">
     <div class="wrap">
-      <div class="head rv"><p class="eyebrow">Faculty</p><h2>International <span class="lt">Faculty</span></h2></div>
-      <div class="tba rv">
-        <p class="eyebrow">To be announced</p>
-        <h3>Chairs and faculty</h3>
-        <p>The meeting chairs, invited speakers and faculty will be listed here once confirmed.</p>
+      <div class="head rv"><p class="eyebrow">Faculty</p><h2>Chairs <span class="lt">and faculty</span></h2>
+        <p class="lead one-line" style="margin-top:1rem">Proposed faculty. Invitations and availability remain to be confirmed.</p></div>
+      <h3 class="fac-h">Chairs</h3>
+      <div class="fac-grid">
+        <div class="fac rv"><div class="av">FV</div><b>Francesco Della Villa</b><div class="c">Focus Meeting Chair</div></div>
+        <div class="fac rv d1"><div class="av">SZ</div><b>Stefano Zaffagnini</b><div class="c">Co-Chair</div></div>
+      </div>
+      <h3 class="fac-h">Organising committee</h3>
+      <div class="fac-grid">
+        <div class="fac rv"><div class="av">LL</div><b>Lior Laver</b></div>
+        <div class="fac rv d1"><div class="av">SP</div><b>Stefano Di Paolo</b></div>
+      </div>
+      <h3 class="fac-h">Proposed faculty</h3>
+      <div class="fac-grid">
+        <div class="fac rv"><div class="av">ES</div><b>Eric Hamrin Senorski</b></div>
+        <div class="fac rv d1"><div class="av">MB</div><b>Matthew Buckthorpe</b></div>
+        <div class="fac rv d2"><div class="av">AG</div><b>Alberto Grassi</b></div>
+        <div class="fac rv d3"><div class="av">GL</div><b>Gian Andrea Lucidi</b></div>
+        <div class="fac rv"><div class="av">RP</div><b>Robert Prill</b></div>
+        <div class="fac rv d1"><div class="av">FA</div><b>Ferran Abat</b></div>
+        <div class="fac rv d2"><div class="av">SH</div><b>Suzanne Huurman</b></div>
+        <div class="fac rv d3"><div class="av">EC</div><b>Etienne Cavignac</b></div>
+        <div class="fac rv"><div class="av">FT</div><b>Filippo Tosarelli</b></div>
+        <div class="fac rv d1"><div class="av">AG</div><b>Alli Gokeler</b></div>
       </div>
     </div>
   </section>
@@ -246,20 +372,40 @@
     <div class="wrap">
       <p class="crumb">ESSKA Focus Meeting</p>
       <h1>Venue <span class="lt">and Accommodation</span></h1>
-      <p>Bologna, Italy. Venue to be announced.</p>
+      <p>The Isokinetic Campus, Bologna.</p>
     </div>
-    <div class="wrap ph-meta"><span><b>June 2027</b></span><span>Venue TBC</span><span>Bologna, Italy</span></div>
+    <div class="wrap ph-meta"><span><b>26<i class="dash">&ndash;</i>27 June 2027</b></span><span>Isokinetic Campus</span><span>Bologna, Italy</span></div>
   </header>
   <section>
     <div class="wrap">
       <div class="v-head rv">
         <p class="eyebrow">The venue</p>
-        <h2 class="one-line">Venue <span class="lt">to be announced</span></h2>
+        <h2 class="h-fit">Isokinetic <span class="lt">Campus</span></h2>
       </div>
-      <div class="tba rv">
-        <p class="eyebrow">To be announced</p>
-        <h3>Venue, address and meeting rooms</h3>
-        <p>The name and address of the venue, directions and details of the meeting rooms will be published here.</p>
+      <div class="v-grid">
+        <div class="v-photo rv">
+          <div class="slideshow" data-autoplay="6000" aria-roledescription="carousel" aria-label="Photographs of the Isokinetic Campus">
+            <figure class="ss-slide is-on"><img src="assets/img/venue-isokinetic-5.jpg" alt="A path through the gardens of the Isokinetic Campus, with a sign to the amphitheatre and the dome"></figure>
+            <figure class="ss-slide"><img src="assets/img/venue-isokinetic-3.jpg" alt="The glass-roofed training hall with artificial turf and a video wall" loading="lazy"></figure>
+            <figure class="ss-slide"><img src="assets/img/venue-isokinetic-1.jpg" alt="The movement analysis room seen through its glass walls" loading="lazy"></figure>
+            <figure class="ss-slide"><img src="assets/img/venue-isokinetic-2.jpg" alt="The glass-walled movement analysis room on artificial turf" loading="lazy"></figure>
+            <button class="ss-nav ss-prev" type="button" aria-label="Previous photograph"></button>
+            <button class="ss-nav ss-next" type="button" aria-label="Next photograph"></button>
+            <div class="ss-dots"></div>
+          </div>
+        </div>
+        <div class="v-card rv d1">
+          <p>The ESSKA Sports Medicine Focus Meeting takes place on <span class="nowrap">26<i class="dash">&ndash;</i>27 June 2027</span> at the Isokinetic Campus in Bologna, with its gardens, its amphitheatre and its dome, alongside the training halls where footballers work on their return to play.</p>
+          <dl class="v-facts">
+            <div><dt>Venue</dt><dd>Isokinetic Campus</dd></div>
+            <div><dt>Dates</dt><dd>26<i class="dash">&ndash;</i>27 June 2027</dd></div>
+            <div><dt>Address</dt><dd>Bologna, Italy<br><small>Full address to be confirmed</small></dd></div>
+            <div><dt>Meeting rooms</dt><dd><abbr class="tbc" title="To be confirmed">TBC</abbr></dd></div>
+          </dl>
+          <div class="btn-row">
+            <a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=Isokinetic+Campus+Bologna" target="_blank" rel="noopener"><span>Find it on the map</span><span class="pill-i" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></a>
+          </div>
+        </div>
       </div>
       <div class="v-stay rv">
         <div class="v-stay-b">
@@ -283,7 +429,7 @@
       <div class="tba rv">
         <p class="eyebrow">To be announced</p>
         <h3>Travel information</h3>
-        <p>Routes from Bologna Airport and Bologna Centrale railway station to the venue will be published here once the venue is confirmed.</p>
+        <p>Routes from Bologna Airport and Bologna Centrale railway station to the Isokinetic Campus will be published here.</p>
       </div>
     </div>
   </section>
@@ -297,9 +443,9 @@
     <div class="wrap">
       <p class="crumb">ESSKA Focus Meeting</p>
       <h1>Registration <span class="lt">and Fees</span></h1>
-      <p>Registration dates and fees will be published here.</p>
+      <p>Preliminary fees, in euro. Registration opening date to be confirmed.</p>
     </div>
-    <div class="wrap ph-meta"><span><b>June 2027</b></span><span>Venue TBC</span><span>Bologna, Italy</span></div>
+    <div class="wrap ph-meta"><span><b>26<i class="dash">&ndash;</i>27 June 2027</b></span><span>Isokinetic Campus</span><span>Bologna, Italy</span></div>
   </header>
   <section>
     <div class="wrap">
@@ -308,24 +454,47 @@
           <p class="eyebrow">Fees</p>
           <h2 class="one-line">Registration <span class="lt">rates</span></h2>
         </div>
-        <p class="fee-flag">Fees to be announced</p>
+        <p class="fee-flag">Preliminary fees, in euro</p>
       </div>
-      <div class="tba rv">
-        <p class="eyebrow">To be announced</p>
-        <h3>Fee periods and rates</h3>
-        <p>The early, standard and late periods and the rates for each delegate category will be published here, with what the fee includes and the cancellation terms.</p>
+      <!-- period dates not set yet: add data-start / data-end (ISO, Italian time) to each
+           period when ESSKA confirms them, and app.js marks the current one -->
+      <ol class="fee-periods two rv d1" aria-label="Fee periods">
+          <li class="fee-period" data-period="early">
+            <span class="fp-tag" hidden></span>
+            <b>Early</b><span>Dates to be confirmed</span>
+          </li>
+          <li class="fee-period" data-period="standard">
+            <span class="fp-tag" hidden></span>
+            <b>Standard</b><span>Dates to be confirmed</span>
+          </li>
+      </ol>
+      <div class="fee-table rv d1">
+        <table class="fees">
+          <caption class="vh">Registration fees by delegate category and period, in euro</caption>
+          <thead><tr><th scope="col">Category</th><th scope="col" data-period="early">Early</th><th scope="col" data-period="standard">Standard</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">ESSKA members</th><td data-period="early" data-label="Early">&euro;250</td><td data-period="standard" data-label="Standard">&euro;300</td></tr>
+            <tr><th scope="row">Non-members</th><td data-period="early" data-label="Early">&euro;300</td><td data-period="standard" data-label="Standard">&euro;350</td></tr>
+            <tr><th scope="row">Residents and fellows, ESSKA members</th><td data-period="early" data-label="Early">&euro;150</td><td data-period="standard" data-label="Standard">&euro;200</td></tr>
+            <tr><th scope="row">Residents and fellows, non-members</th><td data-period="early" data-label="Early">&euro;200</td><td data-period="standard" data-label="Standard">&euro;250</td></tr>
+            <tr><th scope="row">Students, ESSKA members</th><td data-period="early" data-label="Early">&euro;80</td><td data-period="standard" data-label="Standard">&euro;100</td></tr>
+            <tr><th scope="row">Students, non-members</th><td data-period="early" data-label="Early">&euro;100</td><td data-period="standard" data-label="Standard">&euro;130</td></tr>
+            <tr><th scope="row">Industry</th><td data-period="early" data-label="Early">&euro;400</td><td data-period="standard" data-label="Standard">&euro;500</td></tr>
+          </tbody>
+        </table>
       </div>
+      <p class="fee-foot">Fees are preliminary and may change. What the fee includes and the cancellation terms will be published here.</p>
       <div class="reg-next">
         <div class="reg-card reg-book rv">
           <p class="eyebrow">Book your place</p>
           <h3>Registration opening date <abbr class="tbc" title="To be confirmed">TBC</abbr></h3>
           <p>The link to register will appear here when registration opens.</p>
-          <span class="pill is-disabled" aria-disabled="true"><span>Register now</span><span class="pill-i" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></span>
+          <span class="pill is-disabled" aria-disabled="true"><span>Opening date TBC</span><span class="pill-i" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></span>
         </div>
         <div class="reg-card reg-stay rv d1">
           <p class="eyebrow">Accommodation</p>
           <h3>Rooms for participants</h3>
-          <p>Accommodation details will be published with the venue.</p>
+          <p>Accommodation details will be published on the venue page.</p>
           <a class="tlink" href="#" data-go="venue">Venue and accommodation</a>
         </div>
       </div>
@@ -344,7 +513,7 @@
       <h1>Industry <span class="lt">and Partnership</span></h1>
       <p>Sponsorship and partnership opportunities at the meeting.</p>
     </div>
-    <div class="wrap ph-meta"><span><b>June 2027</b></span><span>Venue TBC</span><span>Bologna, Italy</span></div>
+    <div class="wrap ph-meta"><span><b>26<i class="dash">&ndash;</i>27 June 2027</b></span><span>Isokinetic Campus</span><span>Bologna, Italy</span></div>
   </header>
   <section class="ind">
     <div class="wrap">
@@ -382,7 +551,7 @@
         <h1>Get in <span class="lt">touch</span></h1>
         <p class="pc-sub">For meeting-related enquiries, use the enquiry form below or contact the ESSKA Focus Meetings Organising Team at <a href="mailto:focus-meetings@esska.org">focus-meetings@esska.org</a>.</p>
         <p class="pc-sub pc-sub-2">For sponsorship and partnership, see the <a href="#" data-go="industry">Industry</a> page.</p>
-        <div class="pc-meta"><span><b>June 2027</b></span><span>Venue TBC</span><span>Bologna, Italy</span></div>
+        <div class="pc-meta"><span><b>26<i class="dash">&ndash;</i>27 June 2027</b></span><span>Isokinetic Campus</span><span>Bologna, Italy</span></div>
       </div>
       <div class="pc-box">
         <p class="eyebrow">General enquiries</p>
@@ -445,11 +614,11 @@
 </footer>
 
 <div class="stick" id="stick">
-  <div class="l"><b>Focus Meeting 2027</b><i class="stick-sep" aria-hidden="true"></i><span>June 2027 &middot; Bologna, Italy</span></div>
+  <div class="l"><b>Focus Meeting 2027</b><i class="stick-sep" aria-hidden="true"></i><span>26&ndash;27 June 2027 &middot; Bologna, Italy</span></div>
   <p class="stick-early"><small>Early rate</small><span class="er-until">to be confirmed</span></p>
   <a class="stick-reg" href="#" data-go="registration"><span>Register</span><svg class="reg-arrow" viewBox="0 0 16 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h13M9.5 1.5 14 6l-4.5 4.5"/></svg></a>
 </div>
 
-<script src="assets/js/app.js?v=202609156"></script>
+<script src="assets/js/app.js?v=202609291"></script>
 </body>
 </html>

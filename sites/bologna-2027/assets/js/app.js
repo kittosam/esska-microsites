@@ -36,13 +36,12 @@ const cio=new IntersectionObserver(es=>{es.forEach(e=>{
 })},{threshold:.6});
 document.querySelectorAll("[data-to]").forEach(el=>cio.observe(el));
 
-/* Bologna: the ESSKA banner gives only "June 2027", so both dates stay null until
-   ESSKA confirms them. With MEETING_START null the utility strip shows month and
-   city instead of a countdown; with EARLY_RATE null the fee countdown hides and
-   shows TBC. Set both in Bologna time (+02:00, Italian summer time), e.g.
-   MEETING_START="2027-06-DDT09:00:00+02:00", EARLY_RATE="2027-MM-DDT23:59:59+02:00"
-   (+01:00 before 28 March 2027). */
-const MEETING_START=null;
+/* Bologna: 26-27 June 2027 at the Isokinetic Campus (ESSKA, 2026-09-29). The 09:00
+   start is assumed until the programme gives the real one. EARLY_RATE stays null until
+   ESSKA confirms the fees: the fee countdown then hides and shows TBC. Set it in
+   Bologna time, e.g. EARLY_RATE="2027-MM-DDT23:59:59+02:00" (+01:00 before 28 March
+   2027). With MEETING_START null the utility strip shows month and city instead. */
+const MEETING_START="2027-06-26T09:00:00+02:00";
 const EARLY_RATE=null;
 /* The early-rate deadline is the last moment of a day in the meeting's own time zone.
    Formatting that instant in the reader's time zone moved the date on by a day for
@@ -314,4 +313,41 @@ if(EARLY_RATE){
   new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.35})
     .observe(row);
   paint();
+})();
+
+/* Photo slideshows: fade from one picture to the next, with arrows and dots. It moves
+   on its own until someone touches it, and never for anyone who asks for reduced
+   motion or while the tab is in the background. */
+(function(){
+  document.querySelectorAll(".slideshow").forEach(box=>{
+    const slides=[...box.querySelectorAll(".ss-slide")];
+    if(slides.length<2) return;
+    const dots=box.querySelector(".ss-dots");
+    const reduce=()=>matchMedia("(prefers-reduced-motion:reduce)").matches;
+    let i=0, timer=null, paused=false;
+    slides.forEach((s,k)=>{
+      const b=document.createElement("button");
+      b.type="button"; b.setAttribute("aria-label","Photograph "+(k+1));
+      b.addEventListener("click",()=>{stop();show(k);});
+      dots.appendChild(b);
+    });
+    const marks=[...dots.children];
+    function show(n){
+      i=(n+slides.length)%slides.length;
+      slides.forEach((s,k)=>s.classList.toggle("is-on",k===i));
+      marks.forEach((m,k)=>m.setAttribute("aria-current",k===i?"true":"false"));
+    }
+    function start(){ if(timer||reduce()) return;
+      timer=setInterval(()=>{ if(!paused&&!document.hidden) show(i+1); }, +box.dataset.autoplay||6000); }
+    function stop(){ clearInterval(timer); timer=null; }
+    box.querySelector(".ss-prev").addEventListener("click",()=>{stop();show(i-1);});
+    box.querySelector(".ss-next").addEventListener("click",()=>{stop();show(i+1);});
+    box.addEventListener("pointerenter",()=>paused=true);
+    box.addEventListener("pointerleave",()=>paused=false);
+    box.addEventListener("focusin",()=>paused=true);
+    box.addEventListener("focusout",()=>paused=false);
+    /* only while it is on screen */
+    new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.3}).observe(box);
+    show(0);
+  });
 })();
