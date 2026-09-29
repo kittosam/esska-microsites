@@ -2692,4 +2692,4 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 /* the pull quote in the welcome letter closes as well as opens, with a mark the size of
    the opening one; line-height 0 keeps it from pushing the last line down */
 .lh-quote::after{content:"\201D";color:var(--ac-br);font-size:2.4rem;line-height:0;
-  vertical-align:-.42em;margin-left:.08em}
+  vertical-align:-.42em;margin-left:.72em}
