@@ -8,7 +8,7 @@
   /* action tier: deeper and more saturated than --blue, so every Register
      button separates from the rest of the page */
   --ac:#A8702A; --ac-d:#8A5A1C; --ac-br:#C98A34; --ac-l:#E2C48F;
-  --f:"Onest",system-ui,-apple-system,sans-serif;
+  --f:"Manrope",system-ui,-apple-system,sans-serif;
   --pad:clamp(1.15rem,4.5vw,4.5rem);
   --e:cubic-bezier(.22,.61,.36,1);
 }

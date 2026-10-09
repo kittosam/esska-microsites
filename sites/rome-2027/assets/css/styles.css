@@ -10,7 +10,7 @@
   --line:rgba(23,27,34,.12);
   /* cobalt tier: text and rules on light grounds; sky for labels on basalt */
   --ac:#2350A8; --ac-d:#1B3A78; --ac-br:#2350A8; --ac-l:#A9BEE8;
-  --f:"Onest",system-ui,-apple-system,sans-serif;
+  --f:"Manrope",system-ui,-apple-system,sans-serif;
   --pad:clamp(1.15rem,4.5vw,4.5rem);
   --e:cubic-bezier(.22,.61,.36,1);
 }

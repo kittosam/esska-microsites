@@ -17,7 +17,7 @@ CSS = """
 :root{--navy:#0E1E22;--navy-d:#060F11;--ac:#0A6E80;--ac-br:#0E8FA0;
   --ice2:#EDF7F9;--muted:#444E55;--ink:#1F2B30;--line:rgba(14,30,34,.12)}
 html,body{margin:0;padding:0;background:#FBFAF6;color:var(--ink);
-  font-family:"Onest",system-ui,-apple-system,sans-serif;
+  font-family:"Manrope",system-ui,-apple-system,sans-serif;
   -webkit-print-color-adjust:exact;print-color-adjust:exact}
 .sheet{position:relative;width:210mm;height:297mm;overflow:hidden;page-break-after:always;background:#FBFAF6}
 .sheet:last-child{page-break-after:auto}
@@ -187,7 +187,7 @@ def fac(people, extra=""):
 HEAD = ('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
         '<link rel="preconnect" href="https://fonts.googleapis.com">'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-        '<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
+        '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
         '<title>ESSKA Shoulder Focus Meeting 2027 - Programme</title><style>' + CSS + '</style></head><body>')
 
 blocks = []

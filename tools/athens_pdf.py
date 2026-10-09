@@ -16,7 +16,7 @@ CSS = """
 :root{--navy:#12294D;--navy-d:#08182F;--ac:#8A5A1C;--ac-br:#C98A34;
   --ice2:#F4EFE4;--muted:#4C5568;--ink:#2B3448;--line:rgba(18,41,77,.13)}
 html,body{margin:0;padding:0;background:#FDFBF7;color:var(--ink);
-  font-family:"Onest",system-ui,-apple-system,sans-serif;
+  font-family:"Manrope",system-ui,-apple-system,sans-serif;
   -webkit-print-color-adjust:exact;print-color-adjust:exact}
 .sheet{position:relative;width:210mm;height:297mm;overflow:hidden;page-break-after:always;background:#FDFBF7}
 .sheet:last-child{page-break-after:auto}
@@ -176,7 +176,7 @@ def fac(people, extra=""):
 HEAD = ('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
         '<link rel="preconnect" href="https://fonts.googleapis.com">'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-        '<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
+        '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
         '<title>ESSKA Hip Focus Meeting 2027 - Programme</title><style>' + CSS + '</style></head><body>')
 
 blocks = []

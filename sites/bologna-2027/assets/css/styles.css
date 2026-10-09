@@ -14,7 +14,7 @@
   --info:#5E4E47; --info-l:#A08A7E; --info-bg:#F3E7DC;
   /* the banner navy, for headings on light grounds */
   --head:#273A78;
-  --f:"Onest",system-ui,-apple-system,sans-serif;
+  --f:"Manrope",system-ui,-apple-system,sans-serif;
   --pad:clamp(1.15rem,4.5vw,4.5rem);
   --e:cubic-bezier(.22,.61,.36,1);
 }

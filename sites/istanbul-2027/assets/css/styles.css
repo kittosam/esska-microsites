@@ -8,7 +8,7 @@
   --line:rgba(14,30,34,.10);
   /* action tier: the turquoise CTA gradient, #0E8FA0 to #0A6E80 */
   --ac:#0A6E80; --ac-d:#075766; --ac-br:#0E8FA0; --ac-l:#E3C078;
-  --f:"Onest",system-ui,-apple-system,sans-serif;
+  --f:"Manrope",system-ui,-apple-system,sans-serif;
   --pad:clamp(1.15rem,4.5vw,4.5rem);
   --e:cubic-bezier(.22,.61,.36,1);
 }
@@ -2457,12 +2457,23 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
    the same line: only the first name keeps the gap above */
 .lh-sign b ~ b{display:inline;margin-top:0}
 
-/* ---------- programme page: why the meeting is worth the trip ---------- */
-.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);margin-top:clamp(1.6rem,3vw,2.4rem)}
-.course-col h3{margin:0 0 1rem;color:var(--navy);font-size:clamp(1.15rem,1.8vw,1.35rem);letter-spacing:-.01em}
-.course-list{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
-.course-list li{position:relative;padding-left:1.7rem;color:var(--ink);line-height:1.6}
-.course-list li::before{content:"";position:absolute;left:0;top:.58em;width:8px;height:8px;border-radius:50%;
-  background:var(--ac-br)}
-@media(max-width:820px){.course-grid{grid-template-columns:1fr;gap:1.8rem}}
-.course-list li b{color:var(--navy)}
+/* ---------- programme page: why the meeting is worth the trip ----------
+   Six reasons as cards, three across: an icon on ink with a gold number opposite, the
+   reason as the heading. The audience line closes the section on an ink band. */
+.why-grid{list-style:none;margin:clamp(1.8rem,3.5vw,2.8rem) 0 0;padding:0;display:grid;
+  grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.why{background:#fff;border:1px solid var(--line);border-top:3px solid var(--ac-br);border-radius:10px;
+  padding:1.5rem 1.5rem 1.6rem;box-shadow:0 10px 26px rgba(14,30,34,.06);
+  transition:transform .35s var(--e),box-shadow .35s var(--e)}
+.why:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(14,30,34,.12)}
+.why-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem}
+.why-ic{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--navy);color:#fff}
+.why-ic svg{width:24px;height:24px}
+.why-n{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;color:#C9A254;font-variant-numeric:tabular-nums}
+.why h3{font-size:1.14rem;line-height:1.25;letter-spacing:-.015em;color:var(--navy);margin:0 0 .55rem}
+.why p{margin:0;color:var(--muted);font-size:1rem;line-height:1.6}
+.why-for{display:flex;align-items:center;gap:1.4rem;margin:1.4rem 0 0;padding:1.1rem 1.5rem;border-radius:10px;
+  background:var(--navy);color:rgba(255,255,255,.88);font-size:1rem;line-height:1.55}
+.why-for b{flex:none;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-l)}
+@media(max-width:980px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.why-grid{grid-template-columns:1fr}.why-for{flex-direction:column;align-items:flex-start;gap:.4rem}}

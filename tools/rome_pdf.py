@@ -26,7 +26,7 @@ CSS = """
 :root{--navy:#273A78;--navy-d:#1B2A5C;--ac:#0F6FD6;--ac-br:#3C90E8;
   --ice2:#F5F9FD;--muted:#5F6C8A;--ink:#222E4F;--line:rgba(39,58,120,.15)}
 html,body{margin:0;padding:0;background:#fff;color:var(--ink);
-  font-family:"Onest",system-ui,-apple-system,sans-serif;
+  font-family:"Manrope",system-ui,-apple-system,sans-serif;
   -webkit-print-color-adjust:exact;print-color-adjust:exact}
 .sheet{position:relative;width:210mm;height:297mm;overflow:hidden;page-break-after:always;background:#fff}
 .sheet:last-child{page-break-after:auto}
@@ -182,7 +182,7 @@ def fac(people, extra=""):
 HEAD = ('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
         '<link rel="preconnect" href="https://fonts.googleapis.com">'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-        '<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
+        '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
         '<title>ESSKA Focus Meeting 2027 - Programme</title><style>' + CSS + '</style></head><body>')
 
 # ---- every block that has to be placed on a page, in order ----

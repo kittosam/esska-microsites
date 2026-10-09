@@ -5,7 +5,7 @@
   --navy:#1B3A6B; --navy-d:#12294F; --navy-l:#2B4C80;
   --paper:#FBFCFE; --ground:#EEF1F7; --ink:#2B3242; --muted:#5A6377;
   --line:rgba(27,58,107,.13);
-  --f:"Onest",system-ui,-apple-system,sans-serif;
+  --f:"Manrope",system-ui,-apple-system,sans-serif;
   --pad:clamp(1.15rem,4.5vw,4.5rem);
   --e:cubic-bezier(.22,.61,.36,1);
 }

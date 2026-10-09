@@ -8,7 +8,7 @@
   --line:rgba(15,64,71,.10);
   /* action tier: the moss CTA gradient, #24735A to #1E6B52 */
   --ac:#1E6B52; --ac-d:#17563F; --ac-br:#24735A; --ac-l:#A6D8C5;
-  --f:"Onest",system-ui,-apple-system,sans-serif;
+  --f:"Manrope",system-ui,-apple-system,sans-serif;
   --pad:clamp(1.15rem,4.5vw,4.5rem);
   --e:cubic-bezier(.22,.61,.36,1);
 }

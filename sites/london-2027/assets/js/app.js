@@ -201,7 +201,7 @@ if(EARLY_RATE){
       "--chrome", (util.offsetHeight + nav.offsetHeight) + "px");
   };
   setChrome();
-  /* the nav grows a little once Onest has loaded, so measure again then:
+  /* the nav grows a little once Manrope has loaded, so measure again then:
      otherwise the hero is sized against the fallback font and overshoots */
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(setChrome);
   addEventListener("resize", setChrome, {passive:true});

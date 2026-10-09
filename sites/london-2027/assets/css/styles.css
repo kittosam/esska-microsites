@@ -12,7 +12,7 @@
   /* accent tier: the one lavender for anything clickable and for rules, its deep
      tone for hover, accent light for labels and icons on ink */
   --ac:#6B5BB5; --ac-d:#544393; --ac-br:#6B5BB5; --ac-l:#9C8ED4;
-  --f:"Onest",system-ui,-apple-system,sans-serif;
+  --f:"Manrope",system-ui,-apple-system,sans-serif;
   --pad:clamp(1.15rem,4.5vw,4.5rem);
   --e:cubic-bezier(.22,.61,.36,1);
 }
