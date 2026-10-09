@@ -31,7 +31,7 @@ def day_facts(day):
     items=day[3]
     a0,b0 = times(day[2])
     nses = sum(1 for i in items if not i[5] and i[0]!="TBC")
-    ntalks = sum(len(i[3]) for i in items if not i[5])
+    ntalks = sum(1 for i in items if not i[5] for x in i[3] if x != "Discussion")
     return f"{a0} to {b0}", f"{nses} sessions", f"{ntalks} talks"
 
 def slot(rng):
@@ -94,13 +94,13 @@ def fac_grid(people, extra=""):
     return "\n".join(out)
 
 PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p><h2>Day <span class="lt">by day</span></h2></div>
-      <p class="prog-note rv">Preliminary programme, subject to change. Session moderators will be announced, and faculty participation, lecture scheduling and programme details remain subject to confirmation.</p>
+      <p class="prog-note rv">Preliminary programme, subject to change. Moderators, faculty assignments and case presenters are to be confirmed.</p>
       <div class="prog-controls rv">
         <div class="pctl-top">
           <div class="pctl-search">
             <label class="plbl" for="progQ">Search the programme</label>
             <input id="progQ" type="search" autocomplete="off"
-                   placeholder="Search talks and sessions">
+                   placeholder="Search talks, sessions and speakers">
           </div>
         </div>
         <div class="pctl-row">
@@ -119,7 +119,7 @@ PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p
       </div>'''
 
 FAC = f'''      <div class="head rv"><p class="eyebrow">Faculty</p><h2>Chairs <span class="lt">and faculty</span></h2>
-        <p class="lead one-line" style="margin-top:1rem">Proposed participation, to be confirmed. The full faculty will be published here as invitations are accepted.</p></div>
+        <p class="lead one-line" style="margin-top:1rem">Proposed invited faculty. Invitations are pending confirmation.</p></div>
       <h3 class="fac-h">Chairs</h3>
       <div class="fac-grid">
 {fac_grid(data.CHAIRS)}

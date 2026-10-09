@@ -161,7 +161,7 @@ def banner(label, day, dnum, wk):
     num, full, span, items = day
     a0, b0 = times(span)
     nses = sum(1 for i in items if not i[5] and i[0] != "TBC")
-    ntalks = sum(len(i[3]) for i in items if not i[5])
+    ntalks = sum(1 for i in items if not i[5] for x in i[3] if x != "Discussion")
     return (f'<div class="day"><span class="cal"><i>Sep</i><b>{dnum}</b><em>{wk}</em></span>'
             f'<span class="dl"><b>{label}</b><span class="dm"><strong>{a0} to {b0}</strong>'
             f'<span class="sep"></span>{nses} sessions<span class="sep"></span>{ntalks} talks</span></span></div>')
@@ -175,10 +175,10 @@ MAST = f"""<div class="mast"><img class="art" src="assets/img/key-visual-istanbu
 <h1>Massive Rotator Cuff Tears<span class="l3">From repair to replace</span></h1></div>
 <div class="mast-meta"><span>{D}</span><span>{VENUE}</span><span>Istanbul, Turkey</span></div></div>"""
 RH = f'<div class="rh"><span>Massive Rotator Cuff Tears</span><span>Istanbul &middot; {D}</span></div>'
-SUMMARY = [("1.5 days","Scientific programme","Friday and Saturday morning"),
-           ("6","Scientific sessions","plus the grand finale debate"),
-           ("4","Relive surgical videos","on day one"),
-           ("TBC","CME credits","details to follow")]
+SUMMARY = [("2 days","Scientific programme","Friday and Saturday"),
+           ("16","Sessions","with the grand finale debate"),
+           ("10","Clinical cases","worked through live"),
+           ("8","Relive surgical videos","step-by-step technique")]
 summary = "".join(f"<div><b>{v}</b><span>{l}</span><em>{s}</em></div>" for v, l, s in SUMMARY)
 def fac(people, extra=""):
     return (f'<div class="fac{extra}">' + "".join(
@@ -281,8 +281,8 @@ for i, page in enumerate(pages):
 sheets.append(f'<div class="sheet">{RH}<div class="body"><h2 class="sec">Faculty</h2>'
               f'<h3 class="sub">Chairs</h3>{fac(P.CHAIRS," inv")}'
               f'<h3 class="sub">Proposed speakers</h3>{fac(P.PROPOSED)}'
-              f'<p class="note">Preliminary programme, subject to change. Session moderators will be announced, and faculty '
-              f'participation, lecture scheduling and programme details remain subject to confirmation.</p>'
+              f'<p class="note">Preliminary programme, subject to change. Moderators, faculty assignments and case presenters '
+              f'are to be confirmed. Proposed faculty: invitations pending confirmation.</p>'
               f'</div>{FOOT}</div>')
 
 pathlib.Path("_tmp_pdf.html").write_text(HEAD + "".join(sheets) + "</body></html>", encoding="utf-8")

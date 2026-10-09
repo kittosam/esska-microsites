@@ -36,10 +36,9 @@ const cio=new IntersectionObserver(es=>{es.forEach(e=>{
 })},{threshold:.6});
 document.querySelectorAll("[data-to]").forEach(el=>cio.observe(el));
 
-/* ESSKA confirmed 10-11 September 2027 at Acibadem Altunizade Hospital. The start
-   time is an assumption (09:00 Istanbul) until the programme is published; it only
-   affects the last hours of the countdown. EARLY_RATE stays null until ESSKA sets it. */
-const MEETING_START="2027-09-10T09:00:00+03:00";
+/* ESSKA confirmed 10-11 September 2027 at Acibadem Altunizade Hospital. The first
+   session starts at 08:00 Istanbul time (preliminary programme v7). EARLY_RATE stays null until ESSKA sets it. */
+const MEETING_START="2027-09-10T08:00:00+03:00";
 const EARLY_RATE="2027-04-30T23:59:59+03:00";
 /* The early-rate deadline is the last moment of a day in the meeting's own time zone.
    Formatting that instant in the reader's time zone moved the date on by a day for
