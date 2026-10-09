@@ -2554,3 +2554,8 @@ body{font-size:1.0625rem}
   .ph > .wrap,.pc .pc-copy{left:var(--edge-shift,0px)}
   .pc .pc-copy{position:relative}
 }
+
+/* programme recap cards: the figure keeps clear of the icon in the corner, and a figure
+   made of words rather than numbers is set a size smaller so it fits on the line */
+.sm b{padding-right:3rem}
+.sm b.sm-word{font-size:clamp(1.2rem,1.75vw,1.5rem);line-height:1.2}
