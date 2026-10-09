@@ -2477,3 +2477,18 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 .why-for b{flex:none;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-l)}
 @media(max-width:980px){.why-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.why-grid{grid-template-columns:1fr}.why-for{flex-direction:column;align-items:flex-start;gap:.4rem}}
+
+/* hero: the text column sits a little further left than the page content below it, so
+   the title and date box have more air from the artwork (desktop layout only) */
+@media(min-width:1081px){.hero-txt{margin-left:clamp(-3.2rem,-2.8vw,-1.4rem)}}
+/* welcome letter: the signature block stands clear of the last paragraph */
+.lh-main .lh-sign{margin-top:2.4rem}
+
+/* ---------- text size (October 2026) ----------
+   Manrope runs smaller than Onest did at the same size, so everything set in rem is
+   scaled up by 8% from the root: body copy, programme rows, labels and their spacing
+   grow together, on phones as well. Sizes tied to the viewport (the hero title) and
+   the px breakpoints are untouched, so the layouts keep their shape. */
+html{font-size:108%}
+body{font-size:1.0625rem}
+@media(min-width:2100px){body{font-size:1.125rem}}

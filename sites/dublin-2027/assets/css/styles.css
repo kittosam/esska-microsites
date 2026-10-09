@@ -2425,3 +2425,12 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 
 /* the welcome letter's signature: a clear gap between the closing line and the names */
 .lh-sign b{display:inline-block;margin-top:1.1rem}
+
+/* ---------- text size (October 2026) ----------
+   Manrope runs smaller than Onest did at the same size, so everything set in rem is
+   scaled up by 8% from the root: body copy, programme rows, labels and their spacing
+   grow together, on phones as well. Sizes tied to the viewport (the hero title) and
+   the px breakpoints are untouched, so the layouts keep their shape. */
+html{font-size:108%}
+body{font-size:1.0625rem}
+@media(min-width:2100px){body{font-size:1.125rem}}

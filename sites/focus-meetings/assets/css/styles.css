@@ -277,3 +277,12 @@ footer p{max-width:34ch;color:rgba(255,255,255,.55);font-size:1rem}
 
 /* date ranges: the en dash stays small and sits close to the numbers on both sides */
 .dash{font-style:normal;display:inline;font-size:.7em;font-weight:500;margin:0 .06em;vertical-align:.1em;opacity:.7}
+
+/* ---------- text size (October 2026) ----------
+   Manrope runs smaller than Onest did at the same size, so everything set in rem is
+   scaled up by 8% from the root: body copy, programme rows, labels and their spacing
+   grow together, on phones as well. Sizes tied to the viewport (the hero title) and
+   the px breakpoints are untouched, so the layouts keep their shape. */
+html{font-size:108%}
+body{font-size:1.0625rem}
+@media(min-width:2100px){body{font-size:1.125rem}}

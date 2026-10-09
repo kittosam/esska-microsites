@@ -2302,3 +2302,12 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
    the opening one; line-height 0 keeps it from pushing the last line down */
 .lh-quote::after{content:"\201D";color:var(--blue);font-size:2.4rem;line-height:0;
   vertical-align:-.42em;margin-left:.72em}
+
+/* ---------- text size (October 2026) ----------
+   Manrope runs smaller than Onest did at the same size, so everything set in rem is
+   scaled up by 8% from the root: body copy, programme rows, labels and their spacing
+   grow together, on phones as well. Sizes tied to the viewport (the hero title) and
+   the px breakpoints are untouched, so the layouts keep their shape. */
+html{font-size:108%}
+body{font-size:1.0625rem}
+@media(min-width:2100px){body{font-size:1.125rem}}
