@@ -2330,3 +2330,25 @@ body{font-size:1.0625rem}
 /* between 1500 and 1700px the page is still at its narrower width while the title has
    reached full size, so the title wrapped onto an extra line: hold it a step smaller there */
 @media(min-width:1500px) and (max-width:1699px){.hero h1{font-size:2rem}}
+
+/* ---------- homepage polish (October 2026) ---------- */
+/* welcome letter: the closing paragraph stands clear of the text above it */
+.lh-main > p:last-of-type{margin-top:2.4rem}
+/* the links that close the welcome letter and the venue block read a size larger */
+.letter-cta .tlink,.feature .tlink{font-size:16px}
+/* venue block: the photo (or slideshow) runs from the top of the venue heading down to
+   the rule under the last fact row, on the desktop two-column layout. The paddings are
+   the height of the eyebrow above the heading and of the link below the rows. */
+@media(min-width:961px){
+  .feature.flip{align-items:stretch}
+  .feature.flip > div:first-child{display:flex;padding-top:var(--ss-top,2.7rem);padding-bottom:var(--ss-bot,66px)}
+  .feature.flip .shot.wide{position:relative;flex:1;display:flex;min-height:300px}
+  .feature.flip .shot.wide > img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
+  .feature.flip .shot.wide .slideshow{aspect-ratio:auto;height:auto;flex:1;min-height:0}
+}
+/* inner page banners and the Contacts header line up with "Focus Meeting 2027" in the
+   site header (offset measured in app.js) */
+@media(min-width:1081px){
+  .ph > .wrap,.pc .pc-copy{left:var(--edge-shift,0px)}
+  .pc .pc-copy{position:relative}
+}

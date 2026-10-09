@@ -316,3 +316,26 @@ if(EARLY_RATE){
     .observe(row);
   paint();
 })();
+
+/* Page headers: the text block of each inner page's banner (and of the Contacts header)
+   starts on the same left edge as the words "Focus Meeting 2027" in the site header.
+   The header and the page content use different widths, so the offset is measured from
+   the footer's content edge, which never moves. Desktop layout only. */
+(function(){
+  const bn=document.querySelector(".brand .bn"), ref=document.querySelector("footer .wrap");
+  if(!bn||!ref) return;
+  const root=document.documentElement;
+  const set=()=>{
+    if(innerWidth<1081){ root.style.removeProperty("--edge-shift"); return; }
+    const r=ref.getBoundingClientRect(), pad=parseFloat(getComputedStyle(ref).paddingLeft)||0;
+    /* only ever to the left: on narrower windows the wording sits further right than the
+       page margin, and the banners stay on the margin */
+    root.style.setProperty("--edge-shift", Math.min(0,Math.round(bn.getBoundingClientRect().left-(r.left+pad)))+"px");
+  };
+  set();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(set);
+  addEventListener("load", set);
+  addEventListener("resize", set, {passive:true});
+  /* the header shrinks once the page is scrolled, which moves the wording: measure only at the top */
+  addEventListener("scroll", ()=>{ if(scrollY<5) set(); }, {passive:true});
+})();
