@@ -2724,3 +2724,22 @@ body{font-size:1.0625rem}
 .ebar-foot .ebar-early{flex-basis:100%}
 .ebar-foot .ebar-book{margin:0;flex-basis:100%}
 .ebar-foot .ebar-book .reg-arrow{margin-left:.35rem}
+
+/* venue banner: "Book a room" is the same gold pill as Register now in the homepage
+   countdown band (gold gradient outline, label and disc, on a faint gold wash) */
+.ph-meta .pill.ph-book{--g:linear-gradient(120deg,#F4E2BC 0%,#E2C48F 50%,#C98A34 100%);
+  position:relative;margin-left:auto;border:0;box-shadow:none;backdrop-filter:blur(6px);
+  background:rgba(201,138,52,.12);font-size:14px;font-weight:700;letter-spacing:.14em;gap:14px;
+  padding:7.5px 8.5px 7.5px 23.5px}
+.ph-meta .pill.ph-book::after{content:none;animation:none}
+.ph-meta .pill.ph-book::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+  padding:1.5px;background:var(--g);animation:none;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.ph-meta .pill.ph-book > span:first-child{display:inline;font-size:inherit;font-weight:inherit;letter-spacing:inherit;
+  background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ph-meta .pill.ph-book .pill-i,.ph-meta .pill.ph-book:hover .pill-i{background:var(--g);width:32px;height:32px;display:grid;place-items:center;padding:0;border-radius:50%;flex:none}
+.ph-meta .pill.ph-book .pill-i svg,.ph-meta .pill.ph-book:hover .pill-i svg{width:9px;height:11px;fill:#08182F;animation:none}
+.ph-meta .pill.ph-book:hover,.ph-meta .pill.ph-book:focus-visible{background:rgba(201,138,52,.24)}
+.ph-meta .pill.ph-book:hover .pill-i svg{transform:translateX(1px)}
+@media(max-width:700px){.ph-meta .pill.ph-book{margin-left:0}}
