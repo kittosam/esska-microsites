@@ -107,7 +107,7 @@ body.scrolled .util{max-height:0;opacity:0}
 .nav ul a:hover{color:var(--navy)} .nav ul a:hover::after{transform:scaleX(1)}
 .nav ul a.on{color:var(--navy)} .nav ul a.on::after{transform:scaleX(1)}
 .navreg{flex:none;margin-left:clamp(.8rem,1.6vw,1.8rem)}
-@media(max-width:1480px){
+@media(min-width:0px){
   .nav-in{flex-wrap:wrap;gap:1rem}
   .nav ul{order:3;flex:1 0 100%;margin:0;justify-content:space-between;
     gap:1rem;border-top:1px solid var(--line)}
@@ -1739,7 +1739,7 @@ footer li{margin-bottom:.68rem}
    The logo file has a little blank margin, so its drawn circle is centred rather
    than its box: the circle's centre is 48.8% across the image, and WELCOME is about
    80px wide (75px on narrow screens, where the menu type is smaller). */
-@media(max-width:1480px){
+@media(min-width:0px){
   .brand{margin-left:calc(40px - .488 * clamp(72px,6vw,108px))}
   .nav.stuck .brand{margin-left:calc(40px - .488 * clamp(52px,3.7vw,66px))}
 }
@@ -1844,7 +1844,7 @@ footer li{margin-bottom:.68rem}
 .nav.stuck .reg-tab{padding:.75rem 1.2rem .8rem;gap:0;min-width:0}
 .nav.stuck .reg-tab-top{padding-bottom:0;border-bottom:0;font-size:13px}
 .nav.stuck .reg-tab-note{display:none}
-@media(max-width:1480px){.navreg.reg-tab{margin-left:0}}
+@media(min-width:0px){.navreg.reg-tab{margin-left:0}}
 @media(max-width:760px){
   .navreg.reg-tab{position:static;margin-left:auto;align-self:center;border-radius:10px;padding:.65rem 1rem;gap:0;min-width:0}
   .reg-tab-top{padding-bottom:0;border-bottom:0;font-size:12px;gap:.7rem}
@@ -2434,3 +2434,11 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
 html{font-size:108%}
 body{font-size:1.0625rem}
 @media(min-width:2100px){body{font-size:1.125rem}}
+
+/* hero: the text column sits a little further left than the page content below it, so
+   the title and date box have more air from the artwork (desktop layout only) */
+@media(min-width:1081px){.hero-txt{margin-left:clamp(-3.2rem,-2.8vw,-1.4rem)}}
+
+/* header: the single-row layout (logo, menu and Register on one line) no longer fits
+   with Manrope at the larger text size, so the two-row header is used at every width;
+   the three rules that were limited to max-width:1480px now always apply */

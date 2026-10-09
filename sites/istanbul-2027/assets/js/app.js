@@ -348,3 +348,22 @@ if(EARLY_RATE){
     show(0);
   });
 })();
+
+/* Programme page: the six reasons to attend are tabs; choosing one shows its text in
+   the panel below. Arrow keys move between them, as tabs should. */
+(function(){
+  const box=document.getElementById("whyBox"); if(!box) return;
+  const tabs=[...box.querySelectorAll(".why-tab")], panels=[...box.querySelectorAll(".why-panel")];
+  const pick=(i,focus)=>{
+    tabs.forEach((t,k)=>{t.setAttribute("aria-selected",k===i?"true":"false"); t.tabIndex=k===i?0:-1;});
+    panels.forEach((p,k)=>p.hidden=k!==i);
+    if(focus) tabs[i].focus();
+  };
+  tabs.forEach((t,i)=>{
+    t.addEventListener("click",()=>pick(i));
+    t.addEventListener("keydown",e=>{
+      if(e.key==="ArrowRight"||e.key==="ArrowDown"){e.preventDefault();pick((i+1)%tabs.length,true);}
+      if(e.key==="ArrowLeft"||e.key==="ArrowUp"){e.preventDefault();pick((i-1+tabs.length)%tabs.length,true);}
+    });
+  });
+})();
