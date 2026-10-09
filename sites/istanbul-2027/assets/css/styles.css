@@ -2527,3 +2527,14 @@ body{font-size:1.0625rem}
   .feature:has(.slideshow) .shot.wide .slideshow{aspect-ratio:auto;height:auto;flex:1;min-height:300px}
 }
 .head:has(.why-h){max-width:none;margin-bottom:0}
+
+/* hero date box: with the larger text the date and city line could reach the box's
+   right edge. The two items now share the row and shrink their type a little before
+   they ever touch it, and nothing in the box can run past its padding. */
+.ebar{padding-right:clamp(1.1rem,1.8vw,1.6rem)}
+.ebar-row{flex-wrap:nowrap;min-width:0}
+.ebar-item{min-width:0}
+@media(min-width:1081px){.ebar-item b{font-size:clamp(1rem,1.38vw,1.3rem);white-space:nowrap}}
+/* between 1500 and 1700px the page is still at its narrower width while the title has
+   reached full size, so the title wrapped onto an extra line: hold it a step smaller there */
+@media(min-width:1500px) and (max-width:1699px){.hero h1{font-size:min(2.7rem,2.9vw)}}

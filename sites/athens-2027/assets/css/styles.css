@@ -2710,3 +2710,17 @@ body{font-size:1.0625rem}
 /* header: the single-row layout (logo, menu and Register on one line) no longer fits
    with Manrope at the larger text size, so the two-row header is used at every width;
    the three rules that were limited to max-width:1480px now always apply */
+
+/* hero date box: with the larger text the date and city line could reach the box's
+   right edge. The two items now share the row and shrink their type a little before
+   they ever touch it, and nothing in the box can run past its padding. */
+.ebar{padding-right:clamp(1.1rem,1.8vw,1.6rem)}
+.ebar-row{flex-wrap:nowrap;min-width:0}
+.ebar-item{min-width:0}
+@media(min-width:1081px){.ebar-item b{font-size:clamp(1rem,1.38vw,1.3rem);white-space:nowrap}}
+/* Athens date box foot: the early-rate line and the "Book a room" link each take their
+   own row and both start on the left edge, under the venue name */
+.ebar-foot{flex-wrap:wrap}
+.ebar-foot .ebar-early{flex-basis:100%}
+.ebar-foot .ebar-book{margin:0;flex-basis:100%}
+.ebar-foot .ebar-book .reg-arrow{margin-left:.35rem}

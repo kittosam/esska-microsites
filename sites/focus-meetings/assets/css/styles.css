@@ -286,3 +286,8 @@ footer p{max-width:34ch;color:rgba(255,255,255,.55);font-size:1rem}
 html{font-size:108%}
 body{font-size:1.0625rem}
 @media(min-width:2100px){body{font-size:1.125rem}}
+
+/* the opening block lines up with "Focus Meetings" in the header (edge set in app.js) */
+@media(min-width:761px){
+  .hero > .wrap{max-width:none;margin:0;padding-left:var(--hero-left,var(--pad))}
+}
