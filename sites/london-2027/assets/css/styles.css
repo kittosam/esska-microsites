@@ -2563,3 +2563,10 @@ body{font-size:1.0625rem}
 /* skills lab faculty: the affiliation runs to two or three lines under the name */
 #skills-lab .fac .c{line-height:1.45;margin-top:.4rem;text-transform:none;letter-spacing:0;font-size:.86rem;font-weight:500}
 #skills-lab .fac .c br{display:block;content:"";margin-top:.25rem}
+
+/* hero artwork: the panel reaches further left, so the ankle sits closer to the title
+   and more of the picture shows (desktop layout only) */
+@media(min-width:1081px){
+  .art-wrap{width:clamp(520px,55vw,1320px)}
+  .hero .art{object-position:50% 50%}
+}
