@@ -13,6 +13,9 @@ folder itself, so nothing here is copied into a deploy.
 | `istanbul_programme.py` | Istanbul 2027 programme data |
 | `istanbul_site_programme.py` | Regenerates the Istanbul programme markup inside `index.html` |
 | `istanbul_pdf.py` | Builds the Istanbul programme PDF (preview on :8012) |
+| `london_programme.py` | London 2027 programme, faculty and skills lab data |
+| `london_site_programme.py` | Regenerates the London programme markup inside `index.html` |
+| `london_pdf.py` | Builds the London programme PDF (preview on :8015, `ESSKA-London-2027-Programme.pdf`) |
 
 ## Building a programme PDF
 
