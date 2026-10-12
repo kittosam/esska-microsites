@@ -39,7 +39,7 @@ PROGRAMME = [
   "Guillaume Cordier and Cinthya Vargas", [
    ("13:20|13:40", "Surgical treatment: stabilisation options", "Mette Andersen"),
    ("13:40|14:00", "Syndesmosis injuries in the athlete: how to treat them?", "Pieter D&rsquo;Hooghe"),
-   ("14:00|14:20", "The chronic syndesmosis", "Cesc Malagelada"),
+   ("14:00|14:20", "The chronic syndesmosis", "Francesc Malagelada"),
    ("14:20|14:40", "Postoperative treatment and return to sport", "Enric Vila"),
    ("14:40|14:50", "Discussion", ""),
   ], "session"),
@@ -70,7 +70,7 @@ CHAIRS = [
 # everyone else who speaks or moderates, by surname; countries not supplied yet
 FACULTY = [
  "James Calder", "Guillaume Cordier", "Francesco Della Villa", "Arianna Gianakos",
- "Cesc Malagelada", "Maiti M&uuml;nchgesang", "Anthony Perera", "Robbie Ray",
+ "Francesc Malagelada", "Maiti M&uuml;nchgesang", "Anthony Perera", "Robbie Ray",
  "Ioan Tudur Jones", "Pim van Dijk", "Cinthya Vargas", "Pierre-Henri Vermorel",
  "Enric Vila",
 ]
