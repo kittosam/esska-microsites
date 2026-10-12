@@ -74,7 +74,7 @@ def day():
             <time class="pcal" datetime="{data.DATE_ISO}"><span class="pcal-m" aria-hidden="true">Oct</span><span class="pcal-d" aria-hidden="true">29</span><span class="pcal-w" aria-hidden="true">Fri</span><span class="vh">Friday 29 October 2027</span></time>
             <div class="pday-id">
               <span class="pday-label">The meeting</span>
-              <span class="pday-meta"><span>{ICON["clock"]}<b>{first} to {last}</b></span><span>{ICON["list"]}{sessions} sessions</span><span>{ICON["mic"]}{talks} talks</span></span>
+              <span class="pday-meta"><span>{ICON["clock"]}<b>{first} to {last}</b></span></span>
             </div>
             <button class="pcollapse" type="button">Expand all</button>
           </div>

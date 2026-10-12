@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """London 2027 (Foot and Ankle), preliminary programme, as ESSKA supplied it in
-ESSKA_Focus_Meeting_2027_Web_Programme.docx (September 2026). One day, 29 October 2027.
+draft 6 of the programme ("changes marked", October 2026). One day, 29 October 2027.
 
 Each row: (time range, title, subtitle, moderators, talks, kind)
   time range  "08:50|10:00", or a single "17:30" for a moment with no duration
@@ -16,11 +16,11 @@ PROGRAMME = [
  ("08:40|08:50", "Welcome to London", "", "Mette Andersen and Pieter D&rsquo;Hooghe", [], "static"),
  ("08:50|10:00", "Syndesmosis in motion",
   "Anatomy, biomechanics and pathomechanics of injury",
-  "Guillaume Cordier and Maiti M&uuml;nchgesang", [
+  "Pieter D&rsquo;Hooghe and Maiti M&uuml;nchgesang", [
    ("08:50|09:05", "Syndesmosis anatomy unveiled", "Pim van Dijk"),
    ("09:05|09:20", "Biomechanics and stability of the ankle mortise", "Francesco Della Villa"),
-   ("09:20|09:35", "The syndesmotic diagnostic pathway", "Robbie Ray"),
-   ("09:35|09:50", "Syndesmosis injuries in the athlete: how to treat them?", "Pieter D&rsquo;Hooghe"),
+   ("09:20|09:35", "How the syndesmosis fails: mechanism, sequence and consequence in the athlete", "Anthony Perera"),
+   ("09:35|09:50", "What I&rsquo;ve learned on syndesmosis injuries over the years", "Ioan Tudur Jones"),
    ("09:50|10:00", "Discussion", ""),
   ], "session"),
  ("10:00|10:30", "Coffee break and networking", "", "", [], "break"),
@@ -28,18 +28,18 @@ PROGRAMME = [
   "Optimising non-surgical treatment",
   "Mette Andersen and Pierre-Henri Vermorel", [
    ("10:30|10:50", "What you see first matters: optimising the initial ankle injury exam", "Cinthya Vargas and Enric Vila"),
-   ("10:50|11:10", "Classification and treatment decision-making: the IFASC consensus on HAS in elite athletes", "Arianna Gianakos"),
-   ("11:10|11:30", "What I&rsquo;ve learned on syndesmosis injuries over the years", "Ioan Tudur Jones"),
+   ("10:50|11:10", "The syndesmotic diagnostic pathway", "Robbie Ray"),
+   ("11:10|11:30", "Classification and treatment decision-making: the IFASC consensus on HAS in elite athletes", "Arianna Gianakos"),
    ("11:30|11:50", "Return to play vs a ticket to the OR? Surgical decision-making rationale", "James Calder"),
    ("11:50|12:00", "Discussion", ""),
   ], "session"),
  ("12:00|13:00", "Lunch", "", "", [], "break"),
  ("13:00|13:20", "Industry symposium", "", "", [], "static"),
  ("13:20|14:50", "Management of unstable syndesmosis injuries", "",
-  "Pieter D&rsquo;Hooghe and Cinthya Vargas", [
+  "Guillaume Cordier and Cinthya Vargas", [
    ("13:20|13:40", "Surgical treatment: stabilisation options", "Mette Andersen"),
-   ("13:40|14:00", "The chronic syndesmosis", "Cesc Malagelada"),
-   ("14:00|14:20", "Chronic syndesmosis in the athlete: repair, reconstruct, or rehab?", "Anthony Perera"),
+   ("13:40|14:00", "Syndesmosis injuries in the athlete: how to treat them?", "Pieter D&rsquo;Hooghe"),
+   ("14:00|14:20", "The chronic syndesmosis", "Cesc Malagelada"),
    ("14:20|14:40", "Postoperative treatment and return to sport", "Enric Vila"),
    ("14:40|14:50", "Discussion", ""),
   ], "session"),
@@ -81,14 +81,15 @@ SKILLS_MODULES = [
  ("Syndesmosis repair and augmentation", "Anatomical repair, suture-tape reinforcement"),
  ("Suture button fixation", "Placement, tensioning, pitfalls"),
  ("Deltoid ligament repair", "Anchors, augmentation techniques"),
- ("Lateral ligament repair", "Brostr&ouml;m, InternalBrace-style constructs"),
+ ("Lateral ligament repair", "Brostr&oslash;m, augmentation techniques"),
 ]
+# affiliations as the chairs supplied them (October 2026); to be checked with each faculty member
 SKILLS_FACULTY = [
- ("Mette Andersen", "Chair"),
- ("Pieter D&rsquo;Hooghe", "Co-Chair"),
- ("Guillaume Cordier", "ESSKA Foot and Ankle Section"),
- ("James Calder", "Local faculty, London"),
- ("Robbie Ray", "Local faculty, London"),
- ("Cesc Malagelada", "Local faculty, London"),
- ("Ioan Tudur Jones", "Local faculty, London"),
+ ("Mette Andersen", "ESSKA Foot and Ankle Section<br>Aleris Hospital, Troms&oslash;, Norway"),
+ ("Pieter D&rsquo;Hooghe", "Fortius Clinic, London, UK"),
+ ("Guillaume Cordier", "ESSKA Foot and Ankle Section<br>Clinique du Sport de Bordeaux-M&eacute;rignac, France"),
+ ("James Calder", "Past President, ESSKA-AFAS (Foot and Ankle Section)<br>Fortius Clinic, London, UK"),
+ ("Robbie Ray", "King&rsquo;s College Hospital NHS Foundation Trust, London, UK"),
+ ("Francesc Malagelada", "The Royal London Hospital, London, UK"),
+ ("Ioan Tudur Jones", "Guy&rsquo;s and St Thomas&rsquo; NHS Foundation Trust and Fortius Clinic, London, UK"),
 ]

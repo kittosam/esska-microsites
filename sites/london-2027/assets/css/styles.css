@@ -2559,3 +2559,7 @@ body{font-size:1.0625rem}
    made of words rather than numbers is set a size smaller so it fits on the line */
 .sm b{padding-right:3rem}
 .sm b.sm-word{font-size:clamp(1.2rem,1.75vw,1.5rem);line-height:1.2}
+
+/* skills lab faculty: the affiliation runs to two or three lines under the name */
+#skills-lab .fac .c{line-height:1.45;margin-top:.4rem;text-transform:none;letter-spacing:0;font-size:.86rem;font-weight:500}
+#skills-lab .fac .c br{display:block;content:"";margin-top:.25rem}
