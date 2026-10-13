@@ -2474,3 +2474,15 @@ body{font-size:1.0625rem}
    made of words rather than numbers is set a size smaller so it fits on the line */
 .sm b{padding-right:3rem}
 .sm b.sm-word{font-size:clamp(1.2rem,1.75vw,1.5rem);line-height:1.2}
+
+/* faculty grid: a photo fills the circle in place of the initials */
+.fac .av.av-photo{overflow:hidden;padding:0;background:var(--ice)}
+.fac .av.av-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+/* accommodation: only the recommended hotels, so the panel is a single column */
+.v-stay.v-stay-solo{grid-template-columns:1fr}
+.hotel-list{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.6rem}
+.hotel-list li{padding-left:1.3rem;position:relative;line-height:1.5}
+.hotel-list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--ac-br)}
+.hotel-list a{color:var(--cta-ink);font-weight:600;text-decoration:underline;
+  text-decoration-color:rgba(var(--cta-rgb),.4);text-underline-offset:3px}
+.hotel-list a:hover{text-decoration-color:currentColor}
