@@ -55,4 +55,4 @@ OBJECTIVES = [
 AUDIENCE = ("Orthopaedic surgeons, fellows, senior trainees, physiotherapists and members of "
             "the multidisciplinary ACL team.")
 
-CHAIRS = [("Brian Devitt","Chair"),("Martyn Snow","Co-Chair"),("Sven Scheffler","Scientific Chair")]
+CHAIRS = [("Brian Devitt","Chair &middot; Ireland"),("Martyn Snow","Co-Chair &middot; UK"),("Sven Scheffler","Scientific Chair &middot; Germany")]

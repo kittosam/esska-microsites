@@ -2496,3 +2496,6 @@ body{font-size:1.0625rem}
    made of words rather than numbers is set a size smaller so it fits on the line */
 .sm b{padding-right:3rem}
 .sm b.sm-word{font-size:clamp(1.2rem,1.75vw,1.5rem);line-height:1.2}
+
+/* figures band: a figure made of a word, not a number, is set smaller so it fits its column */
+.band-num .n b.n-word{font-size:clamp(1.5rem,2.5vw,2.2rem);line-height:1.25}
