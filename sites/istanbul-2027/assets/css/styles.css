@@ -2565,3 +2565,6 @@ body{font-size:1.0625rem}
    made of words rather than numbers is set a size smaller so it fits on the line */
 .sm b{padding-right:3rem}
 .sm b.sm-word{font-size:clamp(1.2rem,1.75vw,1.5rem);line-height:1.2}
+
+/* the recap tiles keep a gap under the note above them */
+.prog-note + .summary{margin-top:1.5rem}

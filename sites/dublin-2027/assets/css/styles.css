@@ -2499,3 +2499,41 @@ body{font-size:1.0625rem}
 
 /* figures band: a figure made of a word, not a number, is set smaller so it fits its column */
 .band-num .n b.n-word{font-size:clamp(1.5rem,2.5vw,2.2rem);line-height:1.25}
+
+/* the recap tiles keep a gap under the note above them */
+.prog-note + .summary{margin-top:1.5rem}
+
+/* ---------- programme page: how the course works, compact ----------
+   The audience sits on a slim band under the title. Below it one box: two tabs stacked
+   down the left edge, and the chosen list set out in three columns beside them, so the
+   section is a few lines tall instead of two long lists. */
+.head.course-head{max-width:none;margin-bottom:0}
+.course-for{display:flex;align-items:center;gap:1.4rem;margin:1.3rem 0 0;padding:.85rem 1.4rem;border-radius:10px;
+  background:var(--navy);color:rgba(255,255,255,.9);font-size:1rem;line-height:1.5}
+.course-for b{flex:none;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-l)}
+.course-box{display:grid;grid-template-columns:minmax(210px,250px) minmax(0,1fr);margin-top:1.3rem;background:#fff;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 10px 26px rgba(15,64,71,.06)}
+.course-tabs{display:flex;flex-direction:column;border-right:1px solid var(--line)}
+.course-tab{flex:1;display:block;padding:1rem 1.2rem;border:0;border-bottom:1px solid var(--line);background:none;
+  font:inherit;font-weight:800;font-size:1rem;line-height:1.25;letter-spacing:-.01em;text-align:left;color:var(--muted);
+  cursor:pointer;transition:background .25s var(--e),color .25s var(--e)}
+.course-tab:last-child{border-bottom:0}
+.course-tab small{display:block;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ac-br);margin-bottom:.25rem}
+.course-tab:hover{background:var(--ice-2);color:var(--navy)}
+.course-tab[aria-selected="true"]{background:var(--navy);color:#fff}
+.course-tab[aria-selected="true"] small{color:var(--ac-l)}
+.course-tab:focus-visible{outline:2px solid var(--ac-br);outline-offset:-2px}
+.course-panels{padding:1.1rem 1.4rem 1.2rem;display:flex;align-items:center}
+.course-panel{list-style:none;margin:0;padding:0;width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem 1.8rem}
+.course-panel li{display:flex;gap:.7rem;align-items:baseline;font-size:.98rem;line-height:1.45;color:var(--ink)}
+.course-n{flex:none;font-size:.74rem;font-weight:800;letter-spacing:.06em;color:var(--ac-br);font-variant-numeric:tabular-nums}
+@media(max-width:1100px){.course-panel{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){
+  .course-for{flex-direction:column;align-items:flex-start;gap:.35rem}
+  .course-box{grid-template-columns:1fr}
+  .course-tabs{flex-direction:row;border-right:0;border-bottom:1px solid var(--line)}
+  .course-tab{border-bottom:0;border-right:1px solid var(--line);padding:.8rem .9rem;font-size:.9rem}
+  .course-tab:last-child{border-right:0}
+  .course-panel{grid-template-columns:1fr}
+}

@@ -339,3 +339,22 @@ if(EARLY_RATE){
   /* the header shrinks once the page is scrolled, which moves the wording: measure only at the top */
   addEventListener("scroll", ()=>{ if(scrollY<5) set(); }, {passive:true});
 })();
+
+/* Programme page: "How the course works" is two tabs; choosing one shows its list.
+   Arrow keys move between them, as tabs should. */
+(function(){
+  const box=document.getElementById("courseBox"); if(!box) return;
+  const tabs=[...box.querySelectorAll(".course-tab")], panels=[...box.querySelectorAll(".course-panel")];
+  const pick=(i,focus)=>{
+    tabs.forEach((t,k)=>{t.setAttribute("aria-selected",k===i?"true":"false"); t.tabIndex=k===i?0:-1;});
+    panels.forEach((p,k)=>p.hidden=k!==i);
+    if(focus) tabs[i].focus();
+  };
+  tabs.forEach((t,i)=>{
+    t.addEventListener("click",()=>pick(i));
+    t.addEventListener("keydown",e=>{
+      if(["ArrowRight","ArrowDown"].includes(e.key)){e.preventDefault();pick((i+1)%tabs.length,true);}
+      if(["ArrowLeft","ArrowUp"].includes(e.key)){e.preventDefault();pick((i-1+tabs.length)%tabs.length,true);}
+    });
+  });
+})();

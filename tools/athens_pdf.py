@@ -139,6 +139,9 @@ def slot_html(item):
     dur = f"{m} min" if m is not None else "duration TBC"
     if brk:
         extra = "".join(f'<p class="fmt"><span class="fmt-l">{l}</span>{x}</p>' for l, x in notes)
+        if talks:   # the pre-recorded surgery session: its proposed topics on one line
+            extra += ('<p class="fmt"><span class="fmt-l">Proposed topics</span>'
+                      + "; ".join(tx for tx, _ in talks) + ". " + (disc or "") + '</p>')
         return (f'<div class="slot brk"><div class="t">{when}</div>'
                 f'<div><div class="ttl">{title} &middot; {dur}</div>{extra}</div></div>')
     body = f'<div class="ttl">{title}</div>'
@@ -156,7 +159,7 @@ def banner(label, day):
     num, iso, wk, full, a0, b0, items = day
     nses = sum(1 for i in items if i[2].startswith("Session"))
     fin = " + final challenge" if any(i[2].startswith("Final Interactive") for i in items) else ""
-    ntalks = sum(len(i[4]) for i in items)
+    ntalks = sum(len(i[4]) for i in items if not i[6])
     return (f'<div class="day"><span class="cal"><i>Apr</i><b>{int(iso[-2:])}</b><em>{wk}</em></span>'
             f'<span class="dl"><b>{label}</b><span class="dm"><strong>{a0 + " to " + b0 if b0 != "TBC" else a0 + ", finish TBC"}</strong>'
             f'<span class="sep"></span>{nses} sessions{fin}<span class="sep"></span>{ntalks} talks</span></span></div>')

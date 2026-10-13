@@ -2782,3 +2782,8 @@ body{font-size:1.0625rem}
   border-left:2.5px solid var(--ac-br);border-bottom:2.5px solid var(--ac-br);transform:rotate(-45deg)}
 .fee-incl + .fee-foot{margin-top:1rem}
 @media(max-width:700px){.fee-incl-list{columns:1}}
+
+/* programme: the pre-recorded surgery sessions share a break, so the row keeps the break
+   tint, but it opens like a session to show the proposed topics */
+.prow.rec{background:var(--ice-2)}
+.prow.rec .prow-btn:hover{background:rgba(18,41,77,.04)}

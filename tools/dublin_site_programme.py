@@ -95,25 +95,38 @@ def fac_grid(people, extra=""):
                    f'<b>{name}</b>{f"<div class=\"c\">{sub}</div>" if sub else ""}</div>')
     return "\n".join(out)
 
-COURSE = f'''      <div class="head rv"><p class="eyebrow">The course</p><h2>How the course <span class="lt">works</span></h2>
-        <p class="lead one-line" style="margin-top:1rem">For {data.AUDIENCE[0].lower()}{data.AUDIENCE[1:]}</p></div>
-      <div class="course-grid rv">
-        <div class="course-col">
-          <h3>What the course covers</h3>
-          <ul class="course-list">
-{chr(10).join(f"            <li>{x}</li>" for x in data.PHILOSOPHY)}
-          </ul>
+def course_panel(i, items, hidden):
+    lis = "".join(f'<li><span class="course-n">{k:02d}</span><span>{x}</span></li>' for k, x in enumerate(items, 1))
+    return (f'          <ul class="course-panel" role="tabpanel" id="coursePanel{i}" aria-labelledby="courseTab{i}"'
+            f'{" hidden" if hidden else ""}>{lis}</ul>')
+
+def course_tab(i, small, label, on):
+    return (f'          <button class="course-tab" type="button" role="tab" id="courseTab{i}" aria-controls="coursePanel{i}" '
+            f'aria-selected="{"true" if on else "false"}"{"" if on else ' tabindex="-1"'}><small>{small}</small>{label}</button>')
+
+# compact: the audience on a slim band, then one box with two tabs down its left edge and
+# the chosen list set out in columns beside them
+COURSE = f'''      <div class="head rv course-head"><p class="eyebrow">The course</p><h2>How the course <span class="lt">works</span></h2></div>
+      <p class="course-for rv"><b>Who it&rsquo;s for</b><span>{data.AUDIENCE}</span></p>
+      <div class="course-box rv" id="courseBox">
+        <div class="course-tabs" role="tablist" aria-label="About the course">
+{course_tab(0, f"{len(data.PHILOSOPHY)} formats", "What the course covers", True)}
+{course_tab(1, f"{len(data.OBJECTIVES)} skills", "What you will take away", False)}
         </div>
-        <div class="course-col">
-          <h3>What you will take away</h3>
-          <ul class="course-list">
-{chr(10).join(f"            <li>{x}</li>" for x in data.OBJECTIVES)}
-          </ul>
+        <div class="course-panels">
+{course_panel(0, data.PHILOSOPHY, False)}
+{course_panel(1, data.OBJECTIVES, True)}
         </div>
       </div>'''
 
 PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p><h2>Day <span class="lt">by day</span></h2></div>
       <p class="prog-note rv">Comprehensive programme, subject to change. Faculty and session chairs will be published here as they are confirmed.</p>
+      <div class="summary">
+        <div class="sm rv"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></i><b>2 days</b><span>Scientific programme</span><em>Friday and Saturday</em></div>
+        <div class="sm rv d1"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H10l-3.5 3v-3h-2a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z"/><path d="M19.5 9.5v6.2a2 2 0 0 1-2 2"/></svg></i><b>15&#8239;h</b><span>Hours of science</span><em>workshops, cases and discussion</em></div>
+        <div class="sm rv d2"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.2v5.6l4.8-2.8z"/></svg></i><b>4</b><span>Re-live surgery sessions</span><em>with expert faculty commentary</em></div>
+        <div class="sm rv d3"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="12" rx="2"/><path d="M8 7.5h8M8 11h5"/><circle cx="15.5" cy="16.5" r="2.6"/><path d="m14.2 18.7-.9 2.8 2.2-.9 2.2.9-.9-2.8"/></svg></i><b>CME</b><span>Credits awarded</span><em>number to follow UEMS confirmation</em></div>
+      </div>
       <div class="prog-controls rv">
         <div class="pctl-top">
           <div class="pctl-search">

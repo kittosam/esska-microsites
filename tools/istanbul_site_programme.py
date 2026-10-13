@@ -95,6 +95,12 @@ def fac_grid(people, extra=""):
 
 PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p><h2>Day <span class="lt">by day</span></h2></div>
       <p class="prog-note rv">Preliminary programme, subject to change. Moderators, faculty assignments and case presenters are to be confirmed.</p>
+      <div class="summary">
+        <div class="sm rv"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></i><b>2 days</b><span>Scientific programme</span><em>Friday and Saturday</em></div>
+        <div class="sm rv d1"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H10l-3.5 3v-3h-2a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z"/><path d="M19.5 9.5v6.2a2 2 0 0 1-2 2"/></svg></i><b>10</b><span>Clinical cases</span><em>worked through live</em></div>
+        <div class="sm rv d2"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.2v5.6l4.8-2.8z"/></svg></i><b>8</b><span>&ldquo;Relive&rdquo; videos</span><em>step-by-step surgical technique</em></div>
+        <div class="sm rv d3"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="12" rx="2"/><path d="M8 7.5h8M8 11h5"/><circle cx="15.5" cy="16.5" r="2.6"/><path d="m14.2 18.7-.9 2.8 2.2-.9 2.2.9-.9-2.8"/></svg></i><b>CME</b><span>Credits awarded</span><em>number to follow UEMS confirmation</em></div>
+      </div>
       <div class="prog-controls rv">
         <div class="pctl-top">
           <div class="pctl-search">

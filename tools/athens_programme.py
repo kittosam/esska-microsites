@@ -3,6 +3,10 @@
 public programme content only) and the markup generator for the site."""
 MP="Oliver Mar&iacute;n-Pe&ntilde;a"; AP="Athanasios Papavasiliou"
 # item: (start, end, title, [(label, text)], [(talk, speaker)], discussion or None, is_break)
+# is_break is "rec" for a break that also carries the pre-recorded surgery session: it opens
+# like a session to list the proposed topics, and its talks are not counted as lectures.
+REC_TOPICS=['Labral injury management: from repair to reconstruction', 'Access and capsular management in hip arthroscopy', 'Cartilage lesion management: from repair to microfracture', 'Gluteal tendon repair in greater trochanteric pain syndrome']
+REC_NOTE='The final selection, the allocation between the two days, the surgeons and the moderators are to be confirmed.'
 DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
  ("10:00","10:10","Welcome and Educational Objectives",[("Moderators",f"{MP} and {AP}")],
   [("Opening, Olympic theme and course objectives",f"{MP} and {AP}"),("ESSKA Academy content pathway and interactive format",MP)],None,False),
@@ -16,7 +20,7 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
   [("Groin pain in athletes: a practical diagnostic pathway","Per Holmich"),("Deep gluteal syndrome: who really needs surgery?","Bruno Capurro"),
    ("Proximal hamstring pathology: when should we repair?","Marc Tey Pons"),("Lateral hip pain: rehabilitation before intervention","Robert Prill")],
   "About 32 minutes of multidisciplinary case discussion. Panel: Per Holmich, Bruno Capurro, Marc Tey Pons, Robert Prill and Suzanne Huurman.",False),
- ("12:17","13:17","Working lunch and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations. Surgeons and moderators to be confirmed. With the industry exhibition and networking."),("Proposed topics","Labral injury management, from repair to reconstruction; access and capsular management in hip arthroscopy; cartilage lesion management, from repair to microfracture; gluteal tendon repair in greater trochanteric pain syndrome. The final selection and the allocation between the two days are to be confirmed.")],[],None,True),
+ ("12:17","13:17","Working lunch and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations, with the industry exhibition and networking")],[(x,"") for x in REC_TOPICS],REC_NOTE,"rec"),
  ("13:17","14:17","Session III &middot; The Athlete with DDH and Structural Borderlines",[("Moderators",f"{AP} and Panos Christofilopoulos")],
   [("Borderline dysplasia: instability or impingement?","Michael Wettstein"),("Imaging structural instability beyond the LCEA","Margarita Natsika"),
    ("PAO in active patients: indications and return to sport","Sufian S. Ahmad"),("Arthroscopy, PAO, femoral osteotomy or combined treatment?","Ajay Malviya")],
@@ -44,7 +48,7 @@ DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","TBC",[
   [("How should hip arthroscopy be taught?","Jacek Mazek"),("Cadaveric training: what skills should be assessed?",AP),
    ("ESSKA Hip Core Curriculum &rarr; Academy &rarr; Courses","Daniel P&eacute;rez-Prieto"),("From course attendance to competency-based certification",MP)],
   f"About 32 minutes of faculty discussion, with votes on competencies and assessment standards. Panel: Jacek Mazek, {AP}, Daniel P&eacute;rez-Prieto, {MP}, Vikas Khanduja and Andr&eacute; Sarmento.",False),
- ("09:50","TBC","Morning coffee and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations. Surgeons and moderators to be confirmed. With the industry exhibition."),("Proposed topics","Labral injury management, from repair to reconstruction; access and capsular management in hip arthroscopy; cartilage lesion management, from repair to microfracture; gluteal tendon repair in greater trochanteric pain syndrome. The final selection and the allocation between the two days are to be confirmed.")],[],None,True),
+ ("09:50","TBC","Morning coffee and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations, with the industry exhibition")],[(x,"") for x in REC_TOPICS],REC_NOTE,"rec"),
  ("TBC","TBC","Session VIII &middot; Failed Hip Preservation: Revision, Salvage and Treatment Boundaries",[("Moderators","Filippo Randelli and Michael Wettstein")],
   [("Why does hip arthroscopy fail?","Nicolas Bonin"),("Revision hip arthroscopy: what can realistically be corrected?","Jacek Mazek"),
    ("Structural failure after preservation: reassess the diagnosis","Panos Christofilopoulos"),("When should the young active patient move to arthroplasty?","Daniel Haverkamp")],
@@ -73,7 +77,7 @@ def day_block(day, label, hidden):
     num, iso, wk, full, a0, b0, items = day
     nses=sum(1 for i in items if i[2].startswith("Session"))
     extra=" + final challenge" if any(i[2].startswith("Final Interactive") for i in items) else ""
-    ntalks=sum(len(i[4]) for i in items)
+    ntalks=sum(len(i[4]) for i in items if not i[6])
     rows=[]
     for (a,b,title,notes,talks,disc,brk) in items:
         m=mins(a,b)
