@@ -62,17 +62,21 @@ PROGRAMME = [
 
 # name, role (roles as ESSKA gave them, September 2026)
 CHAIRS = [
- ("Mette Andersen", "Focus Meeting Chair"),
- ("Pieter D&rsquo;Hooghe", "Focus Meeting Co-Chair"),
- ("Jordi Vega", "ESSKA Foot and Ankle Section Chair"),
+ ("Mette Andersen", "Focus Meeting Chair &middot; Norway"),
+ ("Pieter D&rsquo;Hooghe", "Focus Meeting Co-Chair &middot; UK"),
+ ("Jordi Vega", "ESSKA Foot and Ankle Section Chair &middot; Spain"),
 ]
+# photo for each chair, shown in the faculty grid in place of the initials
+CHAIR_PHOTOS = {"Mette Andersen": "chair-andersen.jpg", "Pieter D&rsquo;Hooghe": "chair-dhooghe-2.jpg",
+                "Jordi Vega": "chair-vega.jpg"}
 
-# everyone else who speaks or moderates, by surname; countries not supplied yet
+# everyone else who speaks or moderates, by surname, with country (ESSKA, October 2026)
 FACULTY = [
- "James Calder", "Guillaume Cordier", "Francesco Della Villa", "Arianna Gianakos",
- "Francesc Malagelada", "Maiti M&uuml;nchgesang", "Anthony Perera", "Robbie Ray",
- "Ioan Tudur Jones", "Pim van Dijk", "Cinthya Vargas", "Pierre-Henri Vermorel",
- "Enric Vila",
+ ("James Calder", "UK"), ("Guillaume Cordier", "France"), ("Francesco Della Villa", "Italy"),
+ ("Arianna Gianakos", "US"), ("Francesc Malagelada", "UK"), ("Maiti M&uuml;nchgesang", "Germany"),
+ ("Anthony Perera", "UK"), ("Robbie Ray", "UK"), ("Ioan Tudur Jones", "UK"),
+ ("Pim van Dijk", "The Netherlands"), ("Cinthya Vargas", "Spain"),
+ ("Pierre-Henri Vermorel", "France"), ("Enric Vila", "Spain"),
 ]
 
 # pre-meeting skills lab, from ESSKA_Slide7_SkillsLab_A4.pdf

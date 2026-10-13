@@ -43,7 +43,7 @@ document.querySelectorAll("[data-to]").forEach(el=>cio.observe(el));
    e.g. EARLY_RATE="2027-MM-DDT23:59:59+01:00" (+00:00 before 28 March 2027).
    With MEETING_START null the utility strip shows month and city instead. */
 const MEETING_START="2027-10-29T08:00:00+01:00";
-const EARLY_RATE=null;
+const EARLY_RATE="2027-05-31T23:59:59+01:00";   /* early rate until 31 May 2027 (ESSKA, October 2026) */
 /* The early-rate deadline is the last moment of a day in the meeting's own time zone.
    Formatting that instant in the reader's time zone moved the date on by a day for
    anyone further east, so the label is built from the date part of EARLY_RATE and

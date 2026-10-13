@@ -86,12 +86,15 @@ def initials(name):
     parts = [p for p in plain.split() if p[0].isalpha()]
     return (parts[0][0] + parts[-1][0]).upper()
 
-def fac(people):
+def fac(people, photos=None):
     out = []
     for i, (name, sub) in enumerate(people):
         d = ["", " d1", " d2", " d3"][i % 4]
         c = f'<div class="c">{sub}</div>' if sub else ""
-        out.append(f'        <div class="fac rv{d}"><div class="av">{initials(name)}</div><b>{name}</b>{c}</div>')
+        img = (photos or {}).get(name)
+        av = (f'<div class="av av-photo"><img src="assets/img/{img}" alt="" loading="lazy"></div>' if img
+              else f'<div class="av">{initials(name)}</div>')
+        out.append(f'        <div class="fac rv{d}">{av}<b>{name}</b>{c}</div>')
     return "\n".join(out)
 
 def modules():
@@ -102,8 +105,8 @@ def modules():
 
 BLOCKS = {
  "prog-days": day(),
- "chairs": fac(data.CHAIRS),
- "faculty": fac([(n, "") for n in data.FACULTY]),
+ "chairs": fac(data.CHAIRS, data.CHAIR_PHOTOS),
+ "faculty": fac(data.FACULTY),
  "skills-modules": modules(),
  "skills-faculty": fac(data.SKILLS_FACULTY),
 }

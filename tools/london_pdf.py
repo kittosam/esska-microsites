@@ -272,7 +272,7 @@ for i, page in enumerate(pages):
                       + f'</div>{FOOT}</div>')
 sheets.append(f'<div class="sheet">{RH}<div class="body"><h2 class="sec">Faculty</h2>'
               f'<h3 class="sub">Chairs</h3>{fac(P.CHAIRS," inv")}'
-              f'<h3 class="sub">Faculty</h3>{fac([(n,"") for n in P.FACULTY])}'
+              f'<h3 class="sub">Faculty</h3>{fac(P.FACULTY)}'
               f'<p class="note">Preliminary programme, subject to change. The pre-meeting skills lab on 28 October is '
               f'described on the meeting website.</p>'
               f'</div>{FOOT}</div>')

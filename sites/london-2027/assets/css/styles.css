@@ -2570,3 +2570,10 @@ body{font-size:1.0625rem}
   .art-wrap{width:clamp(520px,55vw,1320px)}
   .hero .art{object-position:50% 50%}
 }
+
+/* faculty grid: a chair's photo fills the circle in place of the initials */
+.fac .av.av-photo{overflow:hidden;padding:0;background:var(--ice)}
+.fac .av.av-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+/* fee table: the two combined Skills Lab + Focus Meeting rows lead the table on a tint */
+.fees tr.fee-combo th,.fees tr.fee-combo td{background:var(--ice-2)}
+.fees tr.fee-combo sup,.fee-foot sup{color:var(--ac);font-weight:800}
