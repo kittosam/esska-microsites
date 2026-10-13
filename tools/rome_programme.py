@@ -88,4 +88,4 @@ FACULTY = [("Pawe&#322; Skowronek","Poland"),("Guillaume Demey","France"),("Brun
 SUMMARY = [("10&#8239;h&#8239;45","Scientific programme","excluding breaks"),
            ("3&#8239;h&#8239;45","Dedicated to PJI","two 90-min sessions + case finale"),
            ("10 min","Standard lecture","discussion at the end of each session"),
-           ("TBC","Faculty","details to follow")]
+           ("International","Faculty","internationally renowned experts")]
