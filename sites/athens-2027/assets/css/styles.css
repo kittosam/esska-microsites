@@ -2772,3 +2772,13 @@ body{font-size:1.0625rem}
    made of words rather than numbers is set a size smaller so it fits on the line */
 .sm b{padding-right:3rem}
 .sm b.sm-word{font-size:clamp(1.2rem,1.75vw,1.5rem);line-height:1.2}
+
+/* registration page: what the fee covers, as a ticked list read down two columns */
+.fee-incl{margin:1.6rem 0 0;padding:1.4rem 1.6rem 1.5rem;background:var(--ice-2);border:1px solid var(--line);border-radius:10px}
+.fee-incl .eyebrow{margin:0 0 .9rem}
+.fee-incl-list{list-style:none;margin:0;padding:0;columns:2;column-gap:2.4rem}
+.fee-incl-list li{position:relative;padding-left:1.7rem;margin-bottom:.55rem;color:var(--ink);line-height:1.5;break-inside:avoid}
+.fee-incl-list li::before{content:"";position:absolute;left:.15rem;top:.42em;width:.7rem;height:.38rem;
+  border-left:2.5px solid var(--ac-br);border-bottom:2.5px solid var(--ac-br);transform:rotate(-45deg)}
+.fee-incl + .fee-foot{margin-top:1rem}
+@media(max-width:700px){.fee-incl-list{columns:1}}

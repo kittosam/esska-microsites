@@ -167,7 +167,7 @@ RH = f'<div class="rh"><span>Hip Injuries in Athletes</span><span>Athens &middot
 SUMMARY = [("1.5 days","Scientific programme","Thursday and Friday morning"),
            ("7 min","Maximum lecture","each answers one clinical question"),
            ("~50%","Of each session","cases, voting and panel debate"),
-           ("TBC","CME credits","details to follow")]
+           ("CME","Credits awarded","number to follow UEMS confirmation")]
 summary = "".join(f"<div><b>{v}</b><span>{l}</span><em>{s}</em></div>" for v, l, s in SUMMARY)
 def fac(people, extra=""):
     return (f'<div class="fac{extra}">' + "".join(
