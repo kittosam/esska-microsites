@@ -16,7 +16,7 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
   [("Groin pain in athletes: a practical diagnostic pathway","Per Holmich"),("Deep gluteal syndrome: who really needs surgery?","Bruno Capurro"),
    ("Proximal hamstring pathology: when should we repair?","Marc Tey Pons"),("Lateral hip pain: rehabilitation before intervention","Robert Prill")],
   "About 32 minutes of multidisciplinary case discussion. Panel: Per Holmich, Bruno Capurro, Marc Tey Pons, Robert Prill and Suzanne Huurman.",False),
- ("12:17","13:17","Working lunch, industry exhibition and networking",[],[],None,True),
+ ("12:17","13:17","Working lunch and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations. Surgeons and moderators to be confirmed. With the industry exhibition and networking."),("Proposed topics","Labral injury management, from repair to reconstruction; access and capsular management in hip arthroscopy; cartilage lesion management, from repair to microfracture; gluteal tendon repair in greater trochanteric pain syndrome. The final selection and the allocation between the two days are to be confirmed.")],[],None,True),
  ("13:17","14:17","Session III &middot; The Athlete with DDH and Structural Borderlines",[("Moderators",f"{AP} and Panos Christofilopoulos")],
   [("Borderline dysplasia: instability or impingement?","Michael Wettstein"),("Imaging structural instability beyond the LCEA","Margarita Natsika"),
    ("PAO in active patients: indications and return to sport","Sufian S. Ahmad"),("Arthroscopy, PAO, femoral osteotomy or combined treatment?","Ajay Malviya")],
@@ -34,7 +34,9 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
   "Two complex cases of about 30 minutes each: vote, panel debate, audience questions, re-vote, then the actual treatment and outcome. Panel: Vikas Khanduja, Ajay Malviya, Baris Kocaoglu, Michael Wettstein, Filippo Randelli and Panos Christofilopoulos.",False),
  ("17:42","18:00","Day 1 Synthesis and Take-Home Messages",[("Moderators",f"{MP} and {AP}"),("Format","Faculty synthesis of the decisions that changed during discussion, and a preview of Friday morning")],[],None,False),
 ])
-DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","11:30",[
+# Friday after 09:50 is not final (a longer break for recorded surgery and a 12:00 finish are
+# proposed, October 2026): those times are "TBC" until ESSKA confirms them.
+DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","TBC",[
  ("08:00","08:50","Session VI &middot; ESSKA Hip Research and Rapid Communications",[("Moderators","Andr&eacute; Sarmento and Filippo Randelli")],
   [("ESSKA Hip collaborative research: where should we go next?","Andr&eacute; Sarmento"),("Five to six selected rapid communications, up to 5 minutes each","Selected abstract presenters")],
   "Moderated research discussion. Panel: Andr&eacute; Sarmento, Filippo Randelli, Sufian S. Ahmad and Vikas Khanduja.",False),
@@ -42,12 +44,12 @@ DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","11:30",[
   [("How should hip arthroscopy be taught?","Jacek Mazek"),("Cadaveric training: what skills should be assessed?",AP),
    ("ESSKA Hip Core Curriculum &rarr; Academy &rarr; Courses","Daniel P&eacute;rez-Prieto"),("From course attendance to competency-based certification",MP)],
   f"About 32 minutes of faculty discussion, with votes on competencies and assessment standards. Panel: Jacek Mazek, {AP}, Daniel P&eacute;rez-Prieto, {MP}, Vikas Khanduja and Andr&eacute; Sarmento.",False),
- ("09:50","10:10","Morning coffee and industry exhibition",[],[],None,True),
- ("10:10","11:10","Session VIII &middot; Failed Hip Preservation: Revision, Salvage and Treatment Boundaries",[("Moderators","Filippo Randelli and Michael Wettstein")],
+ ("09:50","TBC","Morning coffee and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations. Surgeons and moderators to be confirmed. With the industry exhibition."),("Proposed topics","Labral injury management, from repair to reconstruction; access and capsular management in hip arthroscopy; cartilage lesion management, from repair to microfracture; gluteal tendon repair in greater trochanteric pain syndrome. The final selection and the allocation between the two days are to be confirmed.")],[],None,True),
+ ("TBC","TBC","Session VIII &middot; Failed Hip Preservation: Revision, Salvage and Treatment Boundaries",[("Moderators","Filippo Randelli and Michael Wettstein")],
   [("Why does hip arthroscopy fail?","Nicolas Bonin"),("Revision hip arthroscopy: what can realistically be corrected?","Jacek Mazek"),
    ("Structural failure after preservation: reassess the diagnosis","Panos Christofilopoulos"),("When should the young active patient move to arthroplasty?","Daniel Haverkamp")],
   "About 32 minutes of difficult-case discussion, with votes on revision arthroscopy, PAO, osteotomy, combined reconstruction or THA. Panel: Nicolas Bonin, Jacek Mazek, Panos Christofilopoulos, Daniel Haverkamp, Ajay Malviya and Eleftherios Tsiridis.",False),
- ("11:10","11:30","Academy Integration, Next Steps and Closing",[("Moderators",f"{MP} and {AP}")],
+ ("TBC","TBC","Academy Integration, Next Steps and Closing",[("Moderators",f"{MP} and {AP}")],
   [("Academy-ready content and educational gaps","Daniel P&eacute;rez-Prieto"),("Strategic next steps and certification pathway",MP)],None,False),
 ])
 CHAIRS=[(MP,"Spain"),(AP,"Greece"),("Ajay Malviya","United Kingdom")]
@@ -60,6 +62,7 @@ FACULTY=[("Sufian S. Ahmad","Germany"),("Ali Bajwa","United Kingdom"),("Nicolas 
  ("Tahsin Beyzadeoglu","T&uuml;rkiye"),("Jakub Kautzner","Czech Republic"),("Eleftherios Tsiridis","Greece"),("Margarita Natsika","Greece")]
 
 def mins(a,b):
+    if "TBC" in (a,b): return None
     f=lambda s:(lambda h,m:h*60+m)(*map(int,s.split(":"))); return f(b)-f(a)
 ICON_CLOCK='<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10 5.8V10l2.8 1.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
 ICON_LIST='<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5.5h12M4 10h12M4 14.5h8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'

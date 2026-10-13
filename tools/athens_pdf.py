@@ -96,7 +96,8 @@ ul.talks .sp{font-size:7.2pt;font-weight:700;color:var(--navy);line-height:1.35}
 
 .slot.brk{grid-template-columns:24mm 1fr;background:var(--ice2);padding:1.8mm 0}
 .slot.brk .ttl{font-weight:600;color:var(--muted);font-size:8.4pt}
-.slot.brk .t{color:var(--muted)}
+.slot.brk .t{color:var(--muted);padding-left:2mm}
+.slot.brk .fmt{margin-top:.8mm}
 
 .fac{display:grid;grid-template-columns:repeat(4,1fr);gap:2.2mm}
 .fac div{border:.3mm solid var(--line);border-radius:1.4mm;padding:2.4mm 2.8mm;background:#FDFBF7}
@@ -133,9 +134,13 @@ ul.talks .sp{font-size:7.2pt;font-weight:700;color:var(--navy);line-height:1.35}
 def slot_html(item):
     a, b, title, notes, talks, disc, brk = item
     m = A.mins(a, b)
+    # a time ESSKA has not confirmed shows as TBC, never as a guess
+    when = "Time TBC" if a == "TBC" else (f"{a} to {b}" if b != "TBC" else f"From {a}")
+    dur = f"{m} min" if m is not None else "duration TBC"
     if brk:
-        return (f'<div class="slot brk"><div class="t">{a} to {b}</div>'
-                f'<div><div class="ttl">{title} &middot; {m} min</div></div></div>')
+        extra = "".join(f'<p class="fmt"><span class="fmt-l">{l}</span>{x}</p>' for l, x in notes)
+        return (f'<div class="slot brk"><div class="t">{when}</div>'
+                f'<div><div class="ttl">{title} &middot; {dur}</div>{extra}</div></div>')
     body = f'<div class="ttl">{title}</div>'
     body += "".join(f'<p class="fmt"><span class="fmt-l">{l}</span>{x}</p>' for l, x in notes)
     if talks:
@@ -144,7 +149,7 @@ def slot_html(item):
             for i, (tx, sp) in enumerate(talks, 1)) + '</ul>'
     if disc:
         body += f'<p class="disc"><span class="fmt-l">Discussion</span>{disc}</p>'
-    return (f'<div class="slot"><div class="t">{a} to {b}<em>{m} min</em></div>'
+    return (f'<div class="slot"><div class="t">{when}<em>{dur if m is not None else "to be confirmed"}</em></div>'
             f'<div>{body}</div></div>')
 
 def banner(label, day):
@@ -153,7 +158,7 @@ def banner(label, day):
     fin = " + final challenge" if any(i[2].startswith("Final Interactive") for i in items) else ""
     ntalks = sum(len(i[4]) for i in items)
     return (f'<div class="day"><span class="cal"><i>Apr</i><b>{int(iso[-2:])}</b><em>{wk}</em></span>'
-            f'<span class="dl"><b>{label}</b><span class="dm"><strong>{a0} to {b0}</strong>'
+            f'<span class="dl"><b>{label}</b><span class="dm"><strong>{a0 + " to " + b0 if b0 != "TBC" else a0 + ", finish TBC"}</strong>'
             f'<span class="sep"></span>{nses} sessions{fin}<span class="sep"></span>{ntalks} talks</span></span></div>')
 
 D = '15<i class="dash">&ndash;</i>16 April 2027'
