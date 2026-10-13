@@ -35,13 +35,13 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
  ("17:42","18:00","Day 1 Synthesis and Take-Home Messages",[("Moderators",f"{MP} and {AP}"),("Format","Faculty synthesis of the decisions that changed during discussion, and a preview of Friday morning")],[],None,False),
 ])
 DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","11:30",[
- ("08:00","08:50","Session VI &middot; ESSKA Hip Research and Rapid Communications",[("Moderators","Andre Sarmento and Laura de Girolamo")],
-  [("ESSKA Hip collaborative research: where should we go next?","Andre Sarmento"),("Five to six selected rapid communications, up to 5 minutes each","Selected abstract presenters")],
-  "Moderated research discussion. Panel: Andre Sarmento, Laura de Girolamo, Filippo Randelli, Sufian S. Ahmad and Vikas Khanduja.",False),
+ ("08:00","08:50","Session VI &middot; ESSKA Hip Research and Rapid Communications",[("Moderators","Andr&eacute; Sarmento and Filippo Randelli")],
+  [("ESSKA Hip collaborative research: where should we go next?","Andr&eacute; Sarmento"),("Five to six selected rapid communications, up to 5 minutes each","Selected abstract presenters")],
+  "Moderated research discussion. Panel: Andr&eacute; Sarmento, Filippo Randelli, Sufian S. Ahmad and Vikas Khanduja.",False),
  ("08:50","09:50","Session VII &middot; Training the Hip Preservation Surgeon of the Future",[("Moderators","Eleftherios Tsiridis and Safa G&uuml;rsoy")],
   [("How should hip arthroscopy be taught?","Jacek Mazek"),("Cadaveric training: what skills should be assessed?",AP),
    ("ESSKA Hip Core Curriculum &rarr; Academy &rarr; Courses","Daniel P&eacute;rez-Prieto"),("From course attendance to competency-based certification",MP)],
-  f"About 32 minutes of faculty discussion, with votes on competencies and assessment standards. Panel: Jacek Mazek, {AP}, Daniel P&eacute;rez-Prieto, {MP}, Vikas Khanduja and Andre Sarmento.",False),
+  f"About 32 minutes of faculty discussion, with votes on competencies and assessment standards. Panel: Jacek Mazek, {AP}, Daniel P&eacute;rez-Prieto, {MP}, Vikas Khanduja and Andr&eacute; Sarmento.",False),
  ("09:50","10:10","Morning coffee and industry exhibition",[],[],None,True),
  ("10:10","11:10","Session VIII &middot; Failed Hip Preservation: Revision, Salvage and Treatment Boundaries",[("Moderators","Filippo Randelli and Michael Wettstein")],
   [("Why does hip arthroscopy fail?","Nicolas Bonin"),("Revision hip arthroscopy: what can realistically be corrected?","Jacek Mazek"),
@@ -54,7 +54,7 @@ CHAIRS=[(MP,"Spain"),(AP,"Greece"),("Ajay Malviya","United Kingdom")]
 FACULTY=[("Sufian S. Ahmad","Germany"),("Ali Bajwa","United Kingdom"),("Nicolas Bonin","France"),("Bruno Capurro","Spain"),
  ("Francesco Della Villa","Italy"),("Safa G&uuml;rsoy","T&uuml;rkiye"),("Daniel Haverkamp","Netherlands"),("Per Holmich","Denmark"),
  ("Suzanne Huurman","Netherlands"),("Vikas Khanduja","United Kingdom"),("Baris Kocaoglu","T&uuml;rkiye"),("Lior Laver","Israel"),
- ("Jacek Mazek","Poland"),("Filippo Randelli","Italy"),("Andre Sarmento","Portugal"),("Matti Seppanen","Finland"),("Klemen Strazar","Slovenia"),
+ ("Jacek Mazek","Poland"),("Filippo Randelli","Italy"),("Andr&eacute; Sarmento","Portugal"),("Matti Seppanen","Finland"),("Klemen Strazar","Slovenia"),
  ("Marc Tey Pons","Spain"),("Michael Wettstein","Switzerland"),("Robert Prill","Germany"),("Stefano Di Paolo","Italy"),("Daniel P&eacute;rez-Prieto","Spain"),
  ("Laura de Girolamo","Italy"),("Panos Christofilopoulos","Switzerland"),("Dora Papadopoulou","United Kingdom and Greece"),
  ("Tahsin Beyzadeoglu","T&uuml;rkiye"),("Jakub Kautzner","Czech Republic"),("Eleftherios Tsiridis","Greece"),("Margarita Natsika","Greece")]
