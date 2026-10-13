@@ -2562,3 +2562,13 @@ body{font-size:1.0625rem}
 .fac .av.av-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 /* accommodation: only the recommended hotels, so the panel is a single column */
 .v-stay.v-stay-solo{grid-template-columns:1fr}
+
+/* worth the trip, a little more colour: the tabs and the chosen reason sit on a white
+   card against the tinted section, and the audience line closes the card as an ink
+   footer with a gold label */
+.why-box{background:#fff;border-radius:14px 14px 0 0;padding:.5rem clamp(1.2rem,2.4vw,2rem) 1.7rem;
+  box-shadow:0 14px 34px rgba(14,30,34,.08)}
+.why-tabs{border-bottom-color:var(--line)}
+.why-for{margin:0;padding:.95rem clamp(1.2rem,2.4vw,2rem);border-radius:0 0 14px 14px;background:var(--navy);
+  color:rgba(255,255,255,.88);box-shadow:0 14px 34px rgba(14,30,34,.08)}
+.why-for b{color:var(--ac-l)}
