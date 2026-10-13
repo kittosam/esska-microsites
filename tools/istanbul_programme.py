@@ -84,16 +84,20 @@ DAY2 = ("2", "Saturday, 11 September 2027", "08:30&ndash;15:30", [
 ])
 
 # name, role or country ("" when ESSKA has not given one); order as the chairs sign the letter
-CHAIRS = [("Emmanouil Brilakis","ESSKA Shoulder Section Chair"),
-          ("Maristella Francesca Saccomanno","Scientific Chair"),
-          ("Alfonso Maria Romano","Scientific Chair"),
-          ("Nezih Ziroglu","Local Chair"),
-          ("Kerem Bilsel","Local Chair"),
-          ("Bar&#305;&#351; Kocao&#287;lu","Local Chair")]
+CHAIRS = [("Emmanouil Brilakis","ESSKA Shoulder Section Chair &middot; Greece"),
+          ("Maristella Francesca Saccomanno","Scientific Chair &middot; Italy"),
+          ("Alfonso Maria Romano","Scientific Chair &middot; Italy"),
+          ("Nezih Ziroglu","Local Chair &middot; T&uuml;rkiye"),
+          ("Kerem Bilsel","Local Chair &middot; T&uuml;rkiye"),
+          ("Bar&#305;&#351; Kocao&#287;lu","Local Chair &middot; T&uuml;rkiye")]
+# photo for each chair, shown in the faculty grid in place of the initials
+CHAIR_PHOTOS = {"Emmanouil Brilakis":"chair-brilakis.jpg","Maristella Francesca Saccomanno":"chair-saccomanno.jpg",
+                "Alfonso Maria Romano":"chair-romano.jpg","Nezih Ziroglu":"chair-ziroglu.jpg",
+                "Kerem Bilsel":"chair-bilsel.jpg","Bar&#305;&#351; Kocao&#287;lu":"chair-kocaoglu.jpg"}
 
 # proposed invited faculty, invitations pending confirmation (programme v7)
 PROPOSED = [("Teruhisa Mihata","Japan"),("Bassem Elhassan","US"),
             ("Emilio Calvo","Spain"),("Felix Savoie III","US"),
-            ("Jean Kany",""),("Samuel Antu&ntilde;a","Spain"),
+            ("Jean Kany","France"),("Samuel Antu&ntilde;a","Spain"),
             ("Jean-David Werthel","France"),("Abdul-ilah Hachem","Spain"),
             ("Miguel Ruiz Ib&aacute;n","Spain")]

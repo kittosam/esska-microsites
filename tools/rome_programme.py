@@ -80,7 +80,7 @@ FACULTY = [("Pawe&#322; Skowronek","Poland"),("Guillaume Demey","France"),("Brun
  ("Bruce Gomberg","USA"),("Christian Schaller","Germany"),("Patrick Sadoghi","Austria"),
  ("Geert Meermans","Belgium"),("Luigi Capasso","Italy"),("Raghbir Khakha","UK"),
  ("Vlad Predescu","Romania"),("Ricardo Sousa","Portugal"),("Michael Engl","Austria"),
- ("Pier Francesco Indelli","Italy"),("Reha Tandogan","Turkey"),("Michael Hirschmann","Switzerland"),
+ ("Pier Francesco Indelli","Italy"),("Reha Tandogan","T&uuml;rkiye"),("Michael Hirschmann","Switzerland"),
  ("Roland Becker","Germany"),("Andrea Sambri","Italy"),("Antonio Pellegrini","Italy"),
  ("Juan Carlos Mart&iacute;nez-Pastor","Spain"),("Massimiliano De Paolis","Italy"),
  ("Marta Sabater","Spain"),("Ali Al Belooshi","UAE")]

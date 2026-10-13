@@ -2457,46 +2457,6 @@ a[href^="mailto:focus-meetings@"]{white-space:nowrap}
    the same line: only the first name keeps the gap above */
 .lh-sign b ~ b{display:inline;margin-top:0}
 
-/* ---------- programme page: why the meeting is worth the trip ----------
-   Compact: the audience line sits under the title, the introduction runs the width of
-   the page, and the six reasons are tabs in one box, each opening its text in the panel
-   below, so the section is one row of buttons and a few lines tall. */
-.why-for{display:flex;align-items:center;gap:1.4rem;margin:1.3rem 0 0;padding:.85rem 1.4rem;border-radius:10px;
-  background:var(--navy);color:rgba(255,255,255,.9);font-size:1rem;line-height:1.5}
-.why-for b{flex:none;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-l)}
-.why-intro{margin:1.3rem 0 0;font-size:1.1rem;line-height:1.6;color:var(--ink);max-width:none}
-.why-box{margin-top:1.5rem;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
-  box-shadow:0 10px 26px rgba(14,30,34,.06)}
-.why-tabs{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--line)}
-.why-tab{display:flex;align-items:center;gap:.7rem;padding:.9rem .9rem;border:0;border-right:1px solid var(--line);
-  background:none;font:inherit;text-align:left;cursor:pointer;color:var(--muted);position:relative;
-  transition:background .25s var(--e),color .25s var(--e)}
-.why-tab:last-child{border-right:0}
-.why-tab:hover{background:var(--ice-2);color:var(--navy)}
-.why-tab[aria-selected="true"]{background:var(--navy);color:#fff}
-.why-tab:focus-visible{outline:2px solid var(--ac-br);outline-offset:-2px}
-.why-ic{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--navy);color:#fff}
-.why-tab[aria-selected="true"] .why-ic{background:rgba(255,255,255,.14)}
-.why-ic svg{width:19px;height:19px}
-.why-tab-t{font-size:.86rem;font-weight:700;line-height:1.25;letter-spacing:-.005em}
-.why-tab-t small{display:block;font-size:.68rem;font-weight:800;letter-spacing:.1em;color:#C9A254;margin-bottom:.1rem}
-.why-panels{padding:1.15rem 1.5rem 1.25rem}
-.why-panel{margin:0;font-size:1.02rem;line-height:1.6;color:var(--muted);min-height:3.2em}
-.why-panel b{color:var(--navy)}
-@media(max-width:1100px){
-  .why-tabs{grid-template-columns:repeat(3,1fr)}
-  .why-tab:nth-child(3n){border-right:0}
-  .why-tab:nth-child(-n+3){border-bottom:1px solid var(--line)}
-}
-@media(max-width:620px){
-  .why-for{flex-direction:column;align-items:flex-start;gap:.35rem}
-  .why-tabs{grid-template-columns:1fr 1fr}
-  .why-tab{border-right:0;border-bottom:1px solid var(--line);padding:.7rem .75rem}
-  .why-tab:nth-child(odd){border-right:1px solid var(--line)}
-  .why-tab:nth-last-child(-n+2){border-bottom:0}
-  .why-tab-t{font-size:.8rem}
-  .why-ic{width:30px;height:30px}
-}
 
 /* hero: the text column sits a little further left than the page content below it, so
    the title and date box have more air from the artwork (desktop layout only) */
@@ -2526,7 +2486,6 @@ body{font-size:1.0625rem}
   .feature:has(.slideshow) .shot.wide{flex:1;display:flex}
   .feature:has(.slideshow) .shot.wide .slideshow{aspect-ratio:auto;height:auto;flex:1;min-height:300px}
 }
-.head:has(.why-h){max-width:none;margin-bottom:0}
 
 /* hero date box: with the larger text the date and city line could reach the box's
    right edge. The two items now share the row and shrink their type a little before
@@ -2568,3 +2527,38 @@ body{font-size:1.0625rem}
 
 /* the recap tiles keep a gap under the note above them */
 .prog-note + .summary{margin-top:1.5rem}
+
+/* ---------- programme page: why the meeting is worth the trip ----------
+   Title and introduction share one row. The six reasons are a single line of text tabs
+   with an underline on the chosen one; its text shows below beside a large number. The
+   audience closes the section as a caption. No boxes, no icons. */
+.why-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(2rem,5vw,5rem);align-items:end;margin-bottom:1.8rem}
+.why-top h2{margin:0}
+.why-top .eyebrow{margin-bottom:1rem}
+.why-intro{margin:0;font-size:1.05rem;line-height:1.6;color:var(--ink);max-width:none}
+.why-tabs{display:flex;gap:clamp(1.2rem,2.4vw,2.2rem);border-bottom:1px solid rgba(14,30,34,.18);overflow-x:auto;scrollbar-width:none}
+.why-tabs::-webkit-scrollbar{display:none}
+.why-tab{flex:none;padding:.75rem 0;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;background:none;
+  font:inherit;font-weight:700;font-size:.98rem;color:var(--muted);white-space:nowrap;cursor:pointer;
+  transition:color .2s var(--e),border-color .2s var(--e)}
+.why-tab:hover{color:var(--navy)}
+.why-tab[aria-selected="true"]{color:var(--navy);border-bottom-color:var(--ac-br)}
+.why-tab:focus-visible{outline:2px solid var(--ac-br);outline-offset:2px}
+.why-panel{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1.6rem;align-items:baseline;padding:1.4rem 0 0;min-height:6.6rem}
+.why-panel i{font-style:normal;font-size:2.4rem;font-weight:800;letter-spacing:-.03em;line-height:1;color:#B8923F;font-variant-numeric:tabular-nums}
+.why-panel b{display:block;font-size:1.2rem;color:var(--navy);letter-spacing:-.015em;margin-bottom:.3rem}
+.why-panel p{margin:0;font-size:1.02rem;line-height:1.6;color:var(--muted);max-width:90ch}
+.why-for{margin:1.3rem 0 0;font-size:.92rem;line-height:1.55;color:var(--muted)}
+.why-for b{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin-right:.8rem}
+@media(max-width:900px){.why-top{grid-template-columns:1fr;gap:1.1rem;align-items:start}}
+@media(max-width:620px){
+  .why-panel{grid-template-columns:1fr;gap:.5rem;min-height:0}
+  .why-panel i{font-size:1.8rem}
+  .why-for b{display:block;margin:0 0 .25rem}
+}
+
+/* faculty grid: a chair's photo fills the circle in place of the initials */
+.fac .av.av-photo{overflow:hidden;padding:0;background:var(--ice)}
+.fac .av.av-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+/* accommodation: only the recommended hotels, so the panel is a single column */
+.v-stay.v-stay-solo{grid-template-columns:1fr}

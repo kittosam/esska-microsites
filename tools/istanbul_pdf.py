@@ -173,7 +173,7 @@ FOOT = (f'<div class="foot"><span><b>ESSKA Shoulder Focus Meeting</b> &nbsp;|&nb
 MAST = f"""<div class="mast"><img class="art" src="assets/img/key-visual-istanbul.jpg" alt="">
 <div class="mast-in"><div class="mast-brand"><img src="assets/img/logo-02.png" alt="ESSKA"><i></i><p class="eyebrow">ESSKA Shoulder Focus Meeting</p></div>
 <h1>Massive Rotator Cuff Tears<span class="l3">From repair to replace</span></h1></div>
-<div class="mast-meta"><span>{D}</span><span>{VENUE}</span><span>Istanbul, Turkey</span></div></div>"""
+<div class="mast-meta"><span>{D}</span><span>{VENUE}</span><span>Istanbul, T&uuml;rkiye</span></div></div>"""
 RH = f'<div class="rh"><span>Massive Rotator Cuff Tears</span><span>Istanbul &middot; {D}</span></div>'
 SUMMARY = [("2 days","Scientific programme","Friday and Saturday"),
            ("16","Sessions","with the grand finale debate"),

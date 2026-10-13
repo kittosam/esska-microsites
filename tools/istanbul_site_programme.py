@@ -85,11 +85,14 @@ def initials(name):
     parts=[p for p in plain.split() if p[0].isalpha()]
     return (parts[0][0]+parts[-1][0]).upper() if len(parts)>1 else parts[0][:2].upper()
 
-def fac_grid(people, extra=""):
+def fac_grid(people, extra="", photos=None):
     out=[]
     for i,(name,sub) in enumerate(people):
         d=["","d1","d2","d3"][i%4]
-        out.append(f'        <div class="fac rv {d}{extra}"><div class="av">{initials(name)}</div>'
+        img=(photos or {}).get(name)
+        av=(f'<div class="av av-photo"><img src="assets/img/{img}" alt="" loading="lazy"></div>' if img
+            else f'<div class="av">{initials(name)}</div>')
+        out.append(f'        <div class="fac rv {d}{extra}">{av}'
                    f'<b>{name}</b>{f"<div class=\"c\">{sub}</div>" if sub else ""}</div>')
     return "\n".join(out)
 
@@ -128,7 +131,7 @@ FAC = f'''      <div class="head rv"><p class="eyebrow">Faculty</p><h2>Chairs <s
         <p class="lead one-line" style="margin-top:1rem">Proposed invited faculty. Invitations are pending confirmation.</p></div>
       <h3 class="fac-h">Chairs</h3>
       <div class="fac-grid">
-{fac_grid(data.CHAIRS)}
+{fac_grid(data.CHAIRS, photos=data.CHAIR_PHOTOS)}
       </div>
       <h3 class="fac-h">Proposed speakers</h3>
       <div class="fac-grid">
