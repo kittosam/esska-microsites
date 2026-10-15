@@ -26,6 +26,11 @@ SITES=(
 REDIRECTS=(
   "/rome/* /arthroplasty-2027/:splat 301"
   "/arthroplasty/* /arthroplasty-2027/:splat 301"
+  # programme PDFs renamed after the meeting (October 2026)
+  "/arthroplasty-2027/assets/ESSKA-Rome-2027-Programme.pdf /arthroplasty-2027/assets/ESSKA-Arthroplasty-Focus-Meeting-Rome-2027-Programme.pdf 301"
+  "/hip-2027/assets/ESSKA-Athens-2027-Programme.pdf /hip-2027/assets/ESSKA-Hip-Focus-Meeting-Athens-2027-Programme.pdf 301"
+  "/shoulder-2027/assets/ESSKA-Istanbul-2027-Programme.pdf /shoulder-2027/assets/ESSKA-Shoulder-Focus-Meeting-Istanbul-2027-Programme.pdf 301"
+  "/foot-ankle-2027/assets/ESSKA-London-2027-Programme.pdf /foot-ankle-2027/assets/ESSKA-Foot-and-Ankle-Focus-Meeting-London-2027-Programme.pdf 301"
 )
 
 rm -rf "$DIST"

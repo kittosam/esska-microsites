@@ -15,7 +15,7 @@ folder itself, so nothing here is copied into a deploy.
 | `istanbul_pdf.py` | Builds the Istanbul programme PDF (preview on :8012) |
 | `london_programme.py` | London 2027 programme, faculty and skills lab data |
 | `london_site_programme.py` | Regenerates the London programme markup inside `index.html` |
-| `london_pdf.py` | Builds the London programme PDF (preview on :8015, `ESSKA-London-2027-Programme.pdf`) |
+| `london_pdf.py` | Builds the London programme PDF (preview on :8015, `ESSKA-Foot-and-Ankle-Focus-Meeting-London-2027-Programme.pdf`) |
 
 ## Building a programme PDF
 
@@ -26,12 +26,12 @@ paginating, so the local preview for that site must be running:
 # Rome, preview on :8010
 cd sites/rome-2027 && python3 ../../tools/rome_pdf.py
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
-  --no-pdf-header-footer --print-to-pdf=assets/ESSKA-Rome-2027-Programme.pdf \
+  --no-pdf-header-footer --print-to-pdf=assets/ESSKA-Arthroplasty-Focus-Meeting-Rome-2027-Programme.pdf \
   "http://localhost:8010/_tmp_pdf.html" && rm -f _tmp_pdf.html
 ```
 
-Athens is the same with `athens_pdf.py`, port 8011 and the Athens PDF name;
-Istanbul with `istanbul_pdf.py`, port 8012 and `ESSKA-Istanbul-2027-Programme.pdf`.
+Athens is the same with `athens_pdf.py`, port 8011 and `ESSKA-Hip-Focus-Meeting-Athens-2027-Programme.pdf`;
+Istanbul with `istanbul_pdf.py`, port 8012 and `ESSKA-Shoulder-Focus-Meeting-Istanbul-2027-Programme.pdf`.
 If the measuring step cannot reach the preview it stops rather than guessing,
 because a dead server once produced a PDF of a 404 page.
 

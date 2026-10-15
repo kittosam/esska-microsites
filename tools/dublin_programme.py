@@ -4,7 +4,7 @@
 
 DAY1 = ("1", "Friday, 14 May 2027", "08:00&ndash;17:00", [
  ("08:00&ndash;08:30","30 min","Registration and coffee", [], "", True),
- ("08:30&ndash;08:45","15 min","Welcome, introduction and course objectives", [], "", False),
+ ("08:30&ndash;08:45","15 min","Welcome, introduction and meeting objectives", [], "", False),
  ("08:45&ndash;10:15","90 min","The ACL Clinic &middot; Live patient assessment workshop", [],
   "Format|Live assessment of acute and chronic ACL injuries: Lachman testing, pivot shift examination, hyperlaxity assessment, patient expectations and audience polling on treatment strategy.", False),
  ("10:15&ndash;10:45","30 min","Coffee break", [], "", True),
