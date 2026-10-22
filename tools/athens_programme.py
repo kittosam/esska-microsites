@@ -38,8 +38,9 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
   "Two complex cases of about 30 minutes each: vote, panel debate, audience questions, re-vote, then the actual treatment and outcome. Panel: Vikas Khanduja, Ajay Malviya, Bar&#305;&#351; Kocao&#287;lu, Michael Wettstein, Filippo Randelli and Panayiotis Christofilopoulos.",False),
  ("17:42","18:00","Day 1 Synthesis and Take-Home Messages",[("Moderators",f"{MP} and {AP}"),("Format","Faculty synthesis of the decisions that changed during discussion, and a preview of Friday morning")],[],None,False),
 ])
-# Friday runs to 12:00, with a 50-minute break for the recorded surgery session (October 2026).
-DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","12:00",[
+# Session VIII moved to 10:10-11:10 (October 2026), which leaves the coffee and recorded surgery
+# break at 20 minutes; the closing time and the Friday finish are TBC until confirmed.
+DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","TBC",[
  ("08:00","08:50","Session VI &middot; ESSKA Hip Research and Rapid Communications",[("Moderators","Andr&eacute; Sarmento and Filippo Randelli")],
   [("ESSKA Hip collaborative research: where should we go next?","Andr&eacute; Sarmento"),("Five to six selected rapid communications, up to 5 minutes each","Selected abstract presenters")],
   "Moderated research discussion. Panel: Andr&eacute; Sarmento, Filippo Randelli, Sufian S. Ahmad and Vikas Khanduja.",False),
@@ -47,13 +48,13 @@ DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","12:00",[
   [("How should hip arthroscopy be taught?","Jacek Mazek"),("Cadaveric training: what skills should be assessed?",AP),
    ("ESSKA Hip Core Curriculum &rarr; Academy &rarr; Courses","Daniel P&eacute;rez-Prieto"),("From course attendance to competency-based certification",MP)],
   f"About 32 minutes of faculty discussion, with votes on competencies and assessment standards. Panel: Jacek Mazek, {AP}, Daniel P&eacute;rez-Prieto, {MP}, Vikas Khanduja and Andr&eacute; Sarmento.",False),
- ("09:50","10:40","Morning coffee and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations, with the industry exhibition")],[(x,"") for x in REC_TOPICS],REC_NOTE,"rec"),
- ("10:40","11:40","Session VIII &middot; Failed Hip Preservation: Revision, Salvage and Treatment Boundaries",[("Moderators and case presenters","Filippo Randelli and Michael Wettstein")],
+ ("09:50","10:10","Morning coffee and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations, with the industry exhibition")],[(x,"") for x in REC_TOPICS],REC_NOTE,"rec"),
+ ("10:10","11:10","Session VIII &middot; Failed Hip Preservation: Revision, Salvage and Treatment Boundaries",[("Moderators and case presenters","Filippo Randelli and Michael Wettstein")],
   [("Why does hip arthroscopy fail?","Nicolas Bonin"),("Revision hip arthroscopy: what can realistically be corrected?","Jacek Mazek"),
    ("Structural failure after preservation: reassess the diagnosis","Panayiotis Christofilopoulos"),("When should the young active patient move to arthroplasty?","Dani&euml;l Haverkamp"),
    ("Spinopelvic fulcrum phenotypes and understanding the mechanics in young adults with DDH &ndash; data from 450 cases","Eleftherios Tsiridis")],
   "25 minutes of case-based discussion led by Filippo Randelli and Michael Wettstein, with votes on revision arthroscopy, PAO, osteotomy, combined reconstruction or THA. Panel: Nicolas Bonin, Jacek Mazek, Panayiotis Christofilopoulos, Dani&euml;l Haverkamp, Ajay Malviya and Eleftherios Tsiridis.",False),
- ("11:40","12:00","Academy Integration, Next Steps and Closing",[("Moderators",f"{MP} and {AP}")],
+ ("TBC","TBC","Academy Integration, Next Steps and Closing",[("Moderators",f"{MP} and {AP}")],
   [("Academy-ready content and educational gaps","Daniel P&eacute;rez-Prieto"),("Strategic next steps and certification pathway",MP)],None,False),
 ])
 CHAIRS=[(MP,"Spain"),(AP,"Greece"),("Ajay Malviya","United Kingdom")]
