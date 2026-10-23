@@ -3,6 +3,8 @@
 public programme content only) and the markup generator for the site."""
 MP="Oliver Mar&iacute;n-Pe&ntilde;a"; AP="Athanasios Papavasiliou"
 # item: (start, end, title, [(label, text)], [(talk, speaker)], discussion or None, is_break)
+# a talk is (talk, speaker), or (time, talk, speaker) when ESSKA gives talk times; a timed
+# (time, title, who, "disc") entry is the session's discussion slot and is not counted as a talk.
 # is_break is "rec" for a break that also carries the pre-recorded surgery session: it opens
 # like a session to list the proposed topics, and its talks are not counted as lectures.
 REC_TOPICS=['Labral injury management: from repair to reconstruction', 'Access and capsular management in hip arthroscopy', 'Cartilage lesion management: from repair to microfracture', 'Gluteal tendon repair in greater trochanteric pain syndrome']
@@ -49,10 +51,11 @@ DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","12:00",[
   f"About 32 minutes of faculty discussion, with votes on competencies and assessment standards. Panel: Jacek Mazek, {AP}, Daniel P&eacute;rez-Prieto, {MP}, Vikas Khanduja and Andr&eacute; Sarmento.",False),
  ("09:50","10:40","Morning coffee and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations, with the industry exhibition")],[(x,"") for x in REC_TOPICS],REC_NOTE,"rec"),
  ("10:40","11:40","Session VIII &middot; Failed Hip Preservation: Revision, Salvage and Treatment Boundaries",[("Moderators and case presenters","Filippo Randelli and Michael Wettstein")],
-  [("Why does hip arthroscopy fail?","Nicolas Bonin"),("Revision hip arthroscopy: what can realistically be corrected?","Jacek Mazek"),
-   ("Structural failure after preservation: reassess the diagnosis","Panayiotis Christofilopoulos"),("When should the young active patient move to arthroplasty?","Dani&euml;l Haverkamp"),
-   ("Spinopelvic fulcrum phenotypes and understanding the mechanics in young adults with DDH &ndash; data from 450 cases","Eleftherios Tsiridis")],
-  "25 minutes of case-based discussion led by Filippo Randelli and Michael Wettstein, with votes on revision arthroscopy, PAO, osteotomy, combined reconstruction or THA. Panel: Nicolas Bonin, Jacek Mazek, Panayiotis Christofilopoulos, Dani&euml;l Haverkamp, Ajay Malviya and Eleftherios Tsiridis.",False),
+  [("10:40&ndash;10:47","Why does hip arthroscopy fail?","Nicolas Bonin"),("10:47&ndash;10:54","Revision hip arthroscopy: what can realistically be corrected?","Jacek Mazek"),
+   ("10:54&ndash;11:01","Structural failure after preservation: reassess the diagnosis","Panayiotis Christofilopoulos"),("11:01&ndash;11:08","When should the young active patient move to arthroplasty?","Dani&euml;l Haverkamp"),
+   ("11:08&ndash;11:15","Spinopelvic fulcrum phenotypes and understanding the mechanics in young adults with DDH &ndash; data from 450 cases","Eleftherios Tsiridis"),
+   ("11:15&ndash;11:40","Interactive case discussions and audience voting","Moderators and faculty panel","disc")],
+  "Case-based discussion led by Filippo Randelli and Michael Wettstein, with votes on revision arthroscopy, PAO, osteotomy, combined reconstruction or THA. Panel: Nicolas Bonin, Jacek Mazek, Panayiotis Christofilopoulos, Dani&euml;l Haverkamp, Ajay Malviya and Eleftherios Tsiridis.",False),
  ("11:40","12:00","Academy Integration, Next Steps and Closing",[("Moderators",f"{MP} and {AP}")],
   [("Academy-ready content and educational gaps","Daniel P&eacute;rez-Prieto"),("Strategic next steps and certification pathway",MP)],None,False),
 ])
@@ -77,7 +80,7 @@ def day_block(day, label, hidden):
     num, iso, wk, full, a0, b0, items = day
     nses=sum(1 for i in items if i[2].startswith("Session"))
     extra=" + final challenge" if any(i[2].startswith("Final Interactive") for i in items) else ""
-    ntalks=sum(len(i[4]) for i in items if not i[6])
+    ntalks=sum(1 for i in items if not i[6] for t in i[4] if len(t)<4)
     rows=[]
     for (a,b,title,notes,talks,disc,brk) in items:
         m=mins(a,b)
@@ -89,8 +92,12 @@ def day_block(day, label, hidden):
             </div>
           </div>''')
             continue
-        lis="".join(f'<li class="ptalk"><span class="ptx">{t}</span><span class="psp">{sp}</span></li>' for t,sp in talks)
-        body=(f'<ul class="ptalks">{lis}</ul>' if talks else "")+(f'<p class="pnote"><span class="pnote-l">Discussion</span><span class="pnote-t">{disc}</span></p>' if disc else "")
+        timed=bool(talks) and all(len(t)>=3 for t in talks)
+        if timed:
+            lis="".join(f'<li class="ptalk{" ptalk-disc" if len(t)>3 else ""}"><span class="ptt">{t[0]}</span><span class="ptx">{t[1]}</span><span class="psp">{t[2]}</span></li>' for t in talks)
+        else:
+            lis="".join(f'<li class="ptalk"><span class="ptx">{t}</span><span class="psp">{sp}</span></li>' for t,sp in talks)
+        body=(f'<ul class="ptalks{" timed" if timed else ""}">{lis}</ul>' if talks else "")+(f'<p class="pnote"><span class="pnote-l">Discussion</span><span class="pnote-t">{disc}</span></p>' if disc else "")
         rows.append(f'''          <div class="prow" data-day="{num}">
             <button class="prow-btn" type="button" aria-expanded="false">
               {head}

@@ -115,6 +115,11 @@ ul.talks .sp{font-size:7.2pt;font-weight:700;color:var(--navy);line-height:1.35}
 .slot .fmt + .fmt{margin-top:.6mm}
 .disc{margin:1.6mm 0 0;font-size:7.1pt;color:var(--muted);line-height:1.45;padding-top:1.2mm;border-top:.25mm dashed rgba(18,41,77,.14)}
 .disc .fmt-l{color:var(--ac)}
+/* a session with talk times shows the time in place of the running number, as in London */
+ul.talks.timed li{grid-template-columns:19mm 1fr 38mm}
+ul.talks.timed .n{text-align:left;color:var(--ac);font-size:6.8pt;white-space:nowrap}
+ul.talks.timed li.dsc .tx{font-style:italic;color:var(--muted)}
+ul.talks.timed li.dsc .sp{font-weight:600;color:var(--muted)}
 .mast .art{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 34%);mask-image:linear-gradient(to right,transparent 0,#000 34%)}
 
 /* masthead: the ESSKA logo leads the eyebrow on one line, as the site header pairs the
@@ -146,7 +151,11 @@ def slot_html(item):
                 f'<div><div class="ttl">{title} &middot; {dur}</div>{extra}</div></div>')
     body = f'<div class="ttl">{title}</div>'
     body += "".join(f'<p class="fmt"><span class="fmt-l">{l}</span>{x}</p>' for l, x in notes)
-    if talks:
+    if talks and all(len(t) >= 3 for t in talks):   # ESSKA gave talk times: they replace the numbers
+        body += '<ul class="talks timed">' + "".join(
+            f'<li{" class=dsc" if len(t) > 3 else ""}><span class="n">{t[0]}</span><span class="tx">{t[1]}</span><span class="sp">{t[2]}</span></li>'
+            for t in talks) + '</ul>'
+    elif talks:
         body += '<ul class="talks">' + "".join(
             f'<li><span class="n">{i}</span><span class="tx">{tx}</span><span class="sp">{sp}</span></li>'
             for i, (tx, sp) in enumerate(talks, 1)) + '</ul>'
@@ -159,7 +168,7 @@ def banner(label, day):
     num, iso, wk, full, a0, b0, items = day
     nses = sum(1 for i in items if i[2].startswith("Session"))
     fin = " + final challenge" if any(i[2].startswith("Final Interactive") for i in items) else ""
-    ntalks = sum(len(i[4]) for i in items if not i[6])
+    ntalks = sum(1 for i in items if not i[6] for t in i[4] if len(t) < 4)
     return (f'<div class="day"><span class="cal"><i>Apr</i><b>{int(iso[-2:])}</b><em>{wk}</em></span>'
             f'<span class="dl"><b>{label}</b><span class="dm"><strong>{a0 + " to " + b0 if b0 != "TBC" else a0 + ", finish TBC"}</strong>'
             f'<span class="sep"></span>{nses} sessions{fin}<span class="sep"></span>{ntalks} talks</span></span></div>')
