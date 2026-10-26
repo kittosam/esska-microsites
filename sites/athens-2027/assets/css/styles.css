@@ -1304,13 +1304,13 @@ footer > *{position:relative}
 
 /* Short screens (a 13-inch laptop, say): the opening section still has to fit
    between the bars, so the spacing tightens while the title keeps its size. */
-@media (min-width:1081px) and (max-height:900px){
+@media (min-width:1081px) and (max-height:1040px){
   .hero-in{padding-block:clamp(1.1rem,2.4vh,1.9rem)}
   .kicker{margin-bottom:.7rem}
   .hero .strap{margin-top:.5rem}
   .hero .strap .strap-2{margin-top:.3rem}
   .ebar{margin-top:clamp(.8rem,1.6vh,1.2rem)}
-  .hero-cta{margin-top:clamp(2.2rem,4.8vh,3rem)}
+  .hero-cta{margin-top:clamp(1.4rem,3.4vh,2.6rem)}
 }
 @media (min-width:1081px) and (max-height:740px){
   .hero-in{padding-block:clamp(.7rem,1.7vh,1.3rem)}
@@ -2743,6 +2743,12 @@ body{font-size:1.0625rem}
 .ph-meta .pill.ph-book:hover,.ph-meta .pill.ph-book:focus-visible{background:rgba(201,138,52,.24)}
 .ph-meta .pill.ph-book:hover .pill-i svg{transform:translateX(1px)}
 @media(max-width:700px){.ph-meta .pill.ph-book{margin-left:0}}
+/* light sand outline, label and disc (October 2026), on a faint wash, so it reads on the dark venue photo */
+.ph-meta .pill.ph-book{background:rgba(239,221,184,.10)}
+.ph-meta .pill.ph-book::before{background:#EFDDB8}
+.ph-meta .pill.ph-book > span:first-child{background:none;color:#EFDDB8;-webkit-text-fill-color:#EFDDB8}
+.ph-meta .pill.ph-book .pill-i,.ph-meta .pill.ph-book:hover .pill-i{background:#EFDDB8}
+.ph-meta .pill.ph-book:hover,.ph-meta .pill.ph-book:focus-visible{background:rgba(239,221,184,.2)}
 
 /* ---------- homepage polish (October 2026) ---------- */
 /* welcome letter: the closing paragraph stands clear of the text above it */
@@ -2841,10 +2847,18 @@ body{font-size:1.0625rem}
   letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
 .abs-note-go{font-weight:800;color:var(--ac-d);white-space:nowrap}
 /* homepage: centred across the top of the hero, over the join of text and artwork */
-.hero-note{position:absolute;z-index:6;top:clamp(1rem,2.2vw,1.6rem);left:0;right:0;display:flex;justify-content:center;
+.hero-note{position:absolute;z-index:6;top:.85rem;left:0;right:0;display:flex;justify-content:center;
   padding:0 var(--pad);pointer-events:none}
 .hero-note .abs-note{pointer-events:auto;animation:heroUp .55s var(--e) both}
-@media(min-width:1081px){.hero{padding-top:clamp(2.6rem,4.2vw,3.6rem)}}
+@media(min-width:1081px){
+  /* the notice sits in a band of its own at the top (.85rem + its ~44px + a gap), and the hero
+     text scales with the window height as well as its width, so the Register / Download pair
+     stays on the first screen at any zoom */
+  .hero{padding-top:calc(1.7rem + 46px)}
+  .hero-in{padding-top:.2rem}
+  .hero h1{font-size:min(clamp(2.2rem,4.4vw,3.6rem),5.6vh)}
+  .hero .strap{font-size:min(clamp(1.2rem,1.9vw,1.75rem),2.9vh)}
+}
 @media(max-width:1080px){.hero-note{position:static;order:0;padding-top:1.4rem}}
 .abs-banner{display:flex;align-items:center;gap:.8rem 1.8rem;flex-wrap:wrap;margin:calc(-1 * clamp(1.6rem,4.5vw,4.2rem)) 0 clamp(1.8rem,3.5vw,2.6rem);
   padding:1.1rem 1.5rem;border-radius:12px;text-decoration:none;color:var(--ink);line-height:1.55;
@@ -2859,3 +2873,16 @@ body{font-size:1.0625rem}
 .abs-banner-go{font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);white-space:nowrap;
   padding-bottom:.2rem;border-bottom:2px solid var(--ac-br)}
 @media(max-width:520px){.abs-note{border-radius:14px;padding:.6rem .8rem;justify-content:center;text-align:center}}
+/* short laptop screens (up to 800px of window height): a slimmer notice band and a tighter
+   hero, so the Register / Download pair still fits above the fold */
+@media (min-width:1081px) and (max-height:800px){
+  .hero{padding-top:calc(1.1rem + 38px)}
+  .hero-note{top:.55rem}
+  .hero-note .abs-note{padding:.3rem .85rem .3rem .3rem;font-size:.88rem}
+  .hero-note .abs-note-tag{padding:.28rem .7rem;font-size:.66rem}
+  .hero h1{font-size:min(clamp(2.2rem,4.4vw,3.6rem),5.2vh)}
+  .kicker{margin-bottom:.5rem}
+  .ebar{padding:.75rem 1.1rem}
+  .ebar-foot{margin-top:.55rem;padding-top:.55rem}
+  .hero-cta{margin-top:clamp(.9rem,2.2vh,1.4rem)}
+}
