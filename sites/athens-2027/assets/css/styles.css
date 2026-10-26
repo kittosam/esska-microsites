@@ -2886,3 +2886,10 @@ body{font-size:1.0625rem}
   .ebar-foot{margin-top:.55rem;padding-top:.55rem}
   .hero-cta{margin-top:clamp(.9rem,2.2vh,1.4rem)}
 }
+/* the hero text lines up with the logo at every width: the hero row is as wide as the nav row
+   (1720px), instead of stepping between 1280 / 1480 / 1660, which made the text jump right
+   and left as the window or the browser zoom changed */
+@media(min-width:1081px){
+  .hero-in{max-width:1720px}
+  .hero-txt{margin-left:0}
+}

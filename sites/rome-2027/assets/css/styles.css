@@ -2360,3 +2360,11 @@ body{font-size:1.0625rem}
 
 /* figures band: a figure made of a word, not a number, is set smaller so it fits its column */
 .band-num .n b.n-word{font-size:clamp(1.5rem,2.5vw,2.2rem);line-height:1.25}
+
+/* the hero text lines up with the logo at every width: the hero row is as wide as the nav row
+   (1720px), instead of stepping between 1280 / 1480 / 1660, which made the text jump right
+   and left as the window or the browser zoom changed */
+@media(min-width:1081px){
+  .hero-in{max-width:1720px}
+  .hero-txt{margin-left:0}
+}
