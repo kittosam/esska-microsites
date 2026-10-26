@@ -9,7 +9,9 @@ function go(id){
   document.querySelectorAll('.nav a[data-go]').forEach(a=>a.classList.toggle('on',a.dataset.go===id));
   scrollTo({top:0,behavior:"auto"}); obs(t);
 }
-document.addEventListener("click",e=>{const l=e.target.closest("[data-go]");if(!l)return;e.preventDefault();go(l.dataset.go)});
+document.addEventListener("click",e=>{const l=e.target.closest("[data-go]");if(!l)return;e.preventDefault();go(l.dataset.go);
+  /* data-anchor: land on a section further down the page, e.g. the call for abstracts */
+  const a=l.dataset.anchor&&document.getElementById(l.dataset.anchor);if(a)requestAnimationFrame(()=>a.scrollIntoView({behavior:"auto"}))});
 const nav=document.getElementById("nav"),stick=document.getElementById("stick");
 function darkCheck(){
   const bar=document.getElementById("stick"); if(!bar) return;

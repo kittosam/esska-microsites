@@ -2803,3 +2803,32 @@ body{font-size:1.0625rem}
   .ptalks.timed .ptalk{grid-template-columns:1fr}
   .ptalks.timed .psp{grid-column:1}
 }
+
+/* ---------- registration page: call for abstracts ---------- */
+.abs .head{max-width:860px;margin-bottom:2.2rem}
+.abs-topics{color:var(--muted);max-width:70ch;margin:1rem 0 0;line-height:1.65}
+.abs-k{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin:0 0 1rem}
+.abs-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.abs-facts .sm{background:var(--paper)}
+@media(max-width:900px){.abs-facts{grid-template-columns:1fr}}
+.abs-next{margin-top:1.4rem}
+.abs .reg-stay{background:var(--paper)}
+.abs-list{columns:1;margin:0 0 .9rem}
+.abs-dates{margin:.2rem 0 .8rem;width:100%;border-top:1px solid rgba(255,255,255,.18)}
+.abs-dates > div{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;
+  padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.abs-dates dt{color:rgba(255,255,255,.82);font-weight:600}
+.abs-dates dd{margin:0;color:#fff;font-weight:800;font-size:1.12rem;white-space:nowrap}
+.abs .reg-book a:not(.pill){color:#fff;font-weight:700}
+.abs-subj{display:inline-block;margin-top:.35rem;color:var(--ac-l);font-weight:700;letter-spacing:.02em}
+.abs-close{margin:1.8rem 0 0;font-weight:700;color:var(--navy)}
+#abstracts{scroll-margin-top:calc(var(--chrome,140px) - 5.5rem)}
+/* homepage: a slim pointer to the call, under the topic cards */
+.abs-strip{display:flex;align-items:center;justify-content:space-between;gap:1.2rem 2.4rem;flex-wrap:wrap;
+  margin-top:clamp(2rem,4vw,2.8rem);padding:1.3rem 1.6rem;background:var(--ice-2);border:1px solid var(--line);
+  border-left:4px solid var(--ac-br);border-radius:0 10px 10px 0}
+.abs-strip-t{flex:1 1 420px;min-width:0}
+.abs-strip .eyebrow{margin:0 0 .35rem}
+.abs-strip-t p:not(.eyebrow){margin:0;color:var(--ink);line-height:1.6;max-width:72ch}
+/* Session VI: the same pointer inside the programme */
+.pnote-abs a{color:var(--ac-d);font-weight:700;white-space:nowrap}

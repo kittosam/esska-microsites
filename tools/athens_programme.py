@@ -15,7 +15,7 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
  ("10:10","10:17","ESSKA Keynote Lecture",[("Introduction","by the Meeting Chairs")],
   [("The Athletic Hip in 2027: What Should We Be Doing Differently?","Vikas Khanduja")],None,False),
  ("10:17","11:17","Session I &middot; FAI in the High-Impact Athlete",[("Moderators",f"{MP} and Tahsin Beyzadeoglu")],
-  [("FAI in pivoting sports: which morphology really matters?","Filippo Randelli"),("Labrum: repair, augmentation or reconstruction?","Bar&#305;&#351; Kocao&#287;lu"),
+  [("FAIS and return to high-impact sport after hip arthroscopy: which morphology really matters?","Filippo Randelli"),("Labrum: repair, augmentation or reconstruction?","Bar&#305;&#351; Kocao&#287;lu"),
    ("Capsule: when is closure not enough?","Safa G&uuml;rsoy"),("Cartilage damage in the athlete: when does arthroscopy stop making sense?","Ali Bajwa")],
   "About 32 minutes of interactive case discussion, with stepwise cases, audience voting and re-voting after discussion. Panel: Filippo Randelli, Bar&#305;&#351; Kocao&#287;lu, Safa G&uuml;rsoy, Ali Bajwa and Nicolas Bonin.",False),
  ("11:17","12:17","Session II &middot; Groin, Lateral Hip and Extra-Articular Sports Injuries",[("Moderators","Lior Laver and Dora Papadopoulou")],
@@ -43,7 +43,7 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
 # Friday runs to 12:00, with a 50-minute break for the recorded surgery session (October 2026).
 DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","12:00",[
  ("08:00","08:50","Session VI &middot; ESSKA Hip Research and Rapid Communications",[("Moderators","Andr&eacute; Sarmento and Filippo Randelli")],
-  [("ESSKA Hip collaborative research: where should we go next?","Andr&eacute; Sarmento"),("Five to six selected rapid communications, up to 5 minutes each","Selected abstract presenters")],
+  [("ESSKA Hip collaborative research: where should we go next?","Andr&eacute; Sarmento"),("Five selected rapid communications, 5 minutes each","Selected abstract presenters")],
   "Moderated research discussion. Panel: Andr&eacute; Sarmento, Filippo Randelli, Sufian S. Ahmad and Vikas Khanduja.",False),
  ("08:50","09:50","Session VII &middot; Training the Hip Preservation Surgeon of the Future",[("Moderators","Eleftherios Tsiridis and Safa G&uuml;rsoy")],
   [("How should hip arthroscopy be taught?","Jacek Mazek"),("Cadaveric training: what skills should be assessed?",AP),
