@@ -2950,9 +2950,14 @@ footer a[href^="mailto:"]:hover{color:#fff}
 }
 @media(max-width:1080px){.abs-ribbon{order:0;width:100%}}
 /* mid-width screens: the short version, so the ribbon stays on one line */
-@media(min-width:1081px) and (max-width:1399px){.abs-ribbon .ar-t,.abs-ribbon .ar-t + .ar-sep{display:none}}
+@media(min-width:1081px) and (max-width:1559px){.abs-ribbon .ar-t,.abs-ribbon .ar-t + .ar-sep{display:none}}
 @media(max-width:760px){.abs-ribbon .ar-t,.abs-ribbon .ar-sep{display:none}.abs-ribbon{gap:.35rem .9rem}.ar-go{margin-left:0}}
 
 /* date box: a little air between the venue / early-rate row and Book a room */
 .ebar-foot{row-gap:.85rem}
 @media (min-width:1081px) and (max-height:800px){.ebar-foot{row-gap:.55rem}.hero .strap .strap-2{margin-top:.2rem}.hero-cta{margin-top:clamp(.8rem,2vh,1.2rem)}}
+/* ribbon: "Read the call" sits at the right edge of the nav row, its arrow ending under the end of CONTACTS */
+@media(min-width:1081px){
+  .abs-ribbon .ar-go{position:absolute;top:50%;transform:translateY(-50%);margin:0;
+    right:calc((100% - min(100%, 1720px)) / 2 + var(--pad))}
+}
