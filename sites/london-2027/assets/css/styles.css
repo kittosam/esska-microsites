@@ -2588,4 +2588,4 @@ body{font-size:1.0625rem}
 
 /* topic cards: the titles here are short phrases, not single words as on the Hip site, so they
    are set smaller to read at a similar weight on the card (October 2026) */
-.tile .word{font-size:clamp(1.2rem,1.75vw,1.55rem);line-height:1.15;letter-spacing:-.02em}
+.tile .word{font-size:clamp(1.3rem,1.95vw,1.72rem);line-height:1.15;letter-spacing:-.02em}

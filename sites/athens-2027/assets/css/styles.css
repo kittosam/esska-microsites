@@ -2897,3 +2897,7 @@ body{font-size:1.0625rem}
 /* faculty grid: the chairs' portraits, the same photos as the welcome letter */
 .fac .av.av-photo{overflow:hidden;padding:0;background:var(--ice)}
 .fac .av.av-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+/* registration banner: the sentence holds to two lines, and the deadline and the link breathe */
+.abs-banner{gap:.8rem 1.6rem}
+.abs-banner-t{font-size:.94rem;line-height:1.55}
+.abs-banner-side{gap:.85rem}
