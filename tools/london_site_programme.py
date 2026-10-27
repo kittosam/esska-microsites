@@ -108,7 +108,7 @@ BLOCKS = {
  "chairs": fac(data.CHAIRS, data.CHAIR_PHOTOS),
  "faculty": fac(data.FACULTY),
  "skills-modules": modules(),
- "skills-faculty": fac(data.SKILLS_FACULTY),
+ "skills-faculty": fac(data.SKILLS_FACULTY, data.CHAIR_PHOTOS),
 }
 
 p = pathlib.Path("index.html"); s = p.read_text(encoding="utf-8")

@@ -2585,3 +2585,7 @@ body{font-size:1.0625rem}
   .hero-in{max-width:1720px}
   .hero-txt{margin-left:0}
 }
+
+/* topic cards: the titles here are short phrases, not single words as on the Hip site, so they
+   are set smaller to read at a similar weight on the card (October 2026) */
+.tile .word{font-size:clamp(1.2rem,1.75vw,1.55rem);line-height:1.15;letter-spacing:-.02em}
