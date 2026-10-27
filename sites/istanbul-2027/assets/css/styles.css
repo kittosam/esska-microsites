@@ -2580,3 +2580,6 @@ body{font-size:1.0625rem}
   .hero-in{max-width:1720px}
   .hero-txt{margin-left:0}
 }
+
+/* the travel caveat sits above the route cards, as a lead-in, not under them */
+.routes-note.routes-note-top{margin:0 0 1.6rem;text-align:left;font-size:.95rem}

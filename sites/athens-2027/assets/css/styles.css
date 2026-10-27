@@ -2901,3 +2901,22 @@ body{font-size:1.0625rem}
 .abs-banner{gap:.8rem 1.6rem}
 .abs-banner-t{font-size:.94rem;line-height:1.55}
 .abs-banner-side{gap:.85rem}
+/* the Olympic Path line a touch larger (October 2026); its margin tightens to keep the hero height */
+.hero .strap .strap-2{font-size:.72em;margin-top:.3rem}
+
+/* the travel caveat sits above the route cards, as a lead-in, not under them */
+.routes-note.routes-note-top{margin:0 0 1.6rem;text-align:left;font-size:.95rem}
+/* footer contact: the email address in sand, like the column headings */
+footer a[href^="mailto:"]{color:var(--ac-l)}
+footer a[href^="mailto:"]:hover{color:#fff}
+/* venue card (option B, October 2026): more air in the 2 x 2 facts, links out of the grid */
+.v-facts > div{padding:1.25rem 0}
+.v-facts dt{margin-bottom:.55rem}
+.v-facts dd{line-height:1.55}
+.v-card .btn-row{margin-top:0}
+.v-links{margin:-.3rem 0 0}
+.v-links a.vf-link{display:inline-flex;align-items:center;gap:.45rem;color:var(--ac-d);font-weight:700;
+  text-decoration:underline;text-decoration-color:rgba(138,90,28,.3);text-underline-offset:4px}
+.v-links a.vf-link:hover{text-decoration-color:currentColor}
+.v-links .reg-arrow{width:14px;height:10px;transition:transform .2s}
+.v-links a.vf-link:hover .reg-arrow{transform:translateX(3px)}
