@@ -56,3 +56,5 @@ AUDIENCE = ("Orthopaedic surgeons, fellows, senior trainees, physiotherapists an
             "the multidisciplinary ACL team.")
 
 CHAIRS = [("Brian Devitt","Chair &middot; Ireland"),("Martyn Snow","Co-Chair &middot; UK"),("Sven Scheffler","Scientific Chair &middot; Germany")]
+# the same portraits as the welcome letter
+CHAIR_PHOTOS = {"Brian Devitt":"chair-devitt.jpg","Martyn Snow":"chair-snow.jpg","Sven Scheffler":"chair-scheffler.jpg"}
