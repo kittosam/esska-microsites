@@ -21,7 +21,7 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
  ("11:17","12:17","Session II &middot; Groin, Lateral Hip and Extra-Articular Sports Injuries",[("Moderators","Lior Laver and Dora Papadopoulou")],
   [("Groin pain in athletes: a practical diagnostic pathway","Per H&ouml;lmich"),("Deep gluteal syndrome: who really needs surgery?","Bruno Capurro"),
    ("Proximal hamstring pathology: when should we repair?","Marc Tey Pons"),("Lateral hip pain: rehabilitation before intervention","Aleksandra Kr&oacute;likowska")],
-  "About 32 minutes of multidisciplinary case discussion. Panel: Per H&ouml;lmich, Bruno Capurro, Marc Tey Pons, Aleksandra Kr&oacute;likowska and Suzanne Huurman.",False),
+  "About 32 minutes of multidisciplinary case discussion. Panel: Per H&ouml;lmich, Bruno Capurro, Marc Tey Pons, Robert Prill and Suzanne Huurman.",False),
  ("12:17","13:17","Working lunch and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations, with the industry exhibition and networking")],[(x,"") for x in REC_TOPICS],REC_NOTE,"rec"),
  ("13:17","14:17","Session III &middot; The Athlete with DDH and Structural Borderlines",[("Moderators",f"{AP} and Panayiotis Christofilopoulos")],
   [("Borderline dysplasia: instability or impingement?","Michael Wettstein"),("Imaging structural instability beyond the LCEA","Margarita Natsika"),
@@ -62,7 +62,7 @@ DAY2=("2","2027-04-16","Fri","Friday 16 April 2027","08:00","12:00",[
 CHAIRS=[(MP,"Spain"),(AP,"Greece"),("Ajay Malviya","United Kingdom")]
 FACULTY=[("Sufian S. Ahmad","Germany"),("Ali Bajwa","United Kingdom"),("Nicolas Bonin","France"),("Bruno Capurro","Spain"),
  ("Francesco Della Villa","Italy"),("Safa G&uuml;rsoy","T&uuml;rkiye"),("Dani&euml;l Haverkamp","Netherlands"),("Per H&ouml;lmich","Denmark"),
- ("Suzanne Huurman","Netherlands"),("Vikas Khanduja","United Kingdom"),("Bar&#305;&#351; Kocao&#287;lu","T&uuml;rkiye"),("Aleksandra Kr&oacute;likowska",'<abbr class="tbc" title="To be confirmed">TBC</abbr>'),("Lior Laver","Israel"),
+ ("Suzanne Huurman","Netherlands"),("Vikas Khanduja","United Kingdom"),("Bar&#305;&#351; Kocao&#287;lu","T&uuml;rkiye"),("Aleksandra Kr&oacute;likowska","Poland"),("Lior Laver","Israel"),
  ("Jacek Mazek","Poland"),("Filippo Randelli","Italy"),("Andr&eacute; Sarmento","Portugal"),("Matti Sepp&auml;nen","Finland"),("Klemen Stra&#382;ar","Slovenia"),
  ("Marc Tey Pons","Spain"),("Michael Wettstein","Switzerland"),("Robert Prill","Germany"),("Stefano Di Paolo","Italy"),("Daniel P&eacute;rez-Prieto","Spain"),
  ("Laura de Girolamo","Italy"),("Panayiotis Christofilopoulos","Switzerland"),("Dora Papadopoulou","United Kingdom and Greece"),
