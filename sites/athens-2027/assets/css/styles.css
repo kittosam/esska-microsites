@@ -2967,3 +2967,6 @@ footer a[href^="mailto:"]:hover{color:#fff}
     left:calc((100% - min(100%, 1720px)) / 2 + var(--pad))}
   .abs-ribbon .ar-k + .ar-sep{display:none}
 }
+/* fee footnote link to the registration terms */
+.fee-foot a{color:var(--ac-d);font-weight:700;text-decoration:underline;text-decoration-color:rgba(138,90,28,.35);text-underline-offset:3px}
+.fee-foot a:hover{text-decoration-color:currentColor}
