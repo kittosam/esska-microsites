@@ -95,6 +95,10 @@ CHAIR_PHOTOS = {"Emmanouil Brilakis":"chair-brilakis.jpg","Maristella Francesca 
                 "Alfonso Maria Romano":"chair-romano.jpg","Nezih Ziroglu":"chair-ziroglu.jpg",
                 "Kerem Bilsel":"chair-bilsel.jpg","Bar&#305;&#351; Kocao&#287;lu":"chair-kocaoglu.jpg"}
 
+# Speaker names are kept here but hidden on the site and in the PDF while ESSKA confirms the
+# invitations (user's request, 29 October 2026). Set to True to show them again.
+SHOW_SPEAKERS = False
+
 # proposed invited faculty, invitations pending confirmation (programme v7)
 PROPOSED = [("Teruhisa Mihata","Japan"),("Bassem Elhassan","US"),
             ("Emilio Calvo","Spain"),("Felix Savoie III","US"),

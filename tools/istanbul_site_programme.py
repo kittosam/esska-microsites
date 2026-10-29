@@ -11,6 +11,7 @@ def mins(a,b):
     return f(b)-f(a)
 def split_speaker(t):
     m=re.search(r"\s*<i>(.*?)</i>\s*$",t)
+    if m and not data.SHOW_SPEAKERS: return (t[:m.start()].strip(), "")
     return (t[:m.start()].strip(), m.group(1)) if m else (t.strip(),"")
 def head_line(note, n):
     if note:
@@ -128,15 +129,15 @@ PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p
       </div>'''
 
 FAC = f'''      <div class="head rv"><p class="eyebrow">Faculty</p><h2>Chairs <span class="lt">and faculty</span></h2>
-        <p class="lead one-line" style="margin-top:1rem">Proposed invited faculty. Invitations are pending confirmation.</p></div>
+        <p class="lead one-line" style="margin-top:1rem">{"Proposed invited faculty. Invitations are pending confirmation." if data.SHOW_SPEAKERS else "The faculty will be published here once the invitations are confirmed."}</p></div>
       <h3 class="fac-h">Chairs</h3>
       <div class="fac-grid">
 {fac_grid(data.CHAIRS, photos=data.CHAIR_PHOTOS)}
-      </div>
+      </div>''' + (f'''
       <h3 class="fac-h">Proposed speakers</h3>
       <div class="fac-grid">
 {fac_grid(data.PROPOSED)}
-      </div>'''
+      </div>''' if data.SHOW_SPEAKERS else "")
 
 p=pathlib.Path("index.html"); s=p.read_text(encoding="utf-8")
 prog_old = re.search(r'      <div class="head rv"><p class="eyebrow">Scientific programme</p>.*?(?=\n    </div>\n  </section>)', s, re.S)

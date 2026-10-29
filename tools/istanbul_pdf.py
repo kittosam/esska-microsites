@@ -136,6 +136,7 @@ def times(rng):
 
 def split_speaker(t):
     m = re.search(r"\s*<i>(.*?)</i>\s*$", t)
+    if m and not P.SHOW_SPEAKERS: return (t[:m.start()].strip(), "")
     return (t[:m.start()].strip(), m.group(1)) if m else (t.strip(), "")
 
 def slot_html(item):
@@ -280,8 +281,8 @@ for i, page in enumerate(pages):
                       + f'</div>{FOOT}</div>')
 sheets.append(f'<div class="sheet">{RH}<div class="body"><h2 class="sec">Faculty</h2>'
               f'<h3 class="sub">Chairs</h3>{fac(P.CHAIRS," inv")}'
-              f'<h3 class="sub">Proposed speakers</h3>{fac(P.PROPOSED)}'
-              f'<p class="note">Preliminary programme, subject to change. Moderators, faculty assignments and case presenters '
+              + (f'<h3 class="sub">Proposed speakers</h3>{fac(P.PROPOSED)}' if P.SHOW_SPEAKERS else '')
+              + f'<p class="note">Preliminary programme, subject to change. Moderators, faculty assignments and case presenters '
               f'are to be confirmed. Proposed faculty: invitations pending confirmation.</p>'
               f'</div>{FOOT}</div>')
 
