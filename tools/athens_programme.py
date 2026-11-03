@@ -21,7 +21,7 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
  ("11:17","12:17","Session II &middot; Groin, Lateral Hip and Extra-Articular Sports Injuries",[("Moderators","Lior Laver and Dora Papadopoulou")],
   [("Groin pain in athletes: a practical diagnostic pathway","Per H&ouml;lmich"),("Deep gluteal syndrome: who really needs surgery?","Bruno Capurro"),
    ("Proximal hamstring pathology: when should we repair?","Marc Tey Pons"),("Lateral hip pain: rehabilitation before intervention","Aleksandra Kr&oacute;likowska")],
-  "About 32 minutes of multidisciplinary case discussion. Panel: Per H&ouml;lmich, Bruno Capurro, Marc Tey Pons, Robert Prill and Suzanne Huurman.",False),
+  "About 32 minutes of multidisciplinary case discussion. Panel: Per H&ouml;lmich, Bruno Capurro, Marc Tey Pons, Aleksandra Kr&oacute;likowska and Suzanne Huurman.",False),
  ("12:17","13:17","Working lunch and pre-recorded surgery session",[("Format","Moderated pre-recorded surgical demonstrations, with the industry exhibition and networking")],[(x,"") for x in REC_TOPICS],REC_NOTE,"rec"),
  ("13:17","14:17","Session III &middot; The Athlete with DDH and Structural Borderlines",[("Moderators",f"{AP} and Panayiotis Christofilopoulos")],
   [("Borderline dysplasia: instability or impingement?","Michael Wettstein"),("Imaging structural instability beyond the LCEA","Margarita Natsika"),
@@ -30,8 +30,8 @@ DAY1=("1","2027-04-15","Thu","Thursday 15 April 2027","10:00","18:00",[
  ("14:17","14:47","Afternoon coffee and industry exhibition",[],[],None,True),
  ("14:47","15:47","Session IV &middot; Rehabilitation and Return to Sport",[("Moderators","Dora Papadopoulou and Tahsin Beyzadeoglu")],
   [("Rehabilitation progression after hip preservation surgery","Suzanne Huurman"),("Functional testing: what should we actually measure?","Francesco Della Villa"),
-   ("Return to training, sport and performance","Robert Prill"),("Sport-specific readiness and return-to-performance decision-making","Stefano Di Paolo")],
-  "About 32 minutes of return-to-sport cases, with audience votes on readiness to train, compete or delay, and on missing criteria. Panel: Suzanne Huurman, Francesco Della Villa, Robert Prill, Stefano Di Paolo and Lior Laver.",False),
+   ("Return to training, sport and performance","Aleksandra Kr&oacute;likowska"),("Sport-specific readiness and return-to-performance decision-making",'<abbr class="tbc" title="To be confirmed">TBC</abbr>')],
+  "About 32 minutes of return-to-sport cases, with audience votes on readiness to train, compete or delay, and on missing criteria. Panel: Suzanne Huurman, Francesco Della Villa, Aleksandra Kr&oacute;likowska and Lior Laver.",False),
  ("15:47","16:42","Session V &middot; Innovation: Evidence or Enthusiasm?",[("Moderators","Jakub Kautzner and Daniel P&eacute;rez-Prieto")],
   [("Orthobiologics in the athletic hip: what is actually supported?","Laura de Girolamo"),("AI, advanced imaging and 3D planning: what changes clinical decisions?","Klemen Stra&#382;ar"),
    ("Traction-free hip arthroscopy: evolution or revolution?","Matti Sepp&auml;nen")],
@@ -64,7 +64,7 @@ FACULTY=[("Sufian S. Ahmad","Germany"),("Ali Bajwa","United Kingdom"),("Nicolas 
  ("Francesco Della Villa","Italy"),("Safa G&uuml;rsoy","T&uuml;rkiye"),("Dani&euml;l Haverkamp","Netherlands"),("Per H&ouml;lmich","Denmark"),
  ("Suzanne Huurman","Netherlands"),("Vikas Khanduja","United Kingdom"),("Bar&#305;&#351; Kocao&#287;lu","T&uuml;rkiye"),("Aleksandra Kr&oacute;likowska","Poland"),("Lior Laver","Israel"),
  ("Jacek Mazek","Poland"),("Filippo Randelli","Italy"),("Andr&eacute; Sarmento","Portugal"),("Matti Sepp&auml;nen","Finland"),("Klemen Stra&#382;ar","Slovenia"),
- ("Marc Tey Pons","Spain"),("Michael Wettstein","Switzerland"),("Robert Prill","Germany"),("Stefano Di Paolo","Italy"),("Daniel P&eacute;rez-Prieto","Spain"),
+ ("Marc Tey Pons","Spain"),("Michael Wettstein","Switzerland"),("Daniel P&eacute;rez-Prieto","Spain"),
  ("Laura de Girolamo","Italy"),("Panayiotis Christofilopoulos","Switzerland"),("Dora Papadopoulou","United Kingdom and Greece"),
  ("Tahsin Beyzadeoglu","T&uuml;rkiye"),("Jakub Kautzner","Czech Republic"),("Eleftherios Tsiridis","Greece"),("Margarita Natsika","Greece")]
 
