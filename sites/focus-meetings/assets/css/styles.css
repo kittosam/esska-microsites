@@ -291,3 +291,12 @@ body{font-size:1.0625rem}
 @media(min-width:761px){
   .hero > .wrap{max-width:none;margin:0;padding-left:var(--hero-left,var(--pad))}
 }
+
+/* "Registration now open": an ivory band across the foot of the picture, in the
+   meeting's own colour, like the editorial ribbon on the event sites (November 2026) */
+.reg-open{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:.62rem 1rem;background:rgba(253,251,247,.9);backdrop-filter:blur(6px);
+  border-top:1px solid color-mix(in srgb,var(--c) 55%,transparent);
+  font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--c-d)}
+.reg-open i{width:7px;height:7px;border-radius:50%;background:var(--c);flex:none;
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent)}
