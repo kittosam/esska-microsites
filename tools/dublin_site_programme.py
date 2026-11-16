@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Writes the programme and faculty markup into Istanbul's index.html.
-Run from sites/dublin-2027:  python3 ../../tools/istanbul_site_programme.py"""
+"""Writes the course, programme and faculty markup into Dublin's index.html.
+Run from sites/dublin-2027:  python3 ../../tools/dublin_site_programme.py"""
 import sys, pathlib, re
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import dublin_programme as data
@@ -27,6 +27,18 @@ ICON = {
  "mic":'<svg viewBox="0 0 20 20" aria-hidden="true"><rect x="7.2" y="2.8" width="5.6" height="9" rx="2.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4.8 9.6a5.2 5.2 0 0 0 10.4 0M10 14.8v2.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
 }
 
+def names(xs):
+    xs=list(xs)
+    return xs[0] if len(xs)==1 else ", ".join(xs[:-1])+" and "+xs[-1]
+
+def people_line(who):
+    """The session chair and faculty, on one line under the title."""
+    if not who: return ""
+    out=f'<span class="ppl"><span class="pnote-l">Chair</span><b>{who["Chair"]}</b></span>'
+    if who.get("Faculty"):
+        out+=f'<span class="ppl"><span class="pnote-l">Faculty</span>{names(who["Faculty"])}</span>'
+    return f'<span class="ppeople">{out}</span>'
+
 def day_facts(day):
     items=day[3]
     a0,b0 = times(day[2])
@@ -44,15 +56,16 @@ def slot(rng):
 def day_block(day, num, label, iso, wk, dnum, mon, full, hidden):
     span, sess, talks_txt = day_facts(day)
     # sessions here are not broken into talks, so the talk count is left off
-    talks_metric = f'<span>{ICON["mic"]}{talks_txt}</span>' if not talks_txt.startswith("0 ") else ""
+    talks_metric = ""
     rows=[]
-    for (rng,dur,title,talks,note,brk) in day[3]:
+    for row in day[3]:
+        (rng,dur,title,talks,note,brk), who = row[:6], (row[6] if len(row)>6 else None)
         if brk or not talks:
             rows.append(
 f'''          <div class="prow{" break" if brk else ""}" data-day="{num}">
             <div class="prow-static">
               {slot(rng)}
-              <span class="pmain-head"><span class="ptitle">{title}</span>{head_line(note,0) if note else ""}</span>
+              <span class="pmain-head"><span class="ptitle">{title}</span>{people_line(who)}{head_line(note,0) if note else ""}</span>
             </div>
           </div>''')
             continue
@@ -62,7 +75,7 @@ f'''          <div class="prow{" break" if brk else ""}" data-day="{num}">
 f'''          <div class="prow" data-day="{num}">
             <button class="prow-btn" type="button" aria-expanded="false">
               {slot(rng)}
-              <span class="pmain-head"><span class="ptitle">{title}</span>{head_line(note, len(talks))}</span>
+              <span class="pmain-head"><span class="ptitle">{title}</span>{people_line(who)}{head_line(note, len(talks))}</span>
               <span class="pchev" aria-hidden="true"></span>
             </button>
             <div class="ptalks-wrap" hidden>
@@ -123,7 +136,7 @@ COURSE = f'''      <div class="head rv course-head"><p class="eyebrow">The cours
       </div>'''
 
 PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p><h2>Day <span class="lt">by day</span></h2></div>
-      <p class="prog-note rv">Comprehensive programme, subject to change. Faculty and session chairs will be published here as they are confirmed.</p>
+      <p class="prog-note rv">Draft programme, subject to change.</p>
       <div class="summary">
         <div class="sm rv"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></i><b>2 days</b><span>Scientific programme</span><em>Friday and Saturday</em></div>
         <div class="sm rv d1"><i class="sm-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H10l-3.5 3v-3h-2a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z"/><path d="M19.5 9.5v6.2a2 2 0 0 1-2 2"/></svg></i><b>15&#8239;h</b><span>Hours of science</span><em>workshops, cases and discussion</em></div>
@@ -135,7 +148,7 @@ PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p
           <div class="pctl-search">
             <label class="plbl" for="progQ">Search the programme</label>
             <input id="progQ" type="search" autocomplete="off"
-                   placeholder="Search talks and sessions">
+                   placeholder="Search sessions and faculty">
           </div>
         </div>
         <div class="pctl-row">
@@ -153,10 +166,14 @@ PROG = f'''      <div class="head rv"><p class="eyebrow">Scientific programme</p
       </div>'''
 
 FAC = f'''      <div class="head rv"><p class="eyebrow">Faculty</p><h2>Chairs <span class="lt">and faculty</span></h2>
-        <p class="lead one-line" style="margin-top:1rem">The faculty will be published here as invitations are accepted. The meeting is for {data.AUDIENCE[0].lower()}{data.AUDIENCE[1:]}</p></div>
+        <p class="lead one-line" style="margin-top:1rem">Draft faculty, subject to change. The meeting is for {data.AUDIENCE[0].lower()}{data.AUDIENCE[1:]}</p></div>
       <h3 class="fac-h">Chairs</h3>
       <div class="fac-grid">
 {fac_grid(data.CHAIRS, photos=data.CHAIR_PHOTOS)}
+      </div>
+      <h3 class="fac-h">Faculty</h3>
+      <div class="fac-grid">
+{fac_grid(data.FACULTY)}
       </div>'''
 
 p=pathlib.Path("index.html"); s=p.read_text(encoding="utf-8")
@@ -172,4 +189,4 @@ s = s[:prog_old.start()] + PROG + s[prog_old.end():]
 fac_old = re.search(r'      <div class="head rv"><p class="eyebrow">Faculty</p>.*?(?=\n    </div>\n  </section>)', s, re.S)
 s = s[:fac_old.start()] + FAC + s[fac_old.end():]
 p.write_text(s, encoding="utf-8")
-print("istanbul programme and faculty written")
+print("dublin course, programme and faculty written")

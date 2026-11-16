@@ -2552,3 +2552,36 @@ body{font-size:1.0625rem}
 
 /* the travel caveat sits above the route cards, as a lead-in, not under them */
 .routes-note.routes-note-top{margin:0 0 1.6rem;text-align:left;font-size:.95rem}
+
+/* ---------- session chair and faculty under each programme title (November 2026) ---------- */
+.ppeople{display:flex;flex-wrap:wrap;gap:.15rem 1.4rem;font-size:.95rem;line-height:1.5;color:var(--ink)}
+.ppeople .pnote-l{font-size:.74rem;margin-right:.55rem}
+.ppeople b{font-weight:700;color:var(--navy)}
+.prow.break .ppeople{display:none}
+
+/* ---------- Dublin Skylon Hotel: how to book, and Book a room buttons (November 2026) ---------- */
+.v-stay-b .stay-h{font-size:1rem;font-weight:800;color:var(--navy);letter-spacing:-.01em;margin:1.4rem 0 .6rem}
+.stay-steps,.stay-notes{margin:0;padding:0;list-style:none;max-width:72ch;color:var(--ink);font-size:.98rem;line-height:1.55}
+.stay-steps{counter-reset:step}
+.stay-steps li{counter-increment:step;position:relative;padding:.32rem 0 .32rem 2.3rem}
+.stay-steps li::before{content:counter(step);position:absolute;left:0;top:.32rem;width:1.55rem;height:1.55rem;border-radius:50%;
+  display:grid;place-items:center;background:var(--ice);color:var(--ac);font-size:.78rem;font-weight:800}
+.stay-steps a{color:var(--ac);text-decoration:underline;text-underline-offset:3px}
+.stay-steps b{font-weight:700;color:var(--navy)}
+.stay-code{letter-spacing:.08em;background:var(--ice);padding:.05rem .4rem;border-radius:4px}
+.stay-notes li{padding:.45rem 0;border-top:1px solid var(--line);color:var(--muted)}
+.stay-notes li:first-child{border-top:0}
+.stay-notes b{color:var(--ink);font-weight:700}
+.v-stay-b p:last-child{margin-bottom:0}
+.v-stay-when b{letter-spacing:.06em}
+
+.pill-book .pill-i svg.bed-ic,.v-card .btn-row .pill.pill-book .pill-i svg.bed-ic{width:20px;height:20px;margin:0;fill:none;stroke:#fff}
+.v-card .btn-row .pill.pill-book,.reg-stay .pill.pill-book{background:var(--cta-fill);border-width:2px;
+  box-shadow:0 0 0 4px rgba(var(--cta-rgb),.12);font-weight:700;letter-spacing:.1em;gap:18px;padding:7px 9px 7px 25px}
+.v-card .btn-row .pill.pill-book .pill-i,.reg-stay .pill.pill-book .pill-i{width:34px;height:34px}
+.v-card .btn-row .pill.pill-book:hover,.v-card .btn-row .pill.pill-book:focus-visible,
+.reg-stay .pill.pill-book:hover,.reg-stay .pill.pill-book:focus-visible{background:var(--cta-fill-h);box-shadow:0 0 0 7px rgba(var(--cta-rgb),.16)}
+.reg-stay .btn-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem;margin-top:1.2rem}
+.v-stay-when .stay-book{align-self:flex-start;margin-top:1.1rem;background:var(--cta-fill);border-color:var(--cta-fill);color:var(--cta-ink)}
+.v-stay-when .stay-book span{color:var(--cta-ink);white-space:nowrap;letter-spacing:.12em}
+.v-stay-when .stay-book:hover,.v-stay-when .stay-book:focus-visible{background:#fff;border-color:#fff}
