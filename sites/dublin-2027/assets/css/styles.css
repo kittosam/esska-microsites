@@ -2652,3 +2652,12 @@ body{font-size:1.0625rem}
 .ph-meta .pill.ph-book > span:first-child{color:#E4F5EE;-webkit-text-fill-color:#E4F5EE}
 .ph-meta .pill.ph-book .pill-i,.ph-meta .pill.ph-book:hover .pill-i{background:#D3EEE3}
 .ph-meta .pill.ph-book:hover,.ph-meta .pill.ph-book:focus-visible{background:rgba(211,238,227,.26)}
+
+/* accommodation: heading and intro first, then the hotel photos, then how to book (November 2026) */
+.stay-head{margin-top:clamp(2.4rem,5vw,3.6rem);max-width:72ch}
+.stay-head .eyebrow{margin:0 0 .45rem}
+.stay-head h3{font-size:clamp(1.35rem,2vw,1.7rem);color:var(--navy);margin:0 0 .7rem;letter-spacing:-.02em}
+.stay-head p:not(.eyebrow){margin:0;color:var(--ink)}
+.stay-head + .stay-photos{margin-top:clamp(1.1rem,2vw,1.5rem)}
+.stay-photos + .v-stay{margin-top:clamp(1rem,2vw,1.4rem)}
+.v-stay-b .stay-h:first-child{margin-top:0}
