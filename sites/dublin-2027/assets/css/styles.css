@@ -2585,3 +2585,50 @@ body{font-size:1.0625rem}
 .v-stay-when .stay-book{align-self:flex-start;margin-top:1.1rem;background:var(--cta-fill);border-color:var(--cta-fill);color:var(--cta-ink)}
 .v-stay-when .stay-book span{color:var(--cta-ink);white-space:nowrap;letter-spacing:.12em}
 .v-stay-when .stay-book:hover,.v-stay-when .stay-book:focus-visible{background:#fff;border-color:#fff}
+
+/* industry partner in brackets after a Re-live 1 speaker, a step quieter than the name */
+.psp .pco{display:block;font-size:.84rem;font-weight:500;color:var(--muted);line-height:1.35}
+
+/* homepage band: the registration date on its own line, as a quiet outlined chip */
+.bleed p.reg-opens{display:inline-flex;align-items:center;gap:.65rem;max-width:none;margin:1.4rem auto 0;
+  padding:.55rem 1.15rem;border:1.5px solid rgba(166,216,197,.7);border-radius:999px;
+  background:rgba(166,216,197,.12);backdrop-filter:blur(4px);font-size:1.02rem;font-weight:500;line-height:1.3}
+.bleed p.reg-opens svg{width:20px;height:20px;flex:none;color:#A6D8C5}
+.bleed p.reg-opens b{font-weight:800;color:#fff}
+
+/* Dublin Skylon Hotel photos under the booking box: the exterior large, three interiors beside it */
+.stay-photos{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;
+  margin-top:clamp(1rem,2vw,1.4rem);height:clamp(320px,34vw,470px)}
+.stay-photos figure{position:relative;margin:0;overflow:hidden;border-radius:14px;background:var(--ice)}
+.stay-photos .sp-main{grid-row:1/3}
+.stay-photos figure:nth-child(4){grid-column:2/4}
+.stay-photos img{display:block;width:100%;height:100%;object-fit:cover}
+.stay-photos figcaption{position:absolute;left:10px;bottom:10px;padding:.3rem .6rem;border-radius:6px;
+  background:rgba(14,32,30,.72);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:700px){
+  .stay-photos{grid-template-columns:1fr 1fr;grid-template-rows:auto;height:auto}
+  .stay-photos .sp-main{grid-column:1/3;grid-row:auto;aspect-ratio:3/2}
+  .stay-photos figure:nth-child(4){grid-column:auto}
+  .stay-photos figure:not(.sp-main){aspect-ratio:4/3}
+}
+
+/* hero date box: the registration date on its own row under the venue and early rate */
+.ebar-foot{flex-wrap:wrap}
+.ebar-reg{flex-basis:100%;display:flex;align-items:center;gap:.55rem;margin:.75rem 0 0;padding-top:.7rem;
+  border-top:1px solid rgba(255,255,255,.18);color:#C9E6DA;font-size:clamp(.95rem,1.08vw,1.04rem);line-height:1.3}
+.ebar-reg svg{width:18px;height:18px;flex:none;color:var(--ac-l)}
+.ebar-reg b{color:#fff;font-weight:700}
+
+/* venue facts: the campus map link sits right under the address */
+.v-facts dd .vf-map{display:flex;width:fit-content;justify-content:flex-start;white-space:nowrap;align-items:center;gap:.45rem;margin-top:.6rem;font-size:.92rem;font-weight:700;
+  color:var(--ac);text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--ac) 35%,transparent);
+  text-underline-offset:4px;text-decoration-thickness:2px}
+.vf-map svg{width:15px;height:12px;flex:none;transition:transform .25s}
+.vf-map:hover{text-decoration-color:var(--ac)}
+.vf-map:hover svg{transform:translateX(3px)}
+/* on short laptop screens the hero buttons must stay above the fold, so the early-rate
+   line (already in the header) gives way to the registration date, without the rule */
+@media (min-width:1081px) and (max-height:820px){
+  .ebar-foot .ebar-early{display:none}
+  .ebar-foot .ebar-reg{margin-top:.15rem;padding-top:0;border-top:0}
+}

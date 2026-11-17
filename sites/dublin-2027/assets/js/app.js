@@ -120,15 +120,19 @@ if(EARLY_RATE){
   let term = "", activeDay = "1";
 
   const rows = [...days.querySelectorAll(".prow")];
-  rows.forEach(r => r.querySelectorAll(".ptitle,.ptx,.psp,.psub:not(.psub-note),.pnote-t").forEach(
-    el => el.dataset.raw = el.textContent));
+  // raw text for matching, and the original markup to put back when a cell does not match
+  // (speaker cells carry a company line and TBC tags, the faculty lines carry labels)
+  const FIELDS = ".ptitle,.ptx,.psp,.psub:not(.psub-note),.pnote-t,.ppl";
+  const orig = new WeakMap();
+  rows.forEach(r => r.querySelectorAll(FIELDS).forEach(
+    el => { el.dataset.raw = el.textContent; orig.set(el, el.innerHTML); }));
 
   const esc = t => t.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
   const paint = (el, t) => {
     const raw = el.dataset.raw;
-    if(!t){ el.textContent = raw; return false; }
+    if(!t){ el.innerHTML = orig.get(el); return false; }
     const i = raw.toLowerCase().indexOf(t);
-    if(i < 0){ el.textContent = raw; return false; }
+    if(i < 0){ el.innerHTML = orig.get(el); return false; }
     el.innerHTML = esc(raw.slice(0,i)) + "<mark>" + esc(raw.slice(i,i+t.length)) +
                    "</mark>" + esc(raw.slice(i+t.length));
     return true;
@@ -149,7 +153,7 @@ if(EARLY_RATE){
       if(row.dataset.day !== activeDay) return;
       const isBreak = row.classList.contains("break");
       let hit = false;
-      row.querySelectorAll(".ptitle,.ptx,.psp,.psub:not(.psub-note),.pnote-t").forEach(el => { if(paint(el, term)) hit = true; });
+      row.querySelectorAll(FIELDS).forEach(el => { if(paint(el, term)) hit = true; });
       const visible = isBreak ? !term : (!term || hit);
       row.hidden = !visible;
       if(visible && !isBreak) shown++;

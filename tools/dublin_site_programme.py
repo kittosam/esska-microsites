@@ -128,10 +128,12 @@ COURSE = f'''      <div class="head rv course-head"><p class="eyebrow">The cours
         <div class="course-tabs" role="tablist" aria-label="About the course">
 {course_tab(0, f"{len(data.PHILOSOPHY)} formats", "What the course covers", True)}
 {course_tab(1, f"{len(data.OBJECTIVES)} skills", "What you will take away", False)}
+{course_tab(2, f"{len(data.TOPICS)} questions", "Faculty discussion topics", False)}
         </div>
         <div class="course-panels">
 {course_panel(0, data.PHILOSOPHY, False)}
 {course_panel(1, data.OBJECTIVES, True)}
+{course_panel(2, data.TOPICS, True)}
         </div>
       </div>'''
 

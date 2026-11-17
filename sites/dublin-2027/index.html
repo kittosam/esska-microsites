@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=2026111601">
+<link rel="stylesheet" href="assets/css/styles.css?v=2026111707">
 </head>
 <body>
 
@@ -80,6 +80,7 @@
           <div class="ebar-foot">
             <p class="ebar-venue">Dublin City University <span>&middot; Block E</span></p>
             <p class="ebar-early"><i aria-hidden="true"></i><span>Early rate until <span id="erDate2"><abbr class="tbc" title="To be confirmed">TBC</abbr></span></span></p>
+            <p class="ebar-reg"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Registration opens on <b>1&nbsp;December&nbsp;2026</b></span></p>
           </div>
         </div>
 
@@ -200,9 +201,10 @@
     <div class="scrim"></div>
     <div class="wrap">
       <div class="rv">
-        <p class="eyebrow">Registration opens on 1 December 2026</p>
+        <p class="eyebrow">Save the date</p>
         <h2>Join us in <span class="lt">Dublin</span></h2>
-        <p>Two days on primary ACL reconstruction, rotational laxity and rehabilitation, in Dublin on 14<i class="dash">&ndash;</i>15&nbsp;May&nbsp;2027. Registration opens on 1&nbsp;December&nbsp;2026.</p>
+        <p>Two days on primary ACL reconstruction, rotational laxity and rehabilitation, in Dublin on 14<i class="dash">&ndash;</i>15&nbsp;May&nbsp;2027.</p>
+        <p class="reg-opens"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Registration opens on <b>1&nbsp;December&nbsp;2026</b></span></p>
       </div>
       <div class="count rv d1" id="erCount">
         <div><b id="cD">00</b><span>Days</span></div>
@@ -240,11 +242,13 @@
       <div class="course-box rv" id="courseBox">
         <div class="course-tabs" role="tablist" aria-label="About the course">
           <button class="course-tab" type="button" role="tab" id="courseTab0" aria-controls="coursePanel0" aria-selected="true"><small>5 formats</small>What the course covers</button>
-          <button class="course-tab" type="button" role="tab" id="courseTab1" aria-controls="coursePanel1" aria-selected="false" tabindex="-1"><small>8 skills</small>What you will take away</button>
+          <button class="course-tab" type="button" role="tab" id="courseTab1" aria-controls="coursePanel1" aria-selected="false" tabindex="-1"><small>9 skills</small>What you will take away</button>
+          <button class="course-tab" type="button" role="tab" id="courseTab2" aria-controls="coursePanel2" aria-selected="false" tabindex="-1"><small>6 questions</small>Faculty discussion topics</button>
         </div>
         <div class="course-panels">
           <ul class="course-panel" role="tabpanel" id="coursePanel0" aria-labelledby="courseTab0"><li><span class="course-n">01</span><span>Live patient assessment and clinical examination workshops.</span></li><li><span class="course-n">02</span><span>Interactive MRI interpretation and surgical decision-making algorithms.</span></li><li><span class="course-n">03</span><span>Re-live surgery sessions with expert faculty commentary.</span></li><li><span class="course-n">04</span><span>Comprehensive management of rotational laxity.</span></li><li><span class="course-n">05</span><span>A practical rehabilitation workshop led by surgeons and specialist physiotherapists.</span></li></ul>
-          <ul class="course-panel" role="tabpanel" id="coursePanel1" aria-labelledby="courseTab1" hidden><li><span class="course-n">01</span><span>Assess the ACL-injured patient using a structured clinical approach.</span></li><li><span class="course-n">02</span><span>Interpret MRI findings and integrate them into surgical decision-making.</span></li><li><span class="course-n">03</span><span>Select the most appropriate graft for individual patients.</span></li><li><span class="course-n">04</span><span>Optimise graft harvest, tunnel placement, graft passage and fixation.</span></li><li><span class="course-n">05</span><span>Identify patients at risk of residual rotational laxity.</span></li><li><span class="course-n">06</span><span>Understand the indications and techniques for additional peripheral procedures.</span></li><li><span class="course-n">07</span><span>Understand the indications and techniques for treating additional injuries associated with ACL rupture.</span></li><li><span class="course-n">08</span><span>Manage common early rehabilitation challenges after ACL reconstruction.</span></li></ul>
+          <ul class="course-panel" role="tabpanel" id="coursePanel1" aria-labelledby="courseTab1" hidden><li><span class="course-n">01</span><span>Assess the ACL-injured patient using a structured clinical approach.</span></li><li><span class="course-n">02</span><span>Interpret MRI findings and integrate them into surgical decision-making.</span></li><li><span class="course-n">03</span><span>Select the most appropriate graft for individual patients.</span></li><li><span class="course-n">04</span><span>Optimise graft harvest, tunnel placement, graft passage and fixation.</span></li><li><span class="course-n">05</span><span>Identify patients at risk of residual rotational laxity.</span></li><li><span class="course-n">06</span><span>Understand the indications and techniques for additional peripheral procedures.</span></li><li><span class="course-n">07</span><span>Understand the indications and techniques for treating additional injuries associated with ACL rupture.</span></li><li><span class="course-n">08</span><span>Manage common early rehabilitation challenges after ACL reconstruction.</span></li><li><span class="course-n">09</span><span>Use the meeting app to pose questions before each session and to highlight the key learning points afterwards.</span></li></ul>
+          <ul class="course-panel" role="tabpanel" id="coursePanel2" aria-labelledby="courseTab2" hidden><li><span class="course-n">01</span><span>What graft for which patient?</span></li><li><span class="course-n">02</span><span>When is ACL reconstruction alone enough?</span></li><li><span class="course-n">03</span><span>Managing rotational laxity in young athletes.</span></li><li><span class="course-n">04</span><span>Managing ACL reconstruction in patients with open growth plates.</span></li><li><span class="course-n">05</span><span>Top ten technical errors in ACL reconstruction.</span></li><li><span class="course-n">06</span><span>How to optimise rehabilitation after surgery.</span></li></ul>
         </div>
       </div>
       <!-- /course-intro -->
@@ -333,11 +337,11 @@
           <div class="prow" data-day="1">
             <button class="prow-btn" type="button" aria-expanded="false">
               <span class="ptime"><span class="pstart">14:15</span><span class="pdur">165 min</span></span>
-              <span class="pmain-head"><span class="ptitle">Re-live surgery 1 &middot; Graft harvest and preparation</span><span class="ppeople"><span class="ppl"><span class="pnote-l">Chair</span><b>Ciara Stevenson</b></span></span><span class="psub psub-note"><span class="pnote-l">Format</span><span class="pnote-t">Five short video sessions on hamstring, quadriceps, BPTB, peroneus longus and rectus femoris harvest, with the emphasis on surgical workflow, graft preparation, avoiding complications and technical pearls.</span></span></span>
+              <span class="pmain-head"><span class="ptitle">Re-live surgery 1 &middot; Graft harvest and preparation</span><span class="ppeople"><span class="ppl"><span class="pnote-l">Chair</span><b>Ciara Stevenson</b></span></span><span class="psub psub-note"><span class="pnote-l">Format</span><span class="pnote-t">Five short video sessions: hamstring harvest, quadriceps harvest, BPTB harvest, peroneus longus split and rectus femoris harvest, with the emphasis on surgical workflow, graft preparation, avoiding complications and technical pearls.</span></span></span>
               <span class="pchev" aria-hidden="true"></span>
             </button>
             <div class="ptalks-wrap" hidden>
-              <ul class="ptalks"><li class="ptalk"><span class="ptx">Patellar tendon</span><span class="psp">Andy Williams</span></li><li class="ptalk"><span class="ptx">Hamstring</span><span class="psp">Mihai Vioreanu</span></li><li class="ptalk"><span class="ptx">Quadriceps</span><span class="psp">Tim Whitehead</span></li><li class="ptalk"><span class="ptx">Rectus femoris</span><span class="psp">Nicolas Bouguennec</span></li><li class="ptalk"><span class="ptx">Peroneus longus</span><span class="psp">Sven Scheffler</span></li></ul>
+              <ul class="ptalks"><li class="ptalk"><span class="ptx">Patellar tendon</span><span class="psp">Andy Williams <span class="pco">(Innovate Orthopaedics)</span></span></li><li class="ptalk"><span class="ptx">Hamstring</span><span class="psp">Mihai Vioreanu <span class="pco">(Signature Orthopaedics)</span></span></li><li class="ptalk"><span class="ptx">Quadriceps</span><span class="psp">Tim Whitehead <span class="pco">(Medacta)</span></span></li><li class="ptalk"><span class="ptx">Rectus femoris</span><span class="psp">Nicolas Bouguennec <span class="pco">(SBM)</span></span></li><li class="ptalk"><span class="ptx">Peroneus longus</span><span class="psp">Sven Scheffler <span class="pco">(<abbr class="tbc" title="To be confirmed">TBC</abbr>)</span></span></li></ul>
             </div>
           </div>
           <div class="prow break" data-day="1">
@@ -377,7 +381,7 @@
           <div class="prow" data-day="2">
             <div class="prow-static">
               <span class="ptime"><span class="pstart">11:15</span><span class="pdur">105 min</span></span>
-              <span class="pmain-head"><span class="ptitle">Re-live surgery 3 &middot; Surgical pearls, pitfalls and performance</span><span class="ppeople"><span class="ppl"><span class="pnote-l">Chair</span><b>Brian Devitt</b></span><span class="ppl"><span class="pnote-l">Faculty</span>Andy Williams, Nicolas Bouguennec and Mihai Vioreanu</span></span><span class="psub psub-note"><span class="pnote-l">Format</span><span class="pnote-t">Complications, including arthrogenic muscle inhibition, arthrofibrosis, persistent inflammation and cyclops lesions; common technical errors and how to troubleshoot them; workflow, efficiency and performance for ACL surgeons.</span></span></span>
+              <span class="pmain-head"><span class="ptitle">Re-live surgery 3 &middot; Surgical pearls, pitfalls and performance</span><span class="ppeople"><span class="ppl"><span class="pnote-l">Chair</span><b>Brian Devitt</b></span><span class="ppl"><span class="pnote-l">Faculty</span>Andy Williams, Nicolas Bouguennec and Mihai Vioreanu</span></span><span class="psub psub-note"><span class="pnote-l">Format</span><span class="pnote-t">Complications, including arthrogenic muscle inhibition, arthrofibrosis, persistent inflammation and cyclops lesions; common technical errors, troubleshooting, workflow optimisation, efficiency and performance enhancement for ACL surgeons.</span></span></span>
             </div>
           </div>
           <div class="prow break" data-day="2">
@@ -463,13 +467,12 @@
           <dl class="v-facts">
             <div><dt>Venue</dt><dd>Dublin City University<br><small>St Patrick&rsquo;s Campus</small></dd></div>
             <div><dt>Dates</dt><dd>14<i class="dash">&ndash;</i>15 May 2027</dd></div>
-            <div><dt>Address</dt><dd>Block E, St Patrick&rsquo;s Campus<br>Drumcondra Road Upper<br>Dublin 9, D09 YE24</dd></div>
+            <div><dt>Address</dt><dd>Block E, St Patrick&rsquo;s Campus<br>Drumcondra Road Upper<br>Dublin 9, D09 YE24<a class="vf-map" href="https://www.dcu.ie/campus-maps" target="_blank" rel="noopener">Campus map<svg viewBox="0 0 16 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h13M9.5 1.5 14 6l-4.5 4.5"/></svg></a></dd></div>
             <div><dt>Meeting rooms</dt><dd><abbr class="tbc" title="To be confirmed">TBC</abbr></dd></div>
           </dl>
           <div class="btn-row">
             <a class="pill pill-book" href="https://www.dublinskylonhotel.com" target="_blank" rel="noopener"><span>Book a room</span><span class="pill-i" aria-hidden="true"><svg class="bed-ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 18.5V7.5M3.5 14h17v4.5M20.5 14v-2.2a2.8 2.8 0 0 0-2.8-2.8H11v5"/><circle cx="7.3" cy="11.2" r="1.8"/></svg></span></a>
             <a class="pill" href="https://www.google.com/maps/dir/?api=1&amp;destination=DCU+St+Patrick%27s+Campus%2C+Drumcondra+Road+Upper%2C+Dublin+9%2C+D09+YE24&amp;travelmode=transit" target="_blank" rel="noopener"><span>Get directions</span><span class="pill-i" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></a>
-            <a class="tlink" href="https://www.dcu.ie/campus-maps" target="_blank" rel="noopener">DCU campus maps</a>
           </div>
         </div>
       </div>
@@ -502,6 +505,12 @@
           <small>Valid 13<i class="dash">&ndash;</i>15 May 2027, on the hotel&rsquo;s own website only</small>
           <a class="stick-reg stay-book" href="https://www.dublinskylonhotel.com" target="_blank" rel="noopener"><span>Book your room</span><svg class="reg-arrow" viewBox="0 0 16 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h13M9.5 1.5 14 6l-4.5 4.5"/></svg></a>
         </div>
+      </div>
+      <div class="stay-photos rv" aria-label="Dublin Skylon Hotel">
+        <figure class="sp-main"><img src="assets/img/skylon-exterior-2026.jpg" alt="The Dublin Skylon Hotel at dusk" loading="lazy"><figcaption>Dublin Skylon Hotel</figcaption></figure>
+        <figure><img src="assets/img/skylon-lounge-2026.jpg" alt="The hotel lounge" loading="lazy"><figcaption>Lounge</figcaption></figure>
+        <figure><img src="assets/img/skylon-bar-2026.jpg" alt="The hotel bar" loading="lazy"><figcaption>Bar</figcaption></figure>
+        <figure><img src="assets/img/skylon-dining-2026.jpg" alt="The hotel dining room" loading="lazy"><figcaption>Dining room</figcaption></figure>
       </div>
     </div>
   </section>
@@ -745,6 +754,6 @@
   <a class="stick-reg" href="#" data-go="registration"><span>Register</span><svg class="reg-arrow" viewBox="0 0 16 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h13M9.5 1.5 14 6l-4.5 4.5"/></svg></a>
 </div>
 
-<script src="assets/js/app.js?v=2026101322"></script>
+<script src="assets/js/app.js?v=2026111701"></script>
 </body>
 </html>

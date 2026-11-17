@@ -4,13 +4,14 @@
 # Rows are (time range, duration, title, [talks], note, is_break[, chair and faculty]).
 
 # Session chairs and faculty from "ACL Focus_Course - Dublin - Speaker Allocation.doc"
-# (Brian Devitt, 12 November 2026). Industry partners named against the Re-live 1 videos
-# are left off the site on purpose.
+# (Brian Devitt, 12 November 2026). The industry partner for each Re-live 1 video is shown
+# in brackets after the speaker (added 17 November 2026 at ESSKA's request).
 TBC = '<abbr class="tbc" title="To be confirmed">TBC</abbr>'
 AW, CS, NB, TW = "Andy Williams", "Ciara Stevenson", "Nicolas Bouguennec", "Tim Whitehead"
 MV, JR, EK = "Mihai Vioreanu", "James Robinson", "Enda King"
 BD, MS, SS = "Brian Devitt", "Martyn Snow", "Sven Scheffler"
 def who(chair, *faculty): return {"Chair": chair, "Faculty": faculty}
+def co(name): return f' <span class="pco">({name})</span>'
 
 DAY1 = ("1", "Friday, 14 May 2027", "08:00&ndash;17:00", [
  ("08:00&ndash;08:30","30 min","Registration and coffee", [], "", True),
@@ -27,9 +28,9 @@ DAY1 = ("1", "Friday, 14 May 2027", "08:00&ndash;17:00", [
   "Format|A faculty-led discussion comparing hamstring, quadriceps, BPTB, peroneus longus and rectus femoris autografts, using real-world cases.", False,
   who(SS, EK, AW, MV)),
  ("14:15&ndash;17:00","165 min","Re-live surgery 1 &middot; Graft harvest and preparation",
-  [f"Patellar tendon <i>{AW}</i>", f"Hamstring <i>{MV}</i>", f"Quadriceps <i>{TW}</i>",
-   f"Rectus femoris <i>{NB}</i>", f"Peroneus longus <i>{SS}</i>"],
-  "Format|Five short video sessions on hamstring, quadriceps, BPTB, peroneus longus and rectus femoris harvest, with the emphasis on surgical workflow, graft preparation, avoiding complications and technical pearls.", False,
+  [f"Patellar tendon <i>{AW}{co('Innovate Orthopaedics')}</i>", f"Hamstring <i>{MV}{co('Signature Orthopaedics')}</i>",
+   f"Quadriceps <i>{TW}{co('Medacta')}</i>", f"Rectus femoris <i>{NB}{co('SBM')}</i>", f"Peroneus longus <i>{SS}{co(TBC)}</i>"],
+  "Format|Five short video sessions: hamstring harvest, quadriceps harvest, BPTB harvest, peroneus longus split and rectus femoris harvest, with the emphasis on surgical workflow, graft preparation, avoiding complications and technical pearls.", False,
   who(CS)),
  ("17:00&ndash;17:05","5 min","Close of day one", [], "", True),
 ])
@@ -41,7 +42,7 @@ DAY2 = ("2", "Saturday, 15 May 2027", "08:00&ndash;17:00", [
   who(MS, JR, TW, CS)),
  ("11:00&ndash;11:15","15 min","Coffee break", [], "", True),
  ("11:15&ndash;13:00","105 min","Re-live surgery 3 &middot; Surgical pearls, pitfalls and performance", [],
-  "Format|Complications, including arthrogenic muscle inhibition, arthrofibrosis, persistent inflammation and cyclops lesions; common technical errors and how to troubleshoot them; workflow, efficiency and performance for ACL surgeons.", False,
+  "Format|Complications, including arthrogenic muscle inhibition, arthrofibrosis, persistent inflammation and cyclops lesions; common technical errors, troubleshooting, workflow optimisation, efficiency and performance enhancement for ACL surgeons.", False,
   who(BD, AW, NB, MV)),
  ("13:00&ndash;14:00","60 min","Lunch", [], "", True),
  ("14:00&ndash;14:45","45 min","Thinking outside the notch &middot; Rotational laxity in the primary ACL patient", [],
@@ -73,6 +74,16 @@ OBJECTIVES = [
  "Understand the indications and techniques for additional peripheral procedures.",
  "Understand the indications and techniques for treating additional injuries associated with ACL rupture.",
  "Manage common early rehabilitation challenges after ACL reconstruction.",
+ "Use the meeting app to pose questions before each session and to highlight the key learning points afterwards.",
+]
+# "Potential Faculty Discussion Topics" in the document, shown as the third course tab
+TOPICS = [
+ "What graft for which patient?",
+ "When is ACL reconstruction alone enough?",
+ "Managing rotational laxity in young athletes.",
+ "Managing ACL reconstruction in patients with open growth plates.",
+ "Top ten technical errors in ACL reconstruction.",
+ "How to optimise rehabilitation after surgery.",
 ]
 AUDIENCE = ("Orthopaedic surgeons, fellows, senior trainees, physiotherapists and members of "
             "the multidisciplinary ACL team.")
