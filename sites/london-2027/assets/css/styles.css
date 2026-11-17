@@ -2592,3 +2592,9 @@ body{font-size:1.0625rem}
 
 /* the travel caveat sits above the route cards, as a lead-in, not under them */
 .routes-note.routes-note-top{margin:0 0 1.6rem;text-align:left;font-size:.95rem}
+
+/* the London route has three stops and two legs, so the strip uses five columns, not seven,
+   and sits centred with even space on both sides */
+@media(min-width:901px){
+  .journey{grid-template-columns:auto minmax(0,1fr) auto minmax(0,1fr) auto}
+}

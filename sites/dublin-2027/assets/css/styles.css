@@ -2661,3 +2661,9 @@ body{font-size:1.0625rem}
 .stay-head + .stay-photos{margin-top:clamp(1.1rem,2vw,1.5rem)}
 .stay-photos + .v-stay{margin-top:clamp(1rem,2vw,1.4rem)}
 .v-stay-b .stay-h:first-child{margin-top:0}
+
+/* the Dublin route has three stops and two legs, so the strip uses five columns, not seven,
+   and sits centred with even space on both sides */
+@media(min-width:901px){
+  .journey{grid-template-columns:auto minmax(0,1fr) auto minmax(0,1fr) auto}
+}
