@@ -45,6 +45,18 @@ document.querySelectorAll("[data-to]").forEach(el=>cio.observe(el));
    time, e.g. EARLY_RATE="2027-MM-DDT23:59:59+01:00" (or +00:00 before 28 March 2027).) */
 const MEETING_START="2027-05-14T08:00:00+01:00";
 const EARLY_RATE="2027-02-28T23:59:59+00:00";
+
+/* Registration opens 25 November 2026 (Irish time). Until then every Register button
+   ([data-reg]) opens the ESSKA event page; from then on they open the registration form. */
+const REG_OPEN="2026-11-25T00:00:00+00:00";
+const REG_URL="https://www.esska.org/events/register.aspx?id=2095544";
+if(REG_OPEN && Date.now()>=new Date(REG_OPEN).getTime()){
+  document.querySelectorAll("[data-reg]").forEach(a=>a.href=REG_URL);
+  const cta=document.getElementById("regCta");
+  if(cta){cta.href=REG_URL; cta.querySelector("span").textContent="Register on esska.org";}
+  /* wording that says "opens on 25 November" carries its replacement in data-reg-open */
+  document.querySelectorAll("[data-reg-open]").forEach(e=>e.innerHTML=e.dataset.regOpen);
+}
 /* The early-rate deadline is the last moment of a day in the meeting's own time zone.
    Formatting that instant in the reader's time zone moved the date on by a day for
    anyone further east, so the label is built from the date part of EARLY_RATE and
