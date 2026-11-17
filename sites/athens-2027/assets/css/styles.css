@@ -2970,3 +2970,13 @@ footer a[href^="mailto:"]:hover{color:#fff}
 /* fee footnote link to the registration terms */
 .fee-foot a{color:var(--ac-d);font-weight:700;text-decoration:underline;text-decoration-color:rgba(138,90,28,.35);text-underline-offset:3px}
 .fee-foot a:hover{text-decoration-color:currentColor}
+
+/* Registration page: "Register on esska.org" in a fairer ivory, so it no longer matches the
+   bronze "Book a room" beside it (November 2026) */
+.reg-next .reg-book .pill{background:#FDFBF7;border-color:#EFDDB8;color:var(--navy);
+  box-shadow:0 0 0 4px rgba(239,221,184,.16)}
+.reg-next .reg-book .pill > span:first-child{color:var(--navy)}
+.reg-next .reg-book .pill .pill-i,.reg-next .reg-book .pill:hover .pill-i{background:#E2C48F}
+.reg-next .reg-book .pill .pill-i svg{fill:var(--navy)}
+.reg-next .reg-book .pill:hover,.reg-next .reg-book .pill:focus-visible{background:#fff;border-color:#fff;
+  box-shadow:0 0 0 7px rgba(239,221,184,.22)}
