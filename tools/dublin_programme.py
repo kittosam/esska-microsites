@@ -4,14 +4,14 @@
 # Rows are (time range, duration, title, [talks], note, is_break[, chair and faculty]).
 
 # Session chairs and faculty from "ACL Focus_Course - Dublin - Speaker Allocation.doc"
-# (Brian Devitt, 12 November 2026). The industry partner for each Re-live 1 video is shown
-# in brackets after the speaker (added 17 November 2026 at ESSKA's request).
+# (Brian Devitt, 12 November 2026). The industry partner names that followed each Re-live 1
+# speaker were removed on 24 November 2026; co() now adds nothing.
 TBC = '<abbr class="tbc" title="To be confirmed">TBC</abbr>'
 AW, CS, NB, TW = "Andy Williams", "Ciara Stevenson", "Nicolas Bouguennec", "Tim Whitehead"
 MV, JR, EK = "Mihai Vioreanu", "James Robinson", "Enda King"
 BD, MS, SS = "Brian Devitt", "Martyn Snow", "Sven Scheffler"
 def who(chair, *faculty): return {"Chair": chair, "Faculty": faculty}
-def co(name): return f' <span class="pco">({name})</span>'
+def co(name): return ""
 
 DAY1 = ("1", "Friday, 14 May 2027", "08:00&ndash;17:00", [
  ("08:00&ndash;08:30","30 min","Registration and coffee", [], "", True),
