@@ -53,7 +53,7 @@ const REG_URL="https://www.esska.org/events/register.aspx?id=2095544";
 if(REG_OPEN && Date.now()>=new Date(REG_OPEN).getTime()){
   document.querySelectorAll("[data-reg]").forEach(a=>a.href=REG_URL);
   const cta=document.getElementById("regCta");
-  if(cta){cta.href=REG_URL; cta.querySelector("span").textContent="Register on esska.org";}
+  if(cta){cta.href=REG_URL; cta.querySelector("span").textContent="Register now";}
   /* wording that says "opens on 25 November" carries its replacement in data-reg-open */
   document.querySelectorAll("[data-reg-open]").forEach(e=>e.innerHTML=e.dataset.regOpen);
 }
